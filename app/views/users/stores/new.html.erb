@@ -97,9 +97,12 @@
 			<tr>
 				<td>支払い可能カード</td>
 				<!-- 見直す箇所:動作で不明点をメンターさんに伺う。ids=>idでは -->
-				<% @credit_cards.each do |credit_card| %>
-					<td><%= credit_card.genre_name %>
-						<%= f.check_box :credit_cards_ids, { multiple: true, include_hidden: false }, credit_card[:id] %></td>
+
+				<%= fields_for :store_credit_cards do |ff| %>
+					<% @credit_cards.each do |credit_card| %>
+						<td><%= credit_card.genre_name %>
+							<%= ff.check_box :credit_card_ids, { multiple: true, include_hidden: false }, credit_card[:id] %></td>
+					<% end %>
 				<% end %>
 			</tr>
 			<tr>
@@ -109,9 +112,11 @@
 			<tr>
 				<td>支払い可能電子マネー</td>
 				<!-- 見直す箇所:動作で不明点をメンターさんに伺う。ids=>idでは -->
-				<% @e_bills.each do |e_bill| %>
-					<td><%= e_bill.genre_name %>
-						<%= f.check_box :e_bill_ids, { multiple: true, include_hidden: false }, e_bill[:id] %></td>
+				<%= fields_for :store_e_bills do |ff| %>
+					<% @e_bills.each do |e_bill| %>
+						<td><%= e_bill.genre_name %>
+							<%= ff.check_box :e_bill_ids, { multiple: true, include_hidden: false }, e_bill[:id] %></td>
+					<% end %>
 				<% end %>
 			</tr>
 
@@ -158,9 +163,11 @@
 			<tr>
 				<td>空間・設備</td>
 				<!-- 見直す箇所:動作で不明点をメンターさんに伺う。ids=>idでは -->
-				<% @equipments.each do |equipment| %>
-					<td><%= equipment.genre_name %>
-						<%= f.check_box :equipment_ids, { multiple: true, include_hidden: false }, equipment[:id] %></td>
+				<%= fields_for :store_equipments do |ff| %>
+					<% @equipments.each do |equipment| %>
+						<td><%= equipment.genre_name %>
+							<%= ff.check_box :equipment_ids, { multiple: true, include_hidden: false }, equipment[:id] %></td>
+					<% end %>
 				<% end %>
 			</tr>
 		</tbody>

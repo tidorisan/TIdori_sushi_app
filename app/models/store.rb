@@ -17,13 +17,16 @@ class Store < ApplicationRecord
 	has_many :store_buzzs, dependent: :destroy
 
 	has_many :store_credit_cards
-	has_many :use_credit_cards, through: :store_credit_cards, source: :credit_card
+	has_many :credit_cards, through: :store_credit_cards, source: :credit_card
+	accepts_nested_attributes_for :store_credit_cards, allow_destroy: true
 
 	has_many :store_equipments
 	has_many :use_store_equipments, through: :store_equipments, source: :equipment
+	accepts_nested_attributes_for :store_equipments, allow_destroy: true
 
 	has_many :store_e_bills
 	has_many :use_store_e_bills, through: :store_e_bills, source: :e_bill
+	accepts_nested_attributes_for :store_e_bills, allow_destroy: true
 
 	attachment :image
 end
