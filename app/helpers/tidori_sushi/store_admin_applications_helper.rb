@@ -1,0 +1,2 @@
+module TidoriSushi::StoreAdminApplicationsHelper
+end

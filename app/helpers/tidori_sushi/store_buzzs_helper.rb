@@ -1,0 +1,2 @@
+module TidoriSushi::StoreBuzzsHelper
+end

@@ -1,0 +1,2 @@
+module Users::EBillsHelper
+end

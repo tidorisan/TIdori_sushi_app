@@ -1,0 +1,2 @@
+module Users::MenuGenresHelper
+end

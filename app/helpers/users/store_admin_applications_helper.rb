@@ -1,0 +1,2 @@
+module Users::StoreAdminApplicationsHelper
+end

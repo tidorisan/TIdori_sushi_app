@@ -1,0 +1,2 @@
+module TidoriSushi::HomesHelper
+end
