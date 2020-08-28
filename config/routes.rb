@@ -1,29 +1,6 @@
 Rails.application.routes.draw do
-	
-  namespace :tidori_sushi do
-    get 'store_admin_applications/new'
-    get 'store_admin_applications/confirm'
-    get 'store_admin_applications/success'
-  end
-  namespace :tidori_sushi do
-    get 'homes/about'
-  end
-  namespace :tidori_sushi do
-    get 'users/show'
-    get 'users/leave'
-  end
-  namespace :tidori_sushi do
-    get 'store_buzzs/new'
-    get 'store_buzzs/index'
-  end
-  namespace :tidori_sushi do
-    get 'coupons/index'
-    get 'coupons/show'
-  end
-  namespace :tidori_sushi do
-    get 'menus/index'
-  end
-  # devise_for :users
+
+  devise_for :users
   root 'tidori_sushi/stores#top'
 
   namespace :tidori_sushi do
