@@ -6,6 +6,16 @@ class Store < ApplicationRecord
 
 	enum store_genre: { 寿司: 1, 回転寿司: 2, 立ち食い寿司: 3 }
 
+	belongs_to :user
+
+	has_many :favorites
+
+	has_many :coupons, dependent: :destroy
+
+	has_many :store_menus, dependent: :destroy
+
+	has_many :store_buzzs, dependent: :destroy
+
 	has_many :store_credit_cards
 	has_many :use_credit_cards, through: :store_credit_cards, source: :credit_card
 

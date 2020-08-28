@@ -15,4 +15,11 @@ class User < ApplicationRecord
 		アルバイト: 6,
 		代表取締役: 7
 	}
+
+	has_many :stores, dependent: :destroy
+
+	has_many :favorites
+	has_many :following, through: :favorites, source: :store
+
+	has_many :store_buzzs, dependent: :destroy
 end
