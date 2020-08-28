@@ -6,7 +6,7 @@ class Store < ApplicationRecord
 
 	enum store_genre: { 寿司: 1, 回転寿司: 2, 立ち食い寿司: 3 }
 
-	belongs_to :user
+	belongs_to :user, optional: true
 
 	has_many :favorites
 
@@ -24,4 +24,6 @@ class Store < ApplicationRecord
 
 	has_many :store_e_bills
 	has_many :use_store_e_bills, through: :store_e_bills, source: :e_bill
+
+	attachment :image
 end
