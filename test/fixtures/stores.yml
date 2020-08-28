@@ -1,0 +1,39 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  address: MyString
+  latitude: 1.5
+  longitude: 1.5
+  postal_code: 1
+  store_name: MyString
+  kana_store_name: MyString
+  phone_number: 1
+  branch_name: MyString
+  kana_branch_name: MyString
+  image_id: MyString
+  store_genre: 1
+  reservation_of_considerations: MyText
+  reservation: 1
+  traffic_method: MyText
+  business_day: MyString
+  regular_holiday: MyString
+
+two:
+  user_id: 1
+  address: MyString
+  latitude: 1.5
+  longitude: 1.5
+  postal_code: 1
+  store_name: MyString
+  kana_store_name: MyString
+  phone_number: 1
+  branch_name: MyString
+  kana_branch_name: MyString
+  image_id: MyString
+  store_genre: 1
+  reservation_of_considerations: MyText
+  reservation: 1
+  traffic_method: MyText
+  business_day: MyString
+  regular_holiday: MyString
