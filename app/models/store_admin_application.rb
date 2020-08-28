@@ -1,12 +1,12 @@
 class StoreAdminApplication < ApplicationRecord
 
 	enum job_title: {
-		president: 1,
-		store_manager: 2,
-		owner: 3,
-		manager: 4,
-		staff: 5,
-		arbeit: 6,
-		ceo: 7
+		社長: 1,
+		店長: 2,
+		オーナー: 3,
+		マネージャー: 4,
+		スタッフ: 5,
+		アルバイト: 6,
+		代表取締役: 7
 	}
 end

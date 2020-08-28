@@ -1,2 +1,140 @@
 <h1>Users::Stores#new</h1>
 <p>Find me in app/views/users/stores/new.html.erb</p>
+
+<%= form_with(model: @store, url: users_stores_path, local: true) do |f|  %>
+
+<table>
+	<caption>店舗基本情報</caption>
+	<thead>
+		<tr>
+			<th>店名</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>店名</td>
+			<td><%= f.text_field :store_name %></td>
+		</tr>
+		<tr>
+			<td>店名(全角カタカナ)</td>
+			<td><%= f.text_field :kana_store_name %></td>
+		</tr>
+		<tr>
+			<td>店舗＿郵便番号</td>
+			<td><%= f.text_field :postal_code %></td>
+		</tr>
+		<tr>
+			<td>店舗＿住所</td>
+			<td><%= f.text_field :address %></td>
+		</tr>
+		<tr>
+			<td>店舗＿住所</td>
+			<td><%= f.text_field :address %></td>
+		</tr>
+		<tr>
+			<td>店舗＿電話番号</td>
+			<td><%= f.text_field :phone_number %></td>
+		</tr>
+		<tr>
+			<td>支店名</td>
+			<td><%= f.text_field :branch_name %></td>
+		</tr>
+		<tr>
+			<td>支店名</td>
+			<td><%= f.text_field :kana_branch_name %></td>
+		</tr>
+	</tbody>
+</table>
+
+
+<table>
+	<caption>店舗詳細情報</caption>
+	<thead>
+		<tr>
+			<th>店舗</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>店舗＿ジャンル</td>
+			<td><%= f.label :store_genre, " 寿司" %></td><td><%= f.radio_button :store_genre, 1  %></td>
+			<td><%= f.label :store_genre, " 回転寿司" %></td><td><%= f.radio_button :store_genre, 2  %></td>
+			<td><%= f.label :store_genre, " 立ち食い寿司" %></td><td><%= f.radio_button :store_genre, 3  %></td>
+		</tr>
+		<tr>
+			<td>予約</td>
+			<td><%= f.label :reservation, " 予約可" %></td><td><%= f.radio_button :reservation, 1  %></td>
+			<td><%= f.label :reservation, " 予約不可" %></td><td><%= f.radio_button :reservation, 2  %></td>
+			<td><%= f.label :reservation, " 完全予約制" %></td><td><%= f.radio_button :reservation, 3  %></td>
+		</tr>
+		<tr>
+			<td>予約時の注意事項</td>
+			<td><%= f.text_field :reservation_of_considerations %></td>
+		</tr>
+		<tr>
+			<td>交通手段</td>
+			<td><%= f.text_field :traffic_method %></td>
+		</tr>
+		<tr>
+			<td>営業日</td>
+			<td><%= f.text_field :business_day %></td>
+		</tr>
+		<tr>
+			<td>定休日</td>
+			<td><%= f.text_field :regular_holiday %></td>
+		</tr>
+	</tbody>
+</table>
+
+<table>
+	<caption>支払い</caption>
+	<thead>
+		<tr>
+			<th>店舗</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>予算</td>
+			<td><%= f.text_field :consumption_budget %></td>
+		</tr>
+		<tr>
+			<td>支払い可能カード</td>
+			<!-- 見直す箇所:動作で不明点をメンターさんに伺う。ids=>idでは -->
+			<% @credit_cards.each do |credit_card| %>
+				<td><%= credit_card.genre_name %>
+					<%= f.check_box :credit_cards_ids, { multiple: true, include_hidden: false }, credit_card[:id] %></td>
+			<% end %>
+		</tr>
+		<tr>
+			<td>予約時の注意事項</td>
+			<td><%= f.text_field :reservation_of_considerations　%></td>
+		</tr>
+		<tr>
+			<td>支払い可能電子マネー</td>
+			<!-- 見直す箇所:動作で不明点をメンターさんに伺う。ids=>idでは -->
+			<% @e_bills.each do |e_bill| %>
+				<td><%= e_bill.genre_name %>
+					<%= f.check_box :e_bill_ids, { multiple: true, include_hidden: false }, e_bill[:id] %></td>
+			<% end %>
+		</tr>
+
+	</tbody>
+</table>
+
+<table>
+	<caption>空間・設備</caption>
+	<thead>
+		<tr>
+			<th>店舗</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+	</tbody>
+</table>
+
+<% end %>

@@ -3,6 +3,9 @@ class Users::StoresController < ApplicationController
   end
 
   def new
+    @store = Store.new
+    @credit_cards = CreditCard.all
+    @e_bills = EBill.all
   end
 
   def create
@@ -16,4 +19,5 @@ class Users::StoresController < ApplicationController
 
   def update
   end
+
 end
