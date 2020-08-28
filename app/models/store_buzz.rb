@@ -1,0 +1,2 @@
+class StoreBuzz < ApplicationRecord
+end
