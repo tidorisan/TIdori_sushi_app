@@ -8,4 +8,10 @@ class Store < ApplicationRecord
 
 	has_many :store_credit_cards
 	has_many :use_credit_cards, through: :store_credit_cards, source: :credit_card
+
+	has_many :store_equipments
+	has_many :use_store_equipments, through: :store_equipments, source: :equipment
+
+	has_many :store_e_bills
+	has_many :use_store_e_bills, through: :store_e_bills, source: :e_bill
 end

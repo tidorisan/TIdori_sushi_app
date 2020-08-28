@@ -6,6 +6,7 @@ class Users::StoresController < ApplicationController
     @store = Store.new
     @credit_cards = CreditCard.all
     @e_bills = EBill.all
+    @equipments = Equipment.all
   end
 
   def create
