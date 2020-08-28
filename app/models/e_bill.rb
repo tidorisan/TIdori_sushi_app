@@ -1,0 +1,2 @@
+class EBill < ApplicationRecord
+end

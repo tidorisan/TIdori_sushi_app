@@ -10,11 +10,55 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_28_033202) do
+ActiveRecord::Schema.define(version: 2020_08_28_053436) do
+
+  create_table "coupons", force: :cascade do |t|
+    t.text "reason", default: ""
+    t.text "detail", default: "", null: false
+    t.boolean "enabled_status", default: true, null: false
+    t.string "image_id", default: ""
+    t.string "target", default: "", null: false
+    t.text "writing", default: ""
+    t.integer "expiration_date", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "credit_cards", force: :cascade do |t|
+    t.integer "store_credit_cards_id", default: 0, null: false
+    t.string "genre_name", default: "", null: false
+    t.boolean "display_status", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "e_bills", force: :cascade do |t|
+    t.integer "store_e_bill_id", default: 0, null: false
+    t.string "genre_name", default: "", null: false
+    t.boolean "display_status", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "equipment", force: :cascade do |t|
+    t.integer "store_equipment_id", default: 0, null: false
+    t.string "genre_name", default: "", null: false
+    t.boolean "display_status", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "favorite_stores", force: :cascade do |t|
     t.integer "store_id", null: false
     t.integer "customer_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "menu_genres", force: :cascade do |t|
+    t.integer "store_menu_id", default: 0, null: false
+    t.string "genre_name", default: "", null: false
+    t.boolean "display_status", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -52,6 +96,38 @@ ActiveRecord::Schema.define(version: 2020_08_28_033202) do
     t.integer "visit_date"
     t.integer "use_time", null: false
     t.integer "pay_price", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "store_credit_cards", force: :cascade do |t|
+    t.integer "store_id", default: 0, null: false
+    t.integer "credit_card_id", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "store_e_bills", force: :cascade do |t|
+    t.integer "store_id", default: 0, null: false
+    t.integer "e_bill_id", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "store_equipments", force: :cascade do |t|
+    t.integer "store_id", default: 0, null: false
+    t.integer "equipment_id", default: 0, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "store_menus", force: :cascade do |t|
+    t.integer "store_id", default: 0, null: false
+    t.string "name", default: "", null: false
+    t.text "comment", default: "", null: false
+    t.integer "tax_excluded_price", default: 0, null: false
+    t.boolean "display_status", default: true, null: false
+    t.integer "menu_genre_id", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
