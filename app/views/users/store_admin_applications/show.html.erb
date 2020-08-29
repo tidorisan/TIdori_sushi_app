@@ -1,2 +1,130 @@
 <h1>Users::StoreAdminApplications#show</h1>
 <p>Find me in app/views/users/store_admin_applications/show.html.erb</p>
+
+<table>
+	<caption>新規店舗管理者_詳細</caption>
+	<thead>
+		<tr>
+			<th>店舗登録基本情報</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>店舗_住所</td>
+			<td><%= @store_admin_application.address %></td>
+		</tr>
+		<tr>
+			<td>店舗_郵便番号</td>
+			<td><%= @store_admin_application.postal_code %></td>
+		</tr>
+		<tr>
+			<td>店舗名/td>
+			<td><%= @store_admin_application.store_name %></td>
+		</tr>
+		<tr>
+			<td>店舗名(全角カタカナ)</td>
+			<td><%= @store_admin_application.kana_store_name %></td>
+		</tr>
+		<tr>
+			<td>店舗＿電話番号</td>
+			<td><%= @store_admin_application.phone_number %></td>
+		</tr>
+		<tr>
+			<td>支店名(支店名)</td>
+			<td><%= @store_admin_application.branch_name %></td>
+		</tr>
+		<tr>
+			<td>支店名(全角カタカナ)</td>
+			<td><%= @store_admin_application.kana_branch_name %></td>
+		</tr>
+	</tbody>
+</table>
+
+<table>
+	<caption></caption>
+	<thead>
+		<tr>
+			<th>店舗管理者＿基本情報</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>メールアドレス</td>
+			<td><%= @store_admin_application.email %></td>
+		</tr>
+		<tr>
+			<td>氏名(性)</td>
+			<td><%= @store_admin_application.family_name %></td>
+			<td>氏名(名)</td>
+			<td><%= @store_admin_application.first_name %></td>
+		</tr>
+		<tr>
+			<td>カナ氏名(性)</td>
+			<td><%= @store_admin_application. kana_family_name %></td>
+			<td>カナ氏名(名)</td>
+			<td><%= @store_admin_application.kana_first_name %></td>
+		</tr>
+		<tr>
+			<td>生年月日</td>
+			<td><%= @store_admin_application.birthday %></td>
+		</tr>
+		<tr>
+			<td>店舗役職</td>
+			<td><%= @store_admin_application.job_title %></td>
+		</tr>
+		<tr>
+			<td>店舗管理者に許可をとりましたか？</td>
+			<% if @store_admin_application.permit_to_store_manager == true %>
+				<td>はい</td>
+			<% else %>
+				<td>いいえ</td>
+			<% end %>
+		</tr>
+		<tr>
+			<td>飲食店営業許可書を取得していますか？</td>
+			<% if @store_admin_application.get_restaurant_sales_permit_form == true %>
+				<td>はい</td>
+			<% else %>
+				<td>いいえ</td>
+			<% end %>
+		</tr>
+		<tr>
+			<td>反社会的勢力との関係は一切ありませんか？</td>
+			<% if @store_admin_application.related_with_antisocial_force == true %>
+				<td>はい</td>
+			<% else %>
+				<td>いいえ</td>
+			<% end %>
+		</tr>
+		<tr>
+			<td>風俗法の業態に当てはまりませんか？</td>
+			<% if @store_admin_application.mannaers_industry == true %>
+				<td>はい</td>
+			<% else %>
+				<td>いいえ</td>
+			<% end %>
+		</tr>
+		<tr>
+			<td>処理ステータス？</td>
+			<% if @store_admin_application.process_status == true %>
+				<td>申請中</td>
+				<%= form_with(model: @store_admin_application, url:users_store_admin_application_path(@store_admin_application), method: :patch) do |f| %>
+					<td>
+						<%= f.label :process_status, "処理済みにする" %>
+						<%= f.radio_button :process_status, :false %>
+					</td>
+					<td><%= f.submit "更新を保存する" %></td>
+				<% end %>
+			<% else %>
+				<td>処理済み</td>
+				<%= form_with(model: @store_admin_application, url:users_store_admin_application_path(@store_admin_application), method: :patch) do |f| %>
+					<td>
+						<%= f.label :process_status, "申請中にする" %>
+						<%= f.radio_button :process_status, :true %>
+					</td>
+					<td><%= f.submit "更新を保存する" %></td>
+				<% end %>
+			<% end %>
+		</tr>
+	</tbody>
+</table>
