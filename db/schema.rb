@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_28_054549) do
+ActiveRecord::Schema.define(version: 2020_08_29_065916) do
 
   create_table "coupons", force: :cascade do |t|
     t.text "reason", default: ""
@@ -22,6 +22,7 @@ ActiveRecord::Schema.define(version: 2020_08_28_054549) do
     t.integer "expiration_date", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "store_id", default: 0, null: false
   end
 
   create_table "credit_cards", force: :cascade do |t|
