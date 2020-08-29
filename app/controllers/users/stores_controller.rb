@@ -34,12 +34,36 @@ class Users::StoresController < ApplicationController
 
   private
   def store_params
-    params.require(:store).permit( :store_name, :kana_store_name, :postal_code, :address, :phone_number, :branch_name, :kana_branch_name, :store_genre,
-     :reservation, :reservation_of_considerations, :traffic_method, :business_day, :regular_holiday, :consumption_budget, :reservation_of_considerations,
-      :equipment, :private_room, :no_smoking, :home_page, :news, :image, :genre_name, :parking, :credit_cards_ids, :e_bill_ids, :equipment_ids,
-       store_credit_cards_attributes:[:id, :credit_id],
-        store_e_bills_attributes:[:id, :e_bill_id],
-         store_equipments_attributes:[:id, :equipment_id])
+    params.require(:store).permit(
+      :store_name,
+      :kana_store_name,
+      :postal_code,
+      :address,
+      :phone_number,
+      :branch_name,
+      :kana_branch_name,
+      :store_genre,
+      :reservation,
+      :reservation_of_considerations,
+      :traffic_method,
+      :business_day,
+      :regular_holiday,
+      :consumption_budget,
+      :reservation_of_considerations,
+      :equipment,
+      :private_room,
+      :no_smoking,
+      :home_page,
+      :news,
+      :image,
+      :genre_name,
+      :parking,
+      :credit_cards_ids,
+      :e_bill_ids,
+      :equipment_ids,
+      store_credit_cards_attributes: [:id,:credit_card_id],
+      store_e_bills_attributes: [:id, :e_bill_id],
+      store_equipments_attributes: [:id, :equipment_id])
   end
 
 end
