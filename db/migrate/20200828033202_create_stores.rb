@@ -13,9 +13,9 @@ class CreateStores < ActiveRecord::Migration[5.2]
       t.string :kana_branch_name, null: false, default: ""
       t.string :image_id, null: false, default: ""
       t.integer :store_genre, null: false, default: 0
-      t.text :reservation_of_considerations, null: false, default: ""
+      t.text :reservation_of_considerations, null: false
       t.integer :reservation, null: false, default: 0
-      t.text :traffic_method, null: false, default: ""
+      t.text :traffic_method, null: false
       t.string :business_day, null: false, default: ""
       t.string :regular_holiday, null: false, default: ""
       t.string :consumption_budget, null: false, default: ""
@@ -27,8 +27,8 @@ class CreateStores < ActiveRecord::Migration[5.2]
       t.integer :parking, null: false, default: 0
       t.integer :no_smoking, null: false
       t.integer :store_equipment_id, null: false, default: 0
-      t.text :home_page, null: false, default: ""
-      t.text :news, null: false, default: ""
+      t.text :home_page, null: false
+      t.text :news, null: false
       t.boolean :display_status, null: false, default: true
 
 
