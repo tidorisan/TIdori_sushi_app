@@ -1,3 +1,4 @@
 class Equipment < ApplicationRecord
-	belongs_to :store_equipment, optional: true
+	has_many :store_equipments, dependent: :destroy
+	has_many :s_equipments, through: :store_equipments, source: :store
 end
