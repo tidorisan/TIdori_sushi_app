@@ -1,7 +1,7 @@
 class CreateStores < ActiveRecord::Migration[5.2]
   def change
     create_table :stores do |t|
-      t.integer :user_id, null: false, default: ""
+      t.integer :user_id, null: false
       t.string :address, null: false, default: ""
       t.float :latitude
       t.float :longitude
@@ -22,10 +22,10 @@ class CreateStores < ActiveRecord::Migration[5.2]
       t.integer :credit_card_id, null: false, default: 0
       t.integer :e_bill_id, null: false, default: 0
       t.string :equipment, null: false, default: ""
-      t.boolean :private_room, null: false, default: ""
-      t.boolean :reserved, null: false, default: ""
+      t.boolean :private_room, null: false
+      t.boolean :reserved, null: false
       t.integer :parking, null: false, default: 0
-      t.integer :no_smoking, null: false, default: ""
+      t.integer :no_smoking, null: false
       t.integer :store_equipment_id, null: false, default: 0
       t.text :home_page, null: false, default: ""
       t.text :news, null: false, default: ""
