@@ -2,11 +2,13 @@
 <p>Find me in app/views/users/homes/top.html.erb</p>
 
 <div>
-	<% if current_user.role == 'site_admin' %>
-		<%= link_to "新規店舗　登録申請一覧画面へ", users_store_admin_applications_path %><br>
-		<%= link_to '利用できるクレジットカード一覧・登録画面へ', users_credit_cards_path %><br>
-		<%= link_to '利用できる電子マネー一覧・登録画面へ', users_e_bills_path %><br>
-		<%= link_to '設備・空間一覧・登録画面へ', users_store_equipments_path %><br>
-		<%= link_to 'メニュージャンル一覧・登録画面へ', users_menu_genres_path %>
+	<% if user_signed_in? %>
+		<% if current_user.role == 'site_admin' %>
+			<%= link_to "新規店舗_登録申請一覧画面へ", users_store_admin_applications_path %><br>
+			<%= link_to '利用できるクレジットカード一覧・登録画面へ', users_credit_cards_path %><br>
+			<%= link_to '利用できる電子マネー一覧・登録画面へ', users_e_bills_path %><br>
+			<%= link_to '設備・空間一覧・登録画面へ', users_store_equipments_path %><br>
+			<%= link_to 'メニュージャンル一覧・登録画面へ', users_menu_genres_path %>
+		<% end %>
 	<% end %>
 </div>
