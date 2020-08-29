@@ -1,2 +1,30 @@
 <h1>Users::Menus#show</h1>
 <p>Find me in app/views/users/menus/show.html.erb</p>
+
+	<table>
+		<caption>メニュー詳細</caption>
+		<thead>
+			<tr>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>メニュー名</td>
+				<td><%= @store_menu.name %></td>
+			</tr>
+			<tr>
+				<td>メニュー説明</td>
+				<td><%= @store_menu.comment %></td>
+			</tr>
+			<tr>
+				<td>値段(税抜き)</td>
+				<td>¥ <%= @store_menu.tax_excluded_price %></td>
+			</tr>
+			<tr>
+				<td>メニュージャンル</td>
+				<%= @store_menu.menu_genre.genre_name %>
+			</tr>
+		</tbody>
+	</table>
+	<%= link_to "編集画面へ", edit_users_store_menu_path(@store_menu) %>

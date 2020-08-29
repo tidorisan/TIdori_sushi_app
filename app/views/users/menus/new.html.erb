@@ -1,7 +1,7 @@
 <h1>Users::Menus#new</h1>
 <p>Find me in app/views/users/menus/new.html.erb</p>
 
-<% form_with(model: @store_menu , url: users_menus_path, local: true) do |f| %>
+<%= form_with(model: @store_menu, url: users_store_menus_path, local: true) do |f| %>
 
 	<table>
 		<caption>メニュー登録</caption>
@@ -13,9 +13,26 @@
 		<tbody>
 			<tr>
 				<td>メニュー名</td>
+				<td><%= f.text_field :name %></td>
 			</tr>
-			<tr></tr>
+			<tr>
+				<td>メニュー説明</td>
+				<td><%= f.text_field :comment %></td>
+			</tr>
+			<tr>
+				<td>値段(税抜き)</td>
+				<td>¥ <%= f.text_field :tax_excluded_price %></td>
+			</tr>
+			<tr>
+				<td>メニュージャンル</td>
+				<% @menu_genres.each do |menu_genre| %>
+						<td><%= menu_genre.genre_name %>
+							<%= f.radio_button :menu_genre_id, menu_genre[:id] %>
+						</td>
+				<% end %>
+			</tr>
 		</tbody>
 	</table>
+	<%= f.submit "登録する" %>
 
 <% end %>

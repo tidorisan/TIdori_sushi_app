@@ -1,4 +1,3 @@
 class MenuGenre < ApplicationRecord
-
-	belongs_to :store_menu, optional: true
+	has_many :store_menus
 end
