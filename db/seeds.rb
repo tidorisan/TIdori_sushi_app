@@ -6,4 +6,28 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-	menu_genres = MenuGenre.create([])
+	Store.create(:user_id => 1,
+				 :address => "静岡県浜松市中区中央2-11-17",
+				 :postal_code => 998766,
+				 :store_name => '千鳥寿司',
+				 :kana_store_name => "チドリズシ",
+				 :phone_number => 987655,
+				 :branch_name => 'なし',
+				 :kana_branch_name => 'なし',
+				 :store_genre => 1,
+				 :reservation_of_considerations => 'なし',
+				 :reservation => 1,
+				 :traffic_method => 'なし',
+				 :business_day => '毎週火曜日以外',
+				 :regular_holiday => '毎週火曜日',
+				 :consumption_budget => '1000~3000円',
+				 :private_room => true,
+				 :reserved => true,
+				 :parking => 4,
+				 :no_smoking => 3,
+				 :equipment => 'カウンター席あり',
+				 :home_page => 'なし',
+				 :news => 'なし',
+				 :display_status => true
+				)
+

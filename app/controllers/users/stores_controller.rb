@@ -1,5 +1,6 @@
 class Users::StoresController < ApplicationController
   def index
+    @stores = Store.all
   end
 
   def new
@@ -24,12 +25,30 @@ class Users::StoresController < ApplicationController
   end
 
   def show
+    @store = Store.find(params[:id])
   end
 
   def edit
+    @store = Store.find(params[:id])
+    @credit_cards = CreditCard.all
+    @e_bills = EBill.all
+    @equipments = Equipment.all
+    # 現時点では持ってnewでネストして持ってこれないのでそのまま
+    # edit中間テーブルでの扱いをメンターさんに伺う。
+    @store.store_credit_cards
+    @store.store_e_bills
+    @store.store_equipments
   end
 
   def update
+    # 動作未確認/store.newが完成してから確認する
+    @store = Store.find(params[:id])
+    @store.user_id = current_user.id
+    if @store.update(store_params)
+      redirect_to users_store_path(@store)
+    else
+      render 'users/stores/edit'
+    end
   end
 
   private

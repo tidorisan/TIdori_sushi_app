@@ -1,2 +1,167 @@
 <h1>Users::Stores#show</h1>
 <p>Find me in app/views/users/stores/show.html.erb</p>
+
+
+	<table>
+		<caption>店舗基本情報</caption>
+		<thead>
+			<tr>
+				<th>店名</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>店名</td>
+				<td><%= @store.store_name %></td>
+			</tr>
+			<tr>
+				<td>店名(全角カタカナ)</td>
+				<td><%= @store.kana_store_name %></td>
+			</tr>
+			<tr>
+				<td>店舗＿郵便番号</td>
+				<td><%= @store.postal_code %></td>
+			</tr>
+			<tr>
+				<td>店舗＿住所</td>
+				<td><%= @store.address %></td>
+			</tr>
+			<tr>
+				<td>店舗＿電話番号</td>
+				<td><%= @store.phone_number %></td>
+			</tr>
+			<tr>
+				<td>支店名</td>
+				<td><%= @store.branch_name %></td>
+			</tr>
+			<tr>
+				<td>支店名</td>
+				<td><%= @store.kana_branch_name %></td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<table>
+		<caption>店舗詳細情報</caption>
+		<thead>
+			<tr>
+				<th>店舗</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>店舗＿ジャンル</td>
+				<td><%= @store.store_genre %></td>
+			</tr>
+			<tr>
+				<td>予約</td>
+				<td><%= @store.reservation %></td>
+			</tr>
+			<tr>
+				<td>予約時の注意事項</td>
+				<td><%= @store.reservation_of_considerations %></td>
+			</tr>
+			<tr>
+				<td>交通手段</td>
+				<td><%= @store.traffic_method %></td>
+			</tr>
+			<tr>
+				<td>営業日</td>
+				<td><%= @store.business_day %></td>
+			</tr>
+			<tr>
+				<td>定休日</td>
+				<td><%= @store.regular_holiday %></td>
+			</tr>
+		</tbody>
+	</table>
+
+
+	<table>
+		<caption>支払い</caption>
+		<thead>
+			<tr>
+				<th>店舗</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>予算</td>
+				<td><%= @store.consumption_budget %></td>
+			</tr>
+			<tr>
+				<td>支払い可能カード</td>
+					<td>store.newがまだ未完成なのでここも未完成です。</td>
+					<td>中間テーブルの内容を持ってきます</td>
+			</tr>
+			<tr>
+				<td>予約時の注意事項</td>
+				<td><%= @store.reservation_of_considerations %></td>
+			</tr>
+			<tr>
+				<td>支払い可能電子マネー</td>
+				<!-- 見直す箇所:動作で不明点をメンターさんに伺う。ids=>idでは -->
+				<td>store.newがまだ未完成なのでここも未完成です。</td>
+				<td>中間テーブルの内容を持ってきます</td>
+			</tr>
+		</tbody>
+	</table>
+
+		<table>
+		<caption>空間・設備</caption>
+		<thead>
+			<tr>
+				<th>店舗</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>座敷数</td>
+				<td><%= @store.equipment %></td>
+			</tr>
+			<tr>
+				<td>個室</td>
+				<td><%= @store.private_room %>
+			</tr>
+			<tr>
+				<td>駐車場</td>
+				<td><%= @store.parking %></td>
+			</tr>
+			<tr>
+				<td>禁煙・喫煙</td>
+				<td><%= @store.no_smoking %>
+			</tr>
+			<tr>
+				<td>空間・設備</td>
+				<!-- 見直す箇所:動作で不明点をメンターさんに伺う。ids=>idでは -->
+				<td>store.newがまだ未完成なのでここも未完成です。</td>
+				<td>中間テーブルの内容を持ってきます</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table>
+		<caption>その他</caption>
+		<thead>
+			<tr>
+				<th>店舗</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>ホームページURL</td>
+				<td><%= @store.home_page %></td>
+			</tr>
+			<tr>
+				<td>お知らせしたいこと</td>
+				<td><%= @store.news %></td>
+			</tr>
+			<tr>
+				<td>店舗画像</td>
+				<td><%= attachment_image_tag @store, :image, size: '100x100', fallback: 'no_image.jpg'  %></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<%= link_to "編集する", edit_users_store_path(@store) %>
