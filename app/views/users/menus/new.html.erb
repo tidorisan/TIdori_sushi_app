@@ -1,2 +1,21 @@
 <h1>Users::Menus#new</h1>
 <p>Find me in app/views/users/menus/new.html.erb</p>
+
+<% form_with(model: @store_menu , url: users_menus_path, local: true) do |f| %>
+
+	<table>
+		<caption>メニュー登録</caption>
+		<thead>
+			<tr>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>メニュー名</td>
+			</tr>
+			<tr></tr>
+		</tbody>
+	</table>
+
+<% end %>

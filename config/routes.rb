@@ -27,9 +27,10 @@ Rails.application.routes.draw do
   	get '/users/leave' => 'users#leave', as: 'leave'
   	patch '/users' => 'users#unsubscribe_update', as: 'unsubscribe_update'
     resources :users, only: [:new, :create]
-    resources :stores, only: [:new, :create, :index, :show, :edit, :update]
-    resources :menus, only: [:new, :create, :index, :show, :edit, :update]
-    resources :coupons, only: [:new, :create, :index, :show, :edit, :update]
+    resources :stores, only: [:new, :create, :index, :show, :edit, :update] do
+      resources :menus, only: [:new, :create, :index, :show, :edit, :update]
+      resources :coupons, only: [:new, :create, :index, :show, :edit, :update]
+    end
     resources :store_equipments, only: [:index, :create, :edit, :update]
     resources :e_bills, only: [:index, :create, :edit, :update]
     resources :credit_cards, only: [:index, :create, :edit, :update]
