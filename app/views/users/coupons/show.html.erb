@@ -1,2 +1,50 @@
 <h1>Users::Coupons#show</h1>
 <p>Find me in app/views/users/coupons/show.html.erb</p>
+
+	<table>
+		<caption>クーポン詳細</caption>
+		<thead>
+			<tr>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>割引理由</td>
+				<td><%= @coupon.reason %></td>
+			</tr>
+			<tr>
+				<td>割引理由説明</td>
+				<td><%= @coupon.detail %></td>
+			</tr>
+			<tr>
+				<td>イメージ画像</td>
+				<td><%= attachment_image_tag @coupon, :image, size: '100x100', fallback: "no_image.id" %></td>
+			</tr>
+			<tr>
+				<td>対象</td>
+				<%= @coupon.target %>
+			</tr>
+			<tr>
+				<td>但書</td>
+				<%= @coupon.writing %>
+			</tr>
+			<tr>
+				<td>有効期限</td>
+				<%= @coupon.expiration_date %>
+			</tr>
+			<tr>
+				<td>発行日</td>
+				<%= @coupon.created_at %>
+			</tr>
+			<tr>
+				<td>有効ステータス</td>
+				<% if @coupon.enabled_status == true %>
+					<td>有効</td>
+				<% else %>
+					<td>無効</td>
+				<% end %>
+			</tr>
+		</tbody>
+	</table>
+	<%= link_to "編集画面へ", edit_users_store_coupon_path(@coupon) %>

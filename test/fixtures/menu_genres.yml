@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  store_menu_id: 1
+  genre_name: MyString
+  display_status: false
+
+two:
+  store_menu_id: 1
+  genre_name: MyString
+  display_status: false
