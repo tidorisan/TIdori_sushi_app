@@ -66,10 +66,10 @@ ActiveRecord::Schema.define(version: 2020_08_29_065916) do
 
   create_table "store_admin_applications", force: :cascade do |t|
     t.string "address", default: "", null: false
-    t.integer "postal_code", null: false
+    t.string "postal_code", null: false
     t.string "store_name", default: "", null: false
     t.string "kana_store_name", default: "", null: false
-    t.integer "phone_number", null: false
+    t.string "phone_number", null: false
     t.string "branch_name", default: "", null: false
     t.string "kana_branch_name", default: "", null: false
     t.string "email", default: "", null: false
@@ -138,10 +138,10 @@ ActiveRecord::Schema.define(version: 2020_08_29_065916) do
     t.string "address", default: "", null: false
     t.float "latitude"
     t.float "longitude"
-    t.integer "postal_code", default: 0, null: false
+    t.string "postal_code", default: "0", null: false
     t.string "store_name", default: "", null: false
     t.string "kana_store_name", default: "", null: false
-    t.integer "phone_number", default: 0, null: false
+    t.string "phone_number", default: "0", null: false
     t.string "branch_name", default: "", null: false
     t.string "kana_branch_name", default: "", null: false
     t.string "image_id", default: "", null: false
