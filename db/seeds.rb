@@ -53,3 +53,36 @@
 		:process_status => true
 		)
 
+	MenuGenre.create(:genre_name => '料理')
+	MenuGenre.create(:genre_name => 'ドリンク')
+
+	Equipment.create(:genre_name => "席が広い")
+	Equipment.create(:genre_name => "座敷がある")
+
+	EBill.create(:genre_name => "paypay")
+	EBill.create(:genre_name => "Linepay")
+
+	CreditCard.create(:genre_name => "visa")
+	CreditCard.create(:genre_name => "JCB")
+
+	Coupon.create(:reason => '売りたいので', :detail =>  '2割引', :target => "全品", :writing => '特になし', :expiration_date => 23, :store_id => 1)
+
+	StoreAdminApplication.create(
+		:address => "静岡県浜松市中区中央2-11-17",
+	    :postal_code => 2277884,
+	    :store_name => '千鳥寿司',
+	    :kana_store_name => 'チドリズシ',
+	    :phone_number => 4455566,
+	    :email　=> "hoge@gmail.com",
+	    :family_name => '夏目',
+	    :first_name => '正人',
+	    :kana_family_name => 'ナツメ',
+	    :kana_first_name => 'マサト',
+	    :birthday => 19980727,
+	    :job_title => 1,
+	    :permit_to_store_manager => true,
+	    :get_restaurant_sales_permit_form => true,
+	    :related_with_antisocial_force => true,
+	    :mannaers_industry => true,
+	    )
+

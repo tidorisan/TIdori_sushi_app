@@ -6,8 +6,8 @@ class CreateStoreAdminApplications < ActiveRecord::Migration[5.2]
       t.string :store_name, null: false, default: ""
       t.string :kana_store_name, null: false, default: ""
       t.integer :phone_number, null: false
-      t.string :branch_name, default: ""
-      t.string :kana_branch_name, default: ""
+      t.string :branch_name, null: false, default: ""
+      t.string :kana_branch_name, null: false, default: ""
       t.string :email, null: false, default: ""
       t.string :family_name, null: false, default: ""
       t.string :first_name, null: false, default: ""
