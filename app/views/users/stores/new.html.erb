@@ -97,7 +97,6 @@
 			<tr>
 				<td>支払い可能カード</td>
 				<!-- 見直す箇所:動作で不明点をメンターさんに伺う。ids=>idでは -->
-
 				<%= fields_for :store_credit_cards do |ff| %>
 					<% @credit_cards.each do |credit_card| %>
 						<td><%= credit_card.genre_name %>
@@ -142,6 +141,15 @@
 				</td>
 				<td><%= f.label :private_room, "なし" %>
 					<%= f.radio_button :private_room, :false %>
+				</td>
+			</tr>
+			<tr>
+				<td>貸し切り</td>
+				<td><%= f.label :reserved, "あり" %>
+					<%= f.radio_button :reserved, :true %>
+				</td>
+				<td><%= f.label :reserved, "なし" %>
+					<%= f.radio_button :reserved, :false %>
 				</td>
 			</tr>
 			<tr>

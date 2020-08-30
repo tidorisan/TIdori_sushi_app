@@ -18,7 +18,7 @@ class Users::StoresController < ApplicationController
     binding.pry
     if @store.save
       flash[:notice] = "店舗登録が完了いたしました"
-      redirect_to users_store_path
+      redirect_to users_store_path(@store)
     else
       render 'users/stores/index'
     end
@@ -80,6 +80,7 @@ class Users::StoresController < ApplicationController
       :credit_cards_ids,
       :e_bill_ids,
       :equipment_ids,
+      :reserved,
       store_credit_cards_attributes: [:id,:credit_card_id],
       store_e_bills_attributes: [:id, :e_bill_id],
       store_equipments_attributes: [:id, :equipment_id])

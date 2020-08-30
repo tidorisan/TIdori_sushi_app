@@ -13,7 +13,7 @@
 			<% @store_admin_applications.each do |store_admin_application| %>
 				<tr>
 					<td><%= link_to "#{store_admin_application.family_name} #{store_admin_application.first_name}", users_store_admin_application_path(store_admin_application) %></td>
-					<% if store_admin_application.process_status== true %>
+					<% if store_admin_application.process_status == true %>
 						<td><p>申請中</p></td>
 					<% else %>
 						<td><p>処理済み</p></td>

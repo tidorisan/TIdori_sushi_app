@@ -23,12 +23,17 @@
 
   <div>
     <%= f.label :role, "顧客" %>
-    <%= f.check_box :role, {}, "customer" %>
+    <%= f.radio_button :role, "customer" %>
+    <%= f.label :role, "店舗管理者" %>
+    <%= f.radio_button :role, "store_admin" %>
+    <%= f.label :role, "サイト管理者" %>
+    <%= f.radio_button :role, "site_admin" %>
+  </div>
+
+  <% if request.referer&.include?("/users/users/confirmation") %>
     <%= f.label :role, "店舗管理者" %>
     <%= f.check_box :role, {}, "store_admin" %>
-    <%= f.label :role, "サイト管理者" %>
-    <%= f.check_box :role, {}, "site_admin" %>
-  </div>
+  <% end %>
 
 
   <div class="actions">
