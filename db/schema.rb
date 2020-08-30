@@ -70,8 +70,8 @@ ActiveRecord::Schema.define(version: 2020_08_29_065916) do
     t.string "store_name", default: "", null: false
     t.string "kana_store_name", default: "", null: false
     t.integer "phone_number", null: false
-    t.string "branch_name", default: ""
-    t.string "kana_branch_name", default: ""
+    t.string "branch_name", default: "", null: false
+    t.string "kana_branch_name", default: "", null: false
     t.string "email", default: "", null: false
     t.string "family_name", default: "", null: false
     t.string "first_name", default: "", null: false
