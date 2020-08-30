@@ -1,8 +1,16 @@
 class Users::UsersController < ApplicationController
   def new
+    @user = User.new
   end
 
-  def create
+  def update
+    @user = User.find(params[:id])
+    binding.pry
+    if @user.update(user_params)
+      redirect_to users_stores_path
+    else
+      render 'users/users/new'
+    end
 
   end
 
@@ -25,6 +33,7 @@ class Users::UsersController < ApplicationController
 
   private
   def user_params
-  	params.require(:user).permit(:unsubscribe_status)
+  	params.require(:user).permit(:unsubscribe_status, :family_name, :first_name, :kana_family_name, :kana_first_name, :birthday,
+       :job_title, :permit_to_store_manager, :get_restaurant_sales_permit_form, :related_with_antisocial_force, :mannaers_industry)
   end
 end
