@@ -25,7 +25,7 @@ Rails.application.routes.draw do
   	get 'users/confirmation' =>  'users#confirmation', as: 'confirmation'
   	get '/homes/top' => 'homes#top', as: 'homes'
   	get '/users/leave' => 'users#leave', as: 'leave'
-  	patch '/users' => 'users#unsubscribe_update', as: 'unsubscribe_update'
+    patch '/users/leave/unsubscribe_update' => 'users#unsubscribe_update', as: 'unsubscribe_update'
     resources :users, only: [:new, :create]
     resources :stores, only: [:new, :create, :index, :show, :edit, :update] do
       resources :menus, only: [:new, :create, :index, :show, :edit, :update]
