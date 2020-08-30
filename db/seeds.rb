@@ -52,3 +52,4 @@
 		:mannaers_industry => true,
 		:process_status => true
 		)
+
