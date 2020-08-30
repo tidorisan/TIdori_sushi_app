@@ -6,6 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+
+	
 	Store.create(:user_id => 1,
 				 :address => "静岡県浜松市中区中央2-11-17",
 				 :postal_code => 998766,

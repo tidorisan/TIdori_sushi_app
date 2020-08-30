@@ -26,7 +26,7 @@ ActiveRecord::Schema.define(version: 2020_08_29_065916) do
   end
 
   create_table "credit_cards", force: :cascade do |t|
-    t.integer "store_credit_cards_id", null: false
+    t.integer "store_credit_cards_id"
     t.string "genre_name", default: "", null: false
     t.boolean "display_status", default: true, null: false
     t.datetime "created_at", null: false
@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 2020_08_29_065916) do
   end
 
   create_table "e_bills", force: :cascade do |t|
-    t.integer "store_e_bill_id", null: false
+    t.integer "store_e_bill_id"
     t.string "genre_name", default: "", null: false
     t.boolean "display_status", default: true, null: false
     t.datetime "created_at", null: false
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2020_08_29_065916) do
   end
 
   create_table "equipment", force: :cascade do |t|
-    t.integer "store_equipment_id", null: false
+    t.integer "store_equipment_id"
     t.string "genre_name", default: "", null: false
     t.boolean "display_status", default: true, null: false
     t.datetime "created_at", null: false
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_08_29_065916) do
   end
 
   create_table "menu_genres", force: :cascade do |t|
-    t.integer "store_menu_id", null: false
+    t.integer "store_menu_id"
     t.string "genre_name", default: "", null: false
     t.boolean "display_status", default: true, null: false
     t.datetime "created_at", null: false
