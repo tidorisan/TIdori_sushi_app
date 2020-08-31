@@ -30,13 +30,62 @@
 				 :news => 'なし',
 				 :display_status => true
 				)
+	Store.create(:user_id => 2,
+				 :address => "静岡県浜松市中区板屋町２−１０９",
+				 :postal_code => 987555,
+				 :store_name => '泉水',
+				 :kana_store_name => "イズミミズ",
+				 :phone_number => 987655,
+				 :branch_name => 'なし',
+				 :kana_branch_name => 'なし',
+				 :store_genre => 2,
+				 :reservation_of_considerations => 'なし',
+				 :reservation => 3,
+				 :traffic_method => 'ありません',
+				 :business_day => '毎週水曜日以外',
+				 :regular_holiday => '毎週水曜日',
+				 :consumption_budget => '1400~2000円',
+				 :private_room => true,
+				 :reserved => true,
+				 :parking => 3,
+				 :no_smoking => 2,
+				 :equipment => 'カウンター席と座敷があります。',
+				 :home_page => 'なし',
+				 :news => '衛星対策について',
+				 :display_status => true
+				)
+
+	Store.create(:user_id => 3,
+				 :address => " 静岡県浜松市中区砂山町３６０−６",
+				 :postal_code => 988776,
+				 :store_name => '末広鮨',
+				 :kana_store_name => "スエヒロスシ",
+				 :phone_number => 986655,
+				 :branch_name => 'なし',
+				 :kana_branch_name => 'なし',
+				 :store_genre => 3,
+				 :reservation_of_considerations => 'ご予約の際は前日までにお電話ください',
+				 :reservation => 2,
+				 :traffic_method => 'ありません',
+				 :business_day => '毎週水曜日以外',
+				 :regular_holiday => '毎週水曜日',
+				 :consumption_budget => '3400~6000円',
+				 :private_room => false,
+				 :reserved => false,
+				 :parking => 5,
+				 :no_smoking => 3,
+				 :equipment => '特になし',
+				 :home_page => 'なし',
+				 :news => 'なし',
+				 :display_status => true
+				)
 
 	StoreAdminApplication.create(
 		:address => "静岡県浜松市中区中央2-11-17",
 		:postal_code => 998766,
 		:store_name => '千鳥寿司',
 	 	:kana_store_name => "チドリズシ",
-	 	:phone_number => 987655,
+	 	:phone_number => 87655,
 	 	:branch_name => 'なし',
 	 	:kana_branch_name => 'なし',
 	 	:email => 'home@gmeil.com',
@@ -85,4 +134,5 @@
 	    :related_with_antisocial_force => true,
 	    :mannaers_industry => true,
 	    )
+
 

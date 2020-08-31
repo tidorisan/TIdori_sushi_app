@@ -5,10 +5,10 @@ class CreateStores < ActiveRecord::Migration[5.2]
       t.string :address, null: false, default: ""
       t.float :latitude
       t.float :longitude
-      t.integer :postal_code, null: false, default: 0
+      t.string :postal_code, null: false, default: 0
       t.string :store_name, null: false, default: ""
       t.string :kana_store_name, null: false, default: ""
-      t.integer :phone_number, null: false, default: 0
+      t.string :phone_number, null: false, default: 0
       t.string :branch_name, null: false, default: ""
       t.string :kana_branch_name, null: false, default: ""
       t.string :image_id, null: false, default: ""
