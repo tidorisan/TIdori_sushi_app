@@ -54,6 +54,8 @@ class Users::StoresController < ApplicationController
   private
   def store_params
     params.require(:store).permit(
+      :latitude,
+      :longitude,
       :store_name,
       :kana_store_name,
       :postal_code,
@@ -81,7 +83,7 @@ class Users::StoresController < ApplicationController
       :e_bill_ids,
       :equipment_ids,
       :reserved,
-      store_credit_cards_attributes: [:id,:credit_card_id],
+      store_credit_cards_attributes: [:id, :credit_card_id],
       store_e_bills_attributes: [:id, :e_bill_id],
       store_equipments_attributes: [:id, :equipment_id])
   end

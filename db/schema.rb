@@ -152,14 +152,11 @@ ActiveRecord::Schema.define(version: 2020_08_29_065916) do
     t.string "business_day", default: "", null: false
     t.string "regular_holiday", default: "", null: false
     t.string "consumption_budget", default: "", null: false
-    t.integer "credit_card_id", default: 0, null: false
-    t.integer "e_bill_id", default: 0, null: false
     t.string "equipment", default: "", null: false
     t.boolean "private_room", null: false
     t.boolean "reserved", null: false
     t.integer "parking", default: 0, null: false
     t.integer "no_smoking", null: false
-    t.integer "store_equipment_id", default: 0, null: false
     t.text "home_page", null: false
     t.text "news", null: false
     t.boolean "display_status", default: true, null: false

@@ -8,6 +8,8 @@
 
 	Store.create(:user_id => 1,
 				 :address => "静岡県浜松市中区中央2-11-17",
+				 :latitude => 34.7088704,
+				 :longitude => 137.7387655,
 				 :postal_code => 998766,
 				 :store_name => '千鳥寿司',
 				 :kana_store_name => "チドリズシ",
@@ -31,7 +33,9 @@
 				 :display_status => true
 				)
 	Store.create(:user_id => 2,
-				 :address => "静岡県浜松市中区板屋町２−１０９",
+				 :address => "静岡県浜松市中区板屋町2-106",
+				 :latitude => 34.70680249999999,
+				 :longitude => 137.7338466,
 				 :postal_code => 987555,
 				 :store_name => '泉水',
 				 :kana_store_name => "イズミミズ",
@@ -56,7 +60,9 @@
 				)
 
 	Store.create(:user_id => 3,
-				 :address => " 静岡県浜松市中区砂山町３６０−６",
+				 :address => " 静岡県浜松市中区砂山町360-6",
+				 :latitude => 34.7015307,
+				 :longitude => 137.7343563,
 				 :postal_code => 988776,
 				 :store_name => '末広鮨',
 				 :kana_store_name => "スエヒロスシ",

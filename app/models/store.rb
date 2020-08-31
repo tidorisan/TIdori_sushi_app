@@ -1,5 +1,8 @@
 class Store < ApplicationRecord
 
+	geocoded_by :address
+	after_validation :geocode, if: :address_changed?
+
 	enum no_smoking: { 完全喫煙可: 1, 分煙: 2, 全面禁煙: 3 }
 
 	enum reservation: { 予約可: 1, 予約不可: 2, 完全予約制: 3 }
@@ -16,7 +19,7 @@ class Store < ApplicationRecord
 
 	has_many :store_buzzs, dependent: :destroy
 
-	has_many :store_credit_cards
+	has_many :store_credit_cards, dependent: :destroy
 	has_many :cc_stores, through: :store_credit_cards, source: :credit_card
 	accepts_nested_attributes_for :store_credit_cards, allow_destroy: true
 

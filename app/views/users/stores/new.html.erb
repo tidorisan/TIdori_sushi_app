@@ -174,7 +174,7 @@
 				<%= fields_for :store_equipments do |ff| %>
 					<% @equipments.each do |equipment| %>
 						<td><%= equipment.genre_name %>
-							<%= ff.check_box :equipment_ids, { multiple: true, include_hidden: false }, equipment[:id] %></td>
+							<%= ff.check_box :equipment_ids, {include_hidden: false}, equipment[:id] %></td>
 					<% end %>
 				<% end %>
 			</tr>
