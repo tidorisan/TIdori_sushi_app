@@ -10,11 +10,12 @@ class TidoriSushi::StoresController < ApplicationController
   end
 
   def show
+    @store = Store.find(params[:id])
+    @stores = Store.all
   end
 
   def search
     @q = Store.ransack(q_params)
-    binding.pry
     @stores = @q.result(distinct: true)
   end
 
@@ -23,6 +24,6 @@ class TidoriSushi::StoresController < ApplicationController
 
   private
   def q_params
-    params.permit(:address, :store_name, :branch_name, :store_genre)
+    params.require(:q).permit(:address_or_store_name_or_branch_name_cont)
   end
 end

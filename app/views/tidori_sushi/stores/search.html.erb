@@ -1,5 +1,38 @@
 <p> TidoriSushi::StoresController#search</p>
 
+<div>
+
+	<div id="map" style="width:50%; height:400px"></div>
+
+	<script type="text/javascript">
+	function initMap() {
+		var map = new google.maps.Map(document.getElementById('map'), {
+	    	center: new google.maps.LatLng(34.705422, 137.738342),
+	        zoom: 14
+    	});
+    	<% @stores.each do |store| %>
+	        (function(){
+
+	          var latlng = new google.maps.LatLng(<%= store.latitude %>, <%= store.longitude %>);
+	          var marker = new google.maps.Marker({
+	              position: latlng,
+	              map: map,
+	          });
+	          var infowindow = new google.maps.InfoWindow({
+	          		position: latlng,
+	          		content: 'text',
+			  });
+			  infowindow.open(map);
+			  infowindow.close();
+	        })();
+      	<% end %>
+	}
+	</script>
+
+	<script async defer
+      src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>&callback=initMap">
+    </script>
+</div>
 
 <div>
 	<p>店舗一覧</p>

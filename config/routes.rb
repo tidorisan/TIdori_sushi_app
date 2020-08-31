@@ -10,8 +10,8 @@ Rails.application.routes.draw do
     resources :stores, only: [:show] do
     	resources :store_buzzs, only: [:new, :create, :destroy, :index]
     	resource :favorites, only: [:create, :destroy]
+      resources :menus, only: [:index]
     end
-    resources :menus, only: [:index]
     resources :coupons, only: [:index, :show]
     get 'users/leave' => 'users#leave'
     patch 'users/leave' => 'users#unsubscribe_update'
