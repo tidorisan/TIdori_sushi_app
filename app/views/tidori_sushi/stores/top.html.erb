@@ -2,8 +2,20 @@
 <p>/  ルート</p>
 <div>
 	<%= search_form_for(@q, url: tidori_sushi_search_path, method: :post) do |f| %>
-		<%= f.search_field :address_or_store_name_or_branch_name_or_store_genre_cont, placeholder: "店名や住所を入力してください" %>
+		<%= f.search_field :address_or_store_name_or_branch_name_cont, placeholder: "店名や住所を入力してください" %>
 		<%= f.submit "検索する" %>
 	<% end %>
 </div>
 
+<div>
+	<%= link_to "新規登録店舗", tidori_sushi_search_path %>
+	<%= link_to "地図検索", tidori_sushi_search_path %>
+	<%= link_to "クーポン利用", tidori_sushi_coupons_path %>
+</div>
+
+
+<div>
+	<%= link_to "寿司", tidori_sushi_search_path(q_params: {store_genre: 1}), method: :post %>
+	<%= link_to "回転寿司", tidori_sushi_search_path(q_params: {store_genre: 2}), method: :post %>
+	<%= link_to "立ち食い寿司", tidori_sushi_coupons_path %>
+</div>
