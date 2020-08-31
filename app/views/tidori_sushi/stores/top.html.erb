@@ -1,16 +1,9 @@
 <p>tidori_sushi/stores/top</p>
 <p>/  ルート</p>
+<div>
+	<%= search_form_for(@q, url: tidori_sushi_search_path, method: :post) do |f| %>
+		<%= f.search_field :address_or_store_name_or_branch_name_or_store_genre_cont, placeholder: "店名や住所を入力してください" %>
+		<%= f.submit "検索する" %>
+	<% end %>
+</div>
 
-<table>
-	<caption>table title and/or explanatory text</caption>
-	<thead>
-		<tr>
-			<th>入力フォーム</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>d</td>
-		</tr>
-	</tbody>
-</table>
