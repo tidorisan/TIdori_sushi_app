@@ -2,6 +2,7 @@ class TidoriSushi::StoresController < ApplicationController
 
 	def top
     @q = Store.ransack(params[:q])
+    @stores = Store.all.order(id: "DESC")
 	end
 
 
@@ -12,6 +13,7 @@ class TidoriSushi::StoresController < ApplicationController
   end
 
   def search
+
     @q = Store.ransack(q_params)
     @stores = @q.result(distinct: true)
   end
