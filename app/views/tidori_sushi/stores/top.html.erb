@@ -1,16 +1,46 @@
 <p>tidori_sushi/stores/top</p>
 <p>/  ルート</p>
+<div>
+	<%= search_form_for(@q, url: tidori_sushi_search_path, method: :post) do |f| %>
+		<%= f.search_field :address_or_store_name_or_branch_name_cont, placeholder: "店名や住所を入力してください" %>
+		<%= f.submit "検索する" %>
+	<% end %>
+</div>
 
-<table>
-	<caption>table title and/or explanatory text</caption>
-	<thead>
-		<tr>
-			<th>入力フォーム</th>
-		</tr>
-	</thead>
-	<tbody>
-		<tr>
-			<td>d</td>
-		</tr>
-	</tbody>
-</table>
+<div>
+	<%= link_to "新規登録店舗", tidori_sushi_search_path %>
+	<%= link_to "地図検索", tidori_sushi_search_path %>
+	<%= link_to "クーポン利用", tidori_sushi_coupons_path %>
+</div>
+
+<p>店舗ジャンル検索できていない: 全て表示される</p>
+<div>
+	<%= link_to "寿司", tidori_sushi_search_path(q_params: {store_genre: :寿司}), method: :post %>
+	<%= link_to "回転寿司", tidori_sushi_search_path(q_params: {store_genre: :回転寿司}), method: :post %>
+	<%= link_to "立ち食い寿司", tidori_sushi_coupons_path %>
+</div>
+
+<div>
+	<p>新着店舗一覧</p>
+	<% @stores.each do |store| %>
+		<div>
+			<%= store.id %>
+			<%= attachment_image_tag store, :image, size: '100x100', fallback: 'no_image.jpg' %>
+			<%= store.store_name %>
+			<%= store.store_genre %>
+			<%= store.address %>
+			<%= store.regular_holiday %>
+		</div>
+	<% end %>
+</div>
+
+<div>
+	<p>店舗登録はお問い合わせはこちらから</p>
+	<table>
+		<tbody>
+			<tr><td>サイト管理者  夏目梨花</td></tr>
+			<tr><td>管理者ページURL  tidorisushi.site</td></tr>
+				<tr><td>© natsume rika 2020</td></tr>
+		</tbody>
+	</table>
+</div>
