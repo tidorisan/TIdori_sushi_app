@@ -13,7 +13,6 @@ class TidoriSushi::StoresController < ApplicationController
   end
 
   def search
-
     @q = Store.ransack(q_params)
     @stores = @q.result(distinct: true)
   end
