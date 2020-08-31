@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   	get 'about' => 'homes#about'
   	post 'stores' => 'stores#search', as: 'search'
   	get 'stores/favorites' => 'stores#favorites', as: 'store_favotites'
-    resources :stores, only: [:index, :show] do
+    resources :stores, only: [:show] do
     	resources :store_buzzs, only: [:new, :create, :destroy, :index]
     	resource :favorites, only: [:create, :destroy]
     end

@@ -1,9 +1,15 @@
 <p> TidoriSushi::StoresController#search</p>
 
 <div>
+	<p>店舗一覧</p>
 	<% @stores.each do |store| %>
-		<%= store.store_name %>
-		<%= store.address %>
-		<%= store.store_genre %>
+		<div>
+			<%= store.id %>
+			<%= attachment_image_tag store, :image, size: '100x100', fallback: 'no_image.jpg' %>
+			<%= store.store_name %>
+			<%= store.store_genre %>
+			<%= store.address %>
+			<%= store.regular_holiday %>
+		</div>
 	<% end %>
 </div>
