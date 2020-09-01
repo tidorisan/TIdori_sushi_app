@@ -17,6 +17,7 @@ class TidoriSushi::StoresController < ApplicationController
   def search
     @q = Store.ransack(q_params)
     @stores = @q.result(distinct: true)
+    @index_stores = Store.all.order(id: "DESC")
   end
 
   def favorites

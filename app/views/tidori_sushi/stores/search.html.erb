@@ -35,16 +35,57 @@
 </div>
 
 <div>
-	<p>店舗一覧</p>
+	<p>右カラム　検索フォーム</p>
+	<%= search_form_for(@q, url: tidori_sushi_search_path, method: :post) do |f| %>
+		<%= f.search_field :address_or_store_name_or_branch_name_cont, placeholder: "店名や住所を入力してください" %>
+		<%= f.submit "検索する" %>
+	<% end %>
+</div>
+
+<div>
+	<p>右カラム　検索フォーム</p>
+	<p>新着店舗一覧</p>
 	<% @stores.each do |store| %>
-		<div>
-			<%= attachment_image_tag store, :image, size: '100x100', fallback: 'no_image.jpg' %>
-			<p><%= store.id %></p>
-			<h1><%= store.store_name %></h1>
-			<p><%= store.store_genre %></p>
-			<p>住所: <%= store.address %></p>
-			<p>定休日: <%= store.regular_holiday %></p>
-		</div>
+		<%= link_to tidori_sushi_store_path(store) do %>
+			<div>
+				<%= store.id %>
+				<%= attachment_image_tag store, :image, size: '100x100', fallback: 'no_image.jpg' %>
+				<%= store.store_name %>
+				<% if store.store_genre_id == 1  %>
+					<p>寿司</p>
+				<% elsif  store.store_genre_id == 2 %>
+					<p>回転寿司</p>
+				<% else %>
+					<p>立ち食い寿司</p>
+				<% end %>
+				<%= store.address %>
+				<%= store.regular_holiday %>
+			</div>
+		<% end %>
+	<% end %>
+</div>
+
+
+<div>
+	<p>検索結果＿店舗一覧</p>
+	<% @stores.each do |store| %>
+		<%= link_to tidori_sushi_store_path(store) do %>
+			<div>
+				<%= attachment_image_tag store, :image, size: '100x100', fallback: 'no_image.jpg' %>
+				<p><%= store.id %></p>
+				<h1><%= store.store_name %></h1>
+				<% if store.store_genre_id == 1  %>
+					<p>寿司</p>
+				<% elsif  store.store_genre_id == 2 %>
+					<p>回転寿司</p>
+				<% else %>
+					<p>立ち食い寿司</p>
+				<% end %>
+				<p>住所: <%= store.address %></p>
+				<p>定休日: <%= store.regular_holiday %></p>
+				<p><%= store.comment %></p>
+			</div>
+		<% end %>
 	<% end %>
 </div>
 
