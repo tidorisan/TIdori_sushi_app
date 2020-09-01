@@ -1,2 +1,103 @@
 <h1>TidoriSushi::StoreAdminApplications#new</h1>
 <p>Find me in app/views/tidori_sushi/store_admin_applications/new.html.erb</p>
+
+<p>申請についてのお願い: 店舗申請を投稿して頂いた後１週間ほどお時間をいただきます。<br>掲載の許可でおりましたら,登録して頂いたメールアドレスにご連絡させていただきます。</p>
+
+<%= form_with(model: @store_admin_application, url: tidori_sushi_store_admin_applications_confirm_path, method: :post, local: :true) do |f| %>
+
+	<table>
+		<caption>新規店舗管理者_詳細</caption>
+		<thead>
+			<tr>
+				<th>店舗登録基本情報</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>店舗_住所</td>
+				<td><%= f.text_field :address %></td>
+			</tr>
+			<tr>
+				<td>店舗_郵便番号</td>
+				<td><%= f.text_field :postal_code %></td>
+			</tr>
+			<tr>
+				<td>店舗名</td>
+				<td><%= f.text_field :store_name %></td>
+			</tr>
+			<tr>
+				<td>店舗名(全角カタカナ)</td>
+				<td><%= f.text_field :kana_store_name %></td>
+			</tr>
+			<tr>
+				<td>店舗＿電話番号</td>
+				<td><%= f.text_field :phone_number%></td>
+			</tr>
+			<tr>
+				<td>支店名(支店名)</td>
+				<td><%= f.text_field :branch_name %></td>
+			</tr>
+			<tr>
+				<td>支店名(全角カタカナ)</td>
+				<td><%= f.text_field :kana_branch_name %></td>
+			</tr>
+		</tbody>
+	</table>
+
+	<table>
+		<caption></caption>
+		<thead>
+			<tr>
+				<th>店舗管理者＿基本情報</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>メールアドレス</td>
+				<td><%= f.text_field :email %></td>
+			</tr>
+			<tr>
+				<td>氏名(性)</td>
+				<td><%= f.text_field :family_name %></td>
+				<td>氏名(名)</td>
+				<td><%= f.text_field :first_name %></td>
+			</tr>
+			<tr>
+				<td>カナ氏名(性)</td>
+				<td><%= f.text_field :kana_family_name %></td>
+				<td>カナ氏名(名)</td>
+				<td><%= f.text_field :kana_first_name %></td>
+			</tr>
+			<tr>
+				<td>生年月日</td>
+				<td><%= f.text_field :birthday %></td>
+			</tr>
+			<tr>
+				<td>店舗役職</td>
+				<td><%= f.select :job_title, [["社長", "社長"], ["店長", "店長"], ["オーナー", "オーナー"], ["マネージャー", "マネージャー"], ["スタッフ", "スタッフ"], ["アルバイト", "アルバイト"], ["代表取締役", "代表取締役"]]  %></td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>店舗管理者に許可をとりましたか？</td>
+				<td><%= f.label :permit_to_store_manager, "はい" %><%= f.radio_button :permit_to_store_manager, true %></td>
+				<td><%= f.label :permit_to_store_manager, "いいえ" %><%= f.radio_button :permit_to_store_manager, false %></td>
+			</tr>
+			<tr>
+				<td>飲食店営業許可書を取得していますか？</td>
+				<td><%= f.label :get_restaurant_sales_permit_form, "はい" %><%= f.radio_button :get_restaurant_sales_permit_form, true %></td>
+					<td><%= f.label :get_restaurant_sales_permit_form, "いいえ" %><%= f.radio_button :get_restaurant_sales_permit_form, false %></td>
+			</tr>
+			<tr>
+				<td>反社会的勢力との関係は一切ありませんか？</td>
+				<td><%= f.label :related_with_antisocial_force, "はい" %><%= f.radio_button :related_with_antisocial_force, true %></td>
+					<td><%= f.label :related_with_antisocial_force, "いいえ" %><%= f.radio_button :related_with_antisocial_force, false %></td>
+			</tr>
+			<tr>
+				<td>風俗法の業態に当てはまりませんか？</td>
+				<td><%= f.label :mannaers_industry, "はい" %><%= f.radio_button :mannaers_industry, true %></td>
+					<td><%= f.label :mannaers_industry, "いいえ" %><%= f.radio_button :mannaers_industry, false %></td>
+			</tr>
+		</tbody>
+	</table>
+	<%= f.submit "確認画面へ進む" %>
+<% end %>

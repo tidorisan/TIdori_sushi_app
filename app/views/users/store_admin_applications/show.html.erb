@@ -108,7 +108,7 @@
 			<td>処理ステータス？</td>
 			<% if @store_admin_application.process_status == true %>
 				<td>申請中</td>
-				<%= form_with(model: @store_admin_application, url:users_store_admin_application_path(@store_admin_application), method: :patch) do |f| %>
+				<%= form_with(model: @store_admin_application, url:users_store_admin_application_path(@store_admin_application), method: :patch, local: true) do |f| %>
 					<td>
 						<%= f.label :process_status, "処理済みにする" %>
 						<%= f.radio_button :process_status, :false %>
@@ -117,7 +117,7 @@
 				<% end %>
 			<% else %>
 				<td>処理済み</td>
-				<%= form_with(model: @store_admin_application, url:users_store_admin_application_path(@store_admin_application), method: :patch) do |f| %>
+				<%= form_with(model: @store_admin_application, url:users_store_admin_application_path(@store_admin_application), method: :patch, local: true) do |f| %>
 					<td>
 						<%= f.label :process_status, "申請中にする" %>
 						<%= f.radio_button :process_status, :true %>
