@@ -118,6 +118,11 @@
 	MenuGenre.create(:genre_name => '料理')
 	MenuGenre.create(:genre_name => 'ドリンク')
 
+	StoreMenu.create(:store_id => 1,
+					 :name => "鉄火巻き",
+					 :comment => "おいしいです。",
+					 :tax_excluded_price => 1000,
+					 :menu_genre_id  => 1,)
 
 	Coupon.create(:reason => '売りたいので', :detail =>  '2割引', :target => "全品", :writing => '特になし', :expiration_date => 23, :store_id => 1)
 

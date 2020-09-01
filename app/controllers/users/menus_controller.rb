@@ -1,7 +1,8 @@
 class Users::MenusController < ApplicationController
   def index
-    @store_menus = StoreMenu.all
-    @store_id = Store.find(params[:store_id])
+    @store = Store.find(params[:store_id])
+    @store_menus = @store.store_menus.all
+    @store_id = @store.id
   end
 
   def new
@@ -11,10 +12,11 @@ class Users::MenusController < ApplicationController
 
   def create
     @store_id = Store.find(params[:store_id])
-  	@store_menu = StoreMenu.new(store_menu_params)
+    @store_menu = StoreMenu.new(store_menu_params)
     @store_menu.store_id = @store_id.id
+    binding.pry
     if @store_menu.save
-      redirect_to users_store_menu_path(@store_menu, @store_id)
+      redirect_to users_store_menu_path(@store_menu.id, @store_id.id)
     else
       render = "users/menus/show"
     end

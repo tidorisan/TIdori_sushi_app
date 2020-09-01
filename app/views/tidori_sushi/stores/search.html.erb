@@ -50,14 +50,7 @@
 			<div>
 				<%= store.id %>
 				<%= attachment_image_tag store, :image, size: '100x100', fallback: 'no_image.jpg' %>
-				<%= store.store_name %>
-				<% if store.store_genre_id == 1  %>
-					<p>寿司</p>
-				<% elsif  store.store_genre_id == 2 %>
-					<p>回転寿司</p>
-				<% else %>
-					<p>立ち食い寿司</p>
-				<% end %>
+				<%= store.store_genre.genre_name %>
 				<%= store.address %>
 				<%= store.regular_holiday %>
 			</div>
@@ -73,14 +66,7 @@
 			<div>
 				<%= attachment_image_tag store, :image, size: '100x100', fallback: 'no_image.jpg' %>
 				<p><%= store.id %></p>
-				<h1><%= store.store_name %></h1>
-				<% if store.store_genre_id == 1  %>
-					<p>寿司</p>
-				<% elsif  store.store_genre_id == 2 %>
-					<p>回転寿司</p>
-				<% else %>
-					<p>立ち食い寿司</p>
-				<% end %>
+				<h1><%= store.store_genre.genre_name %></h1>
 				<p>住所: <%= store.address %></p>
 				<p>定休日: <%= store.regular_holiday %></p>
 				<p><%= store.comment %></p>
