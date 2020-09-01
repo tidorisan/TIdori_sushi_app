@@ -1,10 +1,8 @@
-<h1>Users::EBills#edit</h1>
-<p>Find me in app/views/users/e_bills/edit.html.erb</p>
-
-
+<h1>Users::StoreGenres#edit</h1>
+<p>Find me in app/views/users/store_genres/edit.html.erb</p>
 <div>
-	<%= form_with(model: @e_bill, url: users_e_bill_path(@e_bill), local: true, method: :patch) do |f| %>
-		<%= f.label :genre_name, '設備ジャンル' %>
+	<%= form_with(model: @store_genre, url: users_store_genre_path(@store_genre), local: true, method: :patch) do |f| %>
+		<%= f.label :genre_name, '店舗ジャンル' %>
 		<%= f.text_field :genre_name %>
 		<%= f.label :display_status, '有効' %>
 		<%= f.radio_button :display_status, :true, checked: true %>

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :users do
+    get 'store_genres/index'
+    get 'store_genres/edit'
+  end
   devise_for :users
   root 'tidori_sushi/stores#top'
 
@@ -7,11 +11,11 @@ Rails.application.routes.draw do
   	get 'about' => 'homes#about'
   	post 'stores' => 'stores#search', as: 'search'
   	get 'stores/favorites' => 'stores#favorites', as: 'store_favotites'
-    resources :stores, only: [:index, :show] do
+    resources :stores, only: [:show] do
     	resources :store_buzzs, only: [:new, :create, :destroy, :index]
     	resource :favorites, only: [:create, :destroy]
+      resources :menus, only: [:index]
     end
-    resources :menus, only: [:index]
     resources :coupons, only: [:index, :show]
     get 'users/leave' => 'users#leave'
     patch 'users/leave' => 'users#unsubscribe_update'
@@ -31,9 +35,7 @@ Rails.application.routes.draw do
       resources :menus, only: [:new, :create, :index, :show, :edit, :update]
       resources :coupons, only: [:new, :create, :index, :show, :edit, :update]
     end
-    resources :store_equipments, only: [:index, :create, :edit, :update]
-    resources :e_bills, only: [:index, :create, :edit, :update]
-    resources :credit_cards, only: [:index, :create, :edit, :update]
+    resources :store_genres, only: [:index, :create, :edit, :update]
     resources :menu_genres, only: [:index, :create, :edit, :update]
     resources :store_admin_applications, only: [:index, :show, :update]
 

@@ -52,7 +52,13 @@
 		<tbody>
 			<tr>
 				<td>店舗＿ジャンル</td>
-				<td><%= @store.store_genre %></td>
+				<% if @store.store_genre_id == 1 %>
+					<td>寿司</td>
+				<% elsif @store.store_genre_id == 2 %>
+					<td>回転寿司</td>
+				<% else %>
+					<td>立ち食い寿司</td>
+				<% end %>
 			</tr>
 			<tr>
 				<td>予約</td>
@@ -92,8 +98,7 @@
 			</tr>
 			<tr>
 				<td>支払い可能カード</td>
-					<td>store.newがまだ未完成なのでここも未完成です。</td>
-					<td>中間テーブルの内容を持ってきます</td>
+				<td><%= @store.credit_card %></td>
 			</tr>
 			<tr>
 				<td>予約時の注意事項</td>
@@ -101,9 +106,7 @@
 			</tr>
 			<tr>
 				<td>支払い可能電子マネー</td>
-				<!-- 見直す箇所:動作で不明点をメンターさんに伺う。ids=>idでは -->
-				<td>store.newがまだ未完成なのでここも未完成です。</td>
-				<td>中間テーブルの内容を持ってきます</td>
+				<td><%= @store.e_money %></td>
 			</tr>
 		</tbody>
 	</table>
@@ -122,7 +125,11 @@
 			</tr>
 			<tr>
 				<td>個室</td>
-				<td><%= @store.private_room %>
+				<% if @store.private_room == true %>
+					<td>あり</td>
+				<% else %>
+					<td>なし</td>
+				<% end %>
 			</tr>
 			<tr>
 				<td>駐車場</td>
@@ -134,9 +141,7 @@
 			</tr>
 			<tr>
 				<td>空間・設備</td>
-				<!-- 見直す箇所:動作で不明点をメンターさんに伺う。ids=>idでは -->
-				<td>store.newがまだ未完成なのでここも未完成です。</td>
-				<td>中間テーブルの内容を持ってきます</td>
+				<td><%= @store.equipment %></td>
 			</tr>
 		</tbody>
 	</table>
@@ -149,6 +154,10 @@
 			</tr>
 		</thead>
 		<tbody>
+			<tr>
+				<td>店舗紹介</td>
+				<td><%= @store.comment %></td>
+			</tr>
 			<tr>
 				<td>ホームページURL</td>
 				<td><%= @store.home_page %></td>

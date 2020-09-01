@@ -1,9 +1,11 @@
-<h1>Users::EBills#index</h1>
-<p>Find me in app/views/users/e_bills/index.html.erb</p>
+<h1>Users::StoreGenres#index</h1>
+<p>Find me in app/views/users/store_genres/index.html.erb</p>
+
+
 
 <div>
-	<%= form_with(model: @e_bill, url: users_e_bills_path, local: true) do |f| %>
-		<%= f.label :genre_name, '設備ジャンル' %>
+	<%= form_with(model: @store_genre, url: users_store_genres_path, local: true) do |f| %>
+		<%= f.label :genre_name, '店舗ジャンル' %>
 		<%= f.text_field :genre_name %>
 		<%= f.label :display_status, '有効' %>
 		<%= f.radio_button :display_status, :true, checked: true %>
@@ -23,15 +25,15 @@
 			</tr>
 		</thead>
 		<tbody>
-			<% @e_bills.each do |e_bill| %>
+			<% @store_genres.each do |store_genre| %>
 				<tr>
-					<td><%= e_bill.genre_name %></td>
-					<% if e_bill.display_status == true %>
+					<td><%= store_genre.genre_name %></td>
+					<% if store_genre.display_status == true %>
 						<td><p>有効</p></td>
 					<% else %>
 						<td><p>無効</p></td>
 					<% end %>
-					<td><%= link_to '編集する', edit_users_e_bill_path(e_bill) %></td>
+					<td><%= link_to '編集する', edit_users_store_genre_path(store_genre) %></td>
 				</tr>
 			<% end %>
 		</tbody>
