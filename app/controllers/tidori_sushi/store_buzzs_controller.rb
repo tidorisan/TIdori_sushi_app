@@ -4,6 +4,8 @@ class TidoriSushi::StoreBuzzsController < ApplicationController
   end
 
   def index
+    @store = Store.find(params[:store_id])
+    @store_buzzs = @store.store_buzzs.all
   end
 
   def create
