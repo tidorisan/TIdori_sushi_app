@@ -21,7 +21,14 @@ class TidoriSushi::StoreBuzzsController < ApplicationController
   end
 
   def destroy
-  	
+    @store = Store.find(params[:store_id])
+    @store_buzz = @store.store_buzzs.find(params[:id])
+    @store_buzz.user_id = current_user.id
+    if @store_buzz.destroy
+      redirect_to tidori_sushi_store_store_buzzs_path(@store)
+    else
+      render 'tidori_sushi/store_buzzs/index'
+    end
   end
 
   private

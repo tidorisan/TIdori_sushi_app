@@ -4,11 +4,19 @@
 <div>
 	<h2>口コミ一覧</h2>
 	<% @store_buzzs.each do |store_buzz| %>
-			<%= attachment_image_tag store_buzz, :image, size: '300x500', fallback: 'no_image.jpg' %>
+			<%= attachment_image_tag store_buzz, :image, size: '100x200', fallback: 'no_image.jpg' %>
 			<h3><%= store_buzz.title %></h3>
 			<p><%= store_buzz.detail %></p>
 			<p>訪問日: <%= store_buzz.visit_date %></p>
 			<p>滞在時間: <%= store_buzz.use_time %> 時間</p>
-			<p>pay_price: ¥ <%= store_buzz.use_time %></p>
+			<p>支払い金額: ¥ <%= store_buzz.pay_price %></p>
+			<% if user_signed_in? %>
+				<% if store_buzz.user_id == current_user.id %>
+					<%= link_to "削除ボタン", tidori_sushi_store_store_buzz_path(@store.id, store_buzz.id), method: :delete %>
+				<% end %>
+			<% end %>
+			<p>store_buzz.user_id :<%= store_buzz.user_id %></p>
+			<p>store_buzz.id: <%= store_buzz.id %></p>
+			<p>@store.id:<%= @store.id %></p>
 	<% end %>
 </div>
