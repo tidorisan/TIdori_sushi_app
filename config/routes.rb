@@ -1,11 +1,12 @@
 Rails.application.routes.draw do
 
+  devise_for :users
+  root 'tidori_sushi/stores#top'
+
   namespace :users do
     get 'store_genres/index'
     get 'store_genres/edit'
   end
-  devise_for :users
-  root 'tidori_sushi/stores#top'
 
   namespace :tidori_sushi do
   	get 'about' => 'homes#about'
@@ -18,7 +19,7 @@ Rails.application.routes.draw do
     end
     resources :coupons, only: [:index, :show]
     get 'users/leave' => 'users#leave'
-    patch 'users/leave' => 'users#unsubscribe_update'
+    patch 'users/leave/unsubscribe_update' => 'users#unsubscribe_update', as: 'unsubscribe_update'
     resources :users, only: [:show, :update]
     post 'store_admin_applications/confirm' => 'store_admin_applications#confirm'
     get 'store_admin_applications/success' => 'store_admin_applications#success'

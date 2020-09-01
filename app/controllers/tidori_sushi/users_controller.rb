@@ -13,11 +13,16 @@ class TidoriSushi::UsersController < ApplicationController
   end
 
   def leave
-  	
   end
 
-  def unsubscribe_updat
-  	
+  def unsubscribe_update
+  	@user = User.find(current_user.id)
+    if @user.update(unsubscribe_status: false)
+      reset_session
+      redirect_to root_path
+    else
+      render '/tidori_sushi/users/leave'
+    end
   end
 
   private

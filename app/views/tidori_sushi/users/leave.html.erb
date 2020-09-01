@@ -1,2 +1,7 @@
 <h1>TidoriSushi::Users#leave</h1>
 <p>Find me in app/views/tidori_sushi/users/leave.html.erb</p>
+
+<h1>退会ページ</h1>
+<p>本当に退会しますか？一度退会すると二度とログインできなくなります。退会する場合は、「退会する」をクリックしてください。</p>
+
+<%= link_to "退会する", tidori_sushi_unsubscribe_update_path, method: :patch %>
