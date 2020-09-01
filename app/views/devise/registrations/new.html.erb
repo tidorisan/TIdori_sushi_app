@@ -23,11 +23,11 @@
 
   <div>
     <%= f.label :role, "顧客" %>
-    <%= f.radio_button :role, "customer" %>
+    <%= f.radio_button :role, :customer %>
     <%= f.label :role, "店舗管理者" %>
-    <%= f.radio_button :role, "store_admin" %>
+    <%= f.radio_button :role, :store_admin %>
     <%= f.label :role, "サイト管理者" %>
-    <%= f.radio_button :role, "site_admin" %>
+    <%= f.radio_button :role, :site_admin %>
   </div>
 
   <% if request.referer&.include?("/users/users/confirmation") %>

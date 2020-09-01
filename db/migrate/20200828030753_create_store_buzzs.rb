@@ -6,7 +6,7 @@ class CreateStoreBuzzs < ActiveRecord::Migration[5.2]
       t.string :title, null: false, default: ""
       t.text :detail, null: false
       t.string :image_id
-      t.integer :visit_date
+      t.date :visit_date
       t.integer :use_time, null: false
       t.integer :pay_price, null: false
 

@@ -21,13 +21,16 @@
 	<h2>メニュー</h2>
 	<p>ジャンルごとに分けたい</p>
 	<% @menus.each do |menu| %>
-
 		<% if menu.menu_genre.genre_name == "料理" %>
 			<%= attachment_image_tag menu, :image, size: '300x500', fallback: 'no_image.jpg' %>
 			<h3><%= menu.name %></h3>
 			<p><%= menu.comment %></p>
 			<h3><%= menu.tax_excluded_price %></h3>
-		<% else %>
+		<% end %>
+	<% end %>
+
+	<% @menus.each do |menu| %>
+		<% if menu.menu_genre.genre_name == "ドリンク" %>
 			<%= attachment_image_tag menu, :image, size: '300x500', fallback: 'no_image.jpg' %>
 			<h3><%= menu.name %></h3>
 			<p><%= menu.comment %></p>

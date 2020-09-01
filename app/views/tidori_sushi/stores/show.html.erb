@@ -4,6 +4,11 @@
 		<%= link_to "メニュー", tidori_sushi_store_menus_path(@store) %>
 		<%= link_to "口コミ", tidori_sushi_store_store_buzzs_path(@store) %>
 		<%= link_to "クーポン", tidori_sushi_coupons_path %>
+		<% if user_signed_in?  %>
+			<% if current_user.role == :customer %>
+				<%= link_to "口コミ投稿", new_tidori_sushi_store_store_buzz_path(@store) %>
+			<% end %>
+		<% end %>
 	</div>
 	<div>
 		<h1><%= @store.store_name %></h1>
