@@ -22,4 +22,6 @@ class User < ApplicationRecord
 	has_many :following, through: :favorites, source: :store
 
 	has_many :store_buzzs, dependent: :destroy
+
+	attachment :image
 end
