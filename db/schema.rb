@@ -91,6 +91,7 @@ ActiveRecord::Schema.define(version: 2020_08_31_132011) do
     t.integer "tax_excluded_price", default: 0, null: false
     t.boolean "display_status", default: true, null: false
     t.integer "menu_genre_id", default: 0, null: false
+    t.string "image_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -7,7 +7,7 @@
 	</div>
 	<div>
 		<h1><%= @store.store_name %></h1>
-		<p>ジャンル: <%= @store.store_genre %></p>
+		<p>ジャンル: <%= @store.store_genre.genre_name%></p>
 		<p>予算: <%= @store.consumption_budget %> 定休日: <%= @store.regular_holiday %></p>
 		<% if @store.news %>
 			<p>お店からの大切なお知らせ</p>
