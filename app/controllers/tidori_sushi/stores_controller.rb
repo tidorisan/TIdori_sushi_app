@@ -11,7 +11,6 @@ class TidoriSushi::StoresController < ApplicationController
 
   def show
     @store = Store.find(params[:id])
-    @stores = Store.all
   end
 
   def search
