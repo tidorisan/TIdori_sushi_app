@@ -1,7 +1,7 @@
 <h1>Users::Menus#edit</h1>
 <p>Find me in app/views/users/menus/edit.html.erb</p>
 
-<%= form_with(model: @store_menu, url:users_store_menu_path(@store_menu), local: true, method: :patch) do |f| %>
+<%= form_with(model: @store_menu, url:users_store_menu_path(@store_menu.store_id, @store_menu.id), local: true, method: :patch) do |f| %>
 
 	<table>
 		<caption>メニュー編集</caption>
