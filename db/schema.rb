@@ -70,7 +70,7 @@ ActiveRecord::Schema.define(version: 2020_08_31_132011) do
     t.string "title", default: "", null: false
     t.text "detail", null: false
     t.string "image_id"
-    t.integer "visit_date"
+    t.date "visit_date"
     t.integer "use_time", null: false
     t.integer "pay_price", null: false
     t.datetime "created_at", null: false
