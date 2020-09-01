@@ -20,6 +20,7 @@ class TidoriSushi::StoresController < ApplicationController
   end
 
   def favorites
+    @stores = current_user.favorites.includes(:store)
   end
 
   private

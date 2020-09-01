@@ -27,9 +27,10 @@ ActiveRecord::Schema.define(version: 2020_08_31_132011) do
 
   create_table "favorite_stores", force: :cascade do |t|
     t.integer "store_id", null: false
-    t.integer "customer_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["user_id", "store_id"], name: "index_favorite_stores_on_user_id_and_store_id", unique: true
   end
 
   create_table "menu_genres", force: :cascade do |t|
