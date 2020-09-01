@@ -8,15 +8,15 @@
 </div>
 
 <div>
-	<%= link_to "新規登録店舗", tidori_sushi_search_path, method: :post %>
-	<%= link_to "地図検索", tidori_sushi_search_path, method: :post %>
+	<%= link_to "新規登録店舗", tidori_sushi_search_path(q: {address_or_store_name_or_branch_name_cont: :""}), method: :post %>
+	<%= link_to "地図検索", tidori_sushi_search_path(q: {address_or_store_name_or_branch_name_cont: :""}), method: :post %>
 	<%= link_to "クーポン利用", tidori_sushi_coupons_path, method: :post %>
 </div>
 
 <p>店舗ジャンル検索できていない: 全て表示される</p>
 <div>
-	<%= link_to "寿司", tidori_sushi_search_path(q_params: {store_genre: :寿司}), method: :post %>
-	<%= link_to "回転寿司", tidori_sushi_search_path(q_params: {store_genre: :回転寿司}), method: :post %>
+	<%= link_to "寿司", tidori_sushi_search_path(q: {address_or_store_name_or_branch_name_cont: :寿司}), method: :post %>
+	<%= link_to "回転寿司", tidori_sushi_search_path(q: {address_or_store_name_or_branch_name_cont: :回転寿司}), method: :post %>
 	<%= link_to "立ち食い寿司", tidori_sushi_coupons_path %>
 </div>
 

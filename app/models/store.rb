@@ -11,6 +11,8 @@ class Store < ApplicationRecord
 
 	belongs_to :user, optional: true
 
+	belongs_to :store_genre
+
 	has_many :favorites
 
 	has_many :coupons, dependent: :destroy
@@ -18,18 +20,6 @@ class Store < ApplicationRecord
 	has_many :store_menus, dependent: :destroy
 
 	has_many :store_buzzs, dependent: :destroy
-
-	has_many :store_credit_cards, dependent: :destroy
-	has_many :cc_stores, through: :store_credit_cards, source: :credit_card
-	accepts_nested_attributes_for :store_credit_cards, allow_destroy: true
-
-	has_many :store_equipments
-	has_many :e_stores, through: :store_equipments, source: :equipment
-	accepts_nested_attributes_for :store_equipments, allow_destroy: true
-
-	has_many :store_e_bills
-	has_many :eb_stores, through: :store_e_bills, source: :e_bill
-	accepts_nested_attributes_for :store_e_bills, allow_destroy: true
 
 	attachment :image
 end

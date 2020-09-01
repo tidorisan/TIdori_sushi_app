@@ -1,2 +1,0 @@
-class StoreEBill < ApplicationRecord
-end

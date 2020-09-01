@@ -5,12 +5,7 @@ class Users::StoresController < ApplicationController
 
   def new
     @store = Store.new
-    @credit_cards = CreditCard.all
-    @e_bills = EBill.all
-    @equipments = Equipment.all
-    @store.store_credit_cards.build
-    @store.store_e_bills.build
-    @store.store_equipments.build
+    @store_genres = StoreGenre.all
   end
 
   def create
@@ -30,20 +25,11 @@ class Users::StoresController < ApplicationController
 
   def edit
     @store = Store.find(params[:id])
-    @credit_cards = CreditCard.all
-    @e_bills = EBill.all
-    @equipments = Equipment.all
-    # 現時点では持ってnewでネストして持ってこれないのでそのまま
-    # edit中間テーブルでの扱いをメンターさんに伺う。
-    @store.store_credit_cards
-    @store.store_e_bills
-    @store.store_equipments
+    @store_genres = StoreGenre.all
   end
 
   def update
-    # 動作未確認/store.newが完成してから確認する
     @store = Store.find(params[:id])
-    @store.user_id = current_user.id
     if @store.update(store_params)
       redirect_to users_store_path(@store)
     else
@@ -63,7 +49,6 @@ class Users::StoresController < ApplicationController
       :phone_number,
       :branch_name,
       :kana_branch_name,
-      :store_genre,
       :reservation,
       :reservation_of_considerations,
       :traffic_method,
@@ -72,20 +57,17 @@ class Users::StoresController < ApplicationController
       :consumption_budget,
       :reservation_of_considerations,
       :equipment,
+      :credit_card,
+      :e_money,
+      :comment,
       :private_room,
       :no_smoking,
       :home_page,
       :news,
       :image,
-      :genre_name,
+      :store_genre_id,
       :parking,
-      :credit_cards_ids,
-      :e_bill_ids,
-      :equipment_ids,
-      :reserved,
-      store_credit_cards_attributes: [:id, :credit_card_id],
-      store_e_bills_attributes: [:id, :e_bill_id],
-      store_equipments_attributes: [:id, :equipment_id])
+      :reserved)
   end
 
 end

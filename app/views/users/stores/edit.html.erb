@@ -55,9 +55,9 @@
 		<tbody>
 			<tr>
 				<td>店舗＿ジャンル</td>
-				<td><%= f.label :store_genre, "寿司" %></td><td><%= f.radio_button :store_genre, "寿司"  %></td>
-				<td><%= f.label :store_genre, "回転寿司" %></td><td><%= f.radio_button :store_genre, "回転寿司"  %></td>
-				<td><%= f.label :store_genre, "立ち食い寿司" %></td><td><%= f.radio_button :store_genre, "立ち食い寿司"  %></td>
+				<td><%= f.label :store_genre_id, "寿司" %></td><td><%= f.radio_button :store_genre_id, 1  %></td>
+				<td><%= f.label :store_genre_id, "回転寿司" %></td><td><%= f.radio_button :store_genre_id, 2  %></td>
+				<td><%= f.label :store_genre_id, "立ち食い寿司" %></td><td><%= f.radio_button :store_genre_id, 3  %></td>
 			</tr>
 			<tr>
 				<td>予約</td>
@@ -98,14 +98,7 @@
 			</tr>
 			<tr>
 				<td>支払い可能カード</td>
-				<!-- 見直す箇所:動作で不明点をメンターさんに伺う。ids=>idでは -->
-
-				<%= fields_for :store_credit_cards do |ff| %>
-					<% @credit_cards.each do |credit_card| %>
-						<td><%= credit_card.genre_name %>
-							<%= ff.check_box :credit_card_ids, { multiple: true, include_hidden: false }, credit_card[:id] %></td>
-					<% end %>
-				<% end %>
+				<td><%= f.text_field :credit_card, placeholder: "例 :visa, JCB" %></td>
 			</tr>
 			<tr>
 				<td>予約時の注意事項</td>
@@ -113,13 +106,7 @@
 			</tr>
 			<tr>
 				<td>支払い可能電子マネー</td>
-				<!-- 見直す箇所:動作で不明点をメンターさんに伺う。ids=>idでは -->
-				<%= fields_for :store_e_bills do |ff| %>
-					<% @e_bills.each do |e_bill| %>
-						<td><%= e_bill.genre_name %>
-							<%= ff.check_box :e_bill_ids, { multiple: true, include_hidden: false }, e_bill[:id] %></td>
-					<% end %>
-				<% end %>
+				<td><%= f.text_field :e_money, placeholder: "例 :paypay, Lienpay"  %></td>
 			</tr>
 
 		</tbody>
@@ -147,6 +134,15 @@
 				</td>
 			</tr>
 			<tr>
+				<td>貸し切り</td>
+				<td><%= f.label :reserved, "あり" %>
+					<%= f.radio_button :reserved, :true %>
+				</td>
+				<td><%= f.label :reserved, "なし" %>
+					<%= f.radio_button :reserved, :false %>
+				</td>
+			</tr>
+			<tr>
 				<td>駐車場</td>
 				<td><%= f.text_field :parking %></td>
 			</tr>
@@ -164,13 +160,7 @@
 			</tr>
 			<tr>
 				<td>空間・設備</td>
-				<!-- 見直す箇所:動作で不明点をメンターさんに伺う。ids=>idでは -->
-				<%= fields_for :store_equipments do |ff| %>
-					<% @equipments.each do |equipment| %>
-						<td><%= equipment.genre_name %>
-							<%= ff.check_box :equipment_ids, { multiple: true, include_hidden: false }, equipment[:id] %></td>
-					<% end %>
-				<% end %>
+				<td><%= f.text_field :equipment, placeholder: "例 :席が広い. 座敷がある"  %></td>
 			</tr>
 		</tbody>
 	</table>
@@ -183,6 +173,10 @@
 			</tr>
 		</thead>
 		<tbody>
+			<tr>
+				<td>店舗紹介文</td>
+				<td><%= f.text_field :comment %></td>
+			</tr>
 			<tr>
 				<td>ホームページURL</td>
 				<td><%= f.text_field :home_page %></td>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_29_065916) do
+ActiveRecord::Schema.define(version: 2020_08_31_132011) do
 
   create_table "coupons", force: :cascade do |t|
     t.text "reason", null: false
@@ -23,30 +23,6 @@ ActiveRecord::Schema.define(version: 2020_08_29_065916) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "store_id"
-  end
-
-  create_table "credit_cards", force: :cascade do |t|
-    t.integer "store_credit_cards_id"
-    t.string "genre_name", default: "", null: false
-    t.boolean "display_status", default: true, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "e_bills", force: :cascade do |t|
-    t.integer "store_e_bill_id"
-    t.string "genre_name", default: "", null: false
-    t.boolean "display_status", default: true, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "equipment", force: :cascade do |t|
-    t.integer "store_equipment_id"
-    t.string "genre_name", default: "", null: false
-    t.boolean "display_status", default: true, null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
   end
 
   create_table "favorite_stores", force: :cascade do |t|
@@ -101,23 +77,9 @@ ActiveRecord::Schema.define(version: 2020_08_29_065916) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "store_credit_cards", force: :cascade do |t|
-    t.integer "store_id", null: false
-    t.integer "credit_card_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "store_e_bills", force: :cascade do |t|
-    t.integer "store_id", null: false
-    t.integer "e_bill_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "store_equipments", force: :cascade do |t|
-    t.integer "store_id", null: false
-    t.integer "equipment_id", null: false
+  create_table "store_genres", force: :cascade do |t|
+    t.string "genre_name", null: false
+    t.boolean "display_status", default: true, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -138,14 +100,13 @@ ActiveRecord::Schema.define(version: 2020_08_29_065916) do
     t.string "address", default: "", null: false
     t.float "latitude"
     t.float "longitude"
-    t.string "postal_code", default: "0", null: false
+    t.string "postal_code", null: false
     t.string "store_name", default: "", null: false
     t.string "kana_store_name", default: "", null: false
-    t.string "phone_number", default: "0", null: false
+    t.string "phone_number", null: false
     t.string "branch_name", default: "", null: false
     t.string "kana_branch_name", default: "", null: false
     t.string "image_id", default: "", null: false
-    t.integer "store_genre", default: 0, null: false
     t.text "reservation_of_considerations", null: false
     t.integer "reservation", default: 0, null: false
     t.text "traffic_method", null: false
@@ -160,6 +121,10 @@ ActiveRecord::Schema.define(version: 2020_08_29_065916) do
     t.text "home_page", null: false
     t.text "news", null: false
     t.boolean "display_status", default: true, null: false
+    t.integer "store_genre_id", null: false
+    t.string "credit_card", default: "", null: false
+    t.string "e_money", default: "", null: false
+    t.text "comment", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
