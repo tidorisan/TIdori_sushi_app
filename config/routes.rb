@@ -1,7 +1,14 @@
 Rails.application.routes.draw do
 
-  devise_for :users
+  devise_for :users, controllers: {
+    registrations: 'users/registrations',
+    passwords: 'users/passwords'
+  }
   root 'tidori_sushi/stores#top'
+
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+  end
 
   namespace :users do
     get 'store_genres/index'

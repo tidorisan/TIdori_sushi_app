@@ -3,6 +3,7 @@
 class Users::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
+  before_action :check_guest, only: %i[update destroy]
 
   # GET /resource/sign_up
   # def new
@@ -56,11 +57,18 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up for inactive accounts.
-   def after_inactive_sign_up_path_for(resource)
+  def after_inactive_sign_up_path_for(resource)
     if user.role == "store_admin"
       redirect_to new_users_user_path
     else
       super(resource)
     end
-   end
+  end
+
+  def check_guest
+    if resource.email == 'guest@example.com'
+      redirect_to root_path, alert: 'ゲストユーザーの変更・削除はできません。'
+    end
+  end
+
 end

@@ -4,6 +4,12 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |user|
+      user.password = SecureRandom.urlsafe_base64
+    end
+  end
+
   enum role: { customer: 1, store_admin: 2, site_admin: 3 }
 
   enum job_title: {
@@ -24,4 +30,6 @@ class User < ApplicationRecord
 	has_many :store_buzzs, dependent: :destroy
 
 	attachment :image
+
+	validates :nickname, presence: true
 end
