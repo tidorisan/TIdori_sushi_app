@@ -1,0 +1,22 @@
+<p>stores/favorites</p>
+<div>
+	<p>お気に入り一覧</p>
+	<% @favorite_stores.each do |favorite_store| %>
+		<div>
+			<%= link_to tidori_sushi_store_path(favorite_store) do %>
+				<%= favorite_store.store.id %>
+				<%= attachment_image_tag favorite_store.store, :image, size: '100x100', fallback: 'no_image.jpg' %>
+				<%= favorite_store.store.store_name %>
+				<% if favorite_store.store.store_genre_id == 1  %>
+					<p>寿司</p>
+				<% elsif  favorite_store.store.store_genre_id == 2 %>
+					<p>回転寿司</p>
+				<% else %>
+					<p>立ち食い寿司</p>
+				<% end %>
+				<%= favorite_store.store.address %>
+				<%= favorite_store.store.regular_holiday %>
+			<% end %>
+		</div>
+	<% end %>
+</div>
