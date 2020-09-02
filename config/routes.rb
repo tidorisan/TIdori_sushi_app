@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   }
   root 'tidori_sushi/stores#top'
 
-  # 以下を追加
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
