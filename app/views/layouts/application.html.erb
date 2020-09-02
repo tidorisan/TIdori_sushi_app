@@ -24,11 +24,12 @@
           </div>
           
           <div class="collapse navbar-collapse" id="navbarEexample">
-            <ul class="nav navbar-nav">
+            <ul class="nav navbar-nav navbar-right">
               <li class="active"><a href="#">メニューＡ</a></li>
-              <li><a href="#">メニューＢ</a></li>
-              <li><a href="#">メニューＣ</a></li>
-              <li><%= link_to "log_out", destroy_user_session_path, method: :delete %></li>
+              <li ><a href="#">メニューＢ</a></li>
+              <li ><a href="#">メニューＣ</a></li>
+              <li ><%= link_to "log_out", destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %></li>
             </ul>
           </div>
         </div>

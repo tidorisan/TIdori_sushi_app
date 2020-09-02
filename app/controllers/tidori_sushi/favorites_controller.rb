@@ -17,4 +17,5 @@ class TidoriSushi::FavoritesController < ApplicationController
 		end
 	end
 
+
 end
