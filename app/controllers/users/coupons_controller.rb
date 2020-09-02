@@ -13,7 +13,7 @@ class Users::CouponsController < ApplicationController
   	@coupon = Coupon.new(coupon_params)
     @coupon.store_id = @store_id.id
     if @coupon.save
-      redirect_to users_store_coupon_path(@coupon, @store_id)
+      redirect_to users_store_coupon_path(@store_id, @coupon)
     else
       render = "users/coupons/show"
     end

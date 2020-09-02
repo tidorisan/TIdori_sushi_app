@@ -14,13 +14,14 @@
 		<tbody>
 			<% @coupons.each do |coupon| %>
 				<tr>
+					<td><%= link_to coupon.id, users_store_coupon_path(@store_id, coupon.id) %></td>
 					<td><%= coupon.target %></td>
 					<% if coupon.enabled_status == true %>
 						<td><p>有効</p></td>
 					<% else %>
 						<td><p>無効</p></td>
 					<% end %>
-					<td><%= link_to "編集画面へ", edit_users_store_coupon_path(coupon.id, coupon.store_id) %></td>
+					<td><%= link_to "編集画面へ", edit_users_store_coupon_path(coupon.store_id, coupon.id) %></td>
 				</tr>
 			<% end %>
 		</tbody>
