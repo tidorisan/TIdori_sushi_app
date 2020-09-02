@@ -11,12 +11,12 @@ class Users::MenusController < ApplicationController
   end
 
   def create
-    @store_id = Store.find(params[:store_id])
+    @store = Store.find(params[:store_id])
     @store_menu = StoreMenu.new(store_menu_params)
-    @store_menu.store_id = @store_id.id
+    @store_menu.store_id = @store.id
     binding.pry
     if @store_menu.save
-      redirect_to users_store_menu_path(@store_menu.id, @store_id.id)
+      redirect_to users_store_menu_path(@store.id, @store_menu.id)
     else
       render = "users/menus/show"
     end
@@ -34,7 +34,7 @@ class Users::MenusController < ApplicationController
   def update
   	@store_menu = StoreMenu.find(params[:id])
     if @store_menu.update(store_menu_params)
-      redirect_to users_store_menu_path(@store_menu)
+      redirect_to users_store_menu_path(@store_menu.store_id, @store_menu.id)
     else
       render = "users/menus/edit"
     end
@@ -42,7 +42,7 @@ class Users::MenusController < ApplicationController
 
   private
   def store_menu_params
-    params.require(:store_menu).permit(:name, :comment, :tax_excluded_price, :menu_genre_id, :store_id)
+    params.require(:store_menu).permit(:name, :comment, :tax_excluded_price, :menu_genre_id)
   end
 
 end

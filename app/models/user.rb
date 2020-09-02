@@ -18,8 +18,10 @@ class User < ApplicationRecord
 
 	has_many :stores, dependent: :destroy
 
-	has_many :favorites
-	has_many :following, through: :favorites, source: :store
+	has_many :favorite_stores, dependent: :destroy
+	has_many :user_favorites, through: :favorite_stores, source: :store
 
 	has_many :store_buzzs, dependent: :destroy
+
+	attachment :image
 end

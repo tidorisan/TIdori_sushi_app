@@ -4,10 +4,15 @@
 		<%= link_to "メニュー", tidori_sushi_store_menus_path(@store) %>
 		<%= link_to "口コミ", tidori_sushi_store_store_buzzs_path(@store) %>
 		<%= link_to "クーポン", tidori_sushi_coupons_path %>
+		<% if @store.favorited_by?(current_user) %>
+					<%=  link_to "お気に入りを外す", tidori_sushi_store_favorites_path(@store), method: :delete, local: true %>
+				<% else %>
+					<%=  link_to "お気に入りにする", tidori_sushi_store_favorites_path(@store), method: :post, local: true %>
+				<% end %>
 		<% if user_signed_in?  %>
-			<% if current_user.role == :customer %>
-				<%= link_to "口コミ投稿", new_tidori_sushi_store_store_buzz_path(@store) %>
-			<% end %>
+		<% if current_user.role == :customer %>
+			<%= link_to "口コミ投稿", new_tidori_sushi_store_store_buzz_path(@store) %>
+		<% end %>
 		<% end %>
 	</div>
 	<div>

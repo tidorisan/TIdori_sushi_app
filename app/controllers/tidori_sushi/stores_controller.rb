@@ -20,10 +20,11 @@ class TidoriSushi::StoresController < ApplicationController
   end
 
   def favorites
+    @favorite_stores = current_user.favorite_stores.includes(:store).all
   end
 
   private
   def q_params
-    params.require(:q).permit(:address_or_store_name_or_branch_name_cont)
+    params.require(:q).permit(:address_or_store_name_or_branch_name_cont, :store_genre_genre_name_eq)
   end
 end

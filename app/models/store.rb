@@ -13,7 +13,7 @@ class Store < ApplicationRecord
 
 	belongs_to :store_genre
 
-	has_many :favorites
+	has_many :favorite_stores, dependent: :destroy
 
 	has_many :coupons, dependent: :destroy
 
@@ -22,4 +22,8 @@ class Store < ApplicationRecord
 	has_many :store_buzzs, dependent: :destroy
 
 	attachment :image
+
+	def favorited_by?(user)
+		favorite_stores.where(user_id: user.id).exists?
+	end
 end
