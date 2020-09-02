@@ -5,6 +5,7 @@
 <%= link_to "お気に入り店舗", tidori_sushi_store_favotites_path %>
 
 <%= form_with(model: @user, url: tidori_sushi_user_path(@user), method: :patch, local: true) do |f| %>
+	<%= render 'layouts/error_messages', model: @user %>
 	<table>
 		<tbody>
 			<tr>

@@ -30,4 +30,6 @@ class User < ApplicationRecord
 	has_many :store_buzzs, dependent: :destroy
 
 	attachment :image
+
+	validates :nickname, presence: true
 end
