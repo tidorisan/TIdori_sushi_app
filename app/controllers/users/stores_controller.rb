@@ -1,6 +1,6 @@
 class Users::StoresController < ApplicationController
   def index
-    @stores = Store.all
+    @stores = current_user.stores.all
   end
 
   def new

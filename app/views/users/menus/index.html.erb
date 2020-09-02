@@ -4,15 +4,15 @@
 <td><%= link_to "メニュー登録", new_users_store_menu_path(@store_id) %></td>
 
 	<table>
-		<caption>管理者＿店舗一覧画面</caption>
+		<caption>メニュー覧画面</caption>
 		<thead>
 			<tr>
 				<th>メニュー名</th>
 				<th>表示</th>
 			</tr>
 		</thead>
-		<tbody>
-			<% @store_menus.each do |store_menu| %>
+		<% @store_menus.each do |store_menu| %>
+			<tbody>
 				<tr>
 					<td><%= store_menu.name %></td>
 					<td><%= store_menu.tax_excluded_price %></td>
@@ -23,6 +23,6 @@
 					<% end %>
 					<td><%= link_to "編集画面へ", edit_users_store_menu_path(store_menu.store_id, store_menu.id) %></td>
 				</tr>
-			<% end %>
-		</tbody>
+			</tbody>
+		<% end %>
 	</table>

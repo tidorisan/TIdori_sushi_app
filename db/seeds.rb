@@ -6,6 +6,13 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
+	User.create!(email: 'site@hoge.com', password: 'site@hoge.com', password_confirmation: 'site@hoge.com', role: 3)
+	User.create!(email: 'store1@hoge.com', password: 'store1@hoge.com', password_confirmation: 'store1@hoge.com', role: 2)
+	User.create!(email: 'store2@hoge.com', password: 'store2@hoge.com', password_confirmation: 'store2@hoge.com', role: 2)
+	User.create!(email: 'store3@hoge.com', password: 'store3@hoge.com', password_confirmation: 'store3@hoge.com', role: 2)
+	User.create!(email: 'customer@hoge.com', password: 'customer@hoge.com', password_confirmation: 'customer@hoge.com', role: 1)
+
+
 	StoreGenre.create(:genre_name => "寿司")
 	StoreGenre.create(:genre_name => "回転寿司")
 	StoreGenre.create(:genre_name => "立ち食い寿司")
