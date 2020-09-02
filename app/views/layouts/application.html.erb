@@ -28,12 +28,12 @@
               <li class="active"><a href="#">メニューＡ</a></li>
               <li><a href="#">メニューＢ</a></li>
               <li><a href="#">メニューＣ</a></li>
+              <li><%= link_to "log_out", destroy_user_session_path, method: :delete %></li>
             </ul>
           </div>
         </div>
       </nav>
 
-      <%= link_to "log_out", destroy_user_session_path, method: :delete %>
     </header>
     <%= yield %>
   </body>
