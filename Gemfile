@@ -73,3 +73,5 @@ group :production do
 end
 gem 'ransack'
 gem 'geocoder'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails'
