@@ -2,12 +2,9 @@ class TidoriSushi::StoresController < ApplicationController
 
 	def top
     @q = Store.ransack(params[:q])
-    @stores = Store.all.order(id: "DESC")
+    @stores = Store.all.limit(4).order(id: "DESC")
 	end
 
-
-  def index
-  end
 
   def show
     @store = Store.find(params[:id])
@@ -21,15 +18,6 @@ class TidoriSushi::StoresController < ApplicationController
 
   def favorites
     @favorite_stores = current_user.favorite_stores.includes(:store).all
-  end
-
-  # 以下を追加
-  def new_guest
-    user = User.find_or_create_by!(email: 'guest@example.com') do |user|
-      user.password = SecureRandom.urlsafe_base64
-    end
-    sign_in user
-    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 
   private

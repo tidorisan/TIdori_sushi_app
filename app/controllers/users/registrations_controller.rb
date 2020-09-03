@@ -58,7 +58,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up for inactive accounts.
   def after_inactive_sign_up_path_for(resource)
-    if user.role == "store_admin"
+    if user.store_admin?
       redirect_to new_users_user_path
     else
       super(resource)
