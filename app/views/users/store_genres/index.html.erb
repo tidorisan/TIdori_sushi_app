@@ -1,12 +1,12 @@
+<%= render 'layouts/error_messages', model: @store_genre %>
 <h1>Users::StoreGenres#index</h1>
 <p>Find me in app/views/users/store_genres/index.html.erb</p>
-
 
 
 <div>
 	<%= form_with(model: @store_genre, url: users_store_genres_path, local: true) do |f| %>
 		<%= f.label :genre_name, '店舗ジャンル' %>
-		<%= f.text_field :genre_name %>
+		<%= f.text_field :genre_name, required: "true", class: "text_field" %>
 		<%= f.label :display_status, '有効' %>
 		<%= f.radio_button :display_status, :true, checked: true %>
 

@@ -14,31 +14,31 @@
 		<tbody>
 			<tr>
 				<td>店名</td>
-				<td><%= f.text_field :store_name, placeholder: "例)  " %></td>
+				<td><%= f.text_field :store_name, placeholder: "例)  ", required: "true" %></td>
 			</tr>
 			<tr>
 				<td>店名(全角カタカナ)</td>
-				<td><%= f.text_field :kana_store_name %></td>
+				<td><%= f.text_field :kana_store_name, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>店舗＿郵便番号</td>
-				<td><%= f.text_field :postal_code %></td>
+				<td><%= f.text_field :postal_code, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>店舗＿住所</td>
-				<td><%= f.text_field :address %></td>
+				<td><%= f.text_field :address, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>店舗＿電話番号</td>
-				<td><%= f.text_field :phone_number %></td>
+				<td><%= f.text_field :phone_number, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>支店名</td>
-				<td><%= f.text_field :branch_name %></td>
+				<td><%= f.text_field :branch_name, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>支店名</td>
-				<td><%= f.text_field :kana_branch_name %></td>
+				<td><%= f.text_field :kana_branch_name, required: "true" %></td>
 			</tr>
 		</tbody>
 	</table>
@@ -66,19 +66,19 @@
 			</tr>
 			<tr>
 				<td>予約時の注意事項</td>
-				<td><%= f.text_field :reservation_of_considerations %></td>
+				<td><%= f.text_field :reservation_of_considerations, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>交通手段</td>
-				<td><%= f.text_field :traffic_method %></td>
+				<td><%= f.text_field :traffic_method, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>営業日</td>
-				<td><%= f.text_field :business_day %></td>
+				<td><%= f.text_field :business_day, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>定休日</td>
-				<td><%= f.text_field :regular_holiday %></td>
+				<td><%= f.text_field :regular_holiday, required: "true" %></td>
 			</tr>
 		</tbody>
 	</table>
@@ -93,15 +93,15 @@
 		<tbody>
 			<tr>
 				<td>予算</td>
-				<td><%= f.text_field :consumption_budget %></td>
+				<td><%= f.text_field :consumption_budget, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>支払い可能カード</td>
-				<td><%= f.text_field :credit_card, placeholder: "例 :visa, JCB" %></td>
+				<td><%= f.text_field :credit_card, placeholder: "例 :visa, JCB", required: "true" %></td>
 			</tr>
 			<tr>
 				<td>支払い可能電子マネー</td>
-				<td><%= f.text_field :e_money, placeholder: "例 :paypay, Lienpay"  %></td>
+				<td><%= f.text_field :e_money, placeholder: "例 :paypay, Lienpay", required: "true" %></td>
 			</tr>
 
 		</tbody>
@@ -135,7 +135,7 @@
 			</tr>
 			<tr>
 				<td>駐車場</td>
-				<td><%= f.text_field :parking %></td>
+				<td><%= f.text_field :parking, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>禁煙・喫煙</td>
@@ -151,7 +151,7 @@
 			</tr>
 			<tr>
 				<td>空間・設備</td>
-				<td><%= f.text_field :equipment, placeholder: "例 :席が広い. 座敷がある"  %></td>
+				<td><%= f.text_field :equipment, placeholder: "例 :席が広い. 座敷がある", required: "true"  %></td>
 			</tr>
 		</tbody>
 	</table>
@@ -166,15 +166,15 @@
 		<tbody>
 			<tr>
 				<td>店舗紹介文</td>
-				<td><%= f.text_field :comment %></td>
+				<td><%= f.text_field :comment, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>ホームページURL</td>
-				<td><%= f.text_field :home_page %></td>
+				<td><%= f.text_field :home_page, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>お知らせしたいこと</td>
-				<td><%= f.text_field :news %></td>
+				<td><%= f.text_field :news, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>店舗画像</td>

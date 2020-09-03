@@ -63,6 +63,17 @@ ja:
         home_page: ホームページURL
         news: お知らせしたいこと
         store_genre: 店舗ジャンル
+      store_genre:
+        genre_name: 店舗ジャンル
+        display_status: サイト表示ステータス
+      menu_genre:
+        genre_name: 店舗ジャンル
+        display_status: サイト表示ステータス
+      store_menu:
+        name: メニュー名
+        comment: メニュー説明
+        tax_excluded_price: 値段(税抜き)
+        menu_genre_id: メニュージャンル
 
 
 

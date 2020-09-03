@@ -66,6 +66,6 @@ class Store < ApplicationRecord
 	validates :home_page, presence: true,
 						   length: { maximum: 200 }
 	validates :news, presence: true,
-						   length: { maximum: 00 }
+						   length: { maximum: 200 }
 
 end
