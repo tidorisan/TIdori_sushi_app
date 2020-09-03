@@ -74,6 +74,12 @@ ja:
         comment: メニュー説明
         tax_excluded_price: 値段(税抜き)
         menu_genre_id: メニュージャンル
+      coupon:
+        reason: 割引理由
+        detail: 割引内容説明
+        target: 対象
+        writing: 但書
+        expiration_date: 有効期限
 
 
 

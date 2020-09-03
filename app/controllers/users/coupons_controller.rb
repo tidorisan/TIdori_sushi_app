@@ -15,7 +15,7 @@ class Users::CouponsController < ApplicationController
     if @coupon.save
       redirect_to users_store_coupon_path(@store_id, @coupon)
     else
-      render = "users/coupons/show"
+      render "users/coupons/new"
     end
   end
 
@@ -32,7 +32,7 @@ class Users::CouponsController < ApplicationController
     if @coupon.update(coupon_params)
       redirect_to users_store_coupon_path(@coupon)
     else
-      render = "users/coupons/edit"
+      render  "users/coupons/edit"
     end
   end
 
