@@ -31,5 +31,13 @@ body {
 .container {
   height: 500px;
 }
+.text_field {
+	width: 220px;
+	border: 2px solid #ccc;
+	outline: none;
+}
+input[class="text_field"]:focus {
+	background: #faf4e2;
+}
 
 

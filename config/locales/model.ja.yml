@@ -1,0 +1,42 @@
+ja:
+  activerecord:
+    models:
+      store_buzz: 口コミ
+      user: ユーザー
+      store_admin_application: 新規店舗管理者申請
+    attributes:
+      user:
+        email: メールアドレス
+        current_password: 現在のパスワード
+        password: パスワード
+        family_name: 氏名(性)
+        first_name: 氏名(名)
+        kana_family_name: カナ氏名(性)
+        kana_first_name: カナ氏名(名)
+        birthday: 生年月日
+        job_title: 店舗役職
+        permit_to_store_manager: 店舗管理者に許可をとりましたか？
+        get_restaurant_sales_permit_form: 飲食店営業許可書を取得していますか？
+        related_with_antisocial_force: 反社会的勢力との関係は一切ありませんか？
+        mannaers_industry: 風俗法の業態に当てはまりませんか？
+      store_buzz:
+        title: タイトル
+        detail: 口コミ本文
+      store_admin_application:
+        address: 住所
+        postal_code: 郵便番号
+        store_name: 店舗名
+        kana_store_name: 店舗名(全角カタカナ)
+        phone_number: 店舗_郵便番号
+        email: メールアドレス
+        family_name: 氏名(性)
+        first_name: 氏名(名)
+        kana_family_name: カナ氏名(性)
+        kana_first_name: カナ氏名(名)
+        birthday: 生年月日
+        job_title: 店舗役職
+        permit_to_store_manager: 店舗管理者に許可をとりましたか？
+        get_restaurant_sales_permit_form: 飲食店営業許可書を取得していますか？
+        related_with_antisocial_force: 反社会的勢力との関係は一切ありませんか？
+        mannaers_industry: 風俗法の業態に当てはまりませんか？
+

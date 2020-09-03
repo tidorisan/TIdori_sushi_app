@@ -10,11 +10,11 @@
 		<tbody>
 			<tr>
 				<td>メールアドレス</td>
-				<td><%= f.text_field :email %></td>
+				<td><%= f.text_field :email, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>ニックネーム</td>
-				<td><%= f.text_field :nickname %></td>
+				<td><%= f.text_field :nickname, class: "text_field", placeholder: "口コミ投稿時に表示されます。", required: "true" %></td>
 			</tr>
 			<tr>
 				<td>アイコン画像</td>

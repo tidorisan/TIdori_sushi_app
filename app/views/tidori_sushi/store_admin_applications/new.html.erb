@@ -1,7 +1,8 @@
+<%= render 'layouts/error_messages', model: @store_admin_application %>
 <h1>TidoriSushi::StoreAdminApplications#new</h1>
 <p>Find me in app/views/tidori_sushi/store_admin_applications/new.html.erb</p>
 
-<p>申請についてのお願い: 店舗申請を投稿して頂いた後１週間ほどお時間をいただきます。<br>掲載の許可でおりましたら,登録して頂いたメールアドレスにご連絡させていただきます。</p>
+<p>申請についてのお願い: 店舗申請を投稿して頂いた後１週間ほどお時間をいただきます。<br>掲載の許可で決定が決まり次第,登録して頂いたメールアドレスにご連絡させていただきます。</p>
 
 <%= form_with(model: @store_admin_application, url: tidori_sushi_store_admin_applications_confirm_path, method: :post, local: :true) do |f| %>
 
@@ -15,23 +16,23 @@
 		<tbody>
 			<tr>
 				<td>店舗_住所</td>
-				<td><%= f.text_field :address %></td>
+				<td><%= f.text_field :address, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>店舗_郵便番号</td>
-				<td><%= f.text_field :postal_code %></td>
+				<td><%= f.text_field :postal_code, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>店舗名</td>
-				<td><%= f.text_field :store_name %></td>
+				<td><%= f.text_field :store_name, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>店舗名(全角カタカナ)</td>
-				<td><%= f.text_field :kana_store_name %></td>
+				<td><%= f.text_field :kana_store_name, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>店舗＿電話番号</td>
-				<td><%= f.text_field :phone_number%></td>
+				<td><%= f.text_field :phone_number, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>支店名(支店名)</td>
@@ -54,23 +55,23 @@
 		<tbody>
 			<tr>
 				<td>メールアドレス</td>
-				<td><%= f.text_field :email %></td>
+				<td><%= f.text_field :email, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>氏名(性)</td>
-				<td><%= f.text_field :family_name %></td>
+				<td><%= f.text_field :family_name, required: "true" %></td>
 				<td>氏名(名)</td>
-				<td><%= f.text_field :first_name %></td>
+				<td><%= f.text_field :first_name, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>カナ氏名(性)</td>
-				<td><%= f.text_field :kana_family_name %></td>
+				<td><%= f.text_field :kana_family_name, required: "true" %></td>
 				<td>カナ氏名(名)</td>
-				<td><%= f.text_field :kana_first_name %></td>
+				<td><%= f.text_field :kana_first_name, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>生年月日</td>
-				<td><%= f.text_field :birthday %></td>
+				<td><%= f.text_field :birthday, required: "true" %></td>
 			</tr>
 			<tr>
 				<td>店舗役職</td>
