@@ -1,5 +1,15 @@
+
+<div class="bxslider">
+	<div><%= image_tag "image01.jpg", class: "img" %></div>
+	<div><%= image_tag "image02.jpg", class: "img" %></div>
+	<div><%= image_tag "image08.jpg", class: "img" %></div>
+	<div><%= image_tag "image04.jpg", class: "img" %></div>
+</div>
+
+<h1 class="jquery">Hello jQuery!</h1>
 <p>tidori_sushi/stores/top</p>
 <p>/  ルート</p>
+
 <div>
 	<%= search_form_for(@q, url: tidori_sushi_search_path, method: :post) do |f| %>
 		<%= f.search_field :address_or_store_name_or_branch_name_cont, placeholder: "店名や住所を入力してください" %>
@@ -52,3 +62,12 @@
 		</tbody>
 	</table>
 </div>
+
+<span id="back">
+  <a href="#">
+    <img src="assets/arrow.png" alt="">
+  </a>
+</span>
+
+
+<script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer></script>

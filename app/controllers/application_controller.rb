@@ -7,13 +7,6 @@ class ApplicationController < ActionController::Base
   		devise_parameter_sanitizer.permit(:sign_up, keys: [:role])
 	end
 
-  # def current_ability
-  #   if user_signed_in?
-  #     @current_ability ||= Ability.new(current_user)
-  #   else
-  #     @current_ability ||= Ability.new(nil)
-  #   end
-  # end
 
 	private
     def after_sign_in_path_for(resource_or_scope)
