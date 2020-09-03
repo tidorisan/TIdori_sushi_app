@@ -5,30 +5,8 @@ class Ability
 
   def initialize(user)
 
-    can :manage, [:session, :menus, :store_admin_application, :home, :stores]
-    can [:search, :top, :show], :store
-    can :read, :store_buzz
-    can :index, :coupon
+    binding.pry
 
-    if user.present?
-
-        if user.customer?
-            can :manage, [:session, :store, :menus, :store_buzz, :store_admin_application,
-             :home, :coupon]
-             can :read, :favorite, user_id: user.id
-             can :manage, :user, user_id: user.id
-        end
-
-        if user.store_admin?
-            can :manage, :store, user_id: user.id
-        end
-
-        if user.site_admin?
-            can :manage, :all
-        end
-
-
-    end
 
     # Define abilities for the passed in user here. For example:
     #

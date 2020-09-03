@@ -6,9 +6,6 @@ class TidoriSushi::StoresController < ApplicationController
 	end
 
 
-  def index
-  end
-
   def show
     @store = Store.find(params[:id])
   end
