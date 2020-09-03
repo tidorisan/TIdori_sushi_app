@@ -26,4 +26,46 @@ class Store < ApplicationRecord
 	def favorited_by?(user)
 		favorite_stores.where(user_id: user.id).exists?
 	end
+
+	validates :store_name, presence: true,
+						   length: { maximum: 50 }
+	validates :kana_store_name, presence: true,
+						   length: { maximum: 50 }
+	validates :address, presence: true
+	validates :postal_code, presence: true,
+	 				   numericality: true
+	validates :phone_number, presence: true,
+						numericality: true
+	validates :store_genre_id, acceptance: true
+	validates :reservation, acceptance: true
+	validates :reservation_of_considerations, presence: true,
+						   length: { maximum: 200 }
+	validates :traffic_method, presence: true,
+						   length: { maximum: 500 }
+	validates :business_day, presence: true,
+						   length: { maximum: 200 }
+	validates :regular_holiday, presence: true,
+						   length: { maximum: 200 }
+	validates :consumption_budget, presence: true,
+						           numericality: true,
+						   		   length: { maximum: 200 }
+	validates :credit_card, presence: true
+	validates :e_money, presence: true,
+						   length: { maximum: 100 }
+
+	validates :equipment, presence: true,
+						   length: { maximum: 500 }
+	validates :private_room, acceptance: true
+	validates :reserved, acceptance: true
+	validates :parking, presence: true,
+						   length: { maximum: 100 }
+	validates :no_smoking, acceptance: true
+
+	validates :comment, presence: true,
+						   length: { maximum: 300 }
+	validates :home_page, presence: true,
+						   length: { maximum: 200 }
+	validates :news, presence: true,
+						   length: { maximum: 00 }
+
 end

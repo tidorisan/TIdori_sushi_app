@@ -1,3 +1,4 @@
+<%= render 'layouts/error_messages', model: @store %>
 <h1>Users::Stores#new</h1>
 <p>Find me in app/views/users/stores/new.html.erb</p>
 
@@ -13,7 +14,7 @@
 		<tbody>
 			<tr>
 				<td>店名</td>
-				<td><%= f.text_field :store_name %></td>
+				<td><%= f.text_field :store_name, placeholder: "例)  " %></td>
 			</tr>
 			<tr>
 				<td>店名(全角カタカナ)</td>
@@ -99,10 +100,6 @@
 				<td><%= f.text_field :credit_card, placeholder: "例 :visa, JCB" %></td>
 			</tr>
 			<tr>
-				<td>予約時の注意事項</td>
-				<td><%= f.text_field :reservation_of_considerations %></td>
-			</tr>
-			<tr>
 				<td>支払い可能電子マネー</td>
 				<td><%= f.text_field :e_money, placeholder: "例 :paypay, Lienpay"  %></td>
 			</tr>
@@ -118,10 +115,6 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>座敷数</td>
-				<td><%= f.text_field :equipment %></td>
-			</tr>
 			<tr>
 				<td>個室</td>
 				<td><%= f.label :private_room, "あり" %>
