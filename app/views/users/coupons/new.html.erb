@@ -15,11 +15,11 @@
 		<tbody>
 			<tr>
 				<td>割引理由</td>
-				<td><%= f.text_field :reason, required: "true", class: "text_field", placeholder: "例) " %></td>
+				<td><%= f.text_field :reason %></td>
 			</tr>
 			<tr>
 				<td>割引内容説明</td>
-				<td><%= f.text_field :detail, required: "true", class: "text_field", placeholder: "例) " %></td>
+				<td><%= f.text_field :detail %></td>
 			</tr>
 			<tr>
 				<td>イメージ画像</td>
@@ -28,15 +28,15 @@
 			</tr>
 			<tr>
 				<td>対象</td>
-				<td><%= f.text_field :target, required: "true", class: "text_field", placeholder: "例) " %></td>
+				<td><%= f.text_field :target %></td>
 			</tr>
 			<tr>
 				<td>但書</td>
-				<td><%= f.text_field :writing , required: "true", class: "text_field", placeholder: "例) " %></td>
+				<td><%= f.text_field :writing %></td>
 			</tr>
 			<tr>
 				<td>有効期限</td>
-				<td><%= f.text_field :expiration_date, required: "true", class: "text_field", placeholder: "例) " %></td>
+				<td><%= f.text_field :expiration_date %></td>
 			</tr>
 		</tbody>
 	</table>

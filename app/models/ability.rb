@@ -5,7 +5,26 @@ class Ability
 
   def initialize(user)
 
-    binding.pry
+    can :manage, :session
+    can [:top, :index, :search, :show], Store
+    cannot :favorites, Store
+
+    # index, showアクションが実行可能
+    # can :create, Store # new, createアクションが実行可能
+    # can :update, Store # edit, updateアクションが実行可能
+    # can :destroy, Store # destroyアクション実行可能
+    # can :manage, Store # 全アクションが実行可能(resourceの7つ以外も実行可能)
+    # can [:read, :create, :update, :destroy], Store #全アクションが実行可能(resourceの7つ以外は不可)
+
+    # アクセスチェックした結果をログに出力
+    Rails.logger.debug("can? :index is " + (can? :index, Store).to_s)
+    Rails.logger.debug("can? :show is " + (can? :show, Store).to_s)
+    Rails.logger.debug("can? :new is " + (can? :new, Store).to_s)
+    Rails.logger.debug("can? :create is " + (can? :create, Store).to_s)
+    Rails.logger.debug("can? :edit is " + (can? :edit, Store).to_s)
+    Rails.logger.debug("can? :update is " + (can? :update, Store).to_s)
+    Rails.logger.debug("can? :destroy is " + (can? :destroy, Store).to_s)
+    Rails.logger.debug("can? :top is " + (can? :top, Store).to_s)
 
 
     # Define abilities for the passed in user here. For example:
