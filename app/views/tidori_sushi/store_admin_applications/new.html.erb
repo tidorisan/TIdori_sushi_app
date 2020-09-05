@@ -1,7 +1,8 @@
+<%= render 'layouts/error_messages', model: @store_admin_application %>
 <h1>TidoriSushi::StoreAdminApplications#new</h1>
 <p>Find me in app/views/tidori_sushi/store_admin_applications/new.html.erb</p>
 
-<p>申請についてのお願い: 店舗申請を投稿して頂いた後１週間ほどお時間をいただきます。<br>掲載の許可でおりましたら,登録して頂いたメールアドレスにご連絡させていただきます。</p>
+<p>申請についてのお願い: 店舗申請を投稿して頂いた後１週間ほどお時間をいただきます。<br>掲載の許可で決定が決まり次第,登録して頂いたメールアドレスにご連絡させていただきます。</p>
 
 <%= form_with(model: @store_admin_application, url: tidori_sushi_store_admin_applications_confirm_path, method: :post, local: :true) do |f| %>
 

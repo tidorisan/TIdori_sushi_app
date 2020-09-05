@@ -1,3 +1,5 @@
+<%= render 'layouts/error_messages', model: @store_buzz %>
+
 <h1>TidoriSushi::StoreBuzzs#new</h1>
 <p>Find me in app/views/tidori_sushi/store_buzzs/new.html.erb</p>
 
@@ -13,11 +15,11 @@
 		<tbody>
 			<tr>
 				<td>タイトル</td>
-				<td><%= f.text_field :title %></td>
+				<td><%= f.text_field :title, required: "true" %></td>
 			</tr>
 			<tr>
-				<td>内容</td>
-				<td><%= f.text_area :detail %></td>
+				<td>口コミ本文</td>
+				<td><%= f.text_area :detail, required: "true"  %></td>
 			</tr>
 			<tr>
 				<td>画像投稿</td>
@@ -30,11 +32,11 @@
 			</tr>
 			<tr>
 				<td>滞在時間</td>
-				<td><%= f.text_field :use_time %></td>
+				<td><%= f.text_field :use_time, required: "true"  %></td>
 			</tr>
 			<tr>
 				<td>支払い金額</td>
-				<td><%= f.text_field :pay_price %></td>
+				<td><%= f.text_field :pay_price, required: "true"  %></td>
 			</tr>
 		</tbody>
 	</table>

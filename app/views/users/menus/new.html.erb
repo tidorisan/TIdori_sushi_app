@@ -1,4 +1,6 @@
+<%= render 'layouts/error_messages', model: @store_menu %>
 <h1>Users::Menus#new</h1>
+<p>aaa</p>
 <p>Find me in app/views/users/menus/new.html.erb</p>
 
 <%= form_with(model: @store_menu, url: users_store_menus_path, mthod: :post, local: true) do |f| %>
@@ -13,15 +15,15 @@
 		<tbody>
 			<tr>
 				<td>メニュー名</td>
-				<td><%= f.text_field :name %></td>
+				<td><%= f.text_field :name, required: "true", class: "text_field", placeholder: "例) " %></td>
 			</tr>
 			<tr>
 				<td>メニュー説明</td>
-				<td><%= f.text_field :comment %></td>
+				<td><%= f.text_field :comment, required: "true", class: "text_field", placeholder: "例) " %></td>
 			</tr>
 			<tr>
 				<td>値段(税抜き)</td>
-				<td>¥ <%= f.text_field :tax_excluded_price %></td>
+				<td><%= f.text_field :tax_excluded_price, required: "true", class: "text_field", placeholder: "例) 1000" %> 円</td>
 			</tr>
 			<tr>
 				<td>メニュージャンル</td>

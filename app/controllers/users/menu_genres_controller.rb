@@ -6,7 +6,7 @@ class Users::MenuGenresController < ApplicationController
 
   def create
      @menu_genre = MenuGenre.new(menu_genre_params)
-     @menu_genre
+     @menu_genres = MenuGenre.all
     if @menu_genre.save
       redirect_to users_menu_genres_path
     else

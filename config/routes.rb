@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   namespace :tidori_sushi do
   	get 'about' => 'homes#about'
   	post 'stores' => 'stores#search', as: 'search'
+    get 'stores' => 'stores#search', as: 'get_search'
   	get 'stores/favorites' => 'stores#favorites', as: 'store_favotites'
     resources :stores, only: [:show] do
     	resources :store_buzzs, only: [:new, :create, :destroy, :index]

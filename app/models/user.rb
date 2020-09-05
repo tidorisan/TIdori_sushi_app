@@ -30,4 +30,16 @@ class User < ApplicationRecord
 	has_many :store_buzzs, dependent: :destroy
 
 	attachment :image
+
+	validates :family_name, presence: true
+	validates :first_name, presence: true
+	validates :kana_family_name, presence: true
+	validates :kana_first_name, presence: true
+	validates :birthday, presence: true,
+						numericality: true
+	validates :job_title, acceptance: true
+	validates :permit_to_store_manager, presence: true
+	validates :get_restaurant_sales_permit_form, presence: true
+	validates :related_with_antisocial_force, presence: true
+	validates :mannaers_industry, presence: true
 end

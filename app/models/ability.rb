@@ -5,7 +5,55 @@ class Ability
 
   def initialize(user)
 
-    binding.pry
+    can :manage, :sesstion
+    can :manage, :store
+    can :manage, :menu
+    can :manage, :coupon
+    can :manage, :home
+    can :manage, :store_admin_application
+
+    if user.present?
+
+        if user.customer?
+            can :manage, [:sesstion, :registration]
+            can :manage, :store
+            can :manage, :menu
+            can :manage, :coupon
+            can :manage, :home
+            can :manage, :store_admin_application
+            can :manage :favorites
+            can :manage, :user, :user_id => user.id
+        end
+
+        if user.store_admin?
+            can :manage, Store, user_id: user.id
+        end
+
+        if user.site_admin?
+            can :manage, :all
+        end
+
+
+    end
+    # cannot :favorites, Store
+    # can :manage, StoreMenu
+
+    # index, showアクションが実行可能
+    # can :create, Store # new, createアクションが実行可能
+    # can :update, Store # edit, updateアクションが実行可能
+    # can :destroy, Store # destroyアクション実行可能
+    # can :manage, Store # 全アクションが実行可能(resourceの7つ以外も実行可能)
+    # can [:read, :create, :update, :destroy], Store #全アクションが実行可能(resourceの7つ以外は不可)
+
+    # アクセスチェックした結果をログに出力
+    Rails.logger.debug("can? :index is " + (can? :index, Store).to_s)
+    Rails.logger.debug("can? :show is " + (can? :show, Store).to_s)
+    Rails.logger.debug("can? :new is " + (can? :new, Store).to_s)
+    Rails.logger.debug("can? :create is " + (can? :create, Store).to_s)
+    Rails.logger.debug("can? :edit is " + (can? :edit, Store).to_s)
+    Rails.logger.debug("can? :update is " + (can? :update, Store).to_s)
+    Rails.logger.debug("can? :destroy is " + (can? :destroy, Store).to_s)
+    Rails.logger.debug("can? :top is " + (can? :top, Store).to_s)
 
 
     # Define abilities for the passed in user here. For example:

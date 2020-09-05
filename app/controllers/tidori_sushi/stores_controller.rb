@@ -1,5 +1,6 @@
 class TidoriSushi::StoresController < ApplicationController
 
+
 	def top
     @q = Store.ransack(params[:q])
     @stores = Store.all.limit(4).order(id: "DESC")

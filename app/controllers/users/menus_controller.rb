@@ -11,14 +11,14 @@ class Users::MenusController < ApplicationController
   end
 
   def create
+    @menu_genres = MenuGenre.all
     @store = Store.find(params[:store_id])
     @store_menu = StoreMenu.new(store_menu_params)
     @store_menu.store_id = @store.id
-    binding.pry
     if @store_menu.save
       redirect_to users_store_menu_path(@store.id, @store_menu.id)
     else
-      render = "users/menus/show"
+      render "users/menus/new"
     end
   end
 
@@ -32,11 +32,12 @@ class Users::MenusController < ApplicationController
   end
 
   def update
+    @menu_genres = MenuGenre.all
   	@store_menu = StoreMenu.find(params[:id])
     if @store_menu.update(store_menu_params)
       redirect_to users_store_menu_path(@store_menu.store_id, @store_menu.id)
     else
-      render = "users/menus/edit"
+      render "users/menus/edit"
     end
   end
 
