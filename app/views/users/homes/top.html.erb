@@ -1,11 +1,17 @@
-<h1>Users::Homes#top</h1>
-<p>Find me in app/views/users/homes/top.html.erb</p>
 
-<div>
+<div class="container">
 	<% if user_signed_in? %>
 		<% if current_user.role == 'site_admin' %>
-			<%= link_to "新規店舗_登録申請一覧画面へ", users_store_admin_applications_path %><br>
-			<%= link_to 'メニュージャンル一覧・登録画面へ', users_menu_genres_path %>
+			<div class="box1">
+				<%= link_to "新規店舗_登録申請一覧画面へ", users_store_admin_applications_path, class: "link_content" %>
+			</div>
+			<div class="box1">
+				<%= link_to 'メニュージャンル一覧・登録画面へ', users_menu_genres_path, class: "link_content" %>
+			</div>
 		<% end %>
 	<% end %>
 </div>
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'user_home_top' %>
+<% end %>
+
