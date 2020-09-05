@@ -1,7 +1,7 @@
 class TidoriSushi::StoresController < ApplicationController
 
+
 	def top
-    authorize! :index, Store
     @q = Store.ransack(params[:q])
     @stores = Store.all.limit(4).order(id: "DESC")
 	end
@@ -12,7 +12,6 @@ class TidoriSushi::StoresController < ApplicationController
   end
 
   def search
-    authorize! :index, Store
     @q = Store.ransack(q_params)
     @stores = @q.result(distinct: true)
     @index_stores = Store.all.order(id: "DESC")

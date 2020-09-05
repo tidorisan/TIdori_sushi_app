@@ -36,8 +36,8 @@ class Store < ApplicationRecord
 	 				   numericality: true
 	validates :phone_number, presence: true,
 						numericality: true
-	validates :store_genre_id, acceptance: true
-	validates :reservation, acceptance: true
+	validates :store_genre_id, presence: true
+	validates :reservation, presence: true
 	validates :reservation_of_considerations, presence: true,
 						   length: { maximum: 200 }
 	validates :traffic_method, presence: true,
@@ -55,11 +55,11 @@ class Store < ApplicationRecord
 
 	validates :equipment, presence: true,
 						   length: { maximum: 500 }
-	validates :private_room, acceptance: true
-	validates :reserved, acceptance: true
+	validates :private_room, presence: true
+	validates :reserved, presence: true
 	validates :parking, presence: true,
 						   length: { maximum: 100 }
-	validates :no_smoking, acceptance: true
+	validates :no_smoking, presence: true
 
 	validates :comment, presence: true,
 						   length: { maximum: 300 }

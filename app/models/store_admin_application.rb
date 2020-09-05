@@ -28,11 +28,11 @@ class StoreAdminApplication < ApplicationRecord
 	validates :kana_first_name, presence: true
 	validates :birthday, presence: true,
 						numericality: true
-	validates :job_title, acceptance: true
-	validates :permit_to_store_manager, acceptance: true
+	validates :job_title, presence: true
+	validates :permit_to_store_manager, presence: true
 
-	validates :get_restaurant_sales_permit_form, acceptance: true
-	validates :related_with_antisocial_force, acceptance: true
+	validates :get_restaurant_sales_permit_form, presence: true
+	validates :related_with_antisocial_force, presence: true
 
-	validates :mannaers_industry, acceptance: true
+	validates :mannaers_industry, presence: true
 end

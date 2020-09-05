@@ -5,9 +5,38 @@ class Ability
 
   def initialize(user)
 
-    can :manage, :session
-    can [:top, :index, :search, :show], Store
-    cannot :favorites, Store
+    can :manage, :sesstion
+    can :manage, :store
+    can :manage, :menu
+    can :manage, :coupon
+    can :manage, :home
+    can :manage, :store_admin_application
+
+    if user.present?
+
+        if user.customer?
+            can :manage, [:sesstion, :registration]
+            can :manage, :store
+            can :manage, :menu
+            can :manage, :coupon
+            can :manage, :home
+            can :manage, :store_admin_application
+            can :manage :favorites
+            can :manage, :user, :user_id => user.id
+        end
+
+        if user.store_admin?
+            can :manage, Store, user_id: user.id
+        end
+
+        if user.site_admin?
+            can :manage, :all
+        end
+
+
+    end
+    # cannot :favorites, Store
+    # can :manage, StoreMenu
 
     # index, showアクションが実行可能
     # can :create, Store # new, createアクションが実行可能
