@@ -15,4 +15,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
  	sign_up.css
  	user_home_top.css
  	sign_in.css
+ 	users_menu_genres.css
  )
