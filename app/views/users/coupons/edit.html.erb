@@ -1,44 +1,53 @@
 <%= render 'layouts/error_messages', model: @coupon %>
-<h1>Users::Coupons#edit</h1>
-<p>Find me in app/views/users/coupons/edit.html.erb</p>
 
+<div class="box1">
+	<h1>クーポン編集</h1>
+</div>
+<div class="box">
 
-<%= form_with(model: @coupon, url: users_store_coupon_path(@coupon), local: true, method: :patch) do |f| %>
+	<%= form_with(model: @coupon, url: users_store_coupon_path(@coupon), local: true, method: :patch) do |f| %>
 
-	<table>
-		<caption>クーポン編集</caption>
-		<thead>
-			<tr>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>割引理由</td>
-				<td><%= f.text_field :reason, required: "true", class: "text_field", placeholder: "例) " %></td>
-			</tr>
-			<tr>
-				<td>割引内容説明</td>
-				<td><%= f.text_field :detail, required: "true", class: "text_field", placeholder: "例) " %></td>
-			</tr>
-			<tr>
-				<td>イメージ画像</td>
-				<td><%= f.attachment_field :image %></td>
+		<table class="table table-hover table-responsive">
+			<caption>クーポン編集</caption>
+			<thead>
+				<tr>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>割引理由</td>
+					<td><%= f.text_field :reason, required: "true", class: "text_field", placeholder: "例)　創業20周年記念 ", class: "text_field", autofocus: "true", autofocus: "true" %></td>
+				</tr>
+				<tr>
+					<td>割引内容説明</td>
+					<td><%= f.text_field :detail, required: "true", class: "text_field", placeholder: "例)　ちらし寿司 10%0FF", class: "text_field"  %></td>
+				</tr>
+				<tr>
+					<td>イメージ画像</td>
+					<td><%= f.attachment_field :image %></td>
 
-			</tr>
-			<tr>
-				<td>対象</td>
-				<td><%= f.text_field :target, required: "true", class: "text_field", placeholder: "例) " %></td>
-			</tr>
-			<tr>
-				<td>但書</td>
-				<td><%= f.text_field :writing, required: "true", class: "text_field", placeholder: "例) " %></td>
-			</tr>
-			<tr>
-				<td>有効期限</td>
-				<td><%= f.text_field :expiration_date, required: "true", class: "text_field", placeholder: "例) " %></td>
-			</tr>
-	</table>
-	<%= f.submit "変更を保存する" %>
+				</tr>
+				<tr>
+					<td>対象</td>
+					<td><%= f.text_field :target, required: "true", class: "text_field", placeholder: "例)　ちらし寿司", class: "text_field"  %></td>
+				</tr>
+				<tr>
+					<td>但書</td>
+					<td><%= f.text_area :writing, required: "true", class: "text_field", placeholder: "例) ただし、お一人様おひとつ限りです。", class: "text_field"  %></td>
+				</tr>
+				<tr>
+					<td>有効期限</td>
+					<td><%= f.text_field :expiration_date, required: "true", class: "text_field", placeholder: "例)　 3", class: "text_field2" %>日後まで使用できる</td>
+				</tr>
+		</table>
+		<div class="botton">
+			<%= f.submit "変更を保存する", class: "button_field btn btn-primary botton_content" %>
+		</div>
+	<% end %>
 
+</div>
+
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'user_cupon_edit' %>
 <% end %>

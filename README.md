@@ -15,7 +15,7 @@
 
 ### ターゲットユーザ
 出張などで、寿司屋に初めていらっしゃる人。
-20代〜
+20代〜30代
 
 ### 主な利用シーン
 飲食店検索やクーポン券の使用。
@@ -25,3 +25,7 @@
 ### 機能一覧
 [https://docs.google.com/spreadsheets/d/148TnWTL1GlVmvjwwwHQRM3DVWHtoeeEl4TnavOzKhh0/edit#gid=0]
 
+### 開発環境
+
+- OS Catalina(MacOS)
+- Ruby on Rails 5.x.x
