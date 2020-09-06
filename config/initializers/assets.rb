@@ -21,4 +21,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
  	user_stote_show.css
  	user_store_genre_index.css
  	user_store_index.css
+ 	user_store_genre_edit.css
  )
