@@ -20,11 +20,15 @@
 				</tr>
 				<tr>
 					<td>メニュー説明</td>
-					<td><%= f.text_field :comment, required: "true", class: "text_field", placeholder: "例) ピリッと聞いたワサビがマグロを引き立てるおすすめの一品です" %></td>
+					<td><%= f.text_area :comment, required: "true", class: "text_field", placeholder: "例) ピリッと聞いたワサビがマグロを引き立てるおすすめの一品です" %></td>
 				</tr>
 				<tr>
 					<td>値段(税抜き)</td>
 					<td><%= f.text_field :tax_excluded_price, required: "true", class: "text_field", placeholder: "例) 400" %> 円</td>
+				</tr>
+				<tr>
+					<td>メニュー画像</td>
+					<td><%= f.attachment_field :image %></td>
 				</tr>
 				<tr>
 					<td>メニュージャンル</td>

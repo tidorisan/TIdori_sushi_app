@@ -43,7 +43,7 @@ class Users::MenusController < ApplicationController
 
   private
   def store_menu_params
-    params.require(:store_menu).permit(:name, :comment, :tax_excluded_price, :menu_genre_id)
+    params.require(:store_menu).permit(:name, :comment, :tax_excluded_price, :menu_genre_id, :image)
   end
 
 end

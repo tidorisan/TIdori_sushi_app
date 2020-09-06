@@ -18,6 +18,7 @@
 		<% @store_menus.each do |store_menu| %>
 			<tbody>
 				<tr>
+					<td><%= attachment_image_tag store_menu, :image, size: '50x50', fallback: 'no_image.jpg' %></td>
 					<td><%= link_to store_menu.name, users_store_menu_path(store_menu.store_id, store_menu.id), class: "link_content" %></td>
 					<td><%= store_menu.tax_excluded_price %></td>
 					<% if store_menu.display_status == true %>

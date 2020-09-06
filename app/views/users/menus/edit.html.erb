@@ -27,6 +27,10 @@
 					<td><%= f.text_field :tax_excluded_price, required: "true", class: "text_field" %> 円</td>
 				</tr>
 				<tr>
+					<td>メニュー画像</td>
+					<td><%= f.attachment_field :image %></td>
+				</tr>
+				<tr>
 					<td>メニュージャンル</td>
 					<% @menu_genres.each do |menu_genre| %>
 							<td><%= menu_genre.genre_name %>

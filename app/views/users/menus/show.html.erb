@@ -24,6 +24,10 @@
 				<td>¥ <%= @store_menu.tax_excluded_price %></td>
 			</tr>
 			<tr>
+				<td>店舗画像</td>
+				<td><%= attachment_image_tag @store_menu, :image, size: '100x100', fallback: 'no_image.jpg'  %></td>
+			</tr>
+			<tr>
 				<td>メニュージャンル</td>
 				<td><%= @store_menu.menu_genre.genre_name %></td>
 			</tr>

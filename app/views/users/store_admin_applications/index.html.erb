@@ -1,18 +1,20 @@
-<h1>Users::StoreAdminApplications#index</h1>
-<p>Find me in app/views/users/store_admin_applications/index.html.erb</p>
 
-	<table>
-		<caption>クーポン一覧画面</caption>
+<div class="box1">
+	<h1>店舗管理者申請一覧</h1>
+</div>
+<div class="box">
+	<table class="table table-hover table-responsive">
+		<caption>店舗申請一覧</caption>
 		<thead>
 			<tr>
 				<th>氏名</th>
-				<th>表示</th>
+				<th>状態</th>
 			</tr>
 		</thead>
 		<tbody>
 			<% @store_admin_applications.each do |store_admin_application| %>
 				<tr>
-					<td><%= link_to "#{store_admin_application.family_name} #{store_admin_application.first_name}", users_store_admin_application_path(store_admin_application) %></td>
+					<td><%= link_to "#{store_admin_application.family_name} #{store_admin_application.first_name}", users_store_admin_application_path(store_admin_application), class: "link_content" %></td>
 					<% if store_admin_application.process_status == true %>
 						<td><p>申請中</p></td>
 					<% else %>
@@ -22,3 +24,8 @@
 			<% end %>
 		</tbody>
 	</table>
+</div>
+
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'user_store_admin_application_index' %>
+<% end %>
