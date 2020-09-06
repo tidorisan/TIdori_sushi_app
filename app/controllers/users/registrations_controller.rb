@@ -11,9 +11,15 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    if params[:user][:role] == "store_admin"
+      session["#{resource_name}_return_to"] = users_homes_path
+      super
+    else
+      session["#{resource_name}_return_to"] = root_path
+      super
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -53,18 +59,20 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # The path used after sign up.
   # def after_sign_up_path_for(resource)
-  #   super(resource)
+  #     if resource.store_admin?
+  #       super(resource)
+  #       redirect_to new_users_user_path
+  #     else
+  #       super(resource)
+  #       redirect_to users_homes_path
+  #     end
   # end
 
   # The path used after sign up for inactive accounts.
-  def after_inactive_sign_up_path_for(resource)
-    if user.store_admin?
-      redirect_to new_users_user_path
-    else
-      super(resource)
-    end
-  end
-
+  # def after_inactive_sign_up_path_for(resource)
+  #   # super(resource)
+  #   users_homes_path
+  # end
   def check_guest
     if resource.email == 'guest@example.com'
       redirect_to root_path, alert: 'ゲストユーザーの変更・削除はできません。'

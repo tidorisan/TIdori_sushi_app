@@ -42,4 +42,5 @@ class User < ApplicationRecord
 	validates :get_restaurant_sales_permit_form, presence: true, unless: :devise_modules?
 	validates :related_with_antisocial_force, presence: true, unless: :devise_modules?
 	validates :mannaers_industry, presence: true, unless: :devise_modules?
+	validates :role, presence: true
 end
