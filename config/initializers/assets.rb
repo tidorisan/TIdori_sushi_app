@@ -29,4 +29,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
  	user_menu_index.css
  	user_menu_show.css
  	user_menu_edit.css
+ 	user_menu_new.css
  )
