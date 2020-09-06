@@ -1,4 +1,4 @@
-// ログイン機能
+
 * {
   margin: 0px;
   padding: 0px;
@@ -18,18 +18,17 @@ body {
 .container {
   height: 500px;
 }
-.text_field {
-	width: 220px;
-	border: 2px solid #ccc;
-	outline: none;
-}
+
 input[class="text_field"]:focus {
 	background: #faf4e2;
 }
+.link_content:hover {
+  color: #0bd;
+  text-decoration: none;
+}
 
 .box {
-  width: 70%;
-  height: 450px;
+  width: 88%;
   background-color: #FFFFFF;
   margin: 60px auto 60px;
   border-radius: 4px;
@@ -38,9 +37,15 @@ input[class="text_field"]:focus {
   text-align: center;
 
 }
-.content_field {
-	width: 70%;
-  height: 300px;
+.text_field {
+  width: 90%;
+  border: 2px solid #ccc;
+  outline: none;
+  padding: 6px;
+  font-size: 15px;
+}
+.input_field{
+  margin: 20px;
 }
 
 input[class="text_field"], input[class="button_field"]{
@@ -48,4 +53,19 @@ input[class="text_field"], input[class="button_field"]{
 }
 .link_to {
 	margin-top: 10px;
+
+}
+
+.botton {
+  text-align: center;
+}
+.botton_content {
+  width: 30%;
+  margin-top: 10px;
+  margin-bottom: 7px;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.link_to {
+  margin-bottom: 10px;
 }

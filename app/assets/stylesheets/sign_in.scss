@@ -17,18 +17,21 @@ body {
   height: 500px;
 }
 .box {
-  width: 70%;
-  background-color: #FFFFFF;
-  margin: 60px auto 60px;
-  border-radius: 4px;
-  border: 1px #ddd solid;
-  padding: 30px;
+	width: 88%;
+  	background-color: #FFFFFF;
+ 	margin: 60px auto 60px;
+  	border-radius: 4px;
+  	border: 1px #ddd solid;
+  	padding: 30px;
+  	text-align: center;
 
 }
 .text_field {
-	width: 220px;
-	border: 2px solid #ccc;
-	outline: none;
+  width: 90%;
+  border: 2px solid #ccc;
+  outline: none;
+  padding: 6px;
+  font-size: 15px;
 }
 input[class="text_field"]:focus {
 	background: #faf4e2;
