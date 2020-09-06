@@ -1,7 +1,9 @@
-<h1>Users::Coupons#show</h1>
-<p>Find me in app/views/users/coupons/show.html.erb</p>
 
-	<table>
+<div class="box1">
+	<h1>クーポン詳細</h1>
+</div>
+<div class="box">
+	<table class="table table-hover table-responsive">
 		<caption>クーポン詳細</caption>
 		<thead>
 			<tr>
@@ -47,5 +49,13 @@
 			</tr>
 		</tbody>
 	</table>
-	<%= link_to "編集画面へ", edit_users_store_coupon_path(@coupon) %>
-	<%= link_to "一覧に戻る", users_store_coupons_path(@coupon.store_id) %>
+
+	<div class="botton">
+		<%= link_to "一覧に戻る", users_store_coupons_path(@coupon.store_id), class: "button_field btn btn-info botton_content" %>
+		<%= link_to "編集する", edit_users_store_coupon_path(@coupon),class: "button_field btn btn-primary botton_content" %>
+	</div>
+</div>
+
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'user_coupon_show' %>
+<% end %>

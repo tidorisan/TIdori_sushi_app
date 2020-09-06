@@ -1,4 +1,4 @@
-  
+
 * {
   margin: 0px;
   padding: 0px;
@@ -19,7 +19,7 @@ body {
   background-color: #FFFFFF;
 }
 .box {
-  width: 88%;
+  width: 70%;
   background-color: #FFFFFF;
   margin: 60px auto 100px;
   border-radius: 4px;
@@ -44,6 +44,8 @@ body {
 	width: 220px;
 	border: 2px solid #ccc;
 	outline: none;
+  padding: 6px;
+  font-size: 15px;
 }
 
 input[class="text_field"]:focus {
@@ -54,9 +56,9 @@ input[class="text_field"]:focus {
 	color: #0bd;
 	text-decoration: none;
 }
-
+    
 .botton {
-  margin-bottom: 20px;
+  text-align: center;
 }
 .botton_content {
   width: 30%;
@@ -64,4 +66,9 @@ input[class="text_field"]:focus {
   margin-bottom: 30px;
   margin-left: 10px;
   margin-right: 10px;
+}
+
+    
+.content {
+  margin-right: 7px;
 }

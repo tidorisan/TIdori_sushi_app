@@ -23,5 +23,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
  	user_store_index.css
  	user_store_genre_edit.css
  	user_cupon_index.css
- 	user_cupon_edit.css
+ 	user_coupon_edit.css
+ 	user_coupon_show.css
+ 	user_coupon_new.css
  )

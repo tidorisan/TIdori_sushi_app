@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  authorize_resource :class => false
+  #authorize_resource :class => false
   # load_and_authorize_resource :class => false
   # authorize_resource unless: :skip_checking_authorzation?
 	before_action :configure_permitted_parameters, if: :devise_controller?
