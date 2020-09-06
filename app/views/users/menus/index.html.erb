@@ -1,28 +1,38 @@
-<h1>Users::Menus#index</h1>
-<p>Find me in app/views/users/menus/index.html.erb</p>
 
-<td><%= link_to "メニュー登録", new_users_store_menu_path(@store_id) %></td>
-
-	<table>
+<div class="box1">
+	<h1>メニュー一覧</h1>
+</div>
+<div class="box">
+	<div class="botton">
+		<%= link_to "メニュー登録", new_users_store_menu_path(@store_id), class: "button_field btn btn-primary " %>
+	</div>
+	<table class="table table-hover table-responsive">
 		<caption>メニュー覧画面</caption>
 		<thead>
 			<tr>
 				<th>メニュー名</th>
+				<th>値段</th>
 				<th>表示</th>
 			</tr>
 		</thead>
 		<% @store_menus.each do |store_menu| %>
 			<tbody>
 				<tr>
-					<td><%= store_menu.name %></td>
+					<td><%= link_to store_menu.name, users_store_menu_path(store_menu.store_id, store_menu.id), class: "link_content" %></td>
 					<td><%= store_menu.tax_excluded_price %></td>
 					<% if store_menu.display_status == true %>
 						<td><p>表示</p></td>
 					<% else %>
 						<td><p>非表示</p></td>
 					<% end %>
-					<td><%= link_to "編集画面へ", edit_users_store_menu_path(store_menu.store_id, store_menu.id) %></td>
+					<td><%= link_to "編集画面へ", edit_users_store_menu_path(store_menu.store_id, store_menu.id), class: "link_content" %></td>
 				</tr>
 			</tbody>
 		<% end %>
 	</table>
+
+</div>
+
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'user_menu_index' %>
+<% end %>
