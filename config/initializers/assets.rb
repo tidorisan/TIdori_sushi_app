@@ -17,4 +17,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
  	sign_in.css
  	users_menu_genres.css
  	user_stote_new.css
+ 	user_stote_edit.css
  )
