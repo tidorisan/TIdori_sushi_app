@@ -1,29 +1,21 @@
-
 * {
   margin: 0px;
   padding: 0px;
   text-decoration: none;
 }
+
 html {
-	min-height: 100%;
+  min-height: 100%;
 }
 body {
   padding-top: 51px;
-  background-image: url(image05.jpg),linear-gradient(#F4F4F4, #C8C8C8);
-  background-blend-mode: multiply;
-  background-size: cover
+  background-image: url(image04.jpg),linear-gradient(#888888, #454545);
+  background-blend-mode: darken;
+  background-size: cover;
 }
-.box {
-  width: 70%;
-  height: 60vh;
-  background-color: #FFFFFF;
-  margin: 60px auto 60px;
-  border-radius: 4px;
-  border: 1px #ddd solid;
-  padding: 30px;
-
+.container {
+  height: 500px;
 }
-
 #back {
   position: fixed;
   right: 20px;
@@ -33,15 +25,24 @@ body {
   width: 50px;
 }
 
-
-
-.link_content:hover {
-	color: #0bd;
-	text-decoration: none;
+.container {
+  width: 60%;
+  height: 50vh;
+  background-color: white;
+  margin: 50px auto 50px;
+  border-radius: 4px;
 }
-
-.box2 {
-  padding: 10px;
+.box1 {
+  margin: 30px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+.link_content{
+  font-size: 20px;
+}
+.link_content:hover {
+  color: #0bd;
+  text-decoration: none;
 }
 .content {
   margin-right: 7px;

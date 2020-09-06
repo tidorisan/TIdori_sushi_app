@@ -1,16 +1,16 @@
 
-<div class="container">
-	<% if user_signed_in? %>
-		<% if current_user.role == 'site_admin' %>
+<% if user_signed_in? %>
+	<% if current_user.role == 'site_admin' %>
+		<div class="container">
 			<div class="box1">
 				<%= link_to "新規店舗_登録申請一覧画面へ", users_store_admin_applications_path, class: "link_content" %>
 			</div>
 			<div class="box1">
 				<%= link_to 'メニュージャンル一覧・登録画面へ', users_menu_genres_path, class: "link_content" %>
 			</div>
-		<% end %>
+		</div>
 	<% end %>
-</div>
+<% end %>
 <% content_for :css do %>
   <%= stylesheet_link_tag 'user_home_top' %>
 <% end %>

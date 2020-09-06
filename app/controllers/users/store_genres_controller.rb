@@ -1,7 +1,7 @@
 class Users::StoreGenresController < ApplicationController
   def index
   	@store_genre = StoreGenre.new
-  	@store_genres = StoreGenre.all
+  	@store_genres = StoreGenre.page(params[:page])
   end
 
   def create
