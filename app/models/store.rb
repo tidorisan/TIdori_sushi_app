@@ -47,7 +47,6 @@ class Store < ApplicationRecord
 	validates :regular_holiday, presence: true,
 						   length: { maximum: 200 }
 	validates :consumption_budget, presence: true,
-						           numericality: true,
 						   		   length: { maximum: 200 }
 	validates :credit_card, presence: true
 	validates :e_money, presence: true,

@@ -31,15 +31,15 @@ class User < ApplicationRecord
 
 	attachment :image
 
-	validates :family_name, presence: true
-	validates :first_name, presence: true
-	validates :kana_family_name, presence: true
-	validates :kana_first_name, presence: true
+	validates :family_name, presence: true, unless: :devise_modules?
+	validates :first_name, presence: true, unless: :devise_modules?
+	validates :kana_family_name, presence: true, unless: :devise_modules?
+	validates :kana_first_name, presence: true, unless: :devise_modules?
 	validates :birthday, presence: true,
 						numericality: true
 	validates :job_title, acceptance: true
-	validates :permit_to_store_manager, presence: true
-	validates :get_restaurant_sales_permit_form, presence: true
-	validates :related_with_antisocial_force, presence: true
-	validates :mannaers_industry, presence: true
+	validates :permit_to_store_manager, presence: true, unless: :devise_modules?
+	validates :get_restaurant_sales_permit_form, presence: true, unless: :devise_modules?
+	validates :related_with_antisocial_force, presence: true, unless: :devise_modules?
+	validates :mannaers_industry, presence: true, unless: :devise_modules?
 end
