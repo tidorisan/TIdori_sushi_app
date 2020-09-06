@@ -27,4 +27,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
  	user_coupon_show.css
  	user_coupon_new.css
  	user_menu_index.css
+ 	user_menu_show.css
  )

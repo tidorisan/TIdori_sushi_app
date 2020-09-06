@@ -1,7 +1,9 @@
-<h1>Users::Menus#show</h1>
-<p>Find me in app/views/users/menus/show.html.erb</p>
 
-	<table>
+<div class="box1">
+	<h1>メニュー詳細</h1>
+</div>
+<div class="box">
+	<table class="table table-hover table-responsive">
 		<caption>メニュー詳細</caption>
 		<thead>
 			<tr>
@@ -23,9 +25,17 @@
 			</tr>
 			<tr>
 				<td>メニュージャンル</td>
-				<%= @store_menu.menu_genre.genre_name %>
+				<td><%= @store_menu.menu_genre.genre_name %></td>
 			</tr>
 		</tbody>
 	</table>
-	<%= link_to "編集画面へ", edit_users_store_menu_path(@store_menu) %>
-	<%= link_to "一覧に戻る", users_store_menus_path(@store_menu.store_id) %>
+	<div class="botton">
+		<%= link_to "一覧に戻る", users_store_menus_path(@store_menu.store_id), class: "button_field btn btn-info botton_content" %>
+		<%= link_to "編集する", edit_users_store_menu_path(@store_menu.store_id, @store_menu.id),class: "button_field btn btn-primary botton_content" %>
+	</div>
+
+</div>
+
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'user_menu_show' %>
+<% end %>
