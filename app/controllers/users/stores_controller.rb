@@ -1,4 +1,6 @@
 class Users::StoresController < ApplicationController
+  before_action :login_required
+
   def index
     @stores = current_user.stores.all
   end
@@ -67,6 +69,10 @@ class Users::StoresController < ApplicationController
       :store_genre_id,
       :parking,
       :reserved)
+  end
+
+  def login_required
+      redirect_to root_path unless current_user.role == "store_admin" || current_user.role == "site_admin"
   end
 
 end

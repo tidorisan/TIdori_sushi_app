@@ -1,4 +1,6 @@
 class Users::CouponsController < ApplicationController
+  before_action :login_required
+
   def index
     @coupons = Coupon.all
     @store_id = Store.find(params[:store_id])
@@ -39,5 +41,9 @@ class Users::CouponsController < ApplicationController
   private
   def coupon_params
     params.require(:coupon).permit(:reason, :detail, :image, :target, :writing, :expiration_date)
+  end
+
+  def login_required
+      redirect_to root_path unless current_user.role == "store_admin" || current_user.role == "site_admin"
   end
 end

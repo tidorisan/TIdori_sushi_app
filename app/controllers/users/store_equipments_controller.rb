@@ -1,4 +1,6 @@
 class Users::StoreEquipmentsController < ApplicationController
+  before_action :login_required
+  
   def index
   	@equipment = Equipment.new
   	@equipments = Equipment.all
@@ -29,5 +31,9 @@ class Users::StoreEquipmentsController < ApplicationController
   private
   def equipment_params
     params.require(:equipment).permit(:genre_name, :display_status)
+  end
+
+  def login_required
+      redirect_to root_path unless current_user.role == "store_admin" || current_user.role == "site_admin"
   end
 end

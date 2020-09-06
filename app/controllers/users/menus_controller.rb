@@ -1,4 +1,6 @@
 class Users::MenusController < ApplicationController
+  before_action :login_required
+
   def index
     @store = Store.find(params[:store_id])
     @store_menus = @store.store_menus.all
@@ -44,6 +46,10 @@ class Users::MenusController < ApplicationController
   private
   def store_menu_params
     params.require(:store_menu).permit(:name, :comment, :tax_excluded_price, :menu_genre_id, :image)
+  end
+
+  def login_required
+      redirect_to root_path unless current_user.role == "store_admin" || current_user.role == "site_admin"
   end
 
 end

@@ -11,7 +11,7 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   # ログイン時に退会済みの場合ログインできないようにする
    def create
-      @user = Member.find_by(email: params[:user][:email].downcase)
+      @user = User.find_by(email: params[:user][:email].downcase)
       if @user
           if (@user.valid_password?(params[:user][:password]) && (@user.unsubscribe_status == false))
             flash[:error] = "退会済みです。"

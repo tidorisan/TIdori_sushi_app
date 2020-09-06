@@ -1,13 +1,14 @@
 class ApplicationController < ActionController::Base
   authorize_resource :class => false
-  # load_and_authorize_resource :class => false
-  # authorize_resource unless: :skip_checking_authorzation?
 	before_action :configure_permitted_parameters, if: :devise_controller?
-
 
 	def configure_permitted_parameters
   		devise_parameter_sanitizer.permit(:sign_up, keys: [:role])
 	end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url
+  end
 
 
 	private
@@ -34,4 +35,5 @@ class ApplicationController < ActionController::Base
     def skip_checking_authorzation?
       devise_controller?
     end
+
 end

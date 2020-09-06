@@ -1,4 +1,6 @@
 class Users::EBillsController < ApplicationController
+  before_action :login_required
+
   def index
   	@e_bill = EBill.new
   	@e_bills = EBill.all
@@ -29,6 +31,10 @@ class Users::EBillsController < ApplicationController
   private
   def e_bill_params
     params.require(:e_bill).permit(:genre_name, :display_status)
+  end
+
+  def login_required
+      redirect_to root_path unless current_user.role == "store_admin" || current_user.role == "site_admin"
   end
 
 end

@@ -1,4 +1,6 @@
 class Users::MenuGenresController < ApplicationController
+  before_action :login_required
+  
   def index
     @menu_genre = MenuGenre.new
     @menu_genres = MenuGenre.all
@@ -30,5 +32,9 @@ class Users::MenuGenresController < ApplicationController
   private
   def menu_genre_params
     params.require(:menu_genre).permit(:genre_name, :display_status)
+  end
+
+  def login_required
+      redirect_to root_path unless current_user.role == "store_admin" || current_user.role == "site_admin"
   end
 end

@@ -1,4 +1,6 @@
 class Users::StoreAdminApplicationsController < ApplicationController
+  before_action :login_required
+
   def index
   	@store_admin_applications = StoreAdminApplication.all
   end
@@ -19,5 +21,9 @@ class Users::StoreAdminApplicationsController < ApplicationController
   private
   def store_admin_application_params
   	params.require(:store_admin_application).permit(:process_status)
+  end
+
+  def login_required
+      redirect_to root_path unless current_user.role == "store_admin" || current_user.role == "site_admin"
   end
 end

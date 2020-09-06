@@ -1,4 +1,7 @@
 class Users::UsersController < ApplicationController
+  before_action :login_required
+
+
   def new
     @user = User.new
   end
@@ -35,5 +38,9 @@ class Users::UsersController < ApplicationController
   def user_params
   	params.require(:user).permit(:unsubscribe_status, :family_name, :first_name, :kana_family_name, :kana_first_name, :birthday,
        :job_title, :permit_to_store_manager, :get_restaurant_sales_permit_form, :related_with_antisocial_force, :mannaers_industry)
+  end
+
+  def login_required
+      redirect_to root_path unless current_user.role == "store_admin" || current_user.role == "site_admin"
   end
 end

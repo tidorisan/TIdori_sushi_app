@@ -54,12 +54,9 @@ class Store < ApplicationRecord
 
 	validates :equipment, presence: true,
 						   length: { maximum: 500 }
-	validates :private_room, presence: true
-	validates :reserved, presence: true
 	validates :parking, presence: true,
 						   length: { maximum: 100 }
 	validates :no_smoking, presence: true
-
 	validates :comment, presence: true,
 						   length: { maximum: 300 }
 	validates :home_page, presence: true,
