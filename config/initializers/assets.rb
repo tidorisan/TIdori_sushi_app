@@ -31,4 +31,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
  	user_menu_edit.css
  	user_menu_new.css
  	user_store_admin_application_index.css
+ 	user_store_admin_application_show.css
  )
