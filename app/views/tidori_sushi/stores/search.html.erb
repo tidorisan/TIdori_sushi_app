@@ -19,13 +19,14 @@
 	              map: map,
 	          });
 	          var infowindow = new google.maps.InfoWindow({
-	          		position: latlng,
-	          		content: 'text',
+	          		content: "<%= store.store_name %>",
+	          		maxWidth: 300,
+	          		positon: latlng,
 			  });
-			  infowindow.open(map);
-			  infowindow.close();
+			  infowindow.open(map, marker);
 	        })();
       	<% end %>
+
 	}
 	</script>
 

@@ -23,6 +23,6 @@ class TidoriSushi::StoresController < ApplicationController
 
   private
   def q_params
-    params.require(:q).permit(:address_or_store_name_or_branch_name_cont, :store_genre_genre_name_eq)
+    params.require(:q).permit(:address_or_store_name_or_branch_name_or_store_genre_genre_name_cont, :store_genre_genre_name_eq)
   end
 end

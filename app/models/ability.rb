@@ -22,8 +22,8 @@ class Ability
             can :manage, :coupon
             can :manage, :home
             can :manage, :store_admin_application
-            can :manage, :favorites
-            can :manage, :user, :user_id => user.id
+            can :manage, :favorites, :user_id => user.id
+            can :manage, :user
         end
 
         if user.store_admin?

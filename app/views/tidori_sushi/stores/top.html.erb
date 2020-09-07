@@ -1,73 +1,73 @@
 
-<div class="bxslider">
+<!-- <div class="bxslider">
 	<div><%= image_tag "image01.jpg", class: "img" %></div>
 	<div><%= image_tag "image02.jpg", class: "img" %></div>
 	<div><%= image_tag "image08.jpg", class: "img" %></div>
 	<div><%= image_tag "image04.jpg", class: "img" %></div>
-</div>
+</div> -->
 
-<h1 class="jquery">Hello jQuery!</h1>
-<p>tidori_sushi/stores/top</p>
-<p>/  ルート</p>
-
-<div>
-	<%= search_form_for(@q, url: tidori_sushi_search_path, method: :post) do |f| %>
-		<%= f.search_field :address_or_store_name_or_branch_name_cont, placeholder: "店名や住所を入力してください" %>
-		<%= f.submit "検索する" %>
-	<% end %>
-</div>
-
-<div>
-	<%= link_to "新規登録店舗", tidori_sushi_search_path(q: {address_or_store_name_or_branch_name_cont: :""}), method: :post %>
-	<%= link_to "地図検索", tidori_sushi_search_path(q: {address_or_store_name_or_branch_name_cont: :""}), method: :post %>
-	<%= link_to "クーポン利用", tidori_sushi_coupons_path %>
-</div>
-<div>
-	<%= link_to "寿司", tidori_sushi_search_path(q: {store_genre_genre_name_eq: :"寿司"}), method: :post %>
-	<%= link_to "回転寿司", tidori_sushi_search_path(q: {
-		store_genre_genre_name_eq: :"回転寿司"}), method: :post %>
-	<%= link_to "立ち食い寿司", tidori_sushi_search_path(q: {store_genre_genre_name_eq: :"立ち食い寿司"}), method: :post %>
-</div>
-
-<div>
-	<p>新着店舗一覧</p>
-	<% @stores.each do |store| %>
-		<div>
-			<%= link_to tidori_sushi_store_path(store) do %>
-				<%= store.id %>
-				<%= attachment_image_tag store, :image, size: '100x100', fallback: 'no_image.jpg' %>
-				<%= store.store_name %>
-				<% if store.store_genre_id == 1  %>
-					<p>寿司</p>
-				<% elsif  store.store_genre_id == 2 %>
-					<p>回転寿司</p>
-				<% else %>
-					<p>立ち食い寿司</p>
+<div class="content_cover">
+	<div>
+		<div class="main_visual">
+			<div class="search_field">
+				<%= search_form_for(@q, url: tidori_sushi_search_path, method: :post) do |f| %>
+					<%= f.search_field :address_or_store_name_or_branch_name_or_store_genre_genre_name_cont, placeholder: " 店名や住所を入力してください", class: "search_form" %><%= f.submit "検索する", class: "search_botton" %>
 				<% end %>
-				<%= store.address %>
-				<%= store.regular_holiday %>
+			</div>
+		</div>
+		<div class="search_content">
+				<div class="black">
+				</div>
+			</div>
+		<main>
+
+		<div>
+			<%= link_to "新規登録店舗", tidori_sushi_search_path(q: {address_or_store_name_or_branch_name_cont: :""}), method: :post %>
+			<%= link_to "地図検索", tidori_sushi_search_path(q: {address_or_store_name_or_branch_name_cont: :""}), method: :post %>
+			<%= link_to "クーポン利用", tidori_sushi_coupons_path %>
+		</div>
+		<div>
+			<%= link_to "寿司", tidori_sushi_search_path(q: {store_genre_genre_name_eq: :"寿司"}), method: :post %>
+			<%= link_to "回転寿司", tidori_sushi_search_path(q: {
+				store_genre_genre_name_eq: :"回転寿司"}), method: :post %>
+			<%= link_to "立ち食い寿司", tidori_sushi_search_path(q: {store_genre_genre_name_eq: :"立ち食い寿司"}), method: :post %>
+		</div>
+
+		<div>
+			<p>新着店舗一覧</p>
+			<% @stores.each do |store| %>
+				<div>
+					<%= link_to tidori_sushi_store_path(store) do %>
+						<%= store.id %>
+						<%= attachment_image_tag store, :image, size: '100x100', fallback: 'no_image.jpg' %>
+						<%= store.store_name %>
+						<% if store.store_genre_id == 1  %>
+							<p>寿司</p>
+						<% elsif  store.store_genre_id == 2 %>
+							<p>回転寿司</p>
+						<% else %>
+							<p>立ち食い寿司</p>
+						<% end %>
+						<%= store.address %>
+						<%= store.regular_holiday %>
+					<% end %>
+				</div>
 			<% end %>
 		</div>
-	<% end %>
+	</main>
+
+	<span id="back">
+	  <a href="#">
+	    <img src="assets/arrow.png" alt="">
+	  </a>
+	</span>
+
+
 </div>
 
 
-<div>
-	<p>店舗登録はお問い合わせは<%= link_to "こちらから", new_tidori_sushi_store_admin_application_path %></p>
-	<table>
-		<tbody>
-			<tr><td>サイト管理者  夏目梨花</td></tr>
-			<tr><td>管理者ページURL  tidorisushi.site</td></tr>
-				<tr><td>© natsume rika 2020</td></tr>
-		</tbody>
-	</table>
-</div>
+<script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer></script> -->
 
-<span id="back">
-  <a href="#">
-    <img src="assets/arrow.png" alt="">
-  </a>
-</span>
-
-
-<script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer></script>
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'tidori_sushi_root' %>
+<% end %>
