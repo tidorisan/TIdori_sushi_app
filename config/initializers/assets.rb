@@ -33,4 +33,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
  	user_store_admin_application_index.css
  	user_store_admin_application_show.css
  	user_user_confirmation.css
+ 	user_user_new.css
  )

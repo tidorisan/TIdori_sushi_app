@@ -13,8 +13,10 @@ body {
  	background-blend-mode: multiply;
  	background-size: cover
 }
+
+
 .box {
-  width: 85%;
+  width: 90%;
   background-color: #FFFFFF;
   margin: 60px auto 220px;
   border-radius: 4px;
@@ -27,16 +29,7 @@ body {
   height: 100px;
   background-color: #FFFFFF;
 }
-// top戻り
-#back {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-}
-#back img {
-  width: 50px;
-}
-// top戻り
+
 
 
 .link_content:hover {
@@ -45,6 +38,8 @@ body {
 }
 .botton {
   text-align: center;
+  margin-bottom: 40px;
+  margin-top: 40px;
 }
 .botton_content {
   width: 30%;
@@ -54,13 +49,97 @@ body {
   margin-right: 10px;
 }
 .text_field {
-  width: 90%;
+  width: 70%;
   border: 2px solid #ccc;
   outline: none;
   padding: 6px;
   font-size: 12px;
 }
 
+
 input[class="text_field"]:focus {
   background: #faf4e2;
+}
+.label {
+  white-space: nowarp;
+}
+
+
+
+.cp_table *, .cp_table *:before, .cp_table *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.cp_table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.cp_table th, .cp_table  td {
+  padding: 10px;
+  border: 1px solid #dddddd;
+}
+.cp_table th {
+  width: 15%;
+  text-align: left;
+  background: #f4f4f4;
+}
+.cp_table td {
+  width: 30%;
+  text-align: left;
+}
+tr .caption {
+  background-color: #eeece4;
+}
+
+//ラジオボタン 位置調整
+
+.radio_button_text, .radio_button {
+  position: relative;
+  top: 2px;
+  margin-right: 5px;
+}
+.radio_button_text {
+  margin-left: 6px;
+}
+
+
+input[class="button_content"] {
+
+}
+.button_field, .btn, .btn-primary{
+  width: 50%;
+}
+
+@media only screen and (max-width:480px) {
+  .box {
+    width: 95%;
+    background-color: #FFFFFF;
+    margin: 60px auto 220px;
+    border-radius: 4px;
+    border: 1px #ddd solid;
+    padding: 0px;
+
+  }
+  .cp_table {
+    margin: 0;
+  }
+  .cp_table th, .cp_table td {
+    width: 100%;
+    display: block;
+    border-top: none;
+  }
+  .cp_table tr:first-child th {
+    border-top: 1px solid #dddddd;
+  }
+  .text_field {
+    width: 100%;
+    border: 1px solid #ccc;
+    outline: none;
+    padding: 6px;
+    font-size: 12px;
+  }
+  .button_field, .btn, .btn-primary{
+    width: 100%;
+  }
+
 }
