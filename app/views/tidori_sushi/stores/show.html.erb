@@ -98,4 +98,7 @@
 		<p>ホームページ: <%= @store.home_page %></p>
 	</div>
 </div>
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'tidori_sushi_store_show' %>
+<% end %>
 
