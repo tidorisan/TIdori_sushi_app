@@ -1,5 +1,5 @@
 class Users::UsersController < ApplicationController
-  before_action :login_required
+  before_action :login_required, only: [:new, :update, :leave, :unsubscribe_update]
 
 
   def new
