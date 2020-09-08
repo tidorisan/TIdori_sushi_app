@@ -39,6 +39,7 @@ class Users::StoresController < ApplicationController
   end
 
   private
+
   def store_params
     params.require(:store).permit(
       :latitude,
@@ -68,15 +69,16 @@ class Users::StoresController < ApplicationController
       :image,
       :store_genre_id,
       :parking,
-      :reserved)
+      :reserved
+    )
   end
 
   def login_required
-      if user_signed_in?
-        redirect_to root_path unless current_user.role == "store_admin" || current_user.role == "site_admin"
-      else
-        redirect_to root_path
-      end
+    if user_signed_in?
+      redirect_to root_path unless current_user.role == "store_admin" ||
+                                   current_user.role == "site_admin"
+    else
+      redirect_to root_path
+    end
   end
-
 end

@@ -4,7 +4,6 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-
     can :manage, :all
 
     cannot :read, :user
@@ -14,31 +13,30 @@ class Ability
 
     if user.present?
 
-        if user.customer?
+      if user.customer?
 
-            can :manage, [:sesstion, :registration]
-            can :manage, :store
-            can :manage, :menu
-            can :manage, :coupon
-            can :manage, :home
-            can :manage, :store_admin_application
-            can :manage, :favorites, :user_id => user.id
-            can :manage, :user
-        end
+        can :manage, [:sesstion, :registration]
+        can :manage, :store
+        can :manage, :menu
+        can :manage, :coupon
+        can :manage, :home
+        can :manage, :store_admin_application
+        can :manage, :favorites, :user_id => user.id
+        can :manage, :user
+      end
 
-        if user.store_admin?
+      if user.store_admin?
 
-            can :manage, :store, user_id: user.id
-            can :manage, :menu, user_id: user.id
-            can :manage, :manage_genre, user_id: user.id
-            can :manage, :coupon, user_id: user.id
+        can :manage, :store, user_id: user.id
+        can :manage, :menu, user_id: user.id
+        can :manage, :manage_genre, user_id: user.id
+        can :manage, :coupon, user_id: user.id
 
-        end
+      end
 
-        if user.site_admin?
-            can :manage, :all
-        end
-
+      if user.site_admin?
+        can :manage, :all
+      end
 
     end
     # cannot :favorites, Store
@@ -62,7 +60,6 @@ class Ability
     Rails.logger.debug("can? :top is " + (can? :top, Store).to_s)
     Rails.logger.debug("can? :top is " + (can? :show, Coupon).to_s)
     Rails.logger.debug("can? :top is " + (can? :index, StoreMenu).to_s)
-
 
     # Define abilities for the passed in user here. For example:
     #

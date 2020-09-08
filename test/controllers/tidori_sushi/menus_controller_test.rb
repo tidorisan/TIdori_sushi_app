@@ -5,5 +5,4 @@ class TidoriSushi::MenusControllerTest < ActionDispatch::IntegrationTest
     get tidori_sushi_menus_index_url
     assert_response :success
   end
-
 end

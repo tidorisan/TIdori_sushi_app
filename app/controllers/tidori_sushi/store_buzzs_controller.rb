@@ -9,7 +9,7 @@ class TidoriSushi::StoreBuzzsController < ApplicationController
   end
 
   def create
-  	@store_buzz = StoreBuzz.new(store_buzz_params)
+    @store_buzz = StoreBuzz.new(store_buzz_params)
     @store = Store.find(params[:store_id])
     @store_buzz.store_id = @store.id
     @store_buzz.user_id = current_user.id
@@ -32,6 +32,7 @@ class TidoriSushi::StoreBuzzsController < ApplicationController
   end
 
   private
+
   def store_buzz_params
     params.require(:store_buzz).permit(:title, :detail, :image, :visit_date, :use_time, :pay_price)
   end

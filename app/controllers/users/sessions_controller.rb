@@ -10,19 +10,19 @@ class Users::SessionsController < Devise::SessionsController
 
   # POST /resource/sign_in
   # ログイン時に退会済みの場合ログインできないようにする
-   def create
-      @user = User.find_by(email: params[:user][:email].downcase)
-      if @user
-          if (@user.valid_password?(params[:user][:password]) && (@user.unsubscribe_status == false))
-            flash[:error] = "退会済みです。"
-            redirect_to new_user_session_path
-          else
-            super
-          end
+  def create
+    @user = User.find_by(email: params[:user][:email].downcase)
+    if @user
+      if @user.valid_password?(params[:user][:password]) && (@user.unsubscribe_status == false)
+        flash[:error] = "退会済みです。"
+        redirect_to new_user_session_path
       else
-          redirect_to new_user_session_path
+        super
       end
-   end
+    else
+      redirect_to new_user_session_path
+    end
+  end
 
   # DELETE /resource/sign_out
   # def destroy
@@ -35,7 +35,6 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-
 
   def new_guest
     user = User.guest

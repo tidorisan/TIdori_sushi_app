@@ -35,25 +35,28 @@ class Users::MenusController < ApplicationController
 
   def update
     @menu_genres = MenuGenre.all
-  	@store_menu = StoreMenu.find(params[:id])
+    @store_menu = StoreMenu.find(params[:id])
     if @store_menu.update(store_menu_params)
-      redirect_to users_store_menu_path(@store_menu.store_id, @store_menu.id)
+      redirect_to users_store_menu_path(@store_menu.store_id,
+                                        @store_menu.id)
     else
       render "users/menus/edit"
     end
   end
 
   private
+
   def store_menu_params
-    params.require(:store_menu).permit(:name, :comment, :tax_excluded_price, :menu_genre_id, :image)
+    params.require(:store_menu).permit(:name, :comment, :tax_excluded_price,
+                                       :menu_genre_id, :image)
   end
 
   def login_required
-      if user_signed_in?
-        redirect_to root_path unless current_user.role == "store_admin" || current_user.role == "site_admin"
-      else
-        redirect_to root_path
-      end
+    if user_signed_in?
+      redirect_to root_path unless current_user.role == "store_admin" ||
+                                   current_user.role == "site_admin"
+    else
+      redirect_to root_path
+    end
   end
-
 end

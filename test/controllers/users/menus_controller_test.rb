@@ -20,5 +20,4 @@ class Users::MenusControllerTest < ActionDispatch::IntegrationTest
     get users_menus_edit_url
     assert_response :success
   end
-
 end

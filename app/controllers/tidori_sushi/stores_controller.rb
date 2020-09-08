@@ -1,11 +1,8 @@
 class TidoriSushi::StoresController < ApplicationController
-
-
-	def top
+  def top
     @q = Store.ransack(params[:q])
     @stores = Store.all.limit(4).order(id: "DESC")
-	end
-
+  end
 
   def show
     @store = Store.find(params[:id])
@@ -22,7 +19,9 @@ class TidoriSushi::StoresController < ApplicationController
   end
 
   private
+
   def q_params
-    params.require(:q).permit(:address_or_store_name_or_branch_name_or_store_genre_genre_name_cont, :store_genre_genre_name_eq)
+    params.require(:q).permit(:address_or_store_name_or_branch_name_or_store_genre_genre_name_cont,
+                              :store_genre_genre_name_eq)
   end
 end

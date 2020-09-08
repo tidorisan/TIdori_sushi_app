@@ -10,5 +10,4 @@ class Users::StoreGenresControllerTest < ActionDispatch::IntegrationTest
     get users_store_genres_edit_url
     assert_response :success
   end
-
 end
