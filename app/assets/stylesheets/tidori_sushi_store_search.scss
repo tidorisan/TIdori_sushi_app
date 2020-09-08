@@ -14,22 +14,14 @@ body {
 
 .content_cover{
   background: rgba(255,255,255,0.98);
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 50ox;
+  padding:  0 10px;
 }
 
-.box1{
-  width: 100%;
-  height: 100px;
-  background-color: #FFFFFF;
-}
-.box {
-  width: 70%;
-  background-color: #FFFFFF;
-  margin: 60px auto 100px;
-  border-radius: 4px;
-  border: 1px #ddd solid;
-  padding: 40px;
 
-}
+
 
 .main_visual{
   width: 100%;
@@ -38,6 +30,8 @@ body {
   background-size: cover;
   background-position: top center;
   position: relative;
+  // justify-content: center;
+  // align-items: center;
 }
 .search_field{
   width: 70%;
@@ -50,6 +44,7 @@ body {
   top: 280px;
   right: 150px;
 }
+
 .search_form {
   outline: 0;
   background:#eee;
@@ -72,119 +67,123 @@ body {
 }
 
 
-div[main_message_box]{
-  display: block;
-}
 
-h1[class="main_message"]{
-  color: white;
-  position: absolute;
-  top : 60px;
-  left: 50px;
-  font-weight: bold;
-  font-size: 60px;
-
+.search_field_left{
+  padding: 10px 10px 10px 40px;
 }
 
 
 
 
-//検索コンテンツ　ブラックから
-div[class="search_content"]{
-  width: 90%;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  aling-items: center;
-  margin-top: 70px;
-}
 
 
-.search_image {
-  width: 360px;
-  height: 100px;
-  background-image: url(image01.jpg);
-  background-size: cover;
+.left{
+  width: 30%;
+  height: 1000px;
+  background-color: red}
 
-}
-
-
-.image_black{
-  width: 100%;
-  height: 100px;
-  background-color: rgba( 0, 0, 0, 0.5);
-  text-align: center;
-}
-.search_message{
-  color: white;
-  line-height: 100px;
-}
-
-
-
-//店舗一覧
-.store_index{
-  margin-top: 30px;
-}
-.store_contents_title{
-  width: 90%;
-  margin: 0 auto 20px;
-}
-.store_contents{
-  width: 90%;
-  height: 610px;
+.right{
+  width: 65%;
+  height: 1000px;
   background-color: blue;
+}
+
+.left .search_field_left{
+  width: 90%;
+  height: 100px;
+  background-color: white;
+  margin: 20px auto 20px;
+  border-radius: 4px;
+}
+.search_field_form{
+  width: 90%;
+  background-color: white;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-
-}
-.store_content{
-  margin: 0 0 10px;
-  width: 24%;
-  height:300px;
-  background-color: red;
-
-}
-.store_image {
-  width: 100%;
-  height: 180px;
-}
-.store_body{
-  padding: 18px;
+  border-radius: 4px;
 }
 
-
-
-//下の箇所
-
-
-
-.search_content_under{
-  width: 95%;
-  margin: 70px auto 120px;
-  display: flex;
-  justify-content: space-between;
-  aling-items: center;
-}
-.search_image_under {
-  width: 380px;
-  height: 150px;
-  background-image: url(image01.jpg);
-  background-size: cover;
-
-}
-.image_black_under{
-  width: 100%;
-  height: 150px;
-  background-color: rgba( 0, 0, 0, 0.5);
+.search_field_form h2{
+  margin: 0;
+  border: 1px solid #6bc5e2;
+  padding: 10px;
+  border-radius: 4px 4px 0 0;
+  background: #6bc5e2;
   text-align: center;
+  font-size: 18px;
+  color: #ffffff;
 }
-.search_message_under{
-  color: white;
-  line-height: 150px;
+.search_field_form_in {
+  margin: 0;
+  border: 1px solid #6bc5e2;
+  padding: 20px;
+  border-radius: 0 0 4px 4px;
 }
+.search_field_form_content{
+  width: 98%;
+  height: 80px;
+  margin: 0 auto 14px;
+  background-color: green;
+  display: flex;
+}
+.search_field_form_content_image{
+  width: 38%;
+  height: 80px;
+  background-color: orange;
+}
+.search_field_form_content_body{
+  padding-left: 15px;
+}
+.search_field_form_content_body h4{
+  font-size: 20px;
+}
+.search_field_form_content_body p{
+  font-size: 16px;
+}
+
+
+
+
+//right
+
+.google_map{
+  width: 100%;
+  height: 300px;
+  background-color: green;
+  margin-bottom: 30px;
+}
+
+.store_field{
+  width: 100%;
+  height: 200px;
+  background-color: orange;
+  display: flex;
+  margin-bottom: 20px;
+}
+.store_field_image{
+  width: 30%;
+  height: 200px;
+  background-color: white;
+}
+.store_field_body{
+  padding-left: 20px;
+}
+.store_field h4{
+  font-size: 20px;
+}
+.store_field p{
+  font-size: 16px;
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -264,8 +263,4 @@ div[class="search_content"]{
   }
 
 
-
-
-
 }
-

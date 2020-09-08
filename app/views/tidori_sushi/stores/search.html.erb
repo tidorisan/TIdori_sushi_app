@@ -1,42 +1,121 @@
-<p> TidoriSushi::StoresController#search</p>
 
-<div>
+<div class="content_cover">
+	<div class="left">
+		<div class="search_field_left">
+			<p>検索フォーム</p>
+			<%= search_form_for(@q, url: tidori_sushi_search_path, method: :post) do |f| %>
+				<%= f.search_field :address_or_store_name_or_branch_name_cont, placeholder: "店名や住所を入力してください" %><%= f.submit "検索する" %>
+			<% end %>
+		</div>
+		<div class="search_field_form">
+			<h2>新着店舗</h2>
+			<div class="search_field_form_in">
+				<div class="search_field_form_content">
+					<div class="search_field_form_content_image">
+					</div>
+					<div class="search_field_form_content_body">
+						<h4>dddddddd</h4>
+						<p>ssssssss</p>
+					</div>
+				</div>
+				<div class="search_field_form_content">
+					<div class="search_field_form_content_image">
+					</div>
+					<div class="search_field_form_content_body">
+						<h4>dddddddd</h4>
+						<p>ssssssss</p>
+					</div>
+				</div>
+				<div class="search_field_form_content">
+					<div class="search_field_form_content_image">
+					</div>
+					<div class="search_field_form_content_body">
+						<h4>dddddddd</h4>
+						<p>ssssssss</p>
+					</div>
+				</div>
+				<div class="search_field_form_content">
+					<div class="search_field_form_content_image">
+					</div>
+					<div class="search_field_form_content_body">
+						<h4>dddddddd</h4>
+						<p>ssssssss</p>
+					</div>
+				</div>
+				<div class="search_field_form_content">
+					<div class="search_field_form_content_image">
+					</div>
+					<div class="search_field_form_content_body">
+						<h4>dddddddd</h4>
+						<p>ssssssss</p>
+					</div>
+				</div>
+			</div>
 
-	<div id="map" style="width:50%; height:400px"></div>
+		</div>
+	</div>
 
-	<script type="text/javascript">
-	function initMap() {
-		var map = new google.maps.Map(document.getElementById('map'), {
-	    	center: new google.maps.LatLng(34.705422, 137.738342),
-	        zoom: 14
-    	});
-    	<% @stores.each do |store| %>
-	        (function(){
+	<div class="right">
+		<div class="google_map">
+			<div>
+				<!-- 外部のjavafileに移動 -->
 
-	          var latlng = new google.maps.LatLng(<%= store.latitude %>, <%= store.longitude %>);
-	          var marker = new google.maps.Marker({
-	              position: latlng,
-	              map: map,
-	          });
-	          var infowindow = new google.maps.InfoWindow({
-	          		content: "<%= store.store_name %>",
-	          		maxWidth: 300,
-	          		positon: latlng,
-			  });
-			  infowindow.open(map, marker);
-	        })();
-      	<% end %>
+					<div id="map" class="google_map"></div>
 
-	}
-	</script>
+					<script type="text/javascript">
+					function initMap() {
+						var map = new google.maps.Map(document.getElementById('map'), {
+					    	center: new google.maps.LatLng(34.705422, 137.738342),
+					        zoom: 14
+				    	});
+				    	<% @stores.each do |store| %>
+					        (function(){
 
-	<script async defer
-      src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>&callback=initMap">
-    </script>
+					          var latlng = new google.maps.LatLng(<%= store.latitude %>, <%= store.longitude %>);
+					          var marker = new google.maps.Marker({
+					              position: latlng,
+					              map: map,
+					          });
+					          var infowindow = new google.maps.InfoWindow({
+					          		content: "<%= store.store_name %>",
+					          		maxWidth: 300,
+					          		positon: latlng,
+							  });
+							  infowindow.open(map, marker);
+					        })();
+				      	<% end %>
+
+					}
+					</script>
+
+					<script async defer
+				      src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>&callback=initMap">
+				    </script>
+				</div>
+			</div>
+		<div class="store_field">
+			<div class="store_field_image"></div>
+			<div class="store_field_body">
+				<h3>aaaa</h3>
+				<p>ddddd</p>
+			</div>
+		</div>
+		<div class="store_field">
+			<div class="store_field_image"></div>
+			<div class="store_field_body">
+				<h3>aaaa</h3>
+				<p>ddddd</p>
+			</div>
+		</div>
+	</div>
 </div>
 
+
+
+<p> TidoriSushi::StoresController#search</p>
+div
+
 <div>
-	<p>右カラム　検索フォーム</p>
 	<%= search_form_for(@q, url: tidori_sushi_search_path, method: :post) do |f| %>
 		<%= f.search_field :address_or_store_name_or_branch_name_cont, placeholder: "店名や住所を入力してください" %>
 		<%= f.submit "検索する" %>
@@ -83,4 +162,7 @@
 		<% end %>
 	<% end %>
 </div>
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'tidori_sushi_store_search' %>
+<% end %>
 
