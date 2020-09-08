@@ -12,7 +12,6 @@
 	User.create!(email: 'store3@hoge.com', password: 'store3@hoge.com', password_confirmation: 'store3@hoge.com', role: 2)
 	User.create!(email: 'customer@hoge.com', password: 'customer@hoge.com', password_confirmation: 'customer@hoge.com', role: 1)
 
-
 	StoreGenre.create(:genre_name => "寿司")
 	StoreGenre.create(:genre_name => "回転寿司")
 	StoreGenre.create(:genre_name => "立ち食い寿司")
@@ -42,6 +41,7 @@
 				 :home_page => 'なし',
 				 :news => 'コロナ対策について',
 				 :display_status => true,
+				 :e_money => "paypay, Linepay",
 				 :comment => '[2020 ミシュランガイド]で一つ星を獲得いたしました。長屋が連なる空堀商店街近くにひっそりと佇む、古民家を改築した落ち着いた空間。'
 				)
 	Store.create(:user_id => 2,
@@ -69,6 +69,7 @@
 				 :home_page => 'なし',
 				 :news => '衛星対策について',
 				 :display_status => true,
+				 :e_money => "paypay",
 				 :comment => '毎朝市場で仕入れた新鮮な魚介類を惜しみなく使用した鉄火丼がおすすめです。'
 				)
 
@@ -97,6 +98,7 @@
 				 :home_page => 'なし',
 				 :news => 'なし',
 				 :display_status => true,
+				 :e_money => "paypay, Linepay",
 				 :comment => '毎朝市場で仕入れた新鮮な魚介類を惜しみなく使用した鉄火丼がおすすめです。'
 				)
 

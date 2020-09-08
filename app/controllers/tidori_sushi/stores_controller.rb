@@ -1,7 +1,7 @@
 class TidoriSushi::StoresController < ApplicationController
   def top
     @q = Store.ransack(params[:q])
-    @stores = Store.all.limit(4).order(id: "DESC")
+    @stores = Store.where(display_status: true).limit(8).order(id: "DESC")
   end
 
   def show

@@ -32,7 +32,7 @@ body {
 
 .main_visual{
   width: 100%;
-  height: 50vh;
+  height: 350px;
   background-image: url(image03.jpg);
   background-size: cover;
   background-position: top center;
@@ -102,12 +102,13 @@ div[class="search_content"]{
 
 
 .search_image {
-  width: 280px;
+  width: 360px;
   height: 100px;
   background-image: url(image01.jpg);
   background-size: cover;
 
 }
+
 
 .image_black{
   width: 100%;
@@ -123,9 +124,16 @@ div[class="search_content"]{
 
 
 //店舗一覧
+.store_index{
+  margin-top: 30px;
+}
+.store_contents_title{
+  width: 90%;
+  margin: 0 auto 20px;
+}
 .store_contents{
   width: 90%;
-  height: 410px;
+  height: 610px;
   background-color: blue;
   margin: 0 auto;
   display: flex;
@@ -136,13 +144,48 @@ div[class="search_content"]{
 .store_content{
   margin: 0 0 10px;
   width: 24%;
-  height: 200px;
+  height:300px;
   background-color: red;
 
+}
+.store_image {
+  width: 100%;
+  height: 180px;
+}
+.store_body{
+  padding: 18px;
 }
 
 
 
+//下の箇所
+
+
+
+.search_content_under{
+  width: 95%;
+  margin: 70px auto 120px;
+  display: flex;
+  justify-content: space-between;
+  aling-items: center;
+}
+.search_image_under {
+  width: 380px;
+  height: 150px;
+  background-image: url(image01.jpg);
+  background-size: cover;
+
+}
+.image_black_under{
+  width: 100%;
+  height: 150px;
+  background-color: rgba( 0, 0, 0, 0.5);
+  text-align: center;
+}
+.search_message_under{
+  color: white;
+  line-height: 150px;
+}
 
 
 
