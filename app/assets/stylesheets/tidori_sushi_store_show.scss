@@ -32,19 +32,22 @@ body {
   margin: 0 auto;
   background-color: green;
   display: flex;
+  
 
 }
+
+div[class="left"] {
+  width: 60%;
+  height: 200px;
+  background-color: red;
+}
+
 div[class="right"] {
   width: 30%;
   height: 200px;
   background-color: blue;
 }
 
-div[class="left"] {
-  width: 30%;
-  height: 200px;
-  background-color: red;
-}
 
 
 
