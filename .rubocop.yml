@@ -1,0 +1,39 @@
+inherit_from:
+  - .rubocop_airbnb.yml
+
+
+#ここにはrubocopでコード解析したくないファイルやフォルダを指定します
+AllCops:
+  Exclude:
+      - 'config/environments/*'
+      - 'config/application.rb'
+      - 'config/initializers/*'
+      - 'config/spring.rb'
+      - 'lib/tasks/*'
+      - 'vendor/**/*'
+      - 'path/ruby'
+      - db/schema.rb
+      - config/unicorn.rb
+      - config/unicorn_staging.rb
+      - tmp/**/*
+      - 'config.ru'
+      - 'bin/**'
+      - 'lib/**'
+      - 'config/**/*'
+      - 'script/**/*'
+      - 'db/**/*'
+      - 'bin/*'
+      - !ruby/regexp /old_and_unused\.rb$/
+
+
+  AsciiComments:
+    Enabled: false
+
+  Documentation:
+    Enabled: false
+
+  ClassAndModuleChildren:
+    Enabled: false
+
+  Style/FrozenStringLiteralComment:
+    Enabled: false
