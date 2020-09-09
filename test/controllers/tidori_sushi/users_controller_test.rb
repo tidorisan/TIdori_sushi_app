@@ -10,5 +10,4 @@ class TidoriSushi::UsersControllerTest < ActionDispatch::IntegrationTest
     get tidori_sushi_users_leave_url
     assert_response :success
   end
-
 end

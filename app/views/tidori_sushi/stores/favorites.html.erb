@@ -1,0 +1,58 @@
+
+<div class="content_cover">
+	<div>
+		
+	</div>
+	<div class="store_field">
+		<div class="store_content">
+			<div class="store_content_image"></div>
+			<div class="store_content_body">
+				<h1>aaaa</h1>
+				<p class="size">asddddd</p>
+				<p class="store_line">assss</p>
+				<p>ssssssss</p>
+				<p>ccvvvvvvv</p>
+			</div>
+		</div>
+
+	</div>
+	<div class="store_field">
+		<div class="store_content">
+			<div class="store_content_image"></div>
+			<div class="store_content_body">
+				<h1>aaaa</h1>
+				<p class="size">asddddd</p>
+				<p class="store_line">assss</p>
+				<p>ssssssss</p>
+				<p>ccvvvvvvv</p>
+			</div>
+		</div>
+
+	</div>
+
+
+</div>
+<div>
+	<p>お気に入り一覧</p>
+	<% @favorite_stores.each do |favorite_store| %>
+		<div>
+			<%= link_to tidori_sushi_store_path(favorite_store) do %>
+				<%= favorite_store.store.id %>
+				<%= attachment_image_tag favorite_store.store, :image, size: '100x100', fallback: 'no_image.jpg' %>
+				<%= favorite_store.store.store_name %>
+				<% if favorite_store.store.store_genre_id == 1  %>
+					<p>寿司</p>
+				<% elsif  favorite_store.store.store_genre_id == 2 %>
+					<p>回転寿司</p>
+				<% else %>
+					<p>立ち食い寿司</p>
+				<% end %>
+				<%= favorite_store.store.address %>
+				<%= favorite_store.store.regular_holiday %>
+			<% end %>
+		</div>
+	<% end %>
+</div>
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'tidori_sushi_store_favorites' %>
+<% end %>

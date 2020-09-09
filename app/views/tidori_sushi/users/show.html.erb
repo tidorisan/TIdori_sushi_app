@@ -1,3 +1,31 @@
 <h1>TidoriSushi::Users#show</h1>
 <p>Find me in app/views/tidori_sushi/users/show.html.erb</p>
 
+
+<%= link_to "退会ページ", tidori_sushi_users_leave_path %>
+<%= link_to "お気に入り店舗", tidori_sushi_store_favotites_path %>
+
+<%= form_with(model: @user, url: tidori_sushi_user_path(@user), method: :patch, local: true) do |f| %>
+	<%= render 'layouts/error_messages', model: @user %>
+	<table>
+		<tbody>
+			<tr>
+				<td>メールアドレス</td>
+				<td><%= f.text_field :email, required: "true" %></td>
+			</tr>
+			<tr>
+				<td>ニックネーム</td>
+				<td><%= f.text_field :nickname, class: "text_field", placeholder: "口コミ投稿時に表示されます。", required: "true" %></td>
+			</tr>
+			<tr>
+				<td>アイコン画像</td>
+				<td><%= f.attachment_field :image %></td>>
+			</tr>
+			<tr>
+				<td><p>アイコン画像で設定する画像は口コミ投稿時に表示されます</p></td>
+			</tr>
+		</tbody>
+	</table>
+	<%= f.submit "登録する" %>
+<% end %>
+

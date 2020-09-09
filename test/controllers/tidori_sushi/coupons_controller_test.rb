@@ -10,5 +10,4 @@ class TidoriSushi::CouponsControllerTest < ActionDispatch::IntegrationTest
     get tidori_sushi_coupons_show_url
     assert_response :success
   end
-
 end

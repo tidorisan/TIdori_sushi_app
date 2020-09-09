@@ -1,10 +1,11 @@
+
 <h1>Users::MenuGenres#edit</h1>
 <p>Find me in app/views/users/menu_genres/edit.html.erb</p>
 
 <div>
 	<%= form_with(model: @menu_genre, url: users_menu_genre_path(@menu_genre), local: true, method: :patch) do |f| %>
 		<%= f.label :genre_name, '設備ジャンル' %>
-		<%= f.text_field :genre_name %>
+		<%= f.text_field :genre_name, placeholder: "例) ", class: "text_field", required: "true" %>
 		<%= f.label :display_status, '有効' %>
 		<%= f.radio_button :display_status, :true, checked: true %>
 
@@ -13,3 +14,7 @@
 		<%= f.submit "変更を保存する" %>
 	<% end %>
 </div>
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'users_menu_genre_edit' %>
+<% end %>
+

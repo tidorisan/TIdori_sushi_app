@@ -1,4 +1,10 @@
-<p>/users/users/confirmation</p>
-<p>店舗申請確認ページ</p>
 
-<%= link_to "店舗管理者登録画面へ", new_user_registration_path %>
+<div class="box1">
+	<h1>店舗申請確認ページ</h1>
+</div>
+<div class="box">
+	<%= link_to "店舗管理者登録画面へ", new_user_registration_path, class: "link_content" %>
+</div>
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'user_user_confirmation' %>
+<% end %>

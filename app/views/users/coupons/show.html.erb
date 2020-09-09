@@ -1,7 +1,9 @@
-<h1>Users::Coupons#show</h1>
-<p>Find me in app/views/users/coupons/show.html.erb</p>
 
-	<table>
+<div class="box1">
+	<h1>クーポン詳細</h1>
+</div>
+<div class="box">
+	<table class="table table-hover table-responsive">
 		<caption>クーポン詳細</caption>
 		<thead>
 			<tr>
@@ -19,23 +21,23 @@
 			</tr>
 			<tr>
 				<td>イメージ画像</td>
-				<td><%= attachment_image_tag @coupon, :image, size: '100x100', fallback: "no_image.id" %></td>
+				<td><%= attachment_image_tag @coupon, :image, size: '100x100', fallback: "/assets/no_image.id" %></td>
 			</tr>
 			<tr>
 				<td>対象</td>
-				<%= @coupon.target %>
+				<td><%= @coupon.target %></td>
 			</tr>
 			<tr>
 				<td>但書</td>
-				<%= @coupon.writing %>
+				<td><%= @coupon.writing %></td>
 			</tr>
 			<tr>
 				<td>有効期限</td>
-				<%= @coupon.expiration_date %>
+				<td><%= (@coupon.created_at + @coupon.expiration_date.minutes).strftime("%Y年%-m年%-d日 %H:%M:%S") %></td>
 			</tr>
 			<tr>
 				<td>発行日</td>
-				<%= @coupon.created_at %>
+				<td><%= @coupon.created_at.strftime("%Y年%-m年%-d日 %H:%M:%S") %></td>
 			</tr>
 			<tr>
 				<td>有効ステータス</td>
@@ -47,4 +49,13 @@
 			</tr>
 		</tbody>
 	</table>
-	<%= link_to "編集画面へ", edit_users_store_coupon_path(@coupon) %>
+
+	<div class="botton">
+		<%= link_to "一覧に戻る", users_store_coupons_path(@coupon.store_id), class: "button_field btn btn-info botton_content" %>
+		<%= link_to "編集する", edit_users_store_coupon_path(@coupon),class: "button_field btn btn-primary botton_content" %>
+	</div>
+</div>
+
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'user_coupon_show' %>
+<% end %>

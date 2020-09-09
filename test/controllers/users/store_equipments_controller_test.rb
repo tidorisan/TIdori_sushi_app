@@ -10,5 +10,4 @@ class Users::StoreEquipmentsControllerTest < ActionDispatch::IntegrationTest
     get users_store_equipments_edit_url
     assert_response :success
   end
-
 end

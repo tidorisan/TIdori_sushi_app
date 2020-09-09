@@ -5,5 +5,4 @@ class TidoriSushi::Stores　topControllerTest < ActionDispatch::IntegrationTest
     get tidori_sushi_stores　top_index　show_url
     assert_response :success
   end
-
 end
