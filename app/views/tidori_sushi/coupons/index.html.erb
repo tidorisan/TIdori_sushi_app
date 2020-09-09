@@ -1,14 +1,15 @@
 
-<div class="box1">
+<div class="box3">
 	<h1>クーポン</h1>
 </div>
+
 <div class="box">
 	<div class="field">
 		<% @coupons.each do |coupon| %>
 			<%= link_to tidori_sushi_coupon_path(coupon) do %>
 				<div class="coupon_content">
 					<div class="image">
-						<%= attachment_image_tag @coupon, :image, size: '100x100', fallback: "/assets/no_image.id", class: "coupon_image" %>
+						<%= attachment_image_tag @coupon, :image, size: '100x100', fallback: "no_image.jpg", class: "coupon_image" %>
 					</div>
 					<div class="coupon_body">
 						<div class="coupon_titile">

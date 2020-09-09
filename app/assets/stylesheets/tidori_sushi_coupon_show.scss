@@ -14,9 +14,8 @@ body {
 }
 
 .field{
-	width: 60%;
-	background-color: red;
-	margin: 20px auto 50px;
+	width: 50%;
+	margin: 50px auto 100px;
 }
 
 .coupon_content{
@@ -36,7 +35,10 @@ body {
 }
 
 .coupon_text{
-	padding: 10px;
+}
+
+p {
+	font-size: 17px;
 }
 
 @media only screen and (max-width:480px) {

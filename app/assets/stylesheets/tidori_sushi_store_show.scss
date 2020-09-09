@@ -13,8 +13,8 @@ body {
 
 
 .content_cover{
-  background: rgba(255,255,255,0.98);
 }
+
 
 
 .main_visual{
@@ -26,22 +26,24 @@ body {
   position: relative;
 }
 
-main{
+.main_box{
   width: 90%;
   height: 500px;
   margin: 0 auto;
   background-color: green;
   display: flex;
+
 }
-div[class="1"] {
-  width: 30%;
-  height: 200px;
-  background-color: red;
-}
-div[class="2"] {
+div[class="right"] {
   width: 30%;
   height: 200px;
   background-color: blue;
+}
+
+div[class="left"] {
+  width: 30%;
+  height: 200px;
+  background-color: red;
 }
 
 
