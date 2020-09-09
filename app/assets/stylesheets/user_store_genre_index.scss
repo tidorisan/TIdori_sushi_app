@@ -9,7 +9,7 @@ html {
 }
 body {
   padding-top: 51px;
-  background-image: image-url(image03.jpg),linear-gradient(#F4F4F4, #C8C8C8);
+  background-image: image-url("image03.jpg"),linear-gradient(#F4F4F4, #C8C8C8);
   background-blend-mode: multiply;
   background-size: cover
 }

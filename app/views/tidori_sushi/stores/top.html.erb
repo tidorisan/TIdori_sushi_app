@@ -1,11 +1,4 @@
 
-<!-- <div class="bxslider">
-	<div><%= image_tag "image01.jpg", class: "img" %></div>
-	<div><%= image_tag "image02.jpg", class: "img" %></div>
-	<div><%= image_tag "image08.jpg", class: "img" %></div>
-	<div><%= image_tag "image04.jpg", class: "img" %></div>
-</div> -->
-
 <div class="content_cover">
 	<div class="main_visual">
 		<h1 class="main_message">浜松で<br>美味しいお寿司を食べたい!!</h1>
@@ -50,7 +43,8 @@
 				<% @stores.each do |store| %>
 					<div class="store_content">
 						<div class="image">
-							<%= attachment_image_tag store, :image, size: '200x100', fallback: 'no_image.jpg', class: "store_image" %>
+							<%= attachment_image_tag store, :image, size: '200x100', class: "store_image" %>
+							<!-- , fallback: 'no_image.jpg'一時的に, fallback: 'no_image.jpg'削除 -->
 						</div>
 						<div class="store_body">
 							<div class="store_titile">
