@@ -1,104 +1,154 @@
-<%= render 'layouts/error_messages', model: @store_admin_application %>
-<h1>TidoriSushi::StoreAdminApplications#new</h1>
-<p>Find me in app/views/tidori_sushi/store_admin_applications/new.html.erb</p>
+<%= render 'layouts/error_messages', model: @store_admin_application  %>
+<div class="box1">
+	<h1>店舗掲載申し込みフォーム</h1>
+	<p>申し込みについてのお願い: 店舗申請を投稿して頂いた後１週間ほどお時間をいただきます。<br>掲載の許可で決定が決まり次第,登録して頂いたメールアドレスにご連絡させていただきます。</p>
 
-<p>申請についてのお願い: 店舗申請を投稿して頂いた後１週間ほどお時間をいただきます。<br>掲載の許可で決定が決まり次第,登録して頂いたメールアドレスにご連絡させていただきます。</p>
+</div>
+<div class="box">
+	<%= form_with(model: @store_admin_application, url: tidori_sushi_store_admin_applications_confirm_path, method: :post, local: :true) do |f| %>
 
-<%= form_with(model: @store_admin_application, url: tidori_sushi_store_admin_applications_confirm_path, method: :post, local: :true) do |f| %>
+				<table class="cp_table">
+					<thead>
+						<tr>
+							<div class="icon_tr">
+								<th colspan="2", class="caption">店舗登録基本情報</th>
+							</div>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>店舗名<i class="fa fa-check-square"></i></th>
+							<td><%= f.text_field :store_name, required: "true", class: "text_field", placeholder: "例)　千鳥寿司" %></td>
+						</tr>
+						<tr>
+							<th>店舗名(全角カタカナ)<i class="fa fa-check-square"></i></th>
+							<td><%= f.text_field :kana_store_name, required: "true", class: "text_field", placeholder: "例) チドリズシ" %></td>
+						</tr>
+						<tr>
+							<th>店舗_郵便番号<i class="fa fa-check-square"></i></th>
+							<td><%= f.text_field :postal_code, required: "true", class: "text_field", placeholder: "例) 4300932"%></td>
+						</tr>
+						<tr>
+							<th>店舗_住所<i class="fa fa-check-square"></i></th>
+							<td><%= f.text_field :address , required: "true", placeholder: "例)　静岡県浜松市中区中央3丁目2-11", class: "text_field" %></td>
+						</tr>
+						<tr>
+							<th>店舗＿電話番号<i class="fa fa-check-square"></i></th>
+							<td><%= f.text_field :phone_number, required: "true", class: "text_field", placeholder: "例)　09083455665" %></td>
+						</tr>
+				<!-- 支店名 -->
+						<tr>
+							<th>支店名(支店名)</th>
+							<td><%= f.text_field :branch_name, class: "text_field", placeholder: "例)　松田店" %></td>
+						</tr>
+			<!--  -->
+						<tr>
+							<th>支店名(全角カタカナ)</th>
+							<td><%= f.text_field :kana_branch_name, class: "text_field", placeholder: "例)　マツダテン" %></td>
+						</tr>
+					</tbody>
+				</table>
 
-	<table>
-		<caption>新規店舗管理者_詳細</caption>
-		<thead>
-			<tr>
-				<th>店舗登録基本情報</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>店舗_住所</td>
-				<td><%= f.text_field :address %></td>
-			</tr>
-			<tr>
-				<td>店舗_郵便番号</td>
-				<td><%= f.text_field :postal_code %></td>
-			</tr>
-			<tr>
-				<td>店舗名</td>
-				<td><%= f.text_field :store_name %></td>
-			</tr>
-			<tr>
-				<td>店舗名(全角カタカナ)</td>
-				<td><%= f.text_field :kana_store_name %></td>
-			</tr>
-			<tr>
-				<td>店舗＿電話番号</td>
-				<td><%= f.text_field :phone_number%></td>
-			</tr>
-			<tr>
-				<td>支店名(支店名)</td>
-				<td><%= f.text_field :branch_name %></td>
-			</tr>
-			<tr>
-				<td>支店名(全角カタカナ)</td>
-				<td><%= f.text_field :kana_branch_name %></td>
-			</tr>
-		</tbody>
-	</table>
 
-	<table>
-		<caption></caption>
-		<thead>
-			<tr>
-				<th>店舗管理者＿基本情報</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>メールアドレス</td>
-				<td><%= f.text_field :email %></td>
-			</tr>
-			<tr>
-				<td>氏名(性)</td>
-				<td><%= f.text_field :family_name %></td>
-				<td>氏名(名)</td>
-				<td><%= f.text_field :first_name %></td>
-			</tr>
-			<tr>
-				<td>カナ氏名(性)</td>
-				<td><%= f.text_field :kana_family_name %></td>
-				<td>カナ氏名(名)</td>
-				<td><%= f.text_field :kana_first_name %></td>
-			</tr>
-			<tr>
-				<td>生年月日</td>
-				<td><%= f.text_field :birthday %></td>
-			</tr>
-			<tr>
-				<td>店舗役職</td>
-				<td><%= f.select :job_title, [["社長", "社長"], ["店長", "店長"], ["オーナー", "オーナー"], ["マネージャー", "マネージャー"], ["スタッフ", "スタッフ"], ["アルバイト", "アルバイト"], ["代表取締役", "代表取締役"]]  %></td>
-				<td></td>
-			</tr>
-			<tr>
-				<td>店舗管理者に許可をとりましたか？</td>
-				<td><%= f.label :permit_to_store_manager, "はい" %><%= f.radio_button :permit_to_store_manager, true %></td>
-				<td><%= f.label :permit_to_store_manager, "いいえ" %><%= f.radio_button :permit_to_store_manager, false %></td>
-			</tr>
-			<tr>
-				<td>飲食店営業許可書を取得していますか？</td>
-				<td><%= f.label :get_restaurant_sales_permit_form, "はい" %><%= f.radio_button :get_restaurant_sales_permit_form, true %></td>
-					<td><%= f.label :get_restaurant_sales_permit_form, "いいえ" %><%= f.radio_button :get_restaurant_sales_permit_form, false %></td>
-			</tr>
-			<tr>
-				<td>反社会的勢力との関係は一切ありませんか？</td>
-				<td><%= f.label :related_with_antisocial_force, "はい" %><%= f.radio_button :related_with_antisocial_force, true %></td>
-					<td><%= f.label :related_with_antisocial_force, "いいえ" %><%= f.radio_button :related_with_antisocial_force, false %></td>
-			</tr>
-			<tr>
-				<td>風俗法の業態に当てはまりませんか？</td>
-				<td><%= f.label :mannaers_industry, "はい" %><%= f.radio_button :mannaers_industry, true %></td>
-					<td><%= f.label :mannaers_industry, "いいえ" %><%= f.radio_button :mannaers_industry, false %></td>
-			</tr>
-		</tbody>
-	</table>
-	<%= f.submit "確認画面へ進む" %>
+
+
+				<table class="cp_table">
+					<thead>
+						<tr>
+							<div class="icon_tr">
+								<th colspan="2", class="caption">店舗管理者＿基本情報</th>
+							</div>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>氏名(性)<i class="fa fa-check-square"></i></th>
+							<td><%= f.text_field :family_name, required: "true", placeholder: "例)　千鳥", class: "text_field" %></td>
+						</tr>
+						<tr>
+							<th>氏名(名)<i class="fa fa-check-square"></i></th>
+							<td><%= f.text_field :first_name, required: "true", class: "text_field", placeholder: "例)　太郎"%></td>
+						</tr>
+						<tr>
+							<th>カナ氏名(性)<i class="fa fa-check-square"></i></th>
+							<td><%= f.text_field :kana_family_name, required: "true", class: "text_field", placeholder: "例)　チドリ" %></td>
+						</tr>
+						<tr>
+							<th>カナ氏名(名)<i class="fa fa-check-square"></i></th>
+							<td><%= f.text_field :kana_first_name, required: "true", class: "text_field", placeholder: "例)　タロウ" %></td>
+						</tr>
+						<tr>
+							<th>生年月日<i class="fa fa-check-square"></i></th>
+							<td><%= f.text_field :birthday, required: "true", class: "text_field", placeholder: "例)　19890312" %></td>
+						</tr>
+						<tr>
+							<th>メールアドレス<i class="fa fa-check-square"></i></th>
+							<td><%= f.text_field :email, required: "true", class: "text_field", placeholder: "例) tidori@hgmail.com"%></td>
+						</tr>
+						<tr>
+							<th>店舗役職<i class="fa fa-check-square"></i></th>
+							<td>
+								<div>
+									<%= f.radio_button :job_title, :社長, class: "radio_button", id: "社長" %><%= f.label :job_title, "社長", class: "radio_button_text", for: "社長" %>
+									<%= f.radio_button :job_title, :店長, class: "radio_button", id: "店長" %><%= f.label :job_title, "店長", class: "radio_button_text", for: "店長" %>
+									<%= f.radio_button :job_title, :オーナー, class: "radio_button", id: "オーナー" %><%= f.label :job_title, "オーナー", class: "radio_button_text", for: "オーナー" %>
+									<%= f.radio_button :job_title, :マネージャー, class: "radio_button", id: "マネージャー" %><%= f.label :job_title, "マネージャー", class: "radio_button_text", for: "マネージャー" %>
+									<%= f.radio_button :job_title, :スタッフ, class: "radio_button", id: "スタッフ" %><%= f.label :job_title, "スタッフ", class: "radio_button_text", for: "スタッフ" %>
+									<%= f.radio_button :job_title, :アルバイト, class: "radio_button", id: "アルバイト" %><%= f.label :job_title, "アルバイト", class: "radio_button_text", for: "アルバイト" %>
+									<%= f.radio_button :job_title, :代表取締役, class: "radio_button", id: "代表取締役" %><%= f.label :job_title, "代表取締役", class: "radio_button_text", for: "代表取締役" %>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>店舗管理者に許可をとりましたか？<i class="fa fa-check-square"></i></th>
+							<td>
+								<div>
+
+									<%= f.radio_button :permit_to_store_manager, :true, class: "radio_button", id: "label_botton_8" %><%= f.label :permit_to_store_manager, 'はい', class: "radio_button_text", for: "label_botton_8" %>
+									<%= f.radio_button :permit_to_store_manager, :false, class: "radio_button", id: "label_botton_7" %><%= f.label :permit_to_store_manager, 'いいえ', class: "radio_button_text", for: "label_botton_7" %>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>飲食店営業許可書を取得していますか？<i class="fa fa-check-square"></i></th>
+							<td>
+								<div>
+
+									<%= f.radio_button :get_restaurant_sales_permit_form, :true, class: "radio_button", id: "label_botton_6" %><%= f.label :get_restaurant_sales_permit_form, 'はい', class: "radio_button", for: "label_botton_6" %>
+									<%= f.radio_button :get_restaurant_sales_permit_form, :false, class: "radio_button_text", id: "label_botton_5" %><%= f.label :get_restaurant_sales_permit_form, 'いいえ', class: "radio_button_text", for: "label_botton_5" %>
+								</div>
+							</td>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>反社会的勢力との関係は一切ありませんか？<i class="fa fa-check-square"></i></th>
+							<td>
+								<div>
+
+									<%= f.radio_button :related_with_antisocial_force, :true, class: "radio_button", id: "label_botton_4" %><%= f.label :related_with_antisocial_force, 'はい', class: "radio_button_text", for: "label_botton_4" %>
+									<%= f.radio_button :related_with_antisocial_force, :false, class: "radio_button", id: "label_botton_3" %><%= f.label :related_with_antisocial_force, 'いいえ', class: "radio_button_text", for: "label_botton_3" %>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>風俗法の業態に当てはまりませんか？<i class="fa fa-check-square"></i></th>
+							<td>
+								<div>
+									<%= f.radio_button :mannaers_industry, :true, class: "radio_button", id: "label_botton_2" %><%= f.label :mannaers_industry, 'はい', class: "radio_button_text", for: "label_botton_2" %>
+									<%= f.radio_button :mannaers_industry, :false, class: "radio_button", id: "label_botton" %><%= f.label :mannaers_industry, 'いいえ', class: "radio_button_text", for: "label_botton" %>
+								</div>
+							</td>
+					</tbody>
+				</table>
+		<div class="botton">
+			<%= f.submit "確認画面へ進む", class: "button_content button_field btn btn-primary" %>
+		</div>
+
+	<% end %>
+</div>
+
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'user_user_new' %>
 <% end %>
+
