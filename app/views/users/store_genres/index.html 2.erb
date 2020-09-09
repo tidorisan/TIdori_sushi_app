@@ -1,0 +1,51 @@
+<%= render 'layouts/error_messages', model: @store_genre %>
+<div class="box1">
+	<h1>店舗ジャンル一覧画面</h1>
+</div>
+
+<div class="box">
+
+	<div>
+		<%= form_with(model: @store_genre, url: users_store_genres_path, local: true) do |f| %>
+			<%= f.label :genre_name, '店舗ジャンル', class: "content" %>
+			<%= f.text_field :genre_name, required: "true", class: "text_field content" %>
+			<%= f.label :display_status, '有効' %>
+			<%= f.radio_button :display_status, :true, checked: true %>
+
+			<%= f.label :display_status, '無効' %>
+			<%= f.radio_button :display_status, :false %>
+			<%= f.submit "登録", class: "button_field btn btn-primary content2" %>
+		<% end %>
+	</div>
+
+	<div>
+		<table class="table table-hover table-responsive">
+			<thead>
+				<tr>
+					<th>ジャンル</th>
+					<th>状態</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% @store_genres.each do |store_genre| %>
+					<tr>
+						<td><%= store_genre.genre_name %></td>
+						<% if store_genre.display_status == true %>
+							<td><p>有効</p></td>
+						<% else %>
+							<td><p>無効</p></td>
+						<% end %>
+						<td><%= link_to '編集する', edit_users_store_genre_path(store_genre), class: "link_content" %></td>
+					</tr>
+				<% end %>
+				<% paginate @store_genres  %>
+			</tbody>
+		</table>
+	</div>
+
+</div>
+
+
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'user_store_genre_index' %>
+<% end %>

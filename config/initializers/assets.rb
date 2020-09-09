@@ -38,4 +38,7 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
  	application_html.css
  	tidori_sushi_store_search.css
  	tidori_sushi_store_favorites.css
+ 	tidori_sushi_store_show.css
+ 	tidori_sushi_buzz_new.css
+ 	tidori_sushi_coupon_index.css
  )
