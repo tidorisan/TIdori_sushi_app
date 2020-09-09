@@ -80,6 +80,9 @@ ja:
         target: 対象
         writing: 但書
         expiration_date: 有効期限
+      storebuzz:
+        use_time: 滞在時間
+        pay_price: 支払い金額
 
 
 

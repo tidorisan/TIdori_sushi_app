@@ -18,7 +18,7 @@
 //= require_tree .
 //= require activestorage
 
-
+//topに戻るボタン
 $(function() {
   $('#back a').on('click',function(event){
     $('body, html').animate({

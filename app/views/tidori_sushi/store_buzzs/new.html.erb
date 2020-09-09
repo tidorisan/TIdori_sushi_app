@@ -1,45 +1,61 @@
+
 <%= render 'layouts/error_messages', model: @store_buzz %>
+<div class="box1">
+	<h1>口コミ投稿</h1>
+</div>
+<div class="box">
 
-<h1>TidoriSushi::StoreBuzzs#new</h1>
-<p>Find me in app/views/tidori_sushi/store_buzzs/new.html.erb</p>
+	<%= form_with(model: @store_buzz , url: tidori_sushi_store_store_buzzs_path, local: true) do |f| %>
 
-<%= form_with(model: @store_buzz , url: tidori_sushi_store_store_buzzs_path, local: true) do |f| %>
 
-	<table>
-		<caption>口コミ投稿</caption>
-		<thead>
-			<tr>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>タイトル</td>
-				<td><%= f.text_field :title, required: "true" %></td>
-			</tr>
-			<tr>
-				<td>口コミ本文</td>
-				<td><%= f.text_area :detail, required: "true"  %></td>
-			</tr>
-			<tr>
-				<td>画像投稿</td>
-				<td><%= f.attachment_field :image %></td>
-			</tr>
-			<tr>
-				<td>visit_date</td>
-				<p>カレンダー形式</p>
-				<td><%= f.date_field :visit_date %></td>
-			</tr>
-			<tr>
-				<td>滞在時間</td>
-				<td><%= f.text_field :use_time, required: "true"  %></td>
-			</tr>
-			<tr>
-				<td>支払い金額</td>
-				<td><%= f.text_field :pay_price, required: "true"  %></td>
-			</tr>
-		</tbody>
-	</table>
-	<%= f.submit "投稿する" %>
+				<table class="cp_table">
+					<thead>
+						<tr>
+							<div class="icon_tr">
+								<th colspan="2", class="caption">口コミ投稿</th>
+							</div>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>タイトル<i class="fa fa-check-square"></i></th>
+							<td><%= f.text_field :title, required: "true", placeholder: "", class: "text_field" %></td>
 
+						</tr>
+						<tr>
+							<th>本文<i class="fa fa-check-square"></i></th>
+							<td><%= f.text_field :detail, required: "true", class: "text_field"%></td>
+						</tr>
+					<!-- 画像 -->
+						<tr>
+							<th>画像投稿</th>
+							<td><%= f.attachment_field :image %></td>
+						</tr>
+					<!-- カレンダー形式 -->
+						<tr>
+							<th>訪問日</th>
+							<td><%= f.date_field :visit_date %></td>
+						</tr>
+						<tr>
+							<th>滞在時間</th>
+							<td><%= f.text_field :use_time, class: "text_field", placeholder: "例)　２時間ほど" %></td>
+						</tr>
+						<tr>
+							<th>支払い金額</th>
+							<td><%= f.text_field :pay_price, class: "text_field", placeholder: "例)　¥1000" %></td>
+						</tr>
+
+					</tbody>
+				</table>
+		<div class="botton">
+			<%= f.submit "投稿する", class: "button_content button_field btn btn-primary" %>
+		</div>
+
+	<% end %>
+</div>
+
+
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'tidori_sushi_buzz_new' %>
 <% end %>
+

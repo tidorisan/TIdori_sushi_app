@@ -1,0 +1,23 @@
+<%= render 'layouts/error_messages', model: @store_genre %>
+
+<div class="box1">
+	<h1>Users::StoreGenres#edit</h1>
+	<p>Find me in app/views/users/store_genres/edit.html.erb</p>
+</div>
+
+<div class="box">
+	<%= form_with(model: @store_genre, url: users_store_genre_path(@store_genre), local: true, method: :patch) do |f| %>
+		<%= f.label :genre_name, '店舗ジャンル', class: "content", autofocus: "true" %>
+		<%= f.text_field :genre_name, class: "text_field", required: "true", autofocus: "true" %>
+		<%= f.label :display_status, '有効' %>
+		<%= f.radio_button :display_status, :true, checked: true %>
+
+		<%= f.label :display_status, '無効' %>
+		<%= f.radio_button :display_status, :false %>
+		<%= f.submit "変更を保存する", class: "button_field btn btn-primary content2" %>
+	<% end %>
+</div>
+
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'user_store_genre_edit' %>
+<% end %>

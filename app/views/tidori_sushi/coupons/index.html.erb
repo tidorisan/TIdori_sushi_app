@@ -1,16 +1,32 @@
-<h1>TidoriSushi::Coupons#index</h1>
-<p>Find me in app/views/tidori_sushi/coupons/index.html.erb</p>
 
-<% @coupons.each do |coupon| %>
-	<%= link_to tidori_sushi_coupon_path(coupon) do %>
-		<div>
-			<%= coupon.reason %>
-			<p>詳細:  <%= coupon.detail %></p>
-			<%= attachment_image_tag @coupon, :image, size: '100x100', fallback: "/assets/no_image.id" %>
-			<p>対象:  <%= coupon.target %></p>
-			<p>但書:  <%= coupon.writing %></p>
-			<p>有効期限:  <%= (coupon.created_at + coupon.expiration_date.minutes).strftime("%Y年%-m年%-d日 %H:%M:%S") %></p>
-			<p>発行日:  <%= coupon.created_at.strftime("%Y年%-m年%-d日 %H:%M:%S") %></p>
-		</div>
-	<% end %>
+<div class="box1">
+	<h1>クーポン</h1>
+</div>
+<div class="box">
+	<div class="field">
+		<% @coupons.each do |coupon| %>
+			<%= link_to tidori_sushi_coupon_path(coupon) do %>
+				<div class="coupon_content">
+					<div class="image">
+						<%= attachment_image_tag @coupon, :image, size: '100x100', fallback: "/assets/no_image.id", class: "coupon_image" %>
+					</div>
+					<div class="coupon_body">
+						<div class="coupon_titile">
+							<p>対象:  <%= coupon.target %></p>
+							<%= coupon.reason %>
+						</div>
+						<div class="coupon_text">
+							<p>詳細:  <%= coupon.detail %></p>
+							<p>但書:  <%= coupon.writing %></p>
+							<p>有効期限:  <%= (coupon.created_at + coupon.expiration_date.minutes).strftime("%Y年%-m年%-d日 %H:%M:%S") %></p>
+							<p>発行日:  <%= coupon.created_at.strftime("%Y年%-m年%-d日 %H:%M:%S") %></p>
+						</div>
+					</div>
+				</div>
+			<% end %>
+		<% end %>
+	</div>
+</div>
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'tidori_sushi_coupon_index' %>
 <% end %>
