@@ -1,4 +1,39 @@
 <p><p>tidori_sushi/stores/show</p></p>
+<div class="content_cover">
+	<div class="main_visual">
+		<dir class="tab"></dir>
+		<dir class="tab"></dir>
+		<dir class="tab"></dir>
+		<dir class="tab"></dir>
+	</div>
+	<main>
+		<div class="right">
+			<div class="google_map">
+				
+			</div>
+			<div class="sidebar">
+				
+			</div>
+		</div>
+		<div class="left">
+			<div class="store_title">
+				
+			</div>
+			<div class="store_detail">
+				
+			</div>
+			<div class="menu">
+				
+			</div>
+			<div class="buzz">
+				
+			</div>
+		</div>
+
+	</main>
+
+</div>
+
 <div>
 
 	<div>
@@ -98,4 +133,7 @@
 		<p>ホームページ: <%= @store.home_page %></p>
 	</div>
 </div>
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'tidori_sushi_store_show' %>
+<% end %>
 

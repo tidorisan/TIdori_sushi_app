@@ -10,5 +10,4 @@ class Users::StoreAdminApplicationsControllerTest < ActionDispatch::IntegrationT
     get users_store_admin_applications_show_url
     assert_response :success
   end
-
 end

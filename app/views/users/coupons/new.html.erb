@@ -1,45 +1,55 @@
 <%= render 'layouts/error_messages', model: @coupon %>
-<h1>Users::Coupons#new</h1>
-<p>Find me in app/views/users/coupons/new.html.erb</p>
+
+<div class="box1">
+	<h1>クーポン新規登録</h1>
+</div>
+<div class="box">
+	<%= form_with(model: @coupon, url: users_store_coupons_path, local: true) do |f| %>
+
+		<table class="table table-hover table-responsive">
+			<caption>クーポン登録</caption>
+			<thead>
+				<tr>
+					<th></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td>割引理由</td>
+					<td><%= f.text_field :reason, class: "text_field", required: "true" %></td>
+				</tr>
+				<tr>
+					<td>割引内容説明</td>
+					<td><%= f.text_field :detail, class: "text_field", required: "true"  %></td>
+				</tr>
+				<tr>
+					<td>イメージ画像</td>
+					<td><%= f.attachment_field :image %></td>
+
+				</tr>
+				<tr>
+					<td>対象</td>
+					<td><%= f.text_field :target, class: "text_field", required: "true"  %></td>
+				</tr>
+				<tr>
+					<td>但書</td>
+					<td><%= f.text_field :writing, class: "text_field", required: "true"  %></td>
+				</tr>
+				<tr>
+					<td>有効期限</td>
+					<td><%= f.text_field :expiration_date,  class: "text_field", required: "true"  %></td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="botton">
+			<%= f.submit "登録する", class: "button_field btn btn-primary botton_content" %>
+		</div>
+
+	<% end %>
+
+</div>
 
 
-<%= form_with(model: @coupon, url: users_store_coupons_path, local: true) do |f| %>
-
-	<table>
-		<caption>クーポン登録</caption>
-		<thead>
-			<tr>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>割引理由</td>
-				<td><%= f.text_field :reason %></td>
-			</tr>
-			<tr>
-				<td>割引内容説明</td>
-				<td><%= f.text_field :detail %></td>
-			</tr>
-			<tr>
-				<td>イメージ画像</td>
-				<td><%= f.attachment_field :image %></td>
-
-			</tr>
-			<tr>
-				<td>対象</td>
-				<td><%= f.text_field :target %></td>
-			</tr>
-			<tr>
-				<td>但書</td>
-				<td><%= f.text_field :writing %></td>
-			</tr>
-			<tr>
-				<td>有効期限</td>
-				<td><%= f.text_field :expiration_date %></td>
-			</tr>
-		</tbody>
-	</table>
-	<%= f.submit "登録する" %>
-
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'user_coupon_new' %>
 <% end %>

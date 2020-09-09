@@ -4,13 +4,23 @@
     <title>TIdoriSushiApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <!-- レスポンシブ対応 -->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/07ae5de80e.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- 個別のcssファイル読み込み -->
+    <%= yield :css %>
+    <!-- フッター　ヘッダーscss読み込み -->
+    <%= stylesheet_link_tag 'application_html' %>
+    <!-- ページネーション用(参考: https://qiita.com/rio_threehouse/items/313824b90a31268b0074) -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <!-- 画像スライダー用 -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- viewスライダー -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script>
       $(document).ready(function(){
@@ -26,7 +36,9 @@
   </head>
 
   <body>
+
     <header>
+
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -36,22 +48,74 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">タイトル</a>
+
+            <% if user_signed_in? %>
+              <% if current_user.role == "customer" %>
+                <%= link_to image_tag("logo.jpg", class: "img", size: "50x50"), root_path %>
+              <% elsif current_user.role == "store_admin" %>
+                <%= link_to image_tag("logo.jpg", class: "img", size: "50x50"), users_homes_path %>
+              <% else %>
+                <%= link_to image_tag("logo.jpg", class: "img", size: "50x50"), users_homes_path  %>
+              <% end %>
+            <% else %>
+              <%= link_to image_tag("logo.jpg", class: "img", size: "50x50"), root_path %>
+            <% end %>
+
           </div>
-          
+
           <div class="collapse navbar-collapse" id="navbarEexample">
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="#">メニューＡ</a></li>
-              <li ><a href="#">メニューＢ</a></li>
-              <li ><a href="#">メニューＣ</a></li>
-              <li ><%= link_to "log_out", destroy_user_session_path, method: :delete %></li>
-              <li><%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post %></li>
+              <% if user_signed_in? %>
+                <% if current_user.role == "customer" %>
+                  <li ><%= link_to "お気に入り店舗", tidori_sushi_store_favotites_path %></li>
+                  <li ><%= link_to "マイページ", tidori_sushi_user_path(current_user) %></li>
+                  <li ><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+                <% else %>
+<!-- 店舗管理者詳細ページ -->
+                    <% if current_user.role == "store_admin" %>
+                      <p class="navbar-text navbar-left">　<%= link_to "ようこそ #{current_user.family_name} さん。"  %> </p>
+                      <li><%= link_to "店舗一覧", users_stores_path %></li>
+                      <li ><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+                      <li ><%= link_to "退会ページ", users_leave_path %></li>
+                      <li><a href="#jump", class="jump">お問い合わせ</a></li>
+                    <% else %>
+                      <li ><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
+                    <% end %>
+                <% end %>
+              <% else %>
+                <li><%= link_to "about", tidori_sushi_about_path %></li>
+                <li><%= link_to "新規会員登録", new_user_registration_path %></li>
+                <li ><%= link_to "ログイン", new_user_session_path %></li>
+                <li><%= link_to 'ゲストログイン(顧客)', users_guest_sign_in_path, method: :post %></li>
+<!-- 途中 -->
+<!-- 動作テスト -->
+                <li><a href="#jump">店舗掲載について</a></li>
+              <% end %>
+
             </ul>
           </div>
         </div>
       </nav>
 
     </header>
+
     <%= yield %>
+
+    <footer>
+
+      <div class="content_footer">
+        <div class="footer_message">
+          <a id="jump"></a>
+          <h3>店舗登録はお問い合わせは<%= link_to "こちらから", new_tidori_sushi_store_admin_application_path %></h3>
+          <p>サイト管理者  夏目梨花</p>
+          <p>管理者ページURL  tidorisushi.site</p>
+          <p>© natsume rika 2020</p>
+        </div>
+      </div>
+
+    </footer>
+
   </body>
 </html>
+
+

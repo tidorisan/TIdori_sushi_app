@@ -4,35 +4,39 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
+    can :manage, :all
 
-    can :manage, :sesstion
-    can :manage, :store
-    can :manage, :menu
-    can :manage, :coupon
-    can :manage, :home
-    can :manage, :store_admin_application
+    cannot :read, :user
+    cannot :manage, :favorite
+    cannot :favorites, :store
+    cannot :show, :coupon
 
     if user.present?
 
-        if user.customer?
-            can :manage, [:sesstion, :registration]
-            can :manage, :store
-            can :manage, :menu
-            can :manage, :coupon
-            can :manage, :home
-            can :manage, :store_admin_application
-            can :manage :favorites
-            can :manage, :user, :user_id => user.id
-        end
+      if user.customer?
 
-        if user.store_admin?
-            can :manage, Store, user_id: user.id
-        end
+        can :manage, [:sesstion, :registration]
+        can :manage, :store
+        can :manage, :menu
+        can :manage, :coupon
+        can :manage, :home
+        can :manage, :store_admin_application
+        can :manage, :favorites, :user_id => user.id
+        can :manage, :user
+      end
 
-        if user.site_admin?
-            can :manage, :all
-        end
+      if user.store_admin?
 
+        can :manage, :store, user_id: user.id
+        can :manage, :menu, user_id: user.id
+        can :manage, :manage_genre, user_id: user.id
+        can :manage, :coupon, user_id: user.id
+
+      end
+
+      if user.site_admin?
+        can :manage, :all
+      end
 
     end
     # cannot :favorites, Store
@@ -54,7 +58,8 @@ class Ability
     Rails.logger.debug("can? :update is " + (can? :update, Store).to_s)
     Rails.logger.debug("can? :destroy is " + (can? :destroy, Store).to_s)
     Rails.logger.debug("can? :top is " + (can? :top, Store).to_s)
-
+    Rails.logger.debug("can? :top is " + (can? :show, Coupon).to_s)
+    Rails.logger.debug("can? :top is " + (can? :index, StoreMenu).to_s)
 
     # Define abilities for the passed in user here. For example:
     #

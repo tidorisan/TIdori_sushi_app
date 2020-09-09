@@ -1,8 +1,11 @@
-<h1>Users::Stores#show</h1>
-<p>Find me in app/views/users/stores/show.html.erb</p>
 
+<div class="box1">
+	<h1>レストラン詳細情報</h1>
+</div>
 
-	<table>
+<div class="box">
+
+	<table class="table table-hover table-responsive">
 		<caption>店舗基本情報</caption>
 		<thead>
 			<tr>
@@ -42,7 +45,7 @@
 	</table>
 
 
-	<table>
+	<table class="table table-hover table-responsive">
 		<caption>店舗詳細情報</caption>
 		<thead>
 			<tr>
@@ -84,7 +87,7 @@
 	</table>
 
 
-	<table>
+	<table class="table table-hover table-responsive">
 		<caption>支払い</caption>
 		<thead>
 			<tr>
@@ -111,7 +114,7 @@
 		</tbody>
 	</table>
 
-		<table>
+	<table class="table table-hover table-responsive">
 		<caption>空間・設備</caption>
 		<thead>
 			<tr>
@@ -146,7 +149,7 @@
 		</tbody>
 	</table>
 
-	<table>
+	<table class="table table-hover table-responsive">
 		<caption>その他</caption>
 		<thead>
 			<tr>
@@ -173,5 +176,13 @@
 		</tbody>
 	</table>
 
-	<%= link_to "編集する", edit_users_store_path(@store) %>
-	<%= link_to "一覧に戻る", users_stores_path %>
+	<div class="botton">
+		<%= link_to "一覧に戻る", users_stores_path, class: "button_field btn btn-info botton_content" %>
+		<%= link_to "編集する", edit_users_store_path(@store),class: "button_field btn btn-primary botton_content" %>
+	</div>
+
+</div>
+
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'user_stote_show' %>
+<% end %>

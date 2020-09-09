@@ -1,65 +1,102 @@
 <%= render 'layouts/error_messages', model: @user %>
-<h1>Users::Users#new</h1>
-<p>Find me in app/views/users/users/new.html.erb</p>
+<div class="box1">
+	<h1>店舗管理者＿基本情報入力</h1>
+</div>
+<div class="box">
+	<%= form_with(model: @user, url: users_user_path(current_user), local: true, method: :patch) do |f| %>
 
-<%= form_with(model: @user, url: users_user_path(current_user), local: true, method: :patch) do |f| %>
+				<table class="cp_table">
+					<thead>
+						<tr>
+							<div class="icon_tr">
+								<th colspan="2", class="caption">管理者基本情報</th>
+							</div>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>氏名(性)<i class="fa fa-check-square"></i></th>
+							<td><%= f.text_field :family_name, required: "true", placeholder: "例)　千鳥", class: "text_field" %></td>
+						</tr>
+						<tr>
+							<th>氏名(名)<i class="fa fa-check-square"></i></th>
+							<td><%= f.text_field :first_name, required: "true", class: "text_field", placeholder: "例)　太郎"%></td>
+						</tr>
+						<tr>
+							<th>カナ氏名(性)<i class="fa fa-check-square"></i></th>
+							<td><%= f.text_field :kana_family_name, required: "true", class: "text_field", placeholder: "例)　チドリ" %></td>
+						</tr>
+						<tr>
+							<th>カナ氏名(名)<i class="fa fa-check-square"></i></th>
+							<td><%= f.text_field :kana_first_name, required: "true", class: "text_field", placeholder: "例)　タロウ" %></td>
+						</tr>
+						<tr>
+							<th>生年月日<i class="fa fa-check-square"></i></th>
+							<td><%= f.text_field :birthday, required: "true", class: "text_field", placeholder: "例)　19890312" %></td>
+						</tr>
+						<tr>
+							<th>店舗役職<i class="fa fa-check-square"></i></th>
+							<td>
+								<div>
+									<%= f.radio_button :job_title, :社長, class: "radio_button", id: "社長" %><%= f.label :job_title, "社長", class: "radio_button_text", for: "社長" %>
+									<%= f.radio_button :job_title, :店長, class: "radio_button", id: "店長" %><%= f.label :job_title, "店長", class: "radio_button_text", for: "店長" %>
+									<%= f.radio_button :job_title, :オーナー, class: "radio_button", id: "オーナー" %><%= f.label :job_title, "オーナー", class: "radio_button_text", for: "オーナー" %>
+									<%= f.radio_button :job_title, :マネージャー, class: "radio_button", id: "マネージャー" %><%= f.label :job_title, "マネージャー", class: "radio_button_text", for: "マネージャー" %>
+									<%= f.radio_button :job_title, :スタッフ, class: "radio_button", id: "スタッフ" %><%= f.label :job_title, "スタッフ", class: "radio_button_text", for: "スタッフ" %>
+									<%= f.radio_button :job_title, :アルバイト, class: "radio_button", id: "アルバイト" %><%= f.label :job_title, "アルバイト", class: "radio_button_text", for: "アルバイト" %>
+									<%= f.radio_button :job_title, :代表取締役, class: "radio_button", id: "代表取締役" %><%= f.label :job_title, "代表取締役", class: "radio_button_text", for: "代表取締役" %>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>店舗管理者に許可をとりましたか？<i class="fa fa-check-square"></i></th>
+							<td>
+								<div>
 
-	<table>
-		<caption>店舗管理者＿基本情報</caption>
-		<thead>
-			<tr>
-				<th>店舗管理者＿基本情報</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr>
-				<td>氏名(性)</td>
-				<td><%= f.text_field :family_name, required: "true", placeholder: "例)" %></td>
-				<td>氏名(名)</td>
-				<td><%= f.text_field :first_name, required: "true" %></td>
-			</tr>
-			<tr>
-				<td>カナ氏名(性)</td>
-				<td><%= f.text_field :kana_family_name, required: "true" %></td>
-				<td>カナ氏名(名)</td>
-				<td><%= f.text_field :kana_first_name, required: "true" %></td>
-			</tr>
-			<tr>
-				<td>生年月日</td>
-				<td><%= f.text_field :birthday, required: "true" %></td>
-			</tr>
-			<tr>
-				<td>店舗役職</td>
-				<td><%= f.label :job_title, "社長" %><%= f.radio_button :job_title, :社長 %></td>
-				<td><%= f.label :job_title, "店長" %><%= f.radio_button :job_title, :店長 %></td>
-				<td><%= f.label :job_title, "オーナー" %><%= f.radio_button :job_title, :オーナー %></td>
-				<td><%= f.label :job_title, "マネージャー" %><%= f.radio_button :job_title, :マネージャー %></td>
-				<td><%= f.label :job_title, "スタッフ" %><%= f.radio_button :job_title, :スタッフ %></td>
-				<td><%= f.label :job_title, "アルバイト" %><%= f.radio_button :job_title, :アルバイト %></td>
-				<td><%= f.label :job_title, "代表取締役" %><%= f.radio_button :job_title, :代表取締役 %></td>
-			</tr>
-			<tr>
-				<td>店舗管理者に許可をとりましたか？</td>
-				<td><%= f.label :permit_to_store_manager, 'はい' %><%= f.radio_button :permit_to_store_manager, :true %></td>
-				<td><%= f.label :permit_to_store_manager, 'いいえ' %><%= f.radio_button :permit_to_store_manager, :false %></td>
-			</tr>
-			<tr>
-				<td>飲食店営業許可書を取得していますか？</td>
-				<td><%= f.label :get_restaurant_sales_permit_form, 'はい' %><%= f.radio_button :get_restaurant_sales_permit_form, :true %></td>
-				<td><%= f.label :get_restaurant_sales_permit_form, 'いいえ' %><%= f.radio_button :get_restaurant_sales_permit_form, :false %></td>
-			</tr>
-			<tr>
-				<td>反社会的勢力との関係は一切ありませんか？</td>
-				<td><%= f.label :related_with_antisocial_force, 'はい' %><%= f.radio_button :related_with_antisocial_force, :true %></td>
-				<td><%= f.label :related_with_antisocial_force, 'いいえ' %><%= f.radio_button :related_with_antisocial_force, :false %></td>
-			</tr>
-			<tr>
-				<td>風俗法の業態に当てはまりませんか？</td>
-				<td><%= f.label :mannaers_industry, 'はい' %><%= f.radio_button :mannaers_industry, :true %></td>
-				<td><%= f.label :mannaers_industry, 'いいえ' %>
-					<%= f.radio_button :mannaers_industry, :false %></td>
-		</tbody>
-	</table>
-	<%= f.submit "登録する" %>
+									<%= f.radio_button :permit_to_store_manager, :true, class: "radio_button", id: "label_botton_8" %><%= f.label :permit_to_store_manager, 'はい', class: "radio_button_text", for: "label_botton_8" %>
+									<%= f.radio_button :permit_to_store_manager, :false, class: "radio_button", id: "label_botton_7" %><%= f.label :permit_to_store_manager, 'いいえ', class: "radio_button_text", for: "label_botton_7" %>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>飲食店営業許可書を取得していますか？<i class="fa fa-check-square"></i></th>
+							<td>
+								<div>
 
+									<%= f.radio_button :get_restaurant_sales_permit_form, :true, class: "radio_button", id: "label_botton_6" %><%= f.label :get_restaurant_sales_permit_form, 'はい', class: "radio_button", for: "label_botton_6" %>
+									<%= f.radio_button :get_restaurant_sales_permit_form, :false, class: "radio_button_text", id: "label_botton_5" %><%= f.label :get_restaurant_sales_permit_form, 'いいえ', class: "radio_button_text", for: "label_botton_5" %>
+								</div>
+							</td>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>反社会的勢力との関係は一切ありませんか？<i class="fa fa-check-square"></i></th>
+							<td>
+								<div>
+
+									<%= f.radio_button :related_with_antisocial_force, :true, class: "radio_button", id: "label_botton_4" %><%= f.label :related_with_antisocial_force, 'はい', class: "radio_button_text", for: "label_botton_4" %>
+									<%= f.radio_button :related_with_antisocial_force, :false, class: "radio_button", id: "label_botton_3" %><%= f.label :related_with_antisocial_force, 'いいえ', class: "radio_button_text", for: "label_botton_3" %>
+								</div>
+							</td>
+						</tr>
+						<tr>
+							<th>風俗法の業態に当てはまりませんか？<i class="fa fa-check-square"></i></th>
+							<td>
+								<div>
+									<%= f.radio_button :mannaers_industry, :true, class: "radio_button", id: "label_botton_2" %><%= f.label :mannaers_industry, 'はい', class: "radio_button_text", for: "label_botton_2" %>
+									<%= f.radio_button :mannaers_industry, :false, class: "radio_button", id: "label_botton" %><%= f.label :mannaers_industry, 'いいえ', class: "radio_button_text", for: "label_botton" %>
+								</div>
+							</td>
+					</tbody>
+				</table>
+		<div class="botton">
+			<%= f.submit "登録する", class: "button_content button_field btn btn-primary" %>
+		</div>
+
+	<% end %>
+</div>
+
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'user_user_new' %>
 <% end %>
