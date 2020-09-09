@@ -26,8 +26,10 @@ body {
 }
 .box1{
   width: 100%;
-  height: 100px;
+  height: 150px;
   background-color: #FFFFFF;
+  padding-left: 10px;
+  padding-top: 10px;
 }
 
 
@@ -125,6 +127,13 @@ input[class="button_content"] {
 
 }
 
+.botton .bottom{
+  margin: 10px;
+}
+
+.box1 p{
+  font-size: 16px;
+}
 
 @media only screen and (max-width:480px) {
   .box {
@@ -162,6 +171,13 @@ input[class="button_content"] {
     position: relative;
     left: 10px;
     font-size: 18px;
+  }
+  .box1{
+    width: 100%;
+    height: 200px;
+    background-color: #FFFFFF;
+    padding-left: 10px;
+    padding-top: 10px;
   }
 
 }

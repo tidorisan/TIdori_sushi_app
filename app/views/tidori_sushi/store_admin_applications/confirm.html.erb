@@ -1,79 +1,96 @@
 <h1>TidoriSushi::StoreAdminApplications#confirm</h1>
 <p>Find me in app/views/tidori_sushi/store_admin_applications/confirm.html.erb</p>
 
-	<table>
-		<caption>新規店舗管理者_詳細</caption>
+<div class="box1">
+	<h1>店舗掲載申し込み 確認フォーム</h1>
+	<p>申し込みについてのお願い: 店舗申請を投稿して頂いた後１週間ほどお時間をいただきます。<br>掲載の許可で決定が決まり次第,登録して頂いたメールアドレスにご連絡させていただきます。</p>
+
+</div>
+<div class="box">
+
+	<table class="cp_table">
 		<thead>
 			<tr>
-				<th>店舗登録基本情報</th>
+				<div class="icon_tr">
+					<th colspan="2", class="caption">店舗登録基本情報</th>
+				</div>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td>店舗_住所</td>
-				<td><%= @store_admin_application.address %></td>
-			</tr>
-			<tr>
-				<td>店舗_郵便番号</td>
-				<td><%= @store_admin_application.postal_code %></td>
-			</tr>
-			<tr>
-				<td>店舗名/td>
+				<th>店舗名</th>
 				<td><%= @store_admin_application.store_name %></td>
 			</tr>
 			<tr>
-				<td>店舗名(全角カタカナ)</td>
+				<th>店舗名(全角カタカナ)</th>
 				<td><%= @store_admin_application.kana_store_name %></td>
 			</tr>
 			<tr>
-				<td>店舗＿電話番号</td>
-				<td><%= @store_admin_application.phone_number %></td>
+				<th>店舗_郵便番号</th>
+				<td><%= @store_admin_application.postal_code %></td>
 			</tr>
 			<tr>
-				<td>支店名(支店名)</td>
+				<th>店舗_住所</th>
+				<td><%= @store_admin_application.address %></td>
+			</tr>
+			<tr>
+				<th>店舗＿電話番号</th>
+				<td><%=  @store_admin_application.phone_number %></td>
+			</tr>
+	<!-- 支店名 -->
+			<tr>
+				<th>支店名(支店名)</th>
 				<td><%= @store_admin_application.branch_name %></td>
 			</tr>
+<!--  -->
 			<tr>
-				<td>支店名(全角カタカナ)</td>
-				<td><%= @store_admin_application.kana_branch_name %></td>
+				<th>支店名(全角カタカナ)</th>
+				<td><%=  @store_admin_application.kana_branch_name %></td>
 			</tr>
 		</tbody>
 	</table>
 
-	<table>
-		<caption></caption>
+
+
+	<table class="cp_table">
 		<thead>
 			<tr>
-				<th>店舗管理者＿基本情報</th>
+				<div class="icon_tr">
+					<th colspan="2", class="caption">店舗管理者＿基本情報</th>
+				</div>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td>メールアドレス</td>
-				<td><%= @store_admin_application.email %></td>
+				<th>氏名(性)</th>
+				<td><%= @store_admin_application.family_name %></td>
 			</tr>
 			<tr>
-				<td>氏名(性)</td>
-				<td><%= @store_admin_application.family_name %></td>
-				<td>氏名(名)</td>
+				<th>氏名(名)</th>
 				<td><%= @store_admin_application.first_name %></td>
 			</tr>
 			<tr>
-				<td>カナ氏名(性)</td>
-				<td><%= @store_admin_application. kana_family_name %></td>
-				<td>カナ氏名(名)</td>
-				<td><%= @store_admin_application.kana_first_name %></td>
+				<th>カナ氏名(性)</th>
+				<td><%= @store_admin_application. kana_family_name  %></td>
 			</tr>
 			<tr>
-				<td>生年月日</td>
+				<th>カナ氏名(名)</th>
+				<td><%= @store_admin_application.kana_first_name  %></td>
+			</tr>
+			<tr>
+				<th>生年月日</th>
 				<td><%= @store_admin_application.birthday %></td>
 			</tr>
 			<tr>
-				<td>店舗役職</td>
+				<th>メールアドレス</th>
+				<td><%= @store_admin_application.email %></td>
+			</tr>
+			<tr>
+				<th>店舗役職</th>
 				<td><%= @store_admin_application.job_title %></td>
 			</tr>
 			<tr>
-				<td>店舗管理者に許可をとりましたか？</td>
+				<th>店舗管理者に許可をとりましたか？</th>
 				<% if @store_admin_application.permit_to_store_manager == true %>
 					<td>はい</td>
 				<% else %>
@@ -81,15 +98,18 @@
 				<% end %>
 			</tr>
 			<tr>
-				<td>飲食店営業許可書を取得していますか？</td>
+				<th>飲食店営業許可書を取得していますか？</th>
 				<% if @store_admin_application.get_restaurant_sales_permit_form == true %>
 					<td>はい</td>
 				<% else %>
 					<td>いいえ</td>
 				<% end %>
+				</td>
+					</div>
+				</td>
 			</tr>
 			<tr>
-				<td>反社会的勢力との関係は一切ありませんか？</td>
+				<th>反社会的勢力との関係は一切ありませんか？</th>
 				<% if @store_admin_application.related_with_antisocial_force == true %>
 					<td>はい</td>
 				<% else %>
@@ -97,7 +117,7 @@
 				<% end %>
 			</tr>
 			<tr>
-				<td>風俗法の業態に当てはまりませんか？</td>
+				<th>風俗法の業態に当てはまりませんか？</th>
 				<% if @store_admin_application.mannaers_industry == true %>
 					<td>はい</td>
 				<% else %>
@@ -109,29 +129,38 @@
 
 <%= form_with(model: @store_admin_application, url: tidori_sushi_store_admin_applications_path, method: :post, local: :true) do |f| %>
 
-	<table>
-		<tbody>
-			<tr>
-				<td><%= f.hidden_field :address %></td>
-				<td><%= f.hidden_field :postal_code %></td>
-				<td><%= f.hidden_field :store_name %></td>
-				<td><%= f.hidden_field :kana_store_name %></td>
-				<td><%= f.hidden_field :phone_number%></td>
-				<td><%= f.hidden_field :branch_name %></td>
-				<td><%= f.hidden_field :kana_branch_name %></td>
-				<td><%= f.hidden_field :email %></td>
-				<td><%= f.hidden_field :family_name %></td>
-				<td><%= f.hidden_field :first_name %></td>
-				<td><%= f.hidden_field :kana_family_name %></td>
-				<td><%= f.hidden_field :kana_first_name %></td>
-				<td><%= f.hidden_field :birthday %></td>
-				<td><%= f.hidden_field :job_title %></td>
-				<%= f.hidden_field :permit_to_store_manager %>
-				<%= f.hidden_field :get_restaurant_sales_permit_form %>
-				<%= f.hidden_field :related_with_antisocial_force %>
-				<%= f.hidden_field :mannaers_industry %>
-		</tbody>
-		<%= f.submit "申請画面へ戻る", name: "back" %>
-		<%= f.submit "申請する" %>
-	</table>
+		<table>
+			<tbody>
+				<tr>
+					<td><%= f.hidden_field :address %></td>
+					<td><%= f.hidden_field :postal_code %></td>
+					<td><%= f.hidden_field :store_name %></td>
+					<td><%= f.hidden_field :kana_store_name %></td>
+					<td><%= f.hidden_field :phone_number%></td>
+					<td><%= f.hidden_field :branch_name %></td>
+					<td><%= f.hidden_field :kana_branch_name %></td>
+					<td><%= f.hidden_field :email %></td>
+					<td><%= f.hidden_field :family_name %></td>
+					<td><%= f.hidden_field :first_name %></td>
+					<td><%= f.hidden_field :kana_family_name %></td>
+					<td><%= f.hidden_field :kana_first_name %></td>
+					<td><%= f.hidden_field :birthday %></td>
+					<td><%= f.hidden_field :job_title %></td>
+					<%= f.hidden_field :permit_to_store_manager %>
+					<%= f.hidden_field :get_restaurant_sales_permit_form %>
+					<%= f.hidden_field :related_with_antisocial_force %>
+					<%= f.hidden_field :mannaers_industry %>
+			</tbody>
+			<div class="botton">
+				<%= f.submit "申請する", class: "button_content button_field btn btn-primary bottom" %>
+				<%= f.submit "申請画面へ戻る", name: "back", class: "button_content button_field btn btn-default" %>
+			</div>
+		</table>
+	<% end %>
+
+</div>
+
+
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'user_user_new' %>
 <% end %>
