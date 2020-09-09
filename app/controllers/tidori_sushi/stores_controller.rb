@@ -18,10 +18,7 @@ class TidoriSushi::StoresController < ApplicationController
 
   def favorites
     active_store = Store.where(display_status: true)
-    @favorite_stores = current_user.favorite_stores.where(id: active_store).includes(:store)
-    # 動作確認する
-    # @favorite_stores_page = Store.where(user_id: favorite_stores).page(params[:page])
-    # binding.pry
+    @favorite_stores = current_user.favorite_stores.where(id: active_store).includes(:store).page(params[:page])
   end
 
   private
