@@ -6,40 +6,17 @@
 html {
 	min-height: 100%;
 }
-body {
- 	padding-top: 51px;
- 	background-image: url(image03.jpg),linear-gradient(#F4F4F4, #C8C8C8);
- 	background-blend-mode: multiply;
- 	background-size: cover
-}
-.box1{
-  width: 100%;
-  height: 100px;
-  background-color: #FFFFFF;
-}
-.box {
-  width: 70%;
-  background-color: #FFFFFF;
-  margin: 60px auto 100px;
-  border-radius: 4px;
-  border: 1px #ddd solid;
-  padding: 40px;
 
-}
-//効果がない
 footer {
   width: 100%;
-  background-color: #FFFFFF;
+  height: 200px;
+  background-color: #f0eeeb;
 }
 
-header {
-    background-color: #337ab7;;
-    color: #fff;
+.content_footer{
+  text-align: center;
+  padding: 10px;
 }
-.jump {
-  width: 200px;
-  height: 100px;
-  background-color: black;
-  margin-left: 20px;
+.footer_message {
+  margin-top:  20px;
 }
-

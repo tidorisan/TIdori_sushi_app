@@ -1,7 +1,8 @@
 class TidoriSushi::StoresController < ApplicationController
   def top
     @q = Store.ransack(params[:q])
-    @stores = Store.where(display_status: true).limit(8).order(id: "DESC")
+    active_user = User.where(unsubscribe_status: true)
+    @stores = Store.where(user_id: active_user).where(display_status: true).limit(8).order(id: "DESC")
   end
 
   def show
@@ -11,11 +12,16 @@ class TidoriSushi::StoresController < ApplicationController
   def search
     @q = Store.ransack(q_params)
     @stores = @q.result(distinct: true)
-    @index_stores = Store.all.order(id: "DESC")
+    active_user = User.where(unsubscribe_status: true)
+    @index_stores = Store.where(user_id: active_user).where(display_status: true).limit(4).order(id: "DESC")
   end
 
   def favorites
-    @favorite_stores = current_user.favorite_stores.includes(:store).all
+    active_store = Store.where(display_status: true)
+    @favorite_stores = current_user.favorite_stores.where(id: active_store).includes(:store)
+    # 動作確認する
+    # @favorite_stores_page = Store.where(user_id: favorite_stores).page(params[:page])
+    # binding.pry
   end
 
   private

@@ -9,11 +9,15 @@
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/07ae5de80e.js" crossorigin="anonymous"></script>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <!-- 個別のcssファイル読み込み -->
     <%= yield :css %>
+    <!-- フッター　ヘッダーscss読み込み -->
+    <%= stylesheet_link_tag 'application_html' %>
+    <!-- ページネーション用(参考: https://qiita.com/rio_threehouse/items/313824b90a31268b0074) -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <!-- viewスライダー -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -34,6 +38,7 @@
   <body>
 
     <header>
+
       <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container-fluid">
           <div class="navbar-header">
@@ -97,16 +102,15 @@
     <%= yield %>
 
     <footer>
-      <div class="content">
-        <a id="jump">email me</a>
-        <p>店舗登録はお問い合わせは<%= link_to "こちらから", new_tidori_sushi_store_admin_application_path %></p>
-        <table>
-          <tbody>
-            <tr><td>サイト管理者  夏目梨花</td></tr>
-            <tr><td>管理者ページURL  tidorisushi.site</td></tr>
-              <tr><td>© natsume rika 2020</td></tr>
-          </tbody>
-        </table>
+
+      <div class="content_footer">
+        <div class="footer_message">
+          <a id="jump"></a>
+          <h3>店舗登録はお問い合わせは<%= link_to "こちらから", new_tidori_sushi_store_admin_application_path %></h3>
+          <p>サイト管理者  夏目梨花</p>
+          <p>管理者ページURL  tidorisushi.site</p>
+          <p>© natsume rika 2020</p>
+        </div>
       </div>
 
     </footer>
@@ -114,7 +118,4 @@
   </body>
 </html>
 
-<% content_for :css do %>
-    <%= stylesheet_link_tag 'application_html' %>
-<% end %>
 
