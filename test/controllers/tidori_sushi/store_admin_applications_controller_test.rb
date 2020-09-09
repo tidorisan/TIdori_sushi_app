@@ -15,5 +15,4 @@ class TidoriSushi::StoreAdminApplicationsControllerTest < ActionDispatch::Integr
     get tidori_sushi_store_admin_applications_success_url
     assert_response :success
   end
-
 end

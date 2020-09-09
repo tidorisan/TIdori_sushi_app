@@ -2,10 +2,10 @@ class CreateStoreAdminApplications < ActiveRecord::Migration[5.2]
   def change
     create_table :store_admin_applications do |t|
       t.string :address, null: false, default: ""
-      t.integer :postal_code, null: false
+      t.string :postal_code, null: false
       t.string :store_name, null: false, default: ""
       t.string :kana_store_name, null: false, default: ""
-      t.integer :phone_number, null: false
+      t.string :phone_number, null: false
       t.string :branch_name, null: false, default: ""
       t.string :kana_branch_name, null: false, default: ""
       t.string :email, null: false, default: ""

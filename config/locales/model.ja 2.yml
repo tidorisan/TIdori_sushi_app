@@ -1,0 +1,85 @@
+ja:
+  activerecord:
+    models:
+      store_buzz: 口コミ
+      user: ユーザー
+      store_admin_application: 新規店舗管理者申請
+    attributes:
+      user:
+        email: メールアドレス
+        current_password: 現在のパスワード
+        password: パスワード
+        family_name: 氏名(性)
+        first_name: 氏名(名)
+        kana_family_name: カナ氏名(性)
+        kana_first_name: カナ氏名(名)
+        birthday: 生年月日
+        job_title: 店舗役職
+        permit_to_store_manager: 店舗管理者に許可をとりましたか？
+        get_restaurant_sales_permit_form: 飲食店営業許可書を取得していますか？
+        related_with_antisocial_force: 反社会的勢力との関係は一切ありませんか？
+        mannaers_industry: 風俗法の業態に当てはまりませんか？
+      store_buzz:
+        title: タイトル
+        detail: 口コミ本文
+      store_admin_application:
+        address: 住所
+        postal_code: 郵便番号
+        store_name: 店舗名
+        kana_store_name: 店舗名(全角カタカナ)
+        phone_number: 電話番号
+        email: メールアドレス
+        family_name: 氏名(性)
+        first_name: 氏名(名)
+        kana_family_name: カナ氏名(性)
+        kana_first_name: カナ氏名(名)
+        birthday: 生年月日
+        job_title: 店舗役職
+        permit_to_store_manager: 店舗管理者に許可をとりましたか？
+        get_restaurant_sales_permit_form: 飲食店営業許可書を取得していますか？
+        related_with_antisocial_force: 反社会的勢力との関係は一切ありませんか？
+        mannaers_industry: 風俗法の業態に当てはまりませんか？
+      store:
+        store_name: 店舗名
+        kana_store_name: 店舗名(全角カタカナ)
+        store_genre_id: 店舗ジャンル
+        postal_code: 郵便番号
+        phone_number: 電話番号
+        address: 住所
+        reservation: 予約
+        reservation_of_considerations: 予約時の注意事項
+        traffic_method: 交通手段
+        business_day: 営業日
+        regular_holiday: 定休日
+        consumption_budget: 予算
+        credit_card: 支払い可能カード
+        e_money: 支払い可能電子マネー
+        private_room: 個室
+        reserved: 貸し切り
+        parking: 駐車場
+        no_smoking: 禁煙・喫煙
+        equipment: 空間・設備
+        comment: 店舗紹介文
+        home_page: ホームページURL
+        news: お知らせしたいこと
+        store_genre: 店舗ジャンル
+      store_genre:
+        genre_name: 店舗ジャンル
+        display_status: サイト表示ステータス
+      menu_genre:
+        genre_name: 店舗ジャンル
+        display_status: サイト表示ステータス
+      store_menu:
+        name: メニュー名
+        comment: メニュー説明
+        tax_excluded_price: 値段(税抜き)
+        menu_genre_id: メニュージャンル
+      coupon:
+        reason: 割引理由
+        detail: 割引内容説明
+        target: 対象
+        writing: 但書
+        expiration_date: 有効期限
+
+
+

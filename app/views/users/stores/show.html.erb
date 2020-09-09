@@ -1,8 +1,11 @@
-<h1>Users::Stores#show</h1>
-<p>Find me in app/views/users/stores/show.html.erb</p>
 
+<div class="box1">
+	<h1>レストラン詳細情報</h1>
+</div>
 
-	<table>
+<div class="box">
+
+	<table class="table table-hover table-responsive">
 		<caption>店舗基本情報</caption>
 		<thead>
 			<tr>
@@ -42,7 +45,7 @@
 	</table>
 
 
-	<table>
+	<table class="table table-hover table-responsive">
 		<caption>店舗詳細情報</caption>
 		<thead>
 			<tr>
@@ -52,7 +55,13 @@
 		<tbody>
 			<tr>
 				<td>店舗＿ジャンル</td>
-				<td><%= @store.store_genre %></td>
+				<% if @store.store_genre_id == 1 %>
+					<td>寿司</td>
+				<% elsif @store.store_genre_id == 2 %>
+					<td>回転寿司</td>
+				<% else %>
+					<td>立ち食い寿司</td>
+				<% end %>
 			</tr>
 			<tr>
 				<td>予約</td>
@@ -78,7 +87,7 @@
 	</table>
 
 
-	<table>
+	<table class="table table-hover table-responsive">
 		<caption>支払い</caption>
 		<thead>
 			<tr>
@@ -92,8 +101,7 @@
 			</tr>
 			<tr>
 				<td>支払い可能カード</td>
-					<td>store.newがまだ未完成なのでここも未完成です。</td>
-					<td>中間テーブルの内容を持ってきます</td>
+				<td><%= @store.credit_card %></td>
 			</tr>
 			<tr>
 				<td>予約時の注意事項</td>
@@ -101,14 +109,12 @@
 			</tr>
 			<tr>
 				<td>支払い可能電子マネー</td>
-				<!-- 見直す箇所:動作で不明点をメンターさんに伺う。ids=>idでは -->
-				<td>store.newがまだ未完成なのでここも未完成です。</td>
-				<td>中間テーブルの内容を持ってきます</td>
+				<td><%= @store.e_money %></td>
 			</tr>
 		</tbody>
 	</table>
 
-		<table>
+	<table class="table table-hover table-responsive">
 		<caption>空間・設備</caption>
 		<thead>
 			<tr>
@@ -122,7 +128,11 @@
 			</tr>
 			<tr>
 				<td>個室</td>
-				<td><%= @store.private_room %>
+				<% if @store.private_room == true %>
+					<td>あり</td>
+				<% else %>
+					<td>なし</td>
+				<% end %>
 			</tr>
 			<tr>
 				<td>駐車場</td>
@@ -134,14 +144,12 @@
 			</tr>
 			<tr>
 				<td>空間・設備</td>
-				<!-- 見直す箇所:動作で不明点をメンターさんに伺う。ids=>idでは -->
-				<td>store.newがまだ未完成なのでここも未完成です。</td>
-				<td>中間テーブルの内容を持ってきます</td>
+				<td><%= @store.equipment %></td>
 			</tr>
 		</tbody>
 	</table>
 
-	<table>
+	<table class="table table-hover table-responsive">
 		<caption>その他</caption>
 		<thead>
 			<tr>
@@ -149,6 +157,10 @@
 			</tr>
 		</thead>
 		<tbody>
+			<tr>
+				<td>店舗紹介</td>
+				<td><%= @store.comment %></td>
+			</tr>
 			<tr>
 				<td>ホームページURL</td>
 				<td><%= @store.home_page %></td>
@@ -164,4 +176,13 @@
 		</tbody>
 	</table>
 
-	<%= link_to "編集する", edit_users_store_path(@store) %>
+	<div class="botton">
+		<%= link_to "一覧に戻る", users_stores_path, class: "button_field btn btn-info botton_content" %>
+		<%= link_to "編集する", edit_users_store_path(@store),class: "button_field btn btn-primary botton_content" %>
+	</div>
+
+</div>
+
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'user_stote_show' %>
+<% end %>

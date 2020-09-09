@@ -5,5 +5,4 @@ class TidoriSushi::HomesControllerTest < ActionDispatch::IntegrationTest
     get tidori_sushi_homes_about_url
     assert_response :success
   end
-
 end

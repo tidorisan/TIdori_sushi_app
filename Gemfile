@@ -44,6 +44,9 @@ group :development, :test do
   gem 'capistrano-rails'
   gem 'capistrano3-puma'
   gem 'capistrano-rbenv'
+
+  gem 'rspec-rails'
+
 end
 
 group :development do
@@ -76,3 +79,13 @@ gem 'dotenv-rails'
 group :production do
   gem 'mysql2'
 end
+
+gem 'ransack'
+gem 'geocoder'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'jquery-rails'
+gem 'rails-i18n', '~> 5.1'
+gem 'cancancan'
+gem 'kaminari'
+gem 'rubocop-airbnb'
+

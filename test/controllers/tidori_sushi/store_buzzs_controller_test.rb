@@ -10,5 +10,4 @@ class TidoriSushi::StoreBuzzsControllerTest < ActionDispatch::IntegrationTest
     get tidori_sushi_store_buzzs_index_url
     assert_response :success
   end
-
 end

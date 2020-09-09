@@ -1,14 +1,20 @@
-<h1>Users::Homes#top</h1>
-<p>Find me in app/views/users/homes/top.html.erb</p>
 
-<div>
-	<% if user_signed_in? %>
-		<% if current_user.role == 'site_admin' %>
-			<%= link_to "新規店舗_登録申請一覧画面へ", users_store_admin_applications_path %><br>
-			<%= link_to '利用できるクレジットカード一覧・登録画面へ', users_credit_cards_path %><br>
-			<%= link_to '利用できる電子マネー一覧・登録画面へ', users_e_bills_path %><br>
-			<%= link_to '設備・空間一覧・登録画面へ', users_store_equipments_path %><br>
-			<%= link_to 'メニュージャンル一覧・登録画面へ', users_menu_genres_path %>
-		<% end %>
+<% if user_signed_in? %>
+	<% if current_user.role == 'site_admin' %>
+		<div class="container">
+			<div class="box1">
+				<%= link_to "新規店舗_登録申請一覧画面へ", users_store_admin_applications_path, class: "link_content" %>
+			</div>
+			<div class="box1">
+				<%= link_to '店舗ジャンル一覧・登録画面へ', users_store_genres_path, class: "link_content" %>
+			</div>
+			<div class="box1">
+				<%= link_to 'メニュージャンル一覧・登録画面へ', users_menu_genres_path, class: "link_content" %>
+			</div>
+		</div>
 	<% end %>
-</div>
+<% end %>
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'user_home_top' %>
+<% end %>
+

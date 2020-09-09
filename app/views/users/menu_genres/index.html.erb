@@ -1,40 +1,46 @@
-<h1>Users::MenuGenres#index</h1>
-<p>Find me in app/views/users/menu_genres/index.html.erb</p>
+<%= render 'layouts/error_messages', model: @menu_genre %>
 
-<div>
-	<%= form_with(model: @menu_genre, url: users_menu_genres_path, local: true) do |f| %>
-		<%= f.label :genre_name, 'メニュージャンル' %>
-		<%= f.text_field :genre_name %>
-		<%= f.label :display_status, '有効' %>
-		<%= f.radio_button :display_status, :true, checked: true %>
+<div class="box">
 
-		<%= f.label :display_status, '無効' %>
-		<%= f.radio_button :display_status, :false %>
-		<%= f.submit "登録" %>
-	<% end %>
-</div>
+	<div class="box2">
+		<%= form_with(model: @menu_genre, url: users_menu_genres_path, local: true) do |f| %>
+			<%= f.label :genre_name, 'メニュージャンル', class: "content" %>
+			<%= f.text_field :genre_name, placeholder: "例) 料理 ", class: "text_field content", required: "true" %>
+			<%= f.label :display_status, '有効' %>
+			<%= f.radio_button :display_status, :true, checked: true %>
 
-<div>
-	<table>
-		<thead>
-			<tr>
-				<th>ジャンル</th>
-				<th>状態</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @menu_genres.each do |menu_genre| %>
+			<%= f.label :display_status, '無効' %>
+			<%= f.radio_button :display_status, :false %>
+			<%= f.submit "登録", class: "button_field btn btn-primary content2" %>
+		<% end %>
+	</div>
+
+	<div class="box2">
+		<table class="table table-hover">
+			<thead>
 				<tr>
-					<td><%= menu_genre.genre_name %></td>
-					<% if menu_genre.display_status == true %>
-						<td><p>有効</p></td>
-					<% else %>
-						<td><p>無効</p></td>
-					<% end %>
-					<td><%= link_to '編集する', edit_users_menu_genre_path(menu_genre) %></td>
+					<th>ジャンル</th>
+					<th>状態</th>
 				</tr>
-			<% end %>
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				<% @menu_genres.each do |menu_genre| %>
+					<tr>
+						<td><%= menu_genre.genre_name %></td>
+						<% if menu_genre.display_status == true %>
+							<td><p>有効</p></td>
+						<% else %>
+							<td><p>無効</p></td>
+						<% end %>
+						<td><%= link_to '編集する', edit_users_menu_genre_path(menu_genre) %></td>
+					</tr>
+				<% end %>
+			</tbody>
+		</table>
+	</div>
+
 </div>
+<% content_for :css do %>
+	  <%= stylesheet_link_tag 'users_menu_genres' %>
+	<% end %>
 

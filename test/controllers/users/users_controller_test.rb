@@ -5,5 +5,4 @@ class Users::UsersControllerTest < ActionDispatch::IntegrationTest
     get users_users_new_url
     assert_response :success
   end
-
 end

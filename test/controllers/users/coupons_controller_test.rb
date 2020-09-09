@@ -20,5 +20,4 @@ class Users::CouponsControllerTest < ActionDispatch::IntegrationTest
     get users_coupons_edit_url
     assert_response :success
   end
-
 end

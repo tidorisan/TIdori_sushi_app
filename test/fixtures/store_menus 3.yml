@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  store_id: 1
+  name: MyString
+  comment: MyText
+  tax_excluded_price: 1
+  display_status: false
+  menu_genre_id: 1
+
+two:
+  store_id: 1
+  name: MyString
+  comment: MyText
+  tax_excluded_price: 1
+  display_status: false
+  menu_genre_id: 1

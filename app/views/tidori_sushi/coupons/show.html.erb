@@ -1,2 +1,16 @@
 <h1>TidoriSushi::Coupons#show</h1>
 <p>Find me in app/views/tidori_sushi/coupons/show.html.erb</p>
+<div class="box1">
+	<h1></h1>
+</div>
+<div class="box">
+	<div>
+		<%= @coupon.reason %>
+		<p>詳細:  <%= @coupon.detail %></p>
+		<%= attachment_image_tag @coupon, :image, size: '100x100', fallback: "/assets/no_image.id" %>
+		<p>対象:  <%= @coupon.target %></p>
+		<p>但書:  <%= @coupon.writing %></p>
+		<p>有効期限:  <%= (@coupon.created_at + @coupon.expiration_date.minutes).strftime("%Y年%-m年%-d日 %H:%M:%S") %></p>
+		<p>発行日:  <%= @coupon.created_at.strftime("%Y年%-m年%-d日 %H:%M:%S") %></p>
+	</div>
+</div>
