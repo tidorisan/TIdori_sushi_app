@@ -45,6 +45,7 @@
 				 :display_status => true,
 				 :credit_card => "visa",
 				 :e_money => "paypay, Linepay",
+				 image: open("./app/assets/images/image05.jpg"),
 				 :comment => '[2020 ミシュランガイド]で一つ星を獲得いたしました。長屋が連なる空堀商店街近くにひっそりと佇む、古民家を改築した落ち着いた空間。'
 				)
 	Store.create!(:user_id => 3,
@@ -74,6 +75,7 @@
 				 :display_status => true,
 				 :credit_card => "visa JCB",
 				 :e_money => "paypay",
+				 image: open("./app/assets/images/image02.jpg"),
 				 :comment => '毎朝市場で仕入れた新鮮な魚介類を惜しみなく使用した鉄火丼がおすすめです。'
 				)
 
@@ -104,6 +106,7 @@
 				 :display_status => true,
 				 :credit_card => "visa JCB",
 				 :e_money => "paypay, Linepay",
+				 image: open("./app/assets/images/image01.jpg"),
 				 :comment => '創業昭和3年の伝統を重ねる,地元客御用達の気軽に立ち寄れる寿司店です。'
 				)
 	Store.create!(:user_id => 4,
@@ -133,6 +136,7 @@
 				 :display_status => true,
 				 :credit_card => "visa JCB",
 				 :e_money => "paypay, Linepay",
+				 image: open("./app/assets/images/image04.jpg"),
 				 :comment => '住宅街に佇むカジュアルな雰囲気のすし処です。'
 				)
 	Store.create!(:user_id => 6,
@@ -161,6 +165,7 @@
 				 :display_status => true,
 				 :credit_card => "visa JCB",
 				 :e_money => "paypay, Linepay",
+				 image: open("./app/assets/images/image02.jpg"),
 				 :comment => 'オーガニックにこだわった旬の食材を堪能してください。'
 				)
 	Store.create!(:user_id => 5,
@@ -187,6 +192,7 @@
 				 :display_status => true,
 				 :credit_card => "visa JCB",
 				 :e_money => "paypay, Linepay",
+				 image: open("./app/assets/images/image02.jpg"),
 				 :comment => '天然ものにこだわった鮮度抜のお寿司を堪能ください。'
 				)
 
@@ -216,6 +222,7 @@
 				 :display_status => true,
 				 :credit_card => "visa JCB",
 				 :e_money => "paypay, Linepay",
+				 image: open("./app/assets/images/image01.jpg"),
 				 :comment => 'お寿司を食べて元気になろう!!。'
 				)
 	Store.create!(:user_id => 8,
@@ -243,6 +250,7 @@
 				 :display_status => true,
 				 :credit_card => "visa JCB",
 				 :e_money => "paypay, Linepay",
+				 image: open("./app/assets/images/image03.jpg"),
 				 :comment => '心地よい空間で、職人によるこだわりの握りをご堪能ください。'
 				)
 
