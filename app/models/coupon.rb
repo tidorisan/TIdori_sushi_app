@@ -9,8 +9,7 @@ class Coupon < ApplicationRecord
                      length: { maximum: 200 }
   validates :target, presence: true,
                      length: { maximum: 200 }
-  validates :writing, presence: true,
-                      length: { maximum: 300 }
+  validates :writing, length: { maximum: 200 }
   validates :expiration_date, presence: true,
                               numericality: true
 end

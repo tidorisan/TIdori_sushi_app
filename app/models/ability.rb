@@ -31,6 +31,7 @@ class Ability
         can :manage, :menu, user_id: user.id
         can :manage, :manage_genre, user_id: user.id
         can :manage, :coupon, user_id: user.id
+        can :manage, :user, user_id: user.id
 
       end
 
