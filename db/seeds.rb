@@ -14,8 +14,8 @@
 	User.create!(email: 'store5@hoge.com', password: 'store5@hoge.com', password_confirmation: 'store5@hoge.com', role: 2)
 	User.create!(email: 'store6@hoge.com', password: 'store6@hoge.com', password_confirmation: 'store6@hoge.com', role: 2)
 	User.create!(email: 'store7@hoge.com', password: 'store7@hoge.com', password_confirmation: 'store7@hoge.com', role: 2)
-	User.create!(email: 'customer1@hoge.com', password: 'customer1@hoge.com', password_confirmation: 'customer1@hoge.com', role: 1, image_id: open("./app/assets/images/image05.jpg"))
-	User.create!(email: 'customer2@hoge.com', password: 'customer2@hoge.com', password_confirmation: 'customer2@hoge.com', role: 1, image_id: open("./app/assets/images/image05.jpg"))
+	User.create!(email: 'customer1@hoge.com', password: 'customer1@hoge.com', password_confirmation: 'customer1@hoge.com', role: 1, image: open("./app/assets/images/image05.jpg"))
+	User.create!(email: 'customer2@hoge.com', password: 'customer2@hoge.com', password_confirmation: 'customer2@hoge.com', role: 1, image: open("./app/assets/images/image05.jpg"))
 
 	StoreGenre.create!(:genre_name => "寿司")
 	StoreGenre.create!(:genre_name => "回転寿司")
@@ -338,6 +338,7 @@
 		    :detail =>  '2割引',
 		    :target => "ちらし寿司",
     		:expiration_date => 20,
+    		image: open("./app/assets/images/image01.jpg"),
 		    :store_id => 1
 		)
 	end
@@ -347,7 +348,7 @@
 				  :detail =>  '1割引',
 				  :target => "全品",
 				  :expiration_date => 20,
-				  image_id: open("./app/assets/images/image01.jpg"),
+				  image: open("./app/assets/images/image01.jpg"),
 				  :store_id => 1)
 
 
@@ -390,7 +391,7 @@
 			visit_date:  20200913,
 			use_time: 2,
 			pay_price: 4000,
-			image_id: open("./app/assets/images/image01.jpg")
+			image: open("./app/assets/images/image01.jpg")
 		)
 	end
 

@@ -1,84 +1,129 @@
-<h1>TidoriSushi::Menus#index</h1>
-<p>Find me in app/views/tidori_sushi/menus/index.html.erb</p>
 
-<div>
-	<div>
-		<%= link_to "口コミ", tidori_sushi_store_store_buzzs_path(@store) %>
-		<%= link_to "クーポン", tidori_sushi_coupons_path %>
+<div class="content_cover">
+	<div class="main_visual">
+		<div class="store_tag_box">
+			<div class="store_tag">
+				<p><%= link_to "メニュー", tidori_sushi_store_menus_path(@store) %></p>
+			</div>
+			<div class="store_tag">
+				<p><%= link_to "口コミ", tidori_sushi_store_store_buzzs_path(@store) %></p>
+			</div>
+			<div class="store_tag">
+				<p><%= link_to "クーポン", tidori_sushi_coupons_path %></p>
+			</div>
+			<% if user_signed_in?  %>
+				<% if @store.favorited_by?(current_user) %>
+					<div class="store_tag">
+						<p><%=  link_to "お気に入りを外す", tidori_sushi_store_favorites_path(@store), method: :delete, local: true %></p>
+					</div>
+				<% else %>
+					<div  class="store_tag">
+						<p><%=  link_to  tidori_sushi_store_favorites_path(@store), method: :post, local: true do  %>
+								<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
+							<% end %>
+						</p>
+					</div>
+				<% end %>
+				<% if current_user.role == :customer %>
+					<div class="store_tag">
+						<p><%= link_to "口コミ投稿", new_tidori_sushi_store_store_buzz_path(@store) %></p>
+					</div>
+				<% end %>
+			<% end %>
+
+		</div>
 	</div>
-	<div>
-		<h1><%= @store.store_name %></h1>
-		<p>ジャンル: <%= @store.store_genre.genre_name %></p>
-		<p>予算: <%= @store.consumption_budget %> 定休日: <%= @store.regular_holiday %></p>
-		<% if @store.news %>
-			<p>お店からの大切なお知らせ</p>
-			<p><strong><%= @store.news %></strong></p>
-		<% end %>
+	<div class='main_box'>
+		<div class="left">
+			<div class="title">
+				<h1><%= @store.store_name %></h1>
+				<p>ジャンル: <%= @store.store_genre.genre_name%></p>
+				<p>予算: <%= @store.consumption_budget %> 定休日: <%= @store.regular_holiday %></p>
+				<% if @store.news %>
+					<div class="store_news">
+						<p class="store_news_text">お店からの大切なお知らせ</p>
+					</div>
+					<p><strong><%= @store.news %></strong></p>
+				<% end %>
+			</div>
+
+			<div class="menu">
+				<div class="menu_title">
+					<h2>メニュー</h2>
+				</div>
+				<% @menus.each do |menu| %>
+					<div class="comment_menu">
+						<% if menu.menu_genre.genre_name == "料理" %>
+							<div class="comment_visual_box">
+								<%= attachment_image_tag menu, :image, fallback: 'no_image.jpg', class: "comment_visual" %>
+							</div>
+							<div class="comment_body">
+								<h3><%= menu.name %></h3>
+								<p><%= menu.comment %></p>
+								<h3><%= menu.tax_excluded_price %></h3>
+							</div>
+						<% end %>
+						<% if menu.menu_genre.genre_name == "ドリンク" %>
+							<div class="comment_visual_box">
+								<%= attachment_image_tag menu, :image, fallback: 'no_image.jpg', class: "comment_visual" %>
+							</div>
+							<div class="comment_body">
+								<h3><%= menu.name %></h3>
+								<p><%= menu.comment %></p>
+								<h3><%= menu.tax_excluded_price %></h3>
+							</div>
+						<% end %>
+					</div>
+				<% end %>
+				<%= paginate @menus %>
+
+			</div>
+		</div>
+		<div class="right">
+
+			<div class="map_field_box">
+				<div id="map" class="map_field"></div>
+
+					<script type="text/javascript">
+					function initMap() {
+						var map = new google.maps.Map(document.getElementById('map'), {
+					    	center: new google.maps.LatLng(<%= @store.latitude %>, <%= @store.longitude %>),
+					        zoom: 15
+				    	});
+				        (function(){
+
+				          var latlng = new google.maps.LatLng(<%= @store.latitude %>, <%= @store.longitude %>);
+				          var marker = new google.maps.Marker({
+				              position: latlng,
+				              map: map,
+				          });
+				          var infowindow = new google.maps.InfoWindow({
+				          		position: latlng,
+				          		content: 'text',
+						  });
+						  infowindow.open(map);
+						  infowindow.close();
+				        })();
+					}
+					</script>
+
+					<script async defer
+				      src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>&callback=initMap">
+				    </script>
+			</div>
+			<div class="store_date">
+				<p>電話予約: <%= @store.phone_number %></p>
+				<p>予算: <%= @store.consumption_budget %></p>
+				<p>営業時間: <%= @store.business_day %></p>
+				<p>定休日: <%= @store.regular_holiday %></p>
+				<p>ホームページ: <%= @store.home_page %></p>
+			</div>
+
+		</div>
 	</div>
 </div>
 
-<div>
-	<h2>メニュー</h2>
-	<p>ジャンルごとに分けたい</p>
-	<% @menus.each do |menu| %>
-		<% if menu.menu_genre.genre_name == "料理" %>
-			<%= attachment_image_tag menu, :image, size: '300x500', fallback: 'no_image.jpg' %>
-			<h3><%= menu.name %></h3>
-			<p><%= menu.comment %></p>
-			<h3><%= menu.tax_excluded_price %></h3>
-		<% end %>
-	<% end %>
 
-	<% @menus.each do |menu| %>
-		<% if menu.menu_genre.genre_name == "ドリンク" %>
-			<%= attachment_image_tag menu, :image, size: '300x500', fallback: 'no_image.jpg' %>
-			<h3><%= menu.name %></h3>
-			<p><%= menu.comment %></p>
-			<h3><%= menu.tax_excluded_price %></h3>
-		<% end %>
-	<% end %>
-</div>
-
-
-<div>
-	<p>左カラム</p>
-	<div>
-
-	<div id="map" style="width:30%; height:200px"></div>
-
-		<script type="text/javascript">
-		function initMap() {
-			var map = new google.maps.Map(document.getElementById('map'), {
-		    	center: new google.maps.LatLng(<%= @store.latitude %>, <%= @store.longitude %>),
-		        zoom: 15
-	    	});
-	        (function(){
-
-	          var latlng = new google.maps.LatLng(<%= @store.latitude %>, <%= @store.longitude %>);
-	          var marker = new google.maps.Marker({
-	              position: latlng,
-	              map: map,
-	          });
-	          var infowindow = new google.maps.InfoWindow({
-	          		position: latlng,
-	          		content: 'text',
-			  });
-			  infowindow.open(map);
-			  infowindow.close();
-	        })();
-		}
-		</script>
-
-		<script async defer
-	      src="https://maps.googleapis.com/maps/api/js?key=<%= ENV['API_KEY']%>&callback=initMap">
-	    </script>
-	</div>
-
-	<div>
-		<p>電話予約: <%= @store.phone_number %></p>
-		<p>予算: <%= @store.consumption_budget %></p>
-		<p>営業時間: <%= @store.business_day %></p>
-		<p>定休日: <%= @store.regular_holiday %></p>
-		<p>ホームページ: <%= @store.home_page %></p>
-	</div>
-</div>
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'tidori_sushi_store_show' %>
+<% end %>

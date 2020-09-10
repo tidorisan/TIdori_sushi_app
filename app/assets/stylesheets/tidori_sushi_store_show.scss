@@ -197,10 +197,21 @@ div[class="right"] {
 
 
 
+//store_showからの記述です
+.menu_field{
+  width: 100%;
+  background-color: white;
+  padding: 50px 10px 50px 50px;
+  display: flex;
+  border-bottom: 1px solid #e1e1e1;
+}
 
-
-
-
+.comment_menu{
+  width: 100%;
+  background-color: white;
+  display: flex;
+  border-bottom: 1px solid #e1e1e1;
+}
 
 
 
