@@ -12,7 +12,7 @@ body {
 }
 
 
-.content_cover{
+.show_content_cover{
   background-color: #f0eeeb;
 }
 
@@ -50,6 +50,9 @@ body {
 .glyphicon,  .glyphicon-bookmark{
   font-size: 20px;
 }
+.active{
+  backround-color: white;
+}
 
 
 
@@ -68,9 +71,8 @@ body {
 
 
 
-div[class="left"] {
+.show_left{
   width: 65%;
-
 }
 
 
@@ -213,8 +215,23 @@ div[class="right"] {
   border-bottom: 1px solid #e1e1e1;
 }
 
+.buzz_text_body_buzz{
+  position: relative;
+}
+.buzz_visual_box_buzz{
+  width: 20%;
+  background-color: red;
+}
+.buzz_visual_buzz{
+  width: 100%;
+  height: 100px;
+  background-color: red;
+}
+.buzz_text{
+  display: flex;
+  justify-content: space-between;
 
-
+}
 
 
 

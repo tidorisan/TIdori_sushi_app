@@ -13,9 +13,9 @@ class TidoriSushi::StoresController < ApplicationController
 
   def search
     @q = Store.ransack(q_params)
-    @stores = @q.result(distinct: true)
+    @stores = @q.result(distinct: true).where(display_status: true).includes(:store_genre).page(params[:page])
     active_user = User.where(unsubscribe_status: true)
-    @index_stores = Store.where(store_id: active_user).where(display_status: true).limit(4).order(id: "DESC")
+    @index_stores = Store.where(id: active_user).where(display_status: true).includes(:store_genre).limit(4).order(id: "DESC")
   end
 
   def favorites
