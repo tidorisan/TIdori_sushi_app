@@ -1,5 +1,5 @@
 class TidoriSushi::FavoritesController < ApplicationController
-  before_action :timepass
+  before_action :login_required
 
   def create
     @store = Store.find(params[:store_id])

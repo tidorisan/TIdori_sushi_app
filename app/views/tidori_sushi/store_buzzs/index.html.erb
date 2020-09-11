@@ -14,19 +14,15 @@
 			<% if user_signed_in?  %>
 				<% if @store.favorited_by?(current_user) %>
 					<div class="store_tag">
-						<p><%=  link_to "お気に入りを外す", tidori_sushi_store_favorites_path(@store), method: :delete, local: true %></p>
+						<%=  link_to tidori_sushi_store_favorites_path(@store), method: :delete, local: true do %>
+							<i class="fa fa-heart"></i>
+						<% end %>
 					</div>
 				<% else %>
 					<div  class="store_tag">
-						<p><%=  link_to  tidori_sushi_store_favorites_path(@store), method: :post, local: true do  %>
-								<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
-							<% end %>
-						</p>
-					</div>
-				<% end %>
-				<% if current_user.role == :customer %>
-					<div class="store_tag">
-						<p><%= link_to "口コミ投稿", new_tidori_sushi_store_store_buzz_path(@store) %></p>
+						<%=  link_to  tidori_sushi_store_favorites_path(@store), method: :post, local: true do  %>
+								<i class="fa fa-heart-o"></i>
+						<% end %>
 					</div>
 				<% end %>
 			<% end %>
@@ -53,11 +49,11 @@
 					<h2>口コミ</h2>
 				</div>
 				<% @store_buzzs.each do |store_buzz| %>
-					<div class="comment_menu">
+					<div class="index_comment_menu">
 						<div class="comment_visual_box">
 							<%= attachment_image_tag store_buzz, :image, size: '100x200', fallback: 'no_image.jpg', class: "comment_visual" %>
 						</div>
-						<div class="comment_body">
+						<div class="index_comment_body">
 							<h3><%= store_buzz.title %></h3>
 							<p><%= store_buzz.detail %></p>
 							<p>訪問日: <%= store_buzz.visit_date %></p>
@@ -67,10 +63,8 @@
 								<% if store_buzz.user_id == current_user.id %>
 									<%= link_to "削除ボタン", tidori_sushi_store_store_buzz_path(@store.id, store_buzz.id), method: :delete %>
 								<% end %>
+							<p>会員番号 <%= store_buzz.user_id %>様</p>
 							<% end %>
-							<p>store_buzz.user_id :<%= store_buzz.user_id %></p>
-							<p>store_buzz.id: <%= store_buzz.id %></p>
-							<p>@store.id:<%= @store.id %></p>
 						</div>
 					</div>
 				<% end %>

@@ -47,11 +47,8 @@ body {
   border-radius: 4;
 }
 
-.glyphicon,  .glyphicon-bookmark{
-  font-size: 20px;
-}
-.active{
-  backround-color: white;
+.fa, .fa-heart, .fa, .fa-heart-o{
+  font-size: 25px;
 }
 
 
@@ -65,16 +62,9 @@ body {
 
 }
 
-
-
-
-
-
-
 .show_left{
   width: 65%;
 }
-
 
 .title{
   width: 100%;
@@ -237,14 +227,6 @@ div[class="right"] {
 
 
 
-
-
-
-
-
-
-
-
 //ボタンやリンク
 .link_content:hover {
 	color: #0bd;
@@ -282,7 +264,6 @@ div[class="right"] {
     background-color: white;
     display: flex;
     flex-direction: column;
-
   }
 
   div[class="left"] {
@@ -294,10 +275,7 @@ div[class="right"] {
     width: 100%;
     background-color: white;
     padding-top: 30px;
-
   }
-
-
 
 
 }

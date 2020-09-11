@@ -14,19 +14,15 @@
 			<% if user_signed_in?  %>
 				<% if @store.favorited_by?(current_user) %>
 					<div class="store_tag">
-						<p><%=  link_to "お気に入りを外す", tidori_sushi_store_favorites_path(@store), method: :delete, local: true %></p>
+						<%=  link_to tidori_sushi_store_favorites_path(@store), method: :delete, local: true do %>
+							<i class="fa fa-heart"></i>
+						<% end %>
 					</div>
 				<% else %>
 					<div  class="store_tag">
-						<p><%=  link_to  tidori_sushi_store_favorites_path(@store), method: :post, local: true do  %>
-								<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
-							<% end %>
-						</p>
-					</div>
-				<% end %>
-				<% if current_user.role == :customer %>
-					<div class="store_tag">
-						<p><%= link_to "口コミ投稿", new_tidori_sushi_store_store_buzz_path(@store) %></p>
+						<%=  link_to  tidori_sushi_store_favorites_path(@store), method: :post, local: true do  %>
+								<i class="fa fa-heart-o"></i>
+						<% end %>
 					</div>
 				<% end %>
 			<% end %>

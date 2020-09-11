@@ -8,7 +8,6 @@ class TidoriSushi::StoreBuzzsController < ApplicationController
   def index
     @store = Store.find(params[:store_id])
     @store_buzzs = @store.store_buzzs.page(params[:page])
-    binding.pry
   end
 
   def create

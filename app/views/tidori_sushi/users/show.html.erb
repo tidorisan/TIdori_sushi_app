@@ -1,31 +1,34 @@
-<h1>TidoriSushi::Users#show</h1>
-<p>Find me in app/views/tidori_sushi/users/show.html.erb</p>
+<%= render 'layouts/error_messages', model: @user %>
+<div class="box1">
+	<h1>マイページ</h1>
+</div>
 
 
-<%= link_to "退会ページ", tidori_sushi_users_leave_path %>
-<%= link_to "お気に入り店舗", tidori_sushi_store_favotites_path %>
+<div class="box">
+	<%= form_with(model: @user, url: tidori_sushi_user_path(@user), method: :patch, local: true) do |f| %>
 
-<%= form_with(model: @user, url: tidori_sushi_user_path(@user), method: :patch, local: true) do |f| %>
-	<%= render 'layouts/error_messages', model: @user %>
-	<table>
-		<tbody>
-			<tr>
-				<td>メールアドレス</td>
-				<td><%= f.text_field :email, required: "true" %></td>
-			</tr>
-			<tr>
-				<td>ニックネーム</td>
-				<td><%= f.text_field :nickname, class: "text_field", placeholder: "口コミ投稿時に表示されます。", required: "true" %></td>
-			</tr>
-			<tr>
-				<td>アイコン画像</td>
-				<td><%= f.attachment_field :image %></td>>
-			</tr>
-			<tr>
-				<td><p>アイコン画像で設定する画像は口コミ投稿時に表示されます</p></td>
-			</tr>
-		</tbody>
-	</table>
-	<%= f.submit "登録する" %>
+				<table class="cp_table">
+					<thead>
+						<tr>
+							<div class="icon_tr">
+								<th colspan="2", class="caption">編集画面</th>
+							</div>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>メールアドレス</th>
+							<td><%= f.text_field :email, required: "true", placeholder: "例)　tidori@hoge.com", class: "text_field" %></td>
+						</tr>
+					</tbody>
+				</table>
+		<div class="botton">
+			<%= f.submit "変更を保存する", class: "button_content button_field btn btn-primary" %>
+		</div>
+
+	<% end %>
+</div>
+
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'tidori_user_user' %>
 <% end %>
-

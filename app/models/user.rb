@@ -29,7 +29,6 @@ class User < ApplicationRecord
 
   has_many :store_buzzs, dependent: :destroy
 
-  attachment :image
 
   validates :family_name, presence: true, unless: :devise_modules?
   validates :first_name, presence: true, unless: :devise_modules?

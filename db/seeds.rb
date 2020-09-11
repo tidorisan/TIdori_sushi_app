@@ -14,8 +14,8 @@
 	User.create!(email: 'store5@hoge.com', password: 'store5@hoge.com', password_confirmation: 'store5@hoge.com', role: 2)
 	User.create!(email: 'store6@hoge.com', password: 'store6@hoge.com', password_confirmation: 'store6@hoge.com', role: 2)
 	User.create!(email: 'store7@hoge.com', password: 'store7@hoge.com', password_confirmation: 'store7@hoge.com', role: 2)
-	User.create!(email: 'customer1@hoge.com', password: 'customer1@hoge.com', password_confirmation: 'customer1@hoge.com', role: 1, image: open("./app/assets/images/image05.jpg"))
-	User.create!(email: 'customer2@hoge.com', password: 'customer2@hoge.com', password_confirmation: 'customer2@hoge.com', role: 1, image: open("./app/assets/images/image05.jpg"))
+	User.create!(email: 'customer1@hoge.com', password: 'customer1@hoge.com', password_confirmation: 'customer1@hoge.com', role: 1)
+	User.create!(email: 'customer2@hoge.com', password: 'customer2@hoge.com', password_confirmation: 'customer2@hoge.com', role: 1)
 
 	StoreGenre.create!(:genre_name => "寿司")
 	StoreGenre.create!(:genre_name => "回転寿司")

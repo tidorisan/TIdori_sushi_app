@@ -144,8 +144,6 @@ ActiveRecord::Schema.define(version: 2020_09_07_132234) do
     t.boolean "get_restaurant_sales_permit_form", default: false, null: false
     t.boolean "related_with_antisocial_force", default: false, null: false
     t.boolean "mannaers_industry", default: false, null: false
-    t.string "nickname", default: "", null: false
-    t.string "image_id", default: "", null: false
     t.boolean "unsubscribe_status", default: true, null: false
     t.integer "role", default: 1, null: false
     t.string "reset_password_token"

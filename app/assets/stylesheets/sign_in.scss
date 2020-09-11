@@ -26,6 +26,9 @@ body {
   	text-align: center;
 
 }
+.password_all_input_field{
+  margin: 20px;
+}
 .text_field {
   width: 90%;
   border: 2px solid #ccc;
@@ -37,7 +40,7 @@ input[class="text_field"]:focus {
 	background: #faf4e2;
 }
 .field{
-	width: 220px;
+	width: 90%;
 	margin: 0 auto;
 	margin-bottom: 10px;
 }

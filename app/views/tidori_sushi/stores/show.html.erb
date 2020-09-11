@@ -15,15 +15,14 @@
 				<% if @store.favorited_by?(current_user) %>
 					<div class="store_tag">
 						<%=  link_to tidori_sushi_store_favorites_path(@store), method: :delete, local: true do %>
-							<span class="glyphicon glyphicon-bookmark active" aria-hidden="true"></span>
+							<i class="fa fa-heart"></i>
 						<% end %>
 					</div>
 				<% else %>
 					<div  class="store_tag">
-						<p><%=  link_to  tidori_sushi_store_favorites_path(@store), method: :post, local: true do  %>
-								<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
-							<% end %>
-						</p>
+						<%=  link_to  tidori_sushi_store_favorites_path(@store), method: :post, local: true do  %>
+								<i class="fa fa-heart-o"></i>
+						<% end %>
 					</div>
 				<% end %>
 				<% if current_user.role == :customer %>
