@@ -6,14 +6,134 @@
 #   movies = Movie.create!([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create!(name: 'Luke', movie: movies.first)
 
-	User.create!(email: 'site@hoge.com', password: 'site@hoge.com', password_confirmation: 'site@hoge.com', role: 3)
-	User.create!(email: 'store1@hoge.com', password: 'store1@hoge.com', password_confirmation: 'store1@hoge.com', role: 2)
-	User.create!(email: 'store2@hoge.com', password: 'store2@hoge.com', password_confirmation: 'store2@hoge.com', role: 2)
-	User.create!(email: 'store3@hoge.com', password: 'store3@hoge.com', password_confirmation: 'store3@hoge.com', role: 2)
-	User.create!(email: 'store4@hoge.com', password: 'store4@hoge.com', password_confirmation: 'store4@hoge.com', role: 2)
-	User.create!(email: 'store5@hoge.com', password: 'store5@hoge.com', password_confirmation: 'store5@hoge.com', role: 2)
-	User.create!(email: 'store6@hoge.com', password: 'store6@hoge.com', password_confirmation: 'store6@hoge.com', role: 2)
-	User.create!(email: 'store7@hoge.com', password: 'store7@hoge.com', password_confirmation: 'store7@hoge.com', role: 2)
+
+	User.create!(email: 'site@hoge.com',
+				 password: 'site@hoge.com',
+				 password_confirmation: 'site@hoge.com',
+				 role: 3,
+				 family_name: "千鳥",
+				 first_name: "太郎",
+				 kana_family_name: "チドリ",
+				 kana_first_name: "タロウ",
+				 birthday: 19930621,
+				 job_title: 1,
+				 permit_to_store_manager: true,
+				 get_restaurant_sales_permit_form: true,
+				 related_with_antisocial_force: true,
+				 mannaers_industry: true
+				 )
+
+	User.create!(email: 'store1@hoge.com',
+				 password: 'store1@hoge.com',
+				 password_confirmation: 'store1@hoge.com',
+				 role: 2,
+				 family_name: "千鳥",
+				 first_name: "太郎",
+				 kana_family_name: "チドリ",
+				 kana_first_name: "タロウ",
+				 birthday: 19930621,
+				 job_title: 1,
+				 permit_to_store_manager: true,
+				 get_restaurant_sales_permit_form: true,
+				 related_with_antisocial_force: true,
+				 mannaers_industry: true
+				 )
+
+	User.create!(email: 'store2@hoge.com',
+				 password: 'store2@hoge.com',
+				 password_confirmation: 'store2@hoge.com',
+				 role: 2,
+				 family_name: "千鳥",
+				 first_name: "太郎",
+				 kana_family_name: "チドリ",
+				 kana_first_name: "タロウ",
+				 birthday: 19930621,
+				 job_title: 1,
+				 permit_to_store_manager: true,
+				 get_restaurant_sales_permit_form: true,
+				 related_with_antisocial_force: true,
+				 mannaers_industry: true
+				 )
+
+	User.create!(email: 'store13@hoge.com',
+				 password: 'store3@hoge.com',
+				 password_confirmation: 'store3@hoge.com',
+				 role: 2,
+				 family_name: "千鳥",
+				 first_name: "太郎",
+				 kana_family_name: "チドリ",
+				 kana_first_name: "タロウ",
+				 birthday: 19930621,
+				 job_title: 1,
+				 permit_to_store_manager: true,
+				 get_restaurant_sales_permit_form: true,
+				 related_with_antisocial_force: true,
+				 mannaers_industry: true
+				 )
+	User.create!(email: 'store4@hoge.com',
+				 password: 'store4@hoge.com',
+				 password_confirmation: 'store4@hoge.com',
+				 role: 2,
+				 family_name: "千鳥",
+				 first_name: "太郎",
+				 kana_family_name: "チドリ",
+				 kana_first_name: "タロウ",
+				 birthday: 19930621,
+				 job_title: 1,
+				 permit_to_store_manager: true,
+				 get_restaurant_sales_permit_form: true,
+				 related_with_antisocial_force: true,
+				 mannaers_industry: true
+				 )
+
+	User.create!(email: 'store5@hoge.com',
+				 password: 'store5@hoge.com',
+				 password_confirmation: 'store5@hoge.com',
+				 role: 2,
+				 family_name: "千鳥",
+				 first_name: "太郎",
+				 kana_family_name: "チドリ",
+				 kana_first_name: "タロウ",
+				 birthday: 19930621,
+				 job_title: 1,
+				 permit_to_store_manager: true,
+				 get_restaurant_sales_permit_form: true,
+				 related_with_antisocial_force: true,
+				 mannaers_industry: true
+				 )
+
+	User.create!(email: 'store6@hoge.com',
+				 password: 'store6@hoge.com',
+				 password_confirmation: 'store6@hoge.com',
+				 role: 2,
+				 family_name: "千鳥",
+				 first_name: "太郎",
+				 kana_family_name: "チドリ",
+				 kana_first_name: "タロウ",
+				 birthday: 19930621,
+				 job_title: 1,
+				 permit_to_store_manager: true,
+				 get_restaurant_sales_permit_form: true,
+				 related_with_antisocial_force: true,
+				 mannaers_industry: true
+				 )
+
+	User.create!(email: 'store7@hoge.com',
+				 password: 'store7@hoge.com',
+				 password_confirmation: 'store7@hoge.com',
+				 role: 2,
+				 family_name: "千鳥",
+				 first_name: "太郎",
+				 kana_family_name: "チドリ",
+				 kana_first_name: "タロウ",
+				 birthday: 19930621,
+				 job_title: 1,
+				 permit_to_store_manager: true,
+				 get_restaurant_sales_permit_form: true,
+				 related_with_antisocial_force: true,
+				 mannaers_industry: true
+				 )
+
 	User.create!(email: 'customer1@hoge.com', password: 'customer1@hoge.com', password_confirmation: 'customer1@hoge.com', role: 1)
 	User.create!(email: 'customer2@hoge.com', password: 'customer2@hoge.com', password_confirmation: 'customer2@hoge.com', role: 1)
 
