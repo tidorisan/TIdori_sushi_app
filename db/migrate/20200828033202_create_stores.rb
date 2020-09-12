@@ -23,8 +23,8 @@ class CreateStores < ActiveRecord::Migration[5.2]
       t.boolean :reserved, null: false
       t.integer :parking, null: false, default: 0
       t.integer :no_smoking, null: false
-      t.text :home_page, null: false, default: ""
-      t.text :news, null: false, default: ""
+      t.text :home_page, null: false
+      t.text :news, null: false
       t.boolean :display_status, null: false, default: true
       t.integer :store_genre_id, null: false
       t.string :credit_card, null: false, default: ""
