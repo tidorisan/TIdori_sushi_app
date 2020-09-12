@@ -3,7 +3,7 @@ class Users::MenuGenresController < ApplicationController
 
   def index
     @menu_genre = MenuGenre.new
-    @menu_genres = MenuGenre.all
+    @menu_genres = MenuGenre.page(params[:page])
   end
 
   def create

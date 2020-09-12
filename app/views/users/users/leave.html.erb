@@ -1,6 +1,18 @@
-<p>/users/users/leave(.:format)</p>
 
-<h1>店舗管理者＿退会ページ</h1>
-<p>本当に退会しますか？一度退会すると二度とログインできなくなります。退会する場合は、「退会する」をクリックしてください。</p>
+<div class="box1">
+	<h1>店舗管理者　退会ページ</h1>
+	<p>本当に退会しますか？<br>	一度退会すると二度とログインできなくなります。退会する場合は、「退会する」をクリックしてください。</p>
+</div>
+<div class="box">
 
-<%= link_to "退会する", users_unsubscribe_update_path, method: :patch %>
+		<div class="user_edit_botton">
+			<%= link_to "退会する", users_unsubscribe_update_path, method: :patch, class: "button_content button_field btn btn-primary" %>
+			<%= link_to "店舗一覧に戻る", users_stores_path, class: "button_content button_field btn btn-default" %>
+		</div>
+</div>
+
+
+
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'user_user_leave' %>
+<% end %>

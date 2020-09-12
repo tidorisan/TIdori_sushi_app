@@ -1,46 +1,76 @@
 <%= render 'layouts/error_messages', model: @menu_genre %>
 
+
+<div class="box3">
+	<h1>メニュージャンル</h1>
+</div>
+
 <div class="box">
 
-	<div class="box2">
-		<%= form_with(model: @menu_genre, url: users_menu_genres_path, local: true) do |f| %>
-			<%= f.label :genre_name, 'メニュージャンル', class: "content" %>
-			<%= f.text_field :genre_name, placeholder: "例) 料理 ", class: "text_field content", required: "true" %>
-			<%= f.label :display_status, '有効' %>
-			<%= f.radio_button :display_status, :true, checked: true %>
+	<%= form_with(model: @menu_genre, url: users_menu_genres_path, local: true) do |f| %>
 
-			<%= f.label :display_status, '無効' %>
-			<%= f.radio_button :display_status, :false %>
-			<%= f.submit "登録", class: "button_field btn btn-primary content2" %>
-		<% end %>
-	</div>
-
-	<div class="box2">
-		<table class="table table-hover">
+		<table class="cp_table">
 			<thead>
 				<tr>
-					<th>ジャンル</th>
-					<th>状態</th>
+					<div class="icon_tr">
+						<th colspan="2", class="caption">店舗ジャンル</th>
+					</div>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>
+						<%= f.label :genre_name, 'メニュージャンル', class: "content" %>
+					</th>
+					<td>
+						<%= f.text_field :genre_name, placeholder: "例) 料理 ", class: "text_field", required: "true",autofocus: "ture" %>
+					</td>
+				</tr>
+					<th>
+						<%= f.label :display_status, '有効' %>
+						<%= f.radio_button :display_status, :true, checked: true %>
+						<%= f.label :display_status, '無効' %>
+						<%= f.radio_button :display_status, :false %>
+					</th>
+					<td><%= f.submit "登録", class: "button_field btn btn-primary content2" %></td>
+				</tr>
+
+			</tbody>
+		</table>
+	<% end %>
+
+
+	<div class="menu_under_table_box">
+		<table class="cp_table">
+			<thead>
+				<tr>
+					<div class="icon_tr">
+						<th colspan="3", class="caption">店舗ジャンル</th>
+					</div>
 				</tr>
 			</thead>
 			<tbody>
 				<% @menu_genres.each do |menu_genre| %>
 					<tr>
-						<td><%= menu_genre.genre_name %></td>
+
+						<th><%= menu_genre.genre_name %></th>
 						<% if menu_genre.display_status == true %>
 							<td><p>有効</p></td>
 						<% else %>
 							<td><p>無効</p></td>
 						<% end %>
-						<td><%= link_to '編集する', edit_users_menu_genre_path(menu_genre) %></td>
+						<td><%= link_to '編集する', edit_users_menu_genre_path(menu_genre), class: "link_content" %></td>
+
 					</tr>
 				<% end %>
+				<% paginate @menu_genres  %>
 			</tbody>
 		</table>
 	</div>
 
 </div>
+
 <% content_for :css do %>
 	  <%= stylesheet_link_tag 'users_menu_genres' %>
-	<% end %>
+<% end %>
 

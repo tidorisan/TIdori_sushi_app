@@ -2,18 +2,20 @@ class TidoriSushi::StoresController < ApplicationController
   def top
     @q = Store.ransack(params[:q])
     active_user = User.where(unsubscribe_status: true)
-    @stores = Store.where(user_id: active_user).where(display_status: true).limit(8).order(id: "DESC")
+    @stores = Store.where(user_id: active_user).where(user_id: active_user).where(display_status: true).limit(8).order(id: "DESC")
   end
 
   def show
     @store = Store.find(params[:id])
+    active_menu_genre = MenuGenre.where(display_status: true)
+    @store_menus = StoreMenu.where(id: active_menu_genre).where(display_status: true).limit(4)
   end
 
   def search
     @q = Store.ransack(q_params)
-    @stores = @q.result(distinct: true)
+    @stores = @q.result(distinct: true).where(display_status: true).includes(:store_genre).page(params[:page])
     active_user = User.where(unsubscribe_status: true)
-    @index_stores = Store.where(user_id: active_user).where(display_status: true).limit(4).order(id: "DESC")
+    @index_stores = Store.where(id: active_user).where(display_status: true).includes(:store_genre).limit(4).order(id: "DESC")
   end
 
   def favorites

@@ -13,6 +13,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # POST /resource
   def create
     if params[:user][:role] == "store_admin"
+      session["#{resource_name}_return_to"] = new_users_user_path
+      super
+    elsif params[:user][:role] == "site_admin"
       session["#{resource_name}_return_to"] = users_homes_path
       super
     else

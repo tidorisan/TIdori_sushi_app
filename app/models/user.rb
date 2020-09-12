@@ -29,7 +29,6 @@ class User < ApplicationRecord
 
   has_many :store_buzzs, dependent: :destroy
 
-  attachment :image
 
   validates :family_name, presence: true, unless: :devise_modules?
   validates :first_name, presence: true, unless: :devise_modules?
@@ -37,7 +36,6 @@ class User < ApplicationRecord
   validates :kana_first_name, presence: true, unless: :devise_modules?
   validates :birthday, presence: true,
                        numericality: true
-  validates :job_title, acceptance: true
   validates :permit_to_store_manager, presence: true, unless: :devise_modules?
   validates :get_restaurant_sales_permit_form, presence: true, unless: :devise_modules?
   validates :related_with_antisocial_force, presence: true, unless: :devise_modules?

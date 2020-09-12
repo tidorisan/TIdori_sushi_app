@@ -4,31 +4,41 @@
     <title>TIdoriSushiApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+
     <!-- レスポンシブ対応 -->
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+
     <!-- font awesome -->
     <script src="https://kit.fontawesome.com/07ae5de80e.js" crossorigin="anonymous"></script>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
+    <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+
     <!-- 個別のcssファイル読み込み -->
     <%= yield :css %>
+
     <!-- フッター　ヘッダーscss読み込み -->
     <%= stylesheet_link_tag 'application_html' %>
+
     <!-- ページネーション用(参考: https://qiita.com/rio_threehouse/items/313824b90a31268b0074) -->
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <!-- viewスライダー -->
+
+    <!-- viewスライダー(https://blog.palicosp.com/2019/09/01/bxslider/) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <!-- viewスライダー(https://blog.palicosp.com/2019/09/01/bxslider/) -->
     <script>
       $(document).ready(function(){
         $('.bxslider').bxSlider({
           auto: true,
           pause: 5000,
           mode: "fade",
-          speed: 1000
+          speed: 1000,
+          slideWidth: 400
         });
       });
     </script>
@@ -69,16 +79,20 @@
                 <% if current_user.role == "customer" %>
                   <li ><%= link_to "お気に入り店舗", tidori_sushi_store_favotites_path %></li>
                   <li ><%= link_to "マイページ", tidori_sushi_user_path(current_user) %></li>
+                  <li><%= link_to "退会ページ", tidori_sushi_users_leave_path %></li>
                   <li ><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
                 <% else %>
-<!-- 店舗管理者詳細ページ -->
                     <% if current_user.role == "store_admin" %>
-                      <p class="navbar-text navbar-left">　<%= link_to "ようこそ #{current_user.family_name} さん。"  %> </p>
+                      <p class="navbar-text navbar-left">　<%= link_to "ようこそ  #{current_user.email} さん。", users_user_path(current_user)  %> </p>
                       <li><%= link_to "店舗一覧", users_stores_path %></li>
                       <li ><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
                       <li ><%= link_to "退会ページ", users_leave_path %></li>
                       <li><a href="#jump", class="jump">お問い合わせ</a></li>
                     <% else %>
+                      <p class="navbar-text navbar-left">ようこそ サイト管理者さん </p>
+                      <li ><%= link_to "顧客一覧", users_customer_path %></li>
+                      <li ><%= link_to "店舗管理者一覧",  users_store_admin_path %></li>
+
                       <li ><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
                     <% end %>
                 <% end %>
@@ -87,8 +101,6 @@
                 <li><%= link_to "新規会員登録", new_user_registration_path %></li>
                 <li ><%= link_to "ログイン", new_user_session_path %></li>
                 <li><%= link_to 'ゲストログイン(顧客)', users_guest_sign_in_path, method: :post %></li>
-<!-- 途中 -->
-<!-- 動作テスト -->
                 <li><a href="#jump">店舗掲載について</a></li>
               <% end %>
 

@@ -2,7 +2,7 @@ class Users::StoresController < ApplicationController
   before_action :login_required
 
   def index
-    @stores = current_user.stores.all
+    @stores = current_user.stores.all.page(params[:page])
   end
 
   def new

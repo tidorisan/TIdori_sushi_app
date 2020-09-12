@@ -58,8 +58,6 @@ class Store < ApplicationRecord
   validates :no_smoking, presence: true
   validates :comment, presence: true,
                       length: { maximum: 300 }
-  validates :home_page, presence: true,
-                        length: { maximum: 200 }
-  validates :news, presence: true,
-                   length: { maximum: 200 }
+  validates :home_page, length: { maximum: 200 }
+  validates :news, length: { maximum: 200 }
 end

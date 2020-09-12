@@ -99,11 +99,11 @@
 				</tr>
 				<tr>
 					<td>支払い可能カード</td>
-					<td><%= f.text_field :credit_card, placeholder: "例　visa, JCB", required: "true", class: "text_field" %></td>
+					<td><%= f.text_field :credit_card, placeholder: "例) visa, JCB", required: "true", class: "text_field" %></td>
 				</tr>
 				<tr>
 					<td>支払い可能電子マネー</td>
-					<td><%= f.text_field :e_money, placeholder: "例　paypay, Lienpay", required: "true", class: "text_field" %></td>
+					<td><%= f.text_field :e_money, placeholder: "例) paypay, Lienpay", required: "true", class: "text_field" %></td>
 				</tr>
 
 			</tbody>
@@ -172,11 +172,11 @@
 				</tr>
 				<tr>
 					<td>ホームページURL</td>
-					<td><%= f.text_field :home_page, required: "true", class: "text_field", placeholder: "例)  https://tidori/aaa" %></td>
+					<td><%= f.text_field :home_page, class: "text_field", placeholder: "例)  https://tidori/aaa" %></td>
 				</tr>
 				<tr>
 					<td>お知らせしたいこと</td>
-					<td><%= f.text_area :news, required: "true", class: "text_field", placeholder: "例)  原則ペット同伴はお断りさせていただきます。" %></td>
+					<td><%= f.text_area :news, class: "text_field", placeholder: "例)  原則ペット同伴はお断りさせていただきます。" %></td>
 				</tr>
 				<tr>
 					<td>店舗画像</td>

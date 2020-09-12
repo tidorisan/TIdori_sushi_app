@@ -1,10 +1,5 @@
 
-<!-- <div class="bxslider">
-	<div><%= image_tag "image01.jpg", class: "img" %></div>
-	<div><%= image_tag "image02.jpg", class: "img" %></div>
-	<div><%= image_tag "image08.jpg", class: "img" %></div>
-	<div><%= image_tag "image04.jpg", class: "img" %></div>
-</div> -->
+
 
 <div class="content_cover">
 	<div class="main_visual">
@@ -33,7 +28,7 @@
 				<% end %>
 			</div>
 			<div class="search_image">
-				<%= link_to  tidori_sushi_search_path(q: {address_or_store_name_or_branch_name_cont: :""}), method: :post, class: "search_message link_content" do  %>
+				<%= link_to  tidori_sushi_coupons_path, class: "search_message link_content" do  %>
 					<div class="image_black">
 						<p class="search_message">クーポン利用</p>
 					</div>
@@ -46,7 +41,7 @@
 			<div class="store_contents_title">
 				<h2>新着店舗一覧</h2>
 			</div>
-			<div class="store_contents">
+			<div class="root_store_contents">
 				<% @stores.each do |store| %>
 					<div class="store_content">
 						<div class="image">

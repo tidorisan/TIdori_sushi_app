@@ -5,16 +5,12 @@ Rails.application.routes.draw do
     passwords: 'users/passwords',
     sessions: 'users/sessions'
   }
-  root 'tidori_sushi/stores#top'
 
   devise_scope :user do
     post 'users/guest_sign_in', to: 'users/sessions#new_guest'
   end
 
-  namespace :users do
-    get 'store_genres/index'
-    get 'store_genres/edit'
-  end
+  root 'tidori_sushi/stores#top'
 
   namespace :tidori_sushi do
   	get 'about' => 'homes#about'
@@ -36,11 +32,15 @@ Rails.application.routes.draw do
   end
 
   namespace :users do
-  	get 'users/confirmation' =>  'users#confirmation', as: 'confirmation'
+    post '/password/validation' => 'passwords#validation', as: 'validation'
+
+    get "/users/customer" => "users#customer", as: "customer"
+    get "/users/store_admin" => "users#store_admin", as: "store_admin"
+  	get '/users/confirmation' =>  'users#confirmation', as: 'confirmation'
   	get '/homes/top' => 'homes#top', as: 'homes'
   	get '/users/leave' => 'users#leave', as: 'leave'
     patch '/users/leave/unsubscribe_update' => 'users#unsubscribe_update', as: 'unsubscribe_update'
-    resources :users, only: [:new, :update]
+    resources :users, only: [:new, :update, :show, :edit]
     resources :stores, only: [:new, :create, :index, :show, :edit, :update] do
       resources :menus, only: [:new, :create, :index, :show, :edit, :update]
       resources :coupons, only: [:new, :create, :index, :show, :edit, :update]

@@ -9,7 +9,6 @@ class Users::StoreGenresController < ApplicationController
   def create
     @store_genre = StoreGenre.new(store_genre_params)
     @store_genres = StoreGenre.all
-    binding.pry
     if @store_genre.save
       redirect_to users_store_genres_path
     else

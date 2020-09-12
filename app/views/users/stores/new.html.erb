@@ -8,192 +8,208 @@
 
     <%= form_with(model: @store, url: users_stores_path, local: true) do |f|  %>
 
-		<table class="table table-hover table-responsive">
-			<caption>店舗基本情報</caption>
+		<table class="cp_table">
 			<thead>
 				<tr>
-					<th>店名</th>
+					<div class="icon_tr">
+						<th colspan="2", class="caption">店舗基本情報入力フォーム</th>
+					</div>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>店名</td>
+					<th>店名<i class="fa fa-check-square"></i></th>
 					<td><%= f.text_field :store_name, placeholder: "例)　レストラン　千鳥", required: "true", class: "text_field", autofocus: "true" %></td>
 				</tr>
 				<tr>
-					<td>店名(全角カタカナ)</td>
+					<th>店名(全角カタカナ)<i class="fa fa-check-square"></i></th>
 					<td><%= f.text_field :kana_store_name, required: "true", class: "text_field", placeholder: "例)  レストラン　チドリ" %></td>
 				</tr>
 				<tr>
-					<td>店舗＿郵便番号</td>
+					<th>店舗＿郵便番号<i class="fa fa-check-square"></i></th>
 					<td><%= f.text_field :postal_code, required: "true", class: "text_field", placeholder: "例)  4300298" %></td>
 				</tr>
 				<tr>
-					<td>店舗＿住所</td>
+					<th>店舗＿住所<i class="fa fa-check-square"></i></th>
 					<td><%= f.text_field :address, required: "true", class: "text_field", placeholder: "例)  静岡県浜松市中区西区3-11-6" %></td>
 				</tr>
 				<tr>
-					<td>店舗＿電話番号</td>
+					<th>店舗＿電話番号<i class="fa fa-check-square"></i></th>
 					<td><%= f.text_field :phone_number, required: "true", class: "text_field", placeholder: "例)  09060736454" %></td>
 				</tr>
 				<tr>
-					<td>支店名</td>
+					<th>支店名</th>
 					<td><%= f.text_field :branch_name, class: "text_field", placeholder: "例)  狛犬店" %></td>
 				</tr>
 				<tr>
-					<td>支店名</td>
+					<th>支店名</th>
 					<td><%= f.text_field :kana_branch_name, class: "text_field", placeholder: "例)  コマイヌテン" %></td>
 				</tr>
 			</tbody>
 		</table>
 
 
-		<table class="table table-hover table-responsive">
-			<caption>店舗詳細情報</caption>
+		<table class="cp_table">
 			<thead>
 				<tr>
-					<th>店舗</th>
+					<div class="icon_tr">
+						<th colspan="2", class="caption">店舗詳細情報入力フォーム</th>
+					</div>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>店舗＿ジャンル</td>
-					<td><%= f.label :store_genre_id, "寿司" %></td><td><%= f.radio_button :store_genre_id, 1  %></td>
-					<td><%= f.label :store_genre_id, "回転寿司" %></td><td><%= f.radio_button :store_genre_id, 2  %></td>
-					<td><%= f.label :store_genre_id, "立ち食い寿司" %></td><td><%= f.radio_button :store_genre_id, 3  %></td>
+					<th>店舗＿ジャンル<i class="fa fa-check-square"></i></th>
+					<td>
+						<%= f.label :store_genre_id, "寿司" %>
+						<%= f.radio_button :store_genre_id, 1  %>
+						<%= f.label :store_genre_id, "回転寿司" %>
+						<%= f.radio_button :store_genre_id, 2  %><%= f.label :store_genre_id, "立ち食い寿司" %>
+						<%= f.radio_button :store_genre_id, 3  %>
+					</td>
 				</tr>
 				<tr>
-					<td>予約</td>
-					<td><%= f.label :reservation, "予約可" %></td><td><%= f.radio_button :reservation, "予約可" %></td>
-					<td><%= f.label :reservation, "予約不可" %></td><td><%= f.radio_button :reservation, "予約不可"  %></td>
-					<td><%= f.label :reservation, "完全予約制" %></td><td><%= f.radio_button :reservation, "完全予約制" %></td>
+					<th>予約<i class="fa fa-check-square"></i></th>
+					<td><%= f.label :reservation, "予約可" %>
+						<%= f.radio_button :reservation, "予約可", class: "radio_button_text" %>
+						<%= f.label :reservation, "予約不可" %><%= f.radio_button :reservation, "予約不可", class: "radio_button_text"  %>
+						<%= f.label :reservation, "完全予約制" %>
+						<%= f.radio_button :reservation, "完全予約制", class: "radio_button_text" %>
+			
+					</td>
 				</tr>
 				<tr>
-					<td>予約時の注意事項</td>
-					<td><%= f.text_field :reservation_of_considerations, required: "true", class: "text_field", placeholder: "例)  ご予約の際には前日までにお電話下さい" %></td>
+					<th>予約時の注意事項<i class="fa fa-check-square"></i></th>
+					<td><%= f.text_field :reservation_of_considerations, required: "true", class: "text_field", placeholder: "例)  ご予約の際には前日までにお電話下さい" %>
+					</td>
 				</tr>
 				<tr>
-					<td>交通手段</td>
+					<th>交通手段</th>
 					<td><%= f.text_field :traffic_method, required: "true", class: "text_field", placeholder: "例)  敷地内に駐車場がございますので、遠方からお越しのお客様はぜひご利用ください。" %></td>
 				</tr>
 				<tr>
-					<td>営業日</td>
+					<th>営業日<i class="fa fa-check-square"></i></th>
 					<td><%= f.text_field :business_day, required: "true", class: "text_field", placeholder: "例)  [水~月] 11:00~14:30(LO) 17:00~22:00(LO.21:00)" %></td>
 				</tr>
 				<tr>
-					<td>定休日</td>
+					<th>定休日<i class="fa fa-check-square"></i></th>
 					<td><%= f.text_field :regular_holiday, required: "true", class: "text_field", placeholder: "例)  毎週[火]" %></td>
 				</tr>
 			</tbody>
 		</table>
 
-		<table class="table table-hover table-responsive">
-			<caption>支払い</caption>
+		<table class="cp_table">
 			<thead>
 				<tr>
-					<th>店舗</th>
+					<div class="icon_tr">
+						<th colspan="2", class="caption">支払い情報入力フォーム</th>
+					</div>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>予算</td>
+					<th>予算<i class="fa fa-check-square"></i></th>
 					<td><%= f.text_field :consumption_budget, required: "true", class: "text_field", placeholder: "例)  ¥1300~¥4000 " %></td>
 				</tr>
 				<tr>
-					<td>支払い可能カード</td>
+					<th>支払い可能カード<i class="fa fa-check-square"></i></th>
 					<td><%= f.text_field :credit_card, placeholder: "例　visa, JCB", required: "true", class: "text_field" %></td>
 				</tr>
 				<tr>
-					<td>支払い可能電子マネー</td>
+					<th>支払い可能電子マネー<i class="fa fa-check-square"></i></th>
 					<td><%= f.text_field :e_money, placeholder: "例　paypay, Lienpay", required: "true", class: "text_field" %></td>
 				</tr>
 
 			</tbody>
 		</table>
 
-		<table class="table table-hover table-responsive">
-			<caption>空間・設備</caption>
+		<table class="cp_table">
 			<thead>
 				<tr>
-					<th>店舗</th>
+					<div class="icon_tr">
+						<th colspan="2", class="caption">設備・空間情報入力フォーム</th>
+					</div>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>個室</td>
+					<th>個室<i class="fa fa-check-square"></i></th>
 					<td><%= f.label :private_room, "あり" %>
 						<%= f.radio_button :private_room, :true %>
-					</td>
-					<td><%= f.label :private_room, "なし" %>
-						<%= f.radio_button :private_room, :false %>
+						<%= f.label :private_room, "なし" %>
+						<%= f.radio_button :private_room, :false, class: "radio_button_text" %>
 					</td>
 				</tr>
 				<tr>
-					<td>貸し切り</td>
+					<th>貸し切り<i class="fa fa-check-square"></i></th>
 					<td><%= f.label :reserved, "あり" %>
-						<%= f.radio_button :reserved, :true %>
-					</td>
-					<td><%= f.label :reserved, "なし" %>
-						<%= f.radio_button :reserved, :false %>
+						<%= f.radio_button :reserved, :true, class: "radio_button_text" %>
+
+						<%= f.label :reserved, "なし" %>
+						<%= f.radio_button :reserved, :false, class: "radio_button_text" %>
 					</td>
 				</tr>
 				<tr>
-					<td>駐車場</td>
+					<th>駐車場<i class="fa fa-check-square"></i></th>
 					<td><%= f.text_field :parking, required: "true", class: "text_field" %> 台</td>
 				</tr>
 				<tr>
-					<td>禁煙・喫煙</td>
+					<th>禁煙・喫煙<i class="fa fa-check-square"></i></th>
 					<td><%= f.label :no_smoking, "完全喫煙可" %>
-						<%= f.radio_button :no_smoking, "完全喫煙可" %>
-					</td>
-					<td><%= f.label :no_smoking, "分煙" %>
-						<%= f.radio_button :no_smoking, "分煙" %>
-					</td>
-					<td><%= f.label :no_smoking, "全面禁煙" %>
-						<%= f.radio_button :no_smoking, "全面禁煙" %>
+						<%= f.radio_button :no_smoking, "完全喫煙可", class: "radio_button_text" %>
+					
+						<%= f.label :no_smoking, "分煙" %>
+						<%= f.radio_button :no_smoking, "分煙", class: "radio_button_text" %>
+						
+						<%= f.label :no_smoking, "全面禁煙" %>
+						<%= f.radio_button :no_smoking, "全面禁煙", class: "radio_button_text" %>
 					</td>
 				</tr>
 				<tr>
-					<td>空間・設備</td>
+					<th>空間・設備<i class="fa fa-check-square"></i><</th>
 					<td><%= f.text_area :equipment, placeholder: "例 :席が広い. 座敷がある, カウンターが10席ある", required: "true", class: "text_field"  %></td>
 				</tr>
 			</tbody>
 		</table>
 
-		<table class="table table-hover table-responsive">
-			<caption>その他</caption>
+		<table class="cp_table">
 			<thead>
 				<tr>
-					<th>店舗</th>
+					<div class="icon_tr">
+						<th colspan="2", class="caption">その他店舗情報入力フォーム</th>
+					</div>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>店舗紹介文</td>
+					<th>店舗紹介文<i class="fa fa-check-square"></i></th>
 					<td><%= f.text_area :comment, required: "true", class: "text_field", placeholder: "例 アルコールにこだわり、豊富な日本酒や焼酎を取り揃えております。"%></td>
 				</tr>
 				<tr>
-					<td>ホームページURL</td>
-					<td><%= f.text_field :home_page, required: "true", class: "text_field", placeholder: "例)  https://tidori/aaa" %></td>
+					<th>ホームページURL</th>
+					<td><%= f.text_field :home_page, class: "text_field", placeholder: "例)  https://tidori/aaa" %></td>
 				</tr>
 				<tr>
-					<td>お知らせしたいこと</td>
-					<td><%= f.text_area :news, required: "true", class: "text_field", placeholder: "例)  原則ペット同伴はお断りさせていただきます。" %></td>
+					<th>お知らせしたいこと</th>
+					<td><%= f.text_area :news, class: "text_field", placeholder: "例)  原則ペット同伴はお断りさせていただきます。" %></td>
 				</tr>
 				<tr>
-					<td>店舗画像</td>
+					<th>店舗画像<i class="fa fa-check-square"></i></th>
 					<td><%= f.attachment_field :image %></td>
 				</tr>
 			</tbody>
 		</table>
 
 		<div class="botton">
-			<%= link_to "戻る", users_stores_path, class: "button_field btn btn-info botton_content" %>
+			<%= link_to "戻る", users_stores_path, class: "button_field btn btn-default botton_content" %>
 			<%= f.submit "店舗登録する",class: "button_field btn btn-primary botton_content" %>
 		</div>
 
 	<% end %>
 </div>
+
+
+
 
 <% content_for :css do %>
   <%= stylesheet_link_tag 'user_stote_new' %>

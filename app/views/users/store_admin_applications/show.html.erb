@@ -1,133 +1,156 @@
 
-<div class="box1">
+
+
+<div class="box3">
 	<h1>店舗申請詳細</h1>
 </div>
+
 <div class="box">
-	<table class="table table-hover table-responsive">
-		<caption>新規店舗管理者_詳細</caption>
+
+	<table class="cp_table">
+		<caption></caption>
 		<thead>
-			<tr>
-				<th>店舗登録基本情報</th>
-			</tr>
-		</thead>
+				<tr>
+					<div class="icon_tr">
+						<th colspan="2", class="caption">登録店舗基本情報</th>
+					</div>
+				</tr>
+			</thead>
 		<tbody>
 			<tr>
-				<td>店舗_住所</td>
+				<th>店舗_住所</th>
 				<td><%= @store_admin_application.address %></td>
 			</tr>
 			<tr>
-				<td>店舗_郵便番号</td>
+				<th>店舗_郵便番号</th>
 				<td><%= @store_admin_application.postal_code %></td>
 			</tr>
 			<tr>
-				<td>店舗名/td>
+				<th>店舗名</th>
 				<td><%= @store_admin_application.store_name %></td>
 			</tr>
 			<tr>
-				<td>店舗名(全角カタカナ)</td>
+				<th>店舗名(全角カタカナ)</th>
 				<td><%= @store_admin_application.kana_store_name %></td>
 			</tr>
 			<tr>
-				<td>店舗＿電話番号</td>
+				<th>店舗＿電話番号</th>
 				<td><%= @store_admin_application.phone_number %></td>
 			</tr>
 			<tr>
-				<td>支店名(支店名)</td>
+				<th>支店名(支店名)</th>
 				<td><%= @store_admin_application.branch_name %></td>
 			</tr>
 			<tr>
-				<td>支店名(全角カタカナ)</td>
+				<th>支店名(全角カタカナ)</th>
 				<td><%= @store_admin_application.kana_branch_name %></td>
 			</tr>
 		</tbody>
 	</table>
 
+
+
 	<%= form_with(model: @store_admin_application, url:users_store_admin_application_path(@store_admin_application), method: :patch, local: true) do |f| %>
 		<table class="table table-hover table-responsive">
-			<caption></caption>
+
+		<table class="cp_table">
 			<thead>
 				<tr>
-					<th>店舗管理者＿基本情報</th>
+					<div class="icon_tr">
+						<th colspan="4", class="caption">新規店舗管理者 詳細</th>
+					</div>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>氏名(性)</td>
-					<td><%= @store_admin_application.family_name %></td>
-					<td>氏名(名)</td>
-					<td><%= @store_admin_application.first_name %></td>
+					<th>メールアドレス</th>
+					<td colspan="4" ><%= @store_admin_application.email %></td>
+				</tr>
+
+				<tr>
+					<th>氏名(性)</th>
+					<td colspan="4" ><%= @store_admin_application.family_name %></td>
 				</tr>
 				<tr>
-					<td>カナ氏名(性)</td>
-					<td><%= @store_admin_application. kana_family_name %></td>
-					<td>カナ氏名(名)</td>
-					<td><%= @store_admin_application.kana_first_name %></td>
+					<th>氏名(名)</th>
+					<td colspan="4"><%= @store_admin_application.first_name %></td>
 				</tr>
 				<tr>
-					<td>生年月日</td>
-					<td><%= @store_admin_application.birthday %></td>
+					<th>カナ氏名(性)</th>
+					<td  colspan="4"><%= @store_admin_application.kana_family_name  %></td>
 				</tr>
 				<tr>
-					<td>メールアドレス</td>
-					<td><%= @store_admin_application.email %></td>
+					<th>カナ氏名(名)</th>
+					<td  colspan="4"><%= @store_admin_application.kana_first_name  %></td>
 				</tr>
 				<tr>
-					<td>店舗役職</td>
-					<td><%= @store_admin_application.job_title %></td>
+					<th>生年月日</th>
+					<td colspan="4"><%= @store_admin_application.birthday %></td>
 				</tr>
 				<tr>
-					<td>店舗管理者に許可をとりましたか？</td>
+					<th>店舗役職</th>
+					<td colspan="4"><%= @store_admin_application.job_title %></td>
+				</tr>
+				<tr>
+					<th>店舗管理者に許可をとりましたか？</th>
 					<% if @store_admin_application.permit_to_store_manager == true %>
-						<td>はい</td>
+						<td  colspan="4">はい</td>
 					<% else %>
-						<td>いいえ</td>
+						<td colspan="4">いいえ</td>
 					<% end %>
 				</tr>
 				<tr>
-					<td>飲食店営業許可書を取得していますか？</td>
+					<th>飲食店営業許可書を取得していますか？</th>
 					<% if @store_admin_application.get_restaurant_sales_permit_form == true %>
-						<td>はい</td>
+						<td  colspan="4">はい</td>
 					<% else %>
-						<td>いいえ</td>
+						<td  colspan="4">いいえ</td>
 					<% end %>
 				</tr>
 				<tr>
-					<td>反社会的勢力との関係は一切ありませんか？</td>
+					<th>反社会的勢力との関係は一切ありませんか？</th>
 					<% if @store_admin_application.related_with_antisocial_force == true %>
-						<td>はい</td>
+						<td colspan="4">はい</td>
 					<% else %>
-						<td>いいえ</td>
+						<td colspan="4">いいえ</td>
 					<% end %>
 				</tr>
 				<tr>
-					<td>風俗法の業態に当てはまりませんか？</td>
+					<th>風俗法の業態に当てはまりませんか？</th>
 					<% if @store_admin_application.mannaers_industry == true %>
-						<td>はい</td>
+						<td colspan="4">はい</td>
 					<% else %>
-						<td>いいえ</td>
+						<td colspan="4">いいえ</td>
 					<% end %>
 				</tr>
-				<tr>
-					<td>処理ステータス？</td>
-					<% if @store_admin_application.process_status == true %>
+
+				<% if @store_admin_application.process_status == true %>
+					<tr>
+						<th>処理ステータス？</th>
 						<td>申請中</td>
-						<td>
+					</tr>
+					<tr>
+						<th>
 							<%= f.label :process_status, "処理済みにする" %>
-							<%= f.radio_button :process_status, :false %>
-						</td>
+							<%= f.radio_button :process_status, :false, required: "true" %>
+						</th>
 						<td><%= f.submit "更新を保存する", class: "button_field btn btn-primary" %></td>
-					<% else %>
-						<td>
+					</tr>
+				<% else %>
+						<th>
 							<%= f.label :process_status, "申請中にする" %>
-							<%= f.radio_button :process_status, :true %>
-						</td>
-						<td><%= f.submit "更新を保存する", class: "button_field btn btn-primary" %></td>
-					<% end %>
-				</tr>
+							<%= f.radio_button :process_status, :true, required: "true" %>
+						</th>
+						<td><%= f.submit "更新する", class: "button_field btn btn-primary application" %></td>
+					</tr>
+				<% end %>
+
 			</tbody>
 		</table>
 	<% end %>
+
 </div>
+
 
 <% content_for :css do %>
   <%= stylesheet_link_tag 'user_store_admin_application_show' %>

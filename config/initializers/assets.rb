@@ -42,4 +42,10 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
  	tidori_sushi_buzz_new.css
  	tidori_sushi_coupon_index.css
  	tidori_sushi_coupon_show.css
+ 	tidori_user_user.css
+ 	passwords_new.css
+ 	user_user_show.css
+ 	user_user_edit.css
+ 	user_user_leave.css
+ 	user_customer.css
  )
