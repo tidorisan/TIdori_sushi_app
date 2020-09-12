@@ -82,7 +82,6 @@
                   <li><%= link_to "退会ページ", tidori_sushi_users_leave_path %></li>
                   <li ><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
                 <% else %>
-<!-- 店舗管理者詳細ページ -->
                     <% if current_user.role == "store_admin" %>
                       <p class="navbar-text navbar-left">　<%= link_to "ようこそ  #{current_user.email} さん。", users_user_path(current_user)  %> </p>
                       <li><%= link_to "店舗一覧", users_stores_path %></li>
@@ -90,6 +89,14 @@
                       <li ><%= link_to "退会ページ", users_leave_path %></li>
                       <li><a href="#jump", class="jump">お問い合わせ</a></li>
                     <% else %>
+                    <!-- 顧客一覧 -->
+                    <!-- 天日管理者一覧 -->
+                      <p class="navbar-text navbar-left">　<%= link_to "ようこそ  #{current_user.email} さん。", users_user_path(current_user)  %> </p>
+
+                      <li ><%= link_to "顧客一覧", users_customer_path %></li>
+                      <li ><%= link_to "店舗管理者一覧",  users_store_admin_path %></li>
+
+
                       <li ><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
                     <% end %>
                 <% end %>

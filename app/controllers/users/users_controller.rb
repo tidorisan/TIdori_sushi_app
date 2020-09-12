@@ -9,6 +9,14 @@ class Users::UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def customer
+    @users = User.where(role: "customer").page(params[:page])
+  end
+
+  def store_admin
+    @users = User.where(role: "store_admin").page(params[:page])
+  end
+
   def edit
     @user = User.find(params[:id])
   end

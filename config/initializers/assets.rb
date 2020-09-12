@@ -47,4 +47,5 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
  	user_user_show.css
  	user_user_edit.css
  	user_user_leave.css
+ 	user_customer.css
  )

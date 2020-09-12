@@ -32,7 +32,9 @@ Rails.application.routes.draw do
   end
 
   namespace :users do
-  	get 'users/confirmation' =>  'users#confirmation', as: 'confirmation'
+    get "/users/customer" => "users#customer", as: "customer"
+    get "/users/store_admin" => "users#store_admin", as: "store_admin"
+  	get '/users/confirmation' =>  'users#confirmation', as: 'confirmation'
   	get '/homes/top' => 'homes#top', as: 'homes'
   	get '/users/leave' => 'users#leave', as: 'leave'
     patch '/users/leave/unsubscribe_update' => 'users#unsubscribe_update', as: 'unsubscribe_update'
