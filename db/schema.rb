@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2020_09_12_102102) do
     t.boolean "enabled_status", default: true, null: false
     t.string "image_id", default: ""
     t.string "target", default: "", null: false
-    t.text "writing", default: "", null: false
+    t.text "writing", null: false
     t.integer "expiration_date", default: 0, null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -94,7 +94,7 @@ ActiveRecord::Schema.define(version: 2020_09_12_102102) do
   create_table "store_menus", force: :cascade do |t|
     t.integer "store_id", null: false
     t.string "name", default: "", null: false
-    t.text "comment", default: "", null: false
+    t.text "comment", null: false
     t.integer "tax_excluded_price", default: 0, null: false
     t.boolean "display_status", default: true, null: false
     t.integer "menu_genre_id", default: 0, null: false
@@ -126,8 +126,8 @@ ActiveRecord::Schema.define(version: 2020_09_12_102102) do
     t.boolean "reserved", null: false
     t.integer "parking", default: 0, null: false
     t.integer "no_smoking", null: false
-    t.text "home_page", default: "", null: false
-    t.text "news", default: "", null: false
+    t.text "home_page", null: false
+    t.text "news", null: false
     t.boolean "display_status", default: true, null: false
     t.integer "store_genre_id", null: false
     t.string "credit_card", default: "", null: false
