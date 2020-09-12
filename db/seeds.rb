@@ -166,6 +166,7 @@
 				 :display_status => true,
 				 :credit_card => "visa",
 				 :e_money => "paypay, Linepay",
+				 :home_page => 'https://izumimizu.com/xxxxxxxx',
 				 image: open("./app/assets/images/image05.jpg"),
 				 :comment => '[2020 ミシュランガイド]で一つ星を獲得いたしました。長屋が連なる空堀商店街近くにひっそりと佇む、古民家を改築した落ち着いた空間。'
 				)
@@ -286,6 +287,7 @@
 				 :display_status => true,
 				 :credit_card => "visa JCB",
 				 :e_money => "paypay, Linepay",
+				 :home_page => 'https://izumimizu.com/xxxxxxxx',
 				 image: open("./app/assets/images/image02.jpg"),
 				 :comment => 'オーガニックにこだわった旬の食材を堪能してください。'
 				)
@@ -312,6 +314,7 @@
 				 :news => 'テイクアウトに関してはお電話ください',
 				 :display_status => true,
 				 :credit_card => "visa JCB",
+				 :home_page => 'https://izumimizu.com/xxxxxxxx',
 				 :e_money => "paypay, Linepay",
 				 image: open("./app/assets/images/image02.jpg"),
 				 :comment => '天然ものにこだわった鮮度抜のお寿司を堪能ください。'
@@ -343,6 +346,7 @@
 				 :display_status => true,
 				 :credit_card => "visa JCB",
 				 :e_money => "paypay, Linepay",
+				 :home_page => 'https://izumimizu.com/xxxxxxxx',
 				 image: open("./app/assets/images/image01.jpg"),
 				 :comment => 'お寿司を食べて元気になろう!!。'
 				)
@@ -370,6 +374,7 @@
 				 :equipment => 'カウンター4席あります。ボックス席が3つございます',
 				 :display_status => true,
 				 :credit_card => "visa JCB",
+				 :home_page => 'https://izumimizu.com/xxxxxxxx',
 				 :e_money => "paypay, Linepay",
 				 image: open("./app/assets/images/image03.jpg"),
 				 :comment => '心地よい空間で、職人によるこだわりの握りをご堪能ください。'
