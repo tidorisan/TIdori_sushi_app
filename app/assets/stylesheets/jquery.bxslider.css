@@ -2,7 +2,6 @@
 ===================================*/
 /** RESET AND LAYOUT
 ===================================*/
-
 .bx-wrapper {
   margin: 0 !important;
   -moz-box-shadow: none !important;
@@ -16,6 +15,7 @@
   display: block;
 }
 .bxslider {
+  list-style: none;
   margin: 0;
   padding: 0;
 }
@@ -180,3 +180,27 @@ ul.bxslider {
   font-size: .85em;
   padding: 10px;
 }
+
+.image_box {
+  height: 440px;
+}
+.bx-viewport {
+  overflow: visible!important;
+  width: 1026px!important;
+}
+.main-container {
+  overflow: hidden;
+  padding-bottom: 150px;
+}
+.bxslider {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.bxslider li {
+  width: 800px!important;
+  margin: 0;
+  padding: 0;
+}
+
