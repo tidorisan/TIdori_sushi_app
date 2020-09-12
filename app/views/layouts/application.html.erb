@@ -74,7 +74,7 @@
                 <% else %>
 <!-- 店舗管理者詳細ページ -->
                     <% if current_user.role == "store_admin" %>
-                      <p class="navbar-text navbar-left">　<%= link_to "ようこそ #{current_user.family_name} さん。"  %> </p>
+                      <p class="navbar-text navbar-left">　<%= link_to "ようこそ  #{current_user.email} さん。", users_user_path(current_user)  %> </p>
                       <li><%= link_to "店舗一覧", users_stores_path %></li>
                       <li ><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
                       <li ><%= link_to "退会ページ", users_leave_path %></li>

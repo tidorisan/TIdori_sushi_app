@@ -1,15 +1,22 @@
 class Users::UsersController < ApplicationController
-  before_action :login_required, only: [:new, :update, :leave, :unsubscribe_update]
+  before_action :login_required, only: [:new, :show, :edit, :update, :leave, :unsubscribe_update]
 
   def new
     @user = User.new
   end
 
+  def show
+    @user = User.find(params[:id])
+  end
+
+  def edit
+    @user = User.find(params[:id])
+  end
+
   def update
     @user = User.find(params[:id])
-    binding.pry
     if @user.update(user_params)
-      redirect_to users_stores_path
+      redirect_to users_user_path(@user)
     else
       render 'users/users/new'
     end
