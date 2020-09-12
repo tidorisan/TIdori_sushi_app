@@ -1,22 +1,48 @@
 <%= render 'layouts/error_messages', model: @store_genre %>
 
-<div class="box1">
-	<h1>Users::StoreGenres#edit</h1>
-	<p>Find me in app/views/users/store_genres/edit.html.erb</p>
+<div class="box3">
+	<h1>店舗ジャンル編集</h1>
 </div>
 
 <div class="box">
-	<%= form_with(model: @store_genre, url: users_store_genre_path(@store_genre), local: true, method: :patch) do |f| %>
-		<%= f.label :genre_name, '店舗ジャンル', class: "content", autofocus: "true" %>
-		<%= f.text_field :genre_name, class: "text_field", required: "true", autofocus: "true" %>
-		<%= f.label :display_status, '有効' %>
-		<%= f.radio_button :display_status, :true, checked: true %>
 
-		<%= f.label :display_status, '無効' %>
-		<%= f.radio_button :display_status, :false %>
-		<%= f.submit "変更を保存する", class: "button_field btn btn-primary content2" %>
+
+	<%= form_with(model: @store_genre, url: users_store_genre_path(@store_genre), local: true, method: :patch) do |f| %>
+		<table class="table table-hover table-responsive">
+
+		<table class="cp_table">
+			<thead>
+				<tr>
+					<div class="icon_tr">
+						<th colspan="2", class="caption">新規店舗管理者 詳細</th>
+					</div>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>
+
+						<%= f.label :genre_name, '店舗ジャンル', autofocus: "true" %>
+
+					</th>
+					<td><%= f.text_field :genre_name, class: "text_field", required: "true", autofocus: "true" %></td>
+				</tr>
+					<th>
+						<%= f.label :display_status, '有効' %>
+						<%= f.radio_button :display_status, :true, checked: true %>
+						<%= f.label :display_status, '無効' %>
+						<%= f.radio_button :display_status, :false %>
+					</th>
+					<td><%= f.submit "変更を保存する", class: "button_field btn btn-primary content2" %></td>
+				</tr>
+
+
+			</tbody>
+		</table>
 	<% end %>
+
 </div>
+
 
 <% content_for :css do %>
   <%= stylesheet_link_tag 'user_store_genre_edit' %>

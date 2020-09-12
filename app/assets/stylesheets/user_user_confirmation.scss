@@ -15,14 +15,13 @@ body {
 }
 
 
-.confirmation_box {
+.box {
   width: 90%;
   background-color: #FFFFFF;
   margin: 60px auto 220px;
   border-radius: 4px;
   border: 1px #ddd solid;
   padding: 30px;
-  text-align: center;
 
 }
 .box1{
@@ -32,12 +31,14 @@ body {
   padding-left: 20px;
   padding-top: 10px;
 }
-.confirmation_link_content{
-  font-size: 20px;
+
+
+
+.link_content:hover {
+  color: #0bd;
+  text-decoration: none;
 }
-
-
-.user_edit_botton {
+.botton {
   text-align: center;
   margin-bottom: 40px;
   margin-top: 40px;
@@ -94,6 +95,16 @@ tr .caption {
 }
 
 
+//ラジオボタン 位置調整
+.radio_button_text, .radio_button {
+  position: relative;
+  top: 2px;
+  margin-right: 5px;
+}
+.radio_button_text {
+  margin-left: 6px;
+}
+
 
 input[class="button_content"] {
 
@@ -140,6 +151,21 @@ input[class="button_content"] {
 .about_title{
   margin-top: 30px;
   margin-bottom: 50px;
+}
+
+.image_box{
+  width: 400px;
+  margin: 0 auto 100px;
+}
+
+.about_box {
+  width: 90%;
+  background-color: #FFFFFF;
+  margin: 60px auto 100px;
+  border-radius: 4px;
+  border: 1px #ddd solid;
+  padding: 30px;
+
 }
 
 
