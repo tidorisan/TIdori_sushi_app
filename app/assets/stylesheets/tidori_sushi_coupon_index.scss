@@ -62,6 +62,23 @@ body {
 .coupon_text{
 	margin-top: 10px;
 }
+.index_comment_menu{
+  width: 100%;
+  background-color: white;
+  display: flex;
+  border-bottom: 1px solid #e1e1e1;
+}
+.index_comment_visual_box{
+  width: 40%;
+  height: 200px;
+  background-color: red;
+}
+.index_comment_body{
+  padding: 20px 10px 30px 30px;
+}
+
+
+
 
 @media only screen and (max-width:480px) {
   .box {

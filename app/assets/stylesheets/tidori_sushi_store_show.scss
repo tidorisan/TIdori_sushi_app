@@ -12,7 +12,7 @@ body {
 }
 
 
-.content_cover{
+.show_content_cover{
   background-color: #f0eeeb;
 }
 
@@ -47,8 +47,8 @@ body {
   border-radius: 4;
 }
 
-.glyphicon,  .glyphicon-bookmark{
-  font-size: 20px;
+.fa, .fa-heart, .fa, .fa-heart-o{
+  font-size: 25px;
 }
 
 
@@ -62,17 +62,9 @@ body {
 
 }
 
-
-
-
-
-
-
-div[class="left"] {
+.show_left{
   width: 65%;
-
 }
-
 
 .title{
   width: 100%;
@@ -197,21 +189,39 @@ div[class="right"] {
 
 
 
+//store_showからの記述です
+.menu_field{
+  width: 100%;
+  background-color: white;
+  padding: 50px 10px 50px 50px;
+  display: flex;
+  border-bottom: 1px solid #e1e1e1;
+}
 
+.comment_menu{
+  width: 100%;
+  background-color: white;
+  display: flex;
+  border-bottom: 1px solid #e1e1e1;
+}
 
+.buzz_text_body_buzz{
+  position: relative;
+}
+.buzz_visual_box_buzz{
+  width: 20%;
+  background-color: red;
+}
+.buzz_visual_buzz{
+  width: 100%;
+  height: 100px;
+  background-color: red;
+}
+.buzz_text{
+  display: flex;
+  justify-content: space-between;
 
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
@@ -254,7 +264,6 @@ div[class="right"] {
     background-color: white;
     display: flex;
     flex-direction: column;
-
   }
 
   div[class="left"] {
@@ -266,10 +275,7 @@ div[class="right"] {
     width: 100%;
     background-color: white;
     padding-top: 30px;
-
   }
-
-
 
 
 }

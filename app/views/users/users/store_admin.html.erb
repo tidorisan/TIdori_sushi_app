@@ -1,0 +1,43 @@
+
+<div class="box1">
+	<h1>店舗管理者一覧</h1>
+</div>
+
+<div class="box">
+
+		<table class="cp_table">
+			<thead>
+				<tr>
+					<div class="icon_tr">
+						<th colspan="4", class="caption">店舗管理者</th>
+					</div>
+				</tr>
+			</thead>
+			<% @users.each  do |user| %>
+				<tbody>
+					<tr>
+						<th>メールアドレス</th>
+						<td>
+							<%= link_to users_user_path(user) do %>
+								<%= user.email %>
+							<% end %>
+						</td>
+						<% if user.unsubscribe_status == true %>
+							<td>会員状態</td>
+						<% else %>
+							<td>退会済み</td>
+						<% end %>
+					</tr>
+				</tbody>
+			<% end %>
+			<%= paginate @users %>
+		</table>
+		<div class="user_show_botton">
+
+		</div>
+
+</div>
+
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'user_customer' %>
+<% end %>

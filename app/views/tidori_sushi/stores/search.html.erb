@@ -1,61 +1,43 @@
 
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'tidori_sushi_store_search' %>
+<% end %>
+
+
 <div class="content_cover">
-	<div class="left">
+	<div class="search_left">
 		<div class="search_field_left">
 			<p>検索フォーム</p>
-			<%= search_form_for(@q, url: tidori_sushi_search_path, method: :post) do |f| %>
-				<%= f.search_field :address_or_store_name_or_branch_name_cont, placeholder: "店名や住所を入力してください" %><%= f.submit "検索する" %>
-			<% end %>
+			<div class="search_field_left_in">
+				<%= search_form_for(@q, url: tidori_sushi_search_path, method: :post) do |f| %>
+					<%= f.search_field :address_or_store_name_or_branch_name_cont, placeholder: "店名や住所を入力してください" %><%= f.submit "検索する" %>
+				<% end %>
+			</div>
 		</div>
+
 		<div class="search_field_form">
 			<h2>新着店舗</h2>
 			<div class="search_field_form_in">
-				<div class="search_field_form_content">
-					<div class="search_field_form_content_image">
-					</div>
-					<div class="search_field_form_content_body">
-						<h4>dddddddd</h4>
-						<p>ssssssss</p>
-					</div>
-				</div>
-				<div class="search_field_form_content">
-					<div class="search_field_form_content_image">
-					</div>
-					<div class="search_field_form_content_body">
-						<h4>dddddddd</h4>
-						<p>ssssssss</p>
-					</div>
-				</div>
-				<div class="search_field_form_content">
-					<div class="search_field_form_content_image">
-					</div>
-					<div class="search_field_form_content_body">
-						<h4>dddddddd</h4>
-						<p>ssssssss</p>
-					</div>
-				</div>
-				<div class="search_field_form_content">
-					<div class="search_field_form_content_image">
-					</div>
-					<div class="search_field_form_content_body">
-						<h4>dddddddd</h4>
-						<p>ssssssss</p>
-					</div>
-				</div>
-				<div class="search_field_form_content">
-					<div class="search_field_form_content_image">
-					</div>
-					<div class="search_field_form_content_body">
-						<h4>dddddddd</h4>
-						<p>ssssssss</p>
-					</div>
-				</div>
+				<% @index_stores.each do |store| %>
+					<%= link_to tidori_sushi_store_path(store) do %>
+						<div class="search_field_form_content">
+							<div class="search_field_form_content_image">
+								<%= attachment_image_tag store, :image, fallback: 'no_image.jpg', class: "search_field_form_content_image_content" %>
+							</div>
+							<div class="search_field_form_content_body">
+								<h4><%= store.store_name %></h4>
+								<h4><%= store.store_genre.genre_name %></h4>
+							</div>
+						</div>
+					<% end %>
+				<% end %>
+				<%= paginate @stores %>
 			</div>
 
 		</div>
 	</div>
 
-	<div class="right">
+	<div class="search_right">
 		<div class="google_map">
 			<div>
 				<!-- 外部のjavafileに移動 -->
@@ -93,76 +75,30 @@
 				    </script>
 				</div>
 			</div>
-		<div class="store_field">
-			<div class="store_field_image"></div>
-			<div class="store_field_body">
-				<h3>aaaa</h3>
-				<p>ddddd</p>
-			</div>
+		<div class="search_content">
+			<h1>検索結果</>
 		</div>
-		<div class="store_field">
-			<div class="store_field_image"></div>
-			<div class="store_field_body">
-				<h3>aaaa</h3>
-				<p>ddddd</p>
-			</div>
+		<div class="search_body">
+			<% @stores.each do |store| %>
+				<%= link_to tidori_sushi_store_path(store) do %>
+					<div class="store_field">
+						<div class="store_field_image">
+							<%= attachment_image_tag store, :image, fallback: 'no_image.jpg', class: "store_field_image_content" %>
+						</div>
+						<div class="store_field_body">
+							<h3><%= store.store_name %></h3>
+							<h3><%= store.store_genre.genre_name %></h3>
+							<p>住所: <%= store.address %></p>
+							<p>定休日: <%= store.regular_holiday %></p>
+							<p><%= store.comment %></p>
+						</div>
+					</div>
+				<% end %>
+			<% end %>
+			<%= paginate @stores %>
 		</div>
 	</div>
 </div>
 
 
-
-<p> TidoriSushi::StoresController#search</p>
-
-
-<div>
-	<%= search_form_for(@q, url: tidori_sushi_search_path, method: :post) do |f| %>
-		<%= f.search_field :address_or_store_name_or_branch_name_cont, placeholder: "店名や住所を入力してください" %>
-		<%= f.submit "検索する" %>
-	<% end %>
-</div>
-
-<div>
-	<p>右カラム　検索フォーム</p>
-	<p>新着店舗一覧</p>
-	<% @stores.each do |store| %>
-		<%= link_to tidori_sushi_store_path(store) do %>
-			<div>
-				<%= store.id %>
-				<%= attachment_image_tag store, :image, size: '100x100', fallback: 'no_image.jpg' %>
-				<%= store.store_genre.genre_name %>
-				<%= store.address %>
-				<%= store.regular_holiday %>
-				<% if user_signed_in? %>
-					<% if store.favorited_by?(current_user) %>
-						<%=  link_to "お気に入りを外す", tidori_sushi_store_favorites_path(store), method: :delete, local: true %>
-					<% else %>
-						<%=  link_to "お気に入りにする", tidori_sushi_store_favorites_path(store), method: :post, local: true %>
-					<% end %>
-				<% end %>
-			</div>
-		<% end %>
-	<% end %>
-</div>
-
-
-<div>
-	<p>検索結果＿店舗一覧</p>
-	<% @stores.each do |store| %>
-		<%= link_to tidori_sushi_store_path(store) do %>
-			<div>
-				<%= attachment_image_tag store, :image, size: '100x100', fallback: 'no_image.jpg' %>
-				<p><%= store.id %></p>
-				<h2><%= store.store_name %></h2>
-				<h3><%= store.store_genre.genre_name %></h3>
-				<p>住所: <%= store.address %></p>
-				<p>定休日: <%= store.regular_holiday %></p>
-				<p><%= store.comment %></p>
-			</div>
-		<% end %>
-	<% end %>
-</div>
-<% content_for :css do %>
-  <%= stylesheet_link_tag 'tidori_sushi_store_search' %>
-<% end %>
 

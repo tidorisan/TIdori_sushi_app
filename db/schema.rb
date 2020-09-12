@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_07_132234) do
+ActiveRecord::Schema.define(version: 2020_09_12_102102) do
 
   create_table "coupons", force: :cascade do |t|
     t.text "reason", null: false
@@ -37,6 +37,12 @@ ActiveRecord::Schema.define(version: 2020_09_07_132234) do
     t.integer "store_menu_id"
     t.string "genre_name", default: "", null: false
     t.boolean "display_status", default: true, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "passwords", force: :cascade do |t|
+    t.string "key"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -144,8 +150,6 @@ ActiveRecord::Schema.define(version: 2020_09_07_132234) do
     t.boolean "get_restaurant_sales_permit_form", default: false, null: false
     t.boolean "related_with_antisocial_force", default: false, null: false
     t.boolean "mannaers_industry", default: false, null: false
-    t.string "nickname", default: "", null: false
-    t.string "image_id", default: "", null: false
     t.boolean "unsubscribe_status", default: true, null: false
     t.integer "role", default: 1, null: false
     t.string "reset_password_token"

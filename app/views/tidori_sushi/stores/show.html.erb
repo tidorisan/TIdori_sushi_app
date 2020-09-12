@@ -1,5 +1,5 @@
 
-<div class="content_cover">
+<div class="show_content_cover">
 	<div class="main_visual">
 		<div class="store_tag_box">
 			<div class="store_tag">
@@ -14,14 +14,15 @@
 			<% if user_signed_in?  %>
 				<% if @store.favorited_by?(current_user) %>
 					<div class="store_tag">
-						<p><%=  link_to "お気に入りを外す", tidori_sushi_store_favorites_path(@store), method: :delete, local: true %></p>
+						<%=  link_to tidori_sushi_store_favorites_path(@store), method: :delete, local: true do %>
+							<i class="fa fa-heart"></i>
+						<% end %>
 					</div>
 				<% else %>
 					<div  class="store_tag">
-						<p><%=  link_to  tidori_sushi_store_favorites_path(@store), method: :post, local: true do  %>
-								<span class="glyphicon glyphicon-bookmark" aria-hidden="true"></span>
-							<% end %>
-						</p>
+						<%=  link_to  tidori_sushi_store_favorites_path(@store), method: :post, local: true do  %>
+								<i class="fa fa-heart-o"></i>
+						<% end %>
 					</div>
 				<% end %>
 				<% if current_user.role == :customer %>
@@ -34,7 +35,7 @@
 		</div>
 	</div>
 	<div class='main_box'>
-		<div class="left">
+		<div class="show_left">
 			<div class="title">
 				<h1><%= @store.store_name %></h1>
 				<p>ジャンル: <%= @store.store_genre.genre_name%></p>
@@ -71,23 +72,30 @@
 					<p><%= link_to "もっとメニューを見る", tidori_sushi_store_menus_path(@store) %></p>
 				</div>
 			</div>
-			<div class="buzz">
-				<div class="menu_title">
-					<h2>口コミ</h2>
-				</div>
-				<% @store.store_buzzs.first(4).each do |buzz| %>
-					<div class="menu_text_body">
-						<div class="menu_text">
-							<h3><%= buzz.title %></h3>
-							<h3><%= buzz.tax_excluded_price %></h3>
-						</div>
-						<p><p><%= buzz.detail %></p></p>
+			<% if user_signed_in? %>
+				
+				<div class="buzz">
+					<div class="menu_title">
+						<h2>口コミ</h2>
 					</div>
-				<% end %>
-				<div class="menu_link">
-					<p><%= link_to "もっと口コミを見る", tidori_sushi_store_store_buzzs_path(@store) %></p>
+					<% @store.store_buzzs.first(4).each do |buzz| %>
+						<div class="buzz_text_body_buzz">
+							<div class="buzz_visual_box_buzz">
+								<%= attachment_image_tag buzz, :image, fallback: 'no_image.jpg', class: "buzz_visual_buzz" %>
+							</div>
+							<div class="buzz_text">
+								<h3><%= buzz.title %></h3>
+							</div>
+							<p><p><%= buzz.detail %></p></p>
+							<p>登録会員様</p>
+						</div>
+					<% end %>
+					<div class="menu_link">
+						<p><%= link_to "もっと口コミを見る", tidori_sushi_store_store_buzzs_path(@store) %></p>
+					</div>
 				</div>
-			</div>
+
+			<% end %>
 		</div>
 		<div class="right">
 
@@ -132,7 +140,6 @@
 		</div>
 	</div>
 </div>
-
 
 <% content_for :css do %>
   <%= stylesheet_link_tag 'tidori_sushi_store_show' %>

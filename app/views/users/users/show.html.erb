@@ -1,0 +1,105 @@
+
+<div class="box3">
+	<h1>マイページ</h1>
+</div>
+
+<div class="box">
+
+	<table class="cp_table">
+		<thead>
+			<tr>
+				<div class="icon_tr">
+					<th colspan="2", class="caption">基本情報</th>
+				</div>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>メールアドレス</th>
+				<td><%= @user.email %></td>
+			</tr>
+
+			<% if @user.role == "store_admin" %>
+				<tr>
+					<th>氏名(性)</th>
+					<td><%= @user.family_name %></td>
+				</tr>
+				<tr>
+					<th>氏名(名)</th>
+					<td><%= @user.first_name %></td>
+				</tr>
+				<tr>
+					<th>カナ氏名(性)</th>
+					<td><%= @user. kana_family_name  %></td>
+				</tr>
+				<tr>
+					<th>カナ氏名(名)</th>
+					<td><%= @user.kana_first_name  %></td>
+				</tr>
+				<tr>
+					<th>生年月日</th>
+					<td><%= @user.birthday %></td>
+				</tr>
+				<tr>
+					<th>店舗役職</th>
+					<td><%= @user.job_title %></td>
+				</tr>
+				<tr>
+					<th>店舗管理者に許可をとりましたか？</th>
+					<% if @user.permit_to_store_manager == true %>
+						<td>はい</td>
+					<% else %>
+						<td>いいえ</td>
+					<% end %>
+				</tr>
+				<tr>
+					<th>飲食店営業許可書を取得していますか？</th>
+					<% if @user.get_restaurant_sales_permit_form == true %>
+						<td>はい</td>
+					<% else %>
+						<td>いいえ</td>
+					<% end %>
+					</td>
+						</div>
+					</td>
+				</tr>
+				<tr>
+					<th>反社会的勢力との関係は一切ありませんか？</th>
+					<% if @user.related_with_antisocial_force == true %>
+						<td>はい</td>
+					<% else %>
+						<td>いいえ</td>
+					<% end %>
+				</tr>
+				<tr>
+					<th>風俗法の業態に当てはまりませんか？</th>
+					<% if @user.mannaers_industry == true %>
+						<td>はい</td>
+					<% else %>
+						<td>いいえ</td>
+					<% end %>
+				</tr>
+			<% end %>
+			<tr>
+				<th>会員ステータス</th>
+				<% if @user.unsubscribe_status == true %>
+					<td>会員状態</td>
+				<% else %>
+					<td>退会済み</td>
+				<% end %>
+			</tr>
+
+		</tbody>
+	</table>
+	<div class="user_show_botton">
+		<%= link_to "編集する", edit_users_user_path(@user), class: "button_content button_field btn btn-primary bottom user_show_botton_size" %>
+	</div>
+
+
+</div>
+
+
+
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'user_user_show' %>
+<% end %>

@@ -1,20 +1,49 @@
 
-<h1>Users::MenuGenres#edit</h1>
-<p>Find me in app/views/users/menu_genres/edit.html.erb</p>
 
-<div>
-	<%= form_with(model: @menu_genre, url: users_menu_genre_path(@menu_genre), local: true, method: :patch) do |f| %>
-		<%= f.label :genre_name, '設備ジャンル' %>
-		<%= f.text_field :genre_name, placeholder: "例) ", class: "text_field", required: "true" %>
-		<%= f.label :display_status, '有効' %>
-		<%= f.radio_button :display_status, :true, checked: true %>
-
-		<%= f.label :display_status, '無効' %>
-		<%= f.radio_button :display_status, :false %>
-		<%= f.submit "変更を保存する" %>
-	<% end %>
+<div class="box3">
+	<h1>メニュージャンル編集</h1>
 </div>
+
+<div class="box">
+
+
+	<%= form_with(model: @menu_genre, url: users_menu_genre_path(@menu_genre), local: true, method: :patch) do |f| %>
+
+		<table class="cp_table">
+			<thead>
+				<tr>
+					<div class="icon_tr">
+						<th colspan="2", class="caption">メニュージャンル</th>
+					</div>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>
+
+						<%= f.label :genre_name, 'メニュージャンル' %>
+
+					</th>
+					<td><%= f.text_field :genre_name, placeholder: "例) ", class: "text_field", required: "true" %></td>
+				</tr>
+					<th>
+						<%= f.label :display_status, '有効' %>
+						<%= f.radio_button :display_status, :true, checked: true %>
+
+						<%= f.label :display_status, '無効' %>
+						<%= f.radio_button :display_status, :false %>
+					</th>
+					<td><%= f.submit "変更を保存する", class: "button_field btn btn-primary content2" %></td>
+				</tr>
+
+
+			</tbody>
+		</table>
+	<% end %>
+
+</div>
+
 <% content_for :css do %>
-  <%= stylesheet_link_tag 'users_menu_genre_edit' %>
+  <%= stylesheet_link_tag 'user_store_genre_edit' %>
 <% end %>
 

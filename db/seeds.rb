@@ -6,16 +6,137 @@
 #   movies = Movie.create!([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create!(name: 'Luke', movie: movies.first)
 
-	User.create!(email: 'site@hoge.com', password: 'site@hoge.com', password_confirmation: 'site@hoge.com', role: 3)
-	User.create!(email: 'store1@hoge.com', password: 'store1@hoge.com', password_confirmation: 'store1@hoge.com', role: 2)
-	User.create!(email: 'store2@hoge.com', password: 'store2@hoge.com', password_confirmation: 'store2@hoge.com', role: 2)
-	User.create!(email: 'store3@hoge.com', password: 'store3@hoge.com', password_confirmation: 'store3@hoge.com', role: 2)
-	User.create!(email: 'store4@hoge.com', password: 'store4@hoge.com', password_confirmation: 'store4@hoge.com', role: 2)
-	User.create!(email: 'store5@hoge.com', password: 'store5@hoge.com', password_confirmation: 'store5@hoge.com', role: 2)
-	User.create!(email: 'store6@hoge.com', password: 'store6@hoge.com', password_confirmation: 'store6@hoge.com', role: 2)
-	User.create!(email: 'store7@hoge.com', password: 'store7@hoge.com', password_confirmation: 'store7@hoge.com', role: 2)
-	User.create!(email: 'customer1@hoge.com', password: 'customer1@hoge.com', password_confirmation: 'customer1@hoge.com', role: 1, image_id: open("./app/assets/images/image05.jpg"))
-	User.create!(email: 'customer2@hoge.com', password: 'customer2@hoge.com', password_confirmation: 'customer2@hoge.com', role: 1, image_id: open("./app/assets/images/image05.jpg"))
+	Password.create!(key: ENV['LOG_IN_PASSWORD'])
+
+	User.create!(email: 'site@hoge.com',
+				 password: 'site@hoge.com',
+				 password_confirmation: 'site@hoge.com',
+				 role: 3,
+				 family_name: "千鳥",
+				 first_name: "太郎",
+				 kana_family_name: "チドリ",
+				 kana_first_name: "タロウ",
+				 birthday: 19930621,
+				 job_title: 1,
+				 permit_to_store_manager: true,
+				 get_restaurant_sales_permit_form: true,
+				 related_with_antisocial_force: true,
+				 mannaers_industry: true
+				 )
+
+	User.create!(email: 'store1@hoge.com',
+				 password: 'store1@hoge.com',
+				 password_confirmation: 'store1@hoge.com',
+				 role: 2,
+				 family_name: "千鳥",
+				 first_name: "太郎",
+				 kana_family_name: "チドリ",
+				 kana_first_name: "タロウ",
+				 birthday: 19930621,
+				 job_title: 1,
+				 permit_to_store_manager: true,
+				 get_restaurant_sales_permit_form: true,
+				 related_with_antisocial_force: true,
+				 mannaers_industry: true
+				 )
+
+	User.create!(email: 'store2@hoge.com',
+				 password: 'store2@hoge.com',
+				 password_confirmation: 'store2@hoge.com',
+				 role: 2,
+				 family_name: "千鳥",
+				 first_name: "太郎",
+				 kana_family_name: "チドリ",
+				 kana_first_name: "タロウ",
+				 birthday: 19930621,
+				 job_title: 1,
+				 permit_to_store_manager: true,
+				 get_restaurant_sales_permit_form: true,
+				 related_with_antisocial_force: true,
+				 mannaers_industry: true
+				 )
+
+	User.create!(email: 'store13@hoge.com',
+				 password: 'store3@hoge.com',
+				 password_confirmation: 'store3@hoge.com',
+				 role: 2,
+				 family_name: "千鳥",
+				 first_name: "太郎",
+				 kana_family_name: "チドリ",
+				 kana_first_name: "タロウ",
+				 birthday: 19930621,
+				 job_title: 1,
+				 permit_to_store_manager: true,
+				 get_restaurant_sales_permit_form: true,
+				 related_with_antisocial_force: true,
+				 mannaers_industry: true
+				 )
+	User.create!(email: 'store4@hoge.com',
+				 password: 'store4@hoge.com',
+				 password_confirmation: 'store4@hoge.com',
+				 role: 2,
+				 family_name: "千鳥",
+				 first_name: "太郎",
+				 kana_family_name: "チドリ",
+				 kana_first_name: "タロウ",
+				 birthday: 19930621,
+				 job_title: 1,
+				 permit_to_store_manager: true,
+				 get_restaurant_sales_permit_form: true,
+				 related_with_antisocial_force: true,
+				 mannaers_industry: true
+				 )
+
+	User.create!(email: 'store5@hoge.com',
+				 password: 'store5@hoge.com',
+				 password_confirmation: 'store5@hoge.com',
+				 role: 2,
+				 family_name: "千鳥",
+				 first_name: "太郎",
+				 kana_family_name: "チドリ",
+				 kana_first_name: "タロウ",
+				 birthday: 19930621,
+				 job_title: 1,
+				 permit_to_store_manager: true,
+				 get_restaurant_sales_permit_form: true,
+				 related_with_antisocial_force: true,
+				 mannaers_industry: true
+				 )
+
+	User.create!(email: 'store6@hoge.com',
+				 password: 'store6@hoge.com',
+				 password_confirmation: 'store6@hoge.com',
+				 role: 2,
+				 family_name: "千鳥",
+				 first_name: "太郎",
+				 kana_family_name: "チドリ",
+				 kana_first_name: "タロウ",
+				 birthday: 19930621,
+				 job_title: 1,
+				 permit_to_store_manager: true,
+				 get_restaurant_sales_permit_form: true,
+				 related_with_antisocial_force: true,
+				 mannaers_industry: true
+				 )
+
+	User.create!(email: 'store7@hoge.com',
+				 password: 'store7@hoge.com',
+				 password_confirmation: 'store7@hoge.com',
+				 role: 2,
+				 family_name: "千鳥",
+				 first_name: "太郎",
+				 kana_family_name: "チドリ",
+				 kana_first_name: "タロウ",
+				 birthday: 19930621,
+				 job_title: 1,
+				 permit_to_store_manager: true,
+				 get_restaurant_sales_permit_form: true,
+				 related_with_antisocial_force: true,
+				 mannaers_industry: true
+				 )
+
+	User.create!(email: 'customer1@hoge.com', password: 'customer1@hoge.com', password_confirmation: 'customer1@hoge.com', role: 1)
+	User.create!(email: 'customer2@hoge.com', password: 'customer2@hoge.com', password_confirmation: 'customer2@hoge.com', role: 1)
 
 	StoreGenre.create!(:genre_name => "寿司")
 	StoreGenre.create!(:genre_name => "回転寿司")
@@ -338,6 +459,7 @@
 		    :detail =>  '2割引',
 		    :target => "ちらし寿司",
     		:expiration_date => 20,
+    		image: open("./app/assets/images/image01.jpg"),
 		    :store_id => 1
 		)
 	end
@@ -347,7 +469,7 @@
 				  :detail =>  '1割引',
 				  :target => "全品",
 				  :expiration_date => 20,
-				  image_id: open("./app/assets/images/image01.jpg"),
+				  image: open("./app/assets/images/image01.jpg"),
 				  :store_id => 1)
 
 
@@ -381,16 +503,16 @@
 						 :user_id => 9,
 						)
 
-	User.all.each do |user|
-		user.store_buzzs.create!(
-			store_id: 1,
+	Store.all.each do |store|
+		store.store_buzzs.create!(
+			user_id: 1,
 			title: "おすすめ店です",
-			detail: "大将が奇策でいい人です。友人と行ったのですがその日に仕入れた旬な素材をつき次に出してくれて、
+			detail: "大将が気さくでいい人です。友人と行ったのですがその日に仕入れた旬な素材をつき次に出してくれて、
 					またそれが非常に美味しい!",
 			visit_date:  20200913,
 			use_time: 2,
 			pay_price: 4000,
-			image_id: open("./app/assets/images/image01.jpg")
+			image: open("./app/assets/images/image01.jpg")
 		)
 	end
 

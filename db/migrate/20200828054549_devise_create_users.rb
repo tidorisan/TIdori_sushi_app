@@ -16,8 +16,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.boolean :get_restaurant_sales_permit_form, null: false, default: false
       t.boolean :related_with_antisocial_force, null: false, default: false
       t.boolean :mannaers_industry, null: false, default: false
-      t.string :nickname, null: false, default: ""
-      t.string :image_id, null: false, default: ""
       t.boolean :unsubscribe_status, null: false, default: true
       t.integer :role, null: false, default: 1
 

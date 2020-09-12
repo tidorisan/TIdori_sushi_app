@@ -1,0 +1,69 @@
+
+<%= render 'layouts/error_messages', model: @user %>
+<div class="box1">
+	<h1>登録会員 編集</h1>
+</div>
+<div class="box">
+	<%= form_with(model: @user, url: users_user_path(current_user), local: true, method: :patch) do |f| %>
+
+				<table class="cp_table">
+					<thead>
+						<tr>
+							<div class="icon_tr">
+								<th colspan="2", class="caption">基本情報</th>
+							</div>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>メールアドレス<i class="fa fa-check-square"></i></th>
+							<td><%= f.text_field :email, required: "true", class: "text_field", placeholder: "例) store@hoge.com" %></td>
+						</tr>
+						<% if @user.role == "store_admin" %>
+
+							<tr>
+								<th>氏名(性)<i class="fa fa-check-square"></i></th>
+								<td><%= f.text_field :family_name, required: "true", placeholder: "例) 千鳥", class: "text_field" %></td>
+							</tr>
+							<tr>
+								<th>氏名(名)<i class="fa fa-check-square"></i></th>
+								<td><%= f.text_field :first_name, required: "true", class: "text_field", placeholder: "例) 太郎"%></td>
+							</tr>
+							<tr>
+								<th>カナ氏名(性)<i class="fa fa-check-square"></i></th>
+								<td><%= f.text_field :kana_family_name, required: "true", class: "text_field", placeholder: "例) チドリ" %></td>
+							</tr>
+							<tr>
+								<th>カナ氏名(名)<i class="fa fa-check-square"></i></th>
+								<td><%= f.text_field :kana_first_name, required: "true", class: "text_field", placeholder: "例) タロウ" %></td>
+							</tr>
+							<tr>
+								<th>生年月日<i class="fa fa-check-square"></i></th>
+								<td><%= f.text_field :birthday, required: "true", class: "text_field", placeholder: "例) 19890312" %></td>
+							</tr>
+						<% end %>
+						<tr>
+							<th>会員ステータス<i class="fa fa-check-square"></i></th>
+							<td>
+								<div>
+									<%= f.radio_button :unsubscribe_status, :true, class: "radio_button", unsubscribe_status: "label_botton_2" %><%= f.label :mannaers_industry, '会員状態', class: "radio_button_text", for: "label_botton_2" %>
+									<%= f.radio_button :unsubscribe_status, :false, class: "radio_button", id: "label_botton" %><%= f.label :unsubscribe_status, '退会済み', class: "radio_button_text", for: "label_botton" %>
+								</div>
+							</td>
+						</tr>
+
+					</tbody>
+				</table>
+		<div class="user_edit_botton">
+			<%= f.submit "変更を保存する", class: "button_content button_field btn btn-primary" %>
+		</div>
+
+	<% end %>
+</div>
+
+
+
+
+<% content_for :css do %>
+  <%= stylesheet_link_tag 'user_user_edit' %>
+<% end %>

@@ -1,11 +1,13 @@
 class TidoriSushi::StoreBuzzsController < ApplicationController
+  before_action :login_required
+
   def new
     @store_buzz = StoreBuzz.new
   end
 
   def index
     @store = Store.find(params[:store_id])
-    @store_buzzs = @store.store_buzzs.all
+    @store_buzzs = @store.store_buzzs.page(params[:page])
   end
 
   def create
@@ -35,5 +37,13 @@ class TidoriSushi::StoreBuzzsController < ApplicationController
 
   def store_buzz_params
     params.require(:store_buzz).permit(:title, :detail, :image, :visit_date, :use_time, :pay_price)
+  end
+
+  def login_required
+    if user_signed_in?
+      redirect_to root_path unless current_user.role == "customer"
+    else
+      redirect_to root_path
+    end
   end
 end

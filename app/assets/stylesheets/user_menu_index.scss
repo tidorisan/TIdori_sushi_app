@@ -1,63 +1,47 @@
+
 * {
   margin: 0px;
   padding: 0px;
   text-decoration: none;
 }
 html {
-	min-height: 100%;
+  min-height: 100%;
 }
 body {
- 	padding-top: 51px;
- 	background-image: image-url("image03.jpg"),linear-gradient(#F4F4F4, #C8C8C8);
- 	background-blend-mode: multiply;
- 	background-size: cover
+  padding-top: 51px;
+  background-image: image-url("image03.jpg"),linear-gradient(#F4F4F4, #C8C8C8);
+  background-blend-mode: multiply;
+  background-size: cover
+}
+
+
+.box {
+  width: 90%;
+  background-color: #FFFFFF;
+  margin: 60px auto 220px;
+  border-radius: 4px;
+  border: 1px #ddd solid;
+  padding: 30px;
+
 }
 .box1{
   width: 100%;
-  height: 100px;
+  height: 150px;
   background-color: #FFFFFF;
-}
-.box {
-  width: 88%;
-  background-color: #FFFFFF;
-  margin: 60px auto 100px;
-  border-radius: 4px;
-  border: 1px #ddd solid;
-  padding: 40px;
-
-}
-// top戻り
-    
-#back {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-}
-#back img {
-  width: 50px;
-}
-// top戻り
-
-.text_field {
-	width: 220px;
-	border: 2px solid #ccc;
-	outline: none;
-  padding: 6px;
-  font-size: 15px;
+  padding-left: 20px;
+  padding-top: 10px;
 }
 
-input[class="text_field"]:focus {
-	background: #faf4e2;
-}
+
 
 .link_content:hover {
-	color: #0bd;
-	text-decoration: none;
+  color: #0bd;
+  text-decoration: none;
 }
-    
 .botton {
   text-align: center;
-  margin-bottom: 20px;
+  margin-bottom: 40px;
+  margin-top: 40px;
 }
 .botton_content {
   width: 30%;
@@ -65,12 +49,179 @@ input[class="text_field"]:focus {
   margin-bottom: 30px;
   margin-left: 10px;
   margin-right: 10px;
+
+}
+.text_field {
+  width: 70%;
+  border: 1px solid #ccc;
+  outline: none;
+  padding: 6px;
+  font-size: 12px;
 }
 
-  
-.content {
-  margin-right: 7px;
+
+input[class="text_field"]:focus {
+  background: #faf4e2;
 }
-.content2 {
-  margin-left: 7px;
+.label {
+  white-space: nowarp;
+}
+
+
+
+.cp_table *, .cp_table *:before, .cp_table *:after {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+.cp_table {
+  width: 100%;
+  border-collapse: collapse;
+}
+.cp_table th, .cp_table  td {
+  padding: 10px;
+  border: 1px solid #dddddd;
+}
+.cp_table th {
+  width: 15%;
+  text-align: left;
+  background: #f4f4f4;
+}
+.cp_table td {
+  width: 30%;
+  text-align: left;
+}
+tr .caption {
+  background-color: #eeece4;
+}
+
+
+//ラジオボタン 位置調整
+.radio_button_text, .radio_button {
+  position: relative;
+  top: 2px;
+  margin-right: 5px;
+}
+.radio_button_text {
+  margin-left: 6px;
+}
+
+
+input[class="button_content"] {
+
+}
+.button_field, .btn, .btn-primary{
+  width: 50%;
+}
+
+//チェックアイコン　カスタマイズ
+.icon_tr {
+  position: abusolote;
+}
+.fa, .fa-check-square{
+  color: red;
+  font-size: 15px;
+  position: relative;
+  top: 2px;
+  margin-left: 5px;
+
+}
+
+.botton .bottom{
+  margin: 10px;
+}
+
+.box1 p{
+  font-size: 16px;
+}
+.box3{
+  width: 100%;
+  height: 100px;
+  background-color: #FFFFFF;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
+.text_area{
+  margin-top: 80px;
+  margin-bottom: 60px;
+}
+.text_area_field{
+  margin-bottom: 50px;
+}
+.about_title{
+  margin-top: 30px;
+  margin-bottom: 50px;
+}
+
+.image_box{
+  width: 400px;
+  margin: 0 auto 100px;
+}
+
+.about_box {
+  width: 90%;
+  background-color: #FFFFFF;
+  margin: 60px auto 100px;
+  border-radius: 4px;
+  border: 1px #ddd solid;
+  padding: 30px;
+
+}
+.under_table_box{
+  margin-top: 30px;
+}
+
+
+@media only screen and (max-width:480px) {
+  .box {
+    width: 95%;
+    background-color: #FFFFFF;
+    margin: 60px auto 220px;
+    border-radius: 4px;
+    border: 1px #ddd solid;
+    padding: 10px;
+
+  }
+  .cp_table {
+    margin: 0;
+  }
+  .cp_table th, .cp_table td {
+    width: 100%;
+    display: block;
+    border-top: none;
+  }
+  .cp_table tr:first-child th {
+    border-top: 1px solid #dddddd;
+  }
+  .text_field {
+    width: 100%;
+    border: 1px solid #ccc;
+    outline: none;
+    padding: 6px;
+    font-size: 12px;
+  }
+  .button_field, .btn, .btn-primary{
+    width: 100%;
+  }
+  .fa, .fa-check-square{
+    color: red;
+    position: relative;
+    left: 10px;
+    font-size: 18px;
+  }
+  .box1{
+    width: 100%;
+    height: 200px;
+    background-color: #FFFFFF;
+    padding-left: 10px;
+    padding-top: 10px;
+  }
+  .box3{
+  width: 100%;
+  height: 150px;
+  background-color: #FFFFFF;
+  padding-left: 20px;
+  padding-top: 10px;
+}
+
 }

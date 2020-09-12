@@ -26,6 +26,13 @@ body {
   	text-align: center;
 
 }
+.input_field{
+  margin: 20px;
+}
+
+.password_all_input_field{
+  margin: 20px;
+}
 .text_field {
   width: 90%;
   border: 2px solid #ccc;
@@ -36,8 +43,12 @@ body {
 input[class="text_field"]:focus {
 	background: #faf4e2;
 }
+
+input[class="text_field"], input[class="button_field"]{
+  margin-bottom: 10px;
+}
 .field{
-	width: 220px;
+	width: 90%;
 	margin: 0 auto;
 	margin-bottom: 10px;
 }

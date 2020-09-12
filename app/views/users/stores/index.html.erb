@@ -1,44 +1,55 @@
 
-<div class="box1">
-	<h1>店舗一覧画面</h1>
+
+<div class="box3">
+	<h1>店舗一覧</h1>
 </div>
 
 <div class="box">
 
-	<div class="botton">
+	<div class="store_index_botton">
 		<%= link_to "店舗新規登録", new_users_store_path, class: "button_field btn btn-primary " %>
 	</div>
-	<table class="table table-hover table-responsive">
-		<caption>店舗一覧</caption>
-		<thead>
-			<tr>
-				<th></th>
-				<th>店舗名</th>
-				<th>店舗サイト表示</th>
-				<th></th>
-				<th></th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @stores.each do |store| %>
+
+	<%= form_with(model: @stores, url: users_store_genres_path, local: true) do |f| %>
+
+		<table class="cp_table">
+			<thead>
 				<tr>
-					<td><%= attachment_image_tag store, :image, size: '50x50', fallback: 'no_image.jpg' %></td>
-					<td><%= link_to store.store_name, users_store_path(store), class: "link_content" %></td>
-					<% if store.display_status == true %>
-						<td><p>表示</p></td>
-					<% else %>
-						<td><p>非表示</p></td>
-					<% end %>
-					<td><%= link_to "編集画面へ", edit_users_store_path(store), class: "link_content" %></td>
-					<td><%= link_to "メニュー一覧画面へ", users_store_menus_path(store), class: "link_content" %></td>
-					<td><%= link_to "クーポン覧画面へ", users_store_coupons_path(store), class: "link_content" %></td>
+					<div class="icon_tr">
+						<th colspan="5", class="caption">店舗</th>
+					</div>
 				</tr>
-			<% end %>
-		</tbody>
-	</table>
+			</thead>
+			<tbody>
+				<% @stores.each do |store| %>
+					<tr>
+						<th><%= link_to store.store_name, users_store_path(store), class: "link_content" %></th>
+						<% if store.display_status == true %>
+							<td>サイト表示</td>
+						<% else %>
+							<td>サイト非表示</td>
+						<% end %>
+						<td><%= link_to "編集画面へ", edit_users_store_path(store)%></td>
+						<td><%= link_to "メニュー", users_store_menus_path(store) %></td>
+						<td><%= link_to "クーポン", users_store_coupons_path(store), class: "link_content" %>
+
+						</td>
+					</tr>
+				<% end %>
+				<%= paginate @stores %>
+			</tbody>
+		</table>
+	<% end %>
 
 </div>
+
+
+
+
+
+
+
+
 
 <% content_for :css do %>
   <%= stylesheet_link_tag 'user_store_index' %>

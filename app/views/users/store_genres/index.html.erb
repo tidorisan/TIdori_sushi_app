@@ -1,35 +1,60 @@
+
 <%= render 'layouts/error_messages', model: @store_genre %>
-<div class="box1">
-	<h1>店舗ジャンル一覧画面</h1>
+
+<div class="box3">
+	<h1>店舗ジャンル</h1>
 </div>
 
 <div class="box">
 
-	<div>
-		<%= form_with(model: @store_genre, url: users_store_genres_path, local: true) do |f| %>
-			<%= f.label :genre_name, '店舗ジャンル', class: "content" %>
-			<%= f.text_field :genre_name, required: "true", class: "text_field content" %>
-			<%= f.label :display_status, '有効' %>
-			<%= f.radio_button :display_status, :true, checked: true %>
 
-			<%= f.label :display_status, '無効' %>
-			<%= f.radio_button :display_status, :false %>
-			<%= f.submit "登録", class: "button_field btn btn-primary content2" %>
-		<% end %>
-	</div>
+	<%= form_with(model: @store_genre, url: users_store_genres_path, local: true) do |f| %>
 
-	<div>
-		<table class="table table-hover table-responsive">
+		<table class="cp_table">
 			<thead>
 				<tr>
-					<th>ジャンル</th>
-					<th>状態</th>
+					<div class="icon_tr">
+						<th colspan="2", class="caption">店舗ジャンル</th>
+					</div>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<th>
+
+						<%= f.label :genre_name, '店舗ジャンル', class: "content" %>
+
+					</th>
+					<td><%= f.text_field :genre_name, required: "true", class: "text_field",autofocus: "ture" %></td>
+				</tr>
+					<th>
+						<%= f.label :display_status, '有効' %>
+						<%= f.radio_button :display_status, :true, checked: true %>
+						<%= f.label :display_status, '無効' %>
+						<%= f.radio_button :display_status, :false %>
+					</th>
+					<td><%= f.submit "登録", class: "button_field btn btn-primary content2" %></td>
+				</tr>
+
+
+			</tbody>
+		</table>
+	<% end %>
+
+
+	<div class="under_table_box">
+		<table class="cp_table">
+			<thead>
+				<tr>
+					<div class="icon_tr">
+						<th colspan="3", class="caption">店舗ジャンル</th>
+					</div>
 				</tr>
 			</thead>
 			<tbody>
 				<% @store_genres.each do |store_genre| %>
 					<tr>
-						<td><%= store_genre.genre_name %></td>
+						<th><%= store_genre.genre_name %></th>
 						<% if store_genre.display_status == true %>
 							<td><p>有効</p></td>
 						<% else %>
@@ -44,6 +69,7 @@
 	</div>
 
 </div>
+
 
 
 <% content_for :css do %>
