@@ -51,6 +51,9 @@ class Store < ApplicationRecord
   validates :e_money, presence: true,
                       length: { maximum: 100 }
 
+  validates :private_room, presence: true
+  validates :reserved, presence: true
+
   validates :equipment, presence: true,
                         length: { maximum: 500 }
   validates :parking, presence: true,

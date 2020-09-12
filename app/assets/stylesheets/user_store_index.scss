@@ -89,9 +89,10 @@ input[class="text_field"]:focus {
   background: #f4f4f4;
 }
 .cp_table td {
-
+  width: 0px;
   text-align: left;
 }
+
 tr .caption {
   background-color: #eeece4;
 }

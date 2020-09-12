@@ -25,14 +25,14 @@
 					<tr>
 						<th><%= link_to store.store_name, users_store_path(store), class: "link_content" %></th>
 						<% if store.display_status == true %>
-							<td><p>サイト表示</p></td>
+							<td>サイト表示</td>
 						<% else %>
-							<td><p>サイト非表示</p></td>
+							<td>サイト非表示</td>
 						<% end %>
 						<td><%= link_to "編集画面へ", edit_users_store_path(store)%></td>
 						<td><%= link_to "メニュー", users_store_menus_path(store) %></td>
 						<td><%= link_to "クーポン", users_store_coupons_path(store), class: "link_content" %>
-						
+
 						</td>
 					</tr>
 				<% end %>
