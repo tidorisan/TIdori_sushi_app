@@ -1,4 +1,5 @@
 
+
 * {
   margin: 0px;
   padding: 0px;
@@ -15,7 +16,7 @@ body {
 }
 
 
-.confirmation_box {
+.box {
   width: 90%;
   background-color: #FFFFFF;
   margin: 60px auto 220px;
@@ -67,7 +68,9 @@ input[class="text_field"]:focus {
   white-space: nowarp;
 }
 
-
+.cp_table{
+  margin-bottom: 30px;
+}
 
 .cp_table *, .cp_table *:before, .cp_table *:after {
   -webkit-box-sizing: border-box;
@@ -214,11 +217,11 @@ input[class="button_content"] {
     padding-top: 10px;
   }
   .box3{
-  width: 100%;
-  height: 150px;
-  background-color: #FFFFFF;
-  padding-left: 20px;
-  padding-top: 10px;
-}
+    width: 100%;
+    height: 150px;
+    background-color: #FFFFFF;
+    padding-left: 20px;
+    padding-top: 10px;
+  }
 
 }
