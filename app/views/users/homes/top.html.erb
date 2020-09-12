@@ -1,7 +1,7 @@
 
 <% if user_signed_in? %>
 	<% if current_user.role == 'site_admin' %>
-		<div class="container">
+		<div class="home_container">
 			<div class="home_box1">
 				<%= link_to "新規店舗_登録申請一覧画面へ", users_store_admin_applications_path, class: "home_link_content" %>
 			</div>
