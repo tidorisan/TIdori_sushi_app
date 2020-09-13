@@ -20,11 +20,17 @@ class Users::StoresController < ApplicationController
   end
 
   def show
-    @store = Store.find(params[:id])
+     @store = Store.find(params[:id])
+    if current_user.id != @store.user_id
+      redirect_to root_path
+    end
   end
 
   def edit
     @store = Store.find(params[:id])
+    if current_user.id != @store.user_id
+      redirect_to root_path
+    end
     @store_genres = StoreGenre.all
   end
 

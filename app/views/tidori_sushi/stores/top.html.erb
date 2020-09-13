@@ -72,43 +72,35 @@
 		</div>
 
 		<div class="search_content_under_box">
-			<div class="search_content_under">
-				<div class="search_image_under">
-					<%= link_to  tidori_sushi_search_path(q: {store_genre_genre_name_eq: :"寿司"}), method: :post, class: "search_message link_content" do %>
-						<div class="image_black_under">
-							<p class="search_message_under">寿司</p>
-						</div>
-					<% end %>
-				</div>
-				<div class="search_image_under">
-					<%= link_to tidori_sushi_search_path(q: {
-					store_genre_genre_name_eq: :"回転寿司"}), method: :post, class: "search_message link_content" do %>
-						<div class="image_black_under">
-							<p class="search_message_under">回転寿司</p>
-						</div>
-					<% end %>
-				</div>
-				<div class="search_image_under">
-					<%= link_to tidori_sushi_search_path(q: {store_genre_genre_name_eq: :"立ち食い寿司"}), method: :post, class: "search_message link_content" do %>
-						<div class="image_black_under">
-							<p class="search_message_under">立ち食い寿司</p>
-						</div>
-					<% end %>
-				</div>
+			<div class="search_image_under">
+				<%= link_to  tidori_sushi_search_path(q: {store_genre_genre_name_eq: :"寿司"}), method: :post, class: "search_message link_content" do %>
+					<div class="image_black_under">
+						<p class="search_message_under">寿司</p>
+					</div>
+				<% end %>
+			</div>
+			<div class="search_image_under">
+				<%= link_to tidori_sushi_search_path(q: {
+				store_genre_genre_name_eq: :"回転寿司"}), method: :post, class: "search_message link_content" do %>
+					<div class="image_black_under">
+						<p class="search_message_under">回転寿司</p>
+					</div>
+				<% end %>
+			</div>
+			<div class="search_image_under">
+				<%= link_to tidori_sushi_search_path(q: {store_genre_genre_name_eq: :"立ち食い寿司"}), method: :post, class: "search_message link_content" do %>
+					<div class="image_black_under">
+						<p class="search_message_under">立ち食い寿司</p>
+					</div>
+				<% end %>
 			</div>
 		</div>
-		
+
 	</div>
 
-	<span id="back">
-	  <a href="#">
-	    <img src="assets/arrow.png" alt="画像です">
-	  </a>
-	</span>
 
 </div>
 
-<script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer></script>
 
 
 <% content_for :css do %>

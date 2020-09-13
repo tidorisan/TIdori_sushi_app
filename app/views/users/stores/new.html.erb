@@ -75,7 +75,7 @@
 						<%= f.label :reservation, "予約不可" %><%= f.radio_button :reservation, "予約不可", class: "radio_button_text"  %>
 						<%= f.label :reservation, "完全予約制" %>
 						<%= f.radio_button :reservation, "完全予約制", class: "radio_button_text" %>
-			
+
 					</td>
 				</tr>
 				<tr>
@@ -84,7 +84,7 @@
 					</td>
 				</tr>
 				<tr>
-					<th>交通手段</th>
+					<th>交通手段<i class="fa fa-check-square"></th>
 					<td><%= f.text_field :traffic_method, required: "true", class: "text_field", placeholder: "例)  敷地内に駐車場がございますので、遠方からお越しのお客様はぜひご利用ください。" %></td>
 				</tr>
 				<tr>
@@ -113,11 +113,11 @@
 				</tr>
 				<tr>
 					<th>支払い可能カード<i class="fa fa-check-square"></i></th>
-					<td><%= f.text_field :credit_card, placeholder: "例　visa, JCB", required: "true", class: "text_field" %></td>
+					<td><%= f.text_field :credit_card, placeholder: "例 visa, JCB", required: "true", class: "text_field" %></td>
 				</tr>
 				<tr>
 					<th>支払い可能電子マネー<i class="fa fa-check-square"></i></th>
-					<td><%= f.text_field :e_money, placeholder: "例　paypay, Lienpay", required: "true", class: "text_field" %></td>
+					<td><%= f.text_field :e_money, placeholder: "例 paypay, Lienpay", required: "true", class: "text_field" %></td>
 				</tr>
 
 			</tbody>
@@ -166,7 +166,7 @@
 					</td>
 				</tr>
 				<tr>
-					<th>空間・設備<i class="fa fa-check-square"></i><</th>
+					<th>空間・設備<i class="fa fa-check-square"></i></th>
 					<td><%= f.text_area :equipment, placeholder: "例 :席が広い. 座敷がある, カウンターが10席ある", required: "true", class: "text_field"  %></td>
 				</tr>
 			</tbody>
@@ -186,12 +186,12 @@
 					<td><%= f.text_area :comment, required: "true", class: "text_field", placeholder: "例 アルコールにこだわり、豊富な日本酒や焼酎を取り揃えております。"%></td>
 				</tr>
 				<tr>
-					<th>ホームページURL</th>
-					<td><%= f.text_field :home_page, class: "text_field", placeholder: "例)  https://tidori/aaa" %></td>
+					<th>ホームページURL<i class="fa fa-check-square"></th>
+					<td><%= f.text_field :home_page, class: "text_field", placeholder: "例)  https://tidori/aaa無ければ 無し、と記載してください" %></td>
 				</tr>
 				<tr>
-					<th>お知らせしたいこと</th>
-					<td><%= f.text_area :news, class: "text_field", placeholder: "例)  原則ペット同伴はお断りさせていただきます。" %></td>
+					<th>お知らせしたいこと<i class="fa fa-check-square"></th>
+					<td><%= f.text_area :news, class: "text_field", placeholder: "例)  原則ペット同伴はお断りさせていただきます。無ければ 無し、と記載してください" %></td>
 				</tr>
 				<tr>
 					<th>店舗画像<i class="fa fa-check-square"></i></th>
