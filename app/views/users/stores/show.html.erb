@@ -1,60 +1,63 @@
 
 <div class="box1">
-	<h1>レストラン詳細情報</h1>
+	<h1>店舗詳細</h1>
 </div>
 
 <div class="box">
 
-	<table class="table table-hover table-responsive">
-		<caption>店舗基本情報</caption>
+	<table class="cp_table">
 		<thead>
 			<tr>
-				<th>店名</th>
+				<div class="icon_tr">
+					<th colspan="2", class="caption">店舗基本情報</th>
+				</div>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td>店名</td>
+				<th>店名</th>
 				<td><%= @store.store_name %></td>
 			</tr>
 			<tr>
-				<td>店名(全角カタカナ)</td>
+				<th>店名(全角カタカナ)</th>
 				<td><%= @store.kana_store_name %></td>
 			</tr>
 			<tr>
-				<td>店舗＿郵便番号</td>
+				<th>店舗＿郵便番号</th>
 				<td><%= @store.postal_code %></td>
 			</tr>
 			<tr>
-				<td>店舗＿住所</td>
+				<th>店舗＿住所</th>
 				<td><%= @store.address %></td>
 			</tr>
 			<tr>
-				<td>店舗＿電話番号</td>
+				<th>店舗＿電話番号</th>
 				<td><%= @store.phone_number %></td>
 			</tr>
 			<tr>
-				<td>支店名</td>
+				<th>支店名</th>
 				<td><%= @store.branch_name %></td>
 			</tr>
 			<tr>
-				<td>支店名</td>
+				<th>支店名</th>
 				<td><%= @store.kana_branch_name %></td>
 			</tr>
 		</tbody>
 	</table>
 
 
-	<table class="table table-hover table-responsive">
-		<caption>店舗詳細情報</caption>
+	<table class="cp_table">
+
 		<thead>
 			<tr>
-				<th>店舗</th>
+				<div class="icon_tr">
+					<th colspan="2", class="caption">店舗詳細情報</th>
+				</div>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td>店舗＿ジャンル</td>
+				<th>店舗＿ジャンル</th>
 				<% if @store.store_genre_id == 1 %>
 					<td>寿司</td>
 				<% elsif @store.store_genre_id == 2 %>
@@ -64,70 +67,74 @@
 				<% end %>
 			</tr>
 			<tr>
-				<td>予約</td>
+				<th>予約</hd>
 				<td><%= @store.reservation %></td>
 			</tr>
 			<tr>
-				<td>予約時の注意事項</td>
+				<th>予約時の注意事項</th>
 				<td><%= @store.reservation_of_considerations %></td>
 			</tr>
 			<tr>
-				<td>交通手段</td>
+				<th>交通手段</th>
 				<td><%= @store.traffic_method %></td>
 			</tr>
 			<tr>
-				<td>営業日</td>
+				<th>営業日</th>
 				<td><%= @store.business_day %></td>
 			</tr>
 			<tr>
-				<td>定休日</td>
+				<th>定休日</th>
 				<td><%= @store.regular_holiday %></td>
 			</tr>
 		</tbody>
 	</table>
 
 
-	<table class="table table-hover table-responsive">
-		<caption>支払い</caption>
+	<table class="cp_table">
+
 		<thead>
 			<tr>
-				<th>店舗</th>
+				<div class="icon_tr">
+					<th colspan="2", class="caption">支払い情報</th>
+				</div>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td>予算</td>
+				<th>予算</th>
 				<td><%= @store.consumption_budget %></td>
 			</tr>
 			<tr>
-				<td>支払い可能カード</td>
+				<th>支払い可能カード</th>
 				<td><%= @store.credit_card %></td>
 			</tr>
 			<tr>
-				<td>予約時の注意事項</td>
+				<th>予約時の注意事項</th>
 				<td><%= @store.reservation_of_considerations %></td>
 			</tr>
 			<tr>
-				<td>支払い可能電子マネー</td>
+				<th>支払い可能電子マネー</th>
 				<td><%= @store.e_money %></td>
 			</tr>
 		</tbody>
 	</table>
 
-	<table class="table table-hover table-responsive">
-		<caption>空間・設備</caption>
+	<table class="cp_table">
+
 		<thead>
 			<tr>
-				<th>店舗</th>
+				<div class="icon_tr">
+					<th colspan="2", class="caption">空間・設備</th>
+				</div>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td>座敷数</td>
+				<th>座敷数</th>
 				<td><%= @store.equipment %></td>
 			</tr>
 			<tr>
-				<td>個室</td>
+				<th>個室</th>
 				<% if @store.private_room == true %>
 					<td>あり</td>
 				<% else %>
@@ -135,49 +142,51 @@
 				<% end %>
 			</tr>
 			<tr>
-				<td>駐車場</td>
+				<th>駐車場</th>
 				<td><%= @store.parking %></td>
 			</tr>
 			<tr>
-				<td>禁煙・喫煙</td>
+				<th>禁煙・喫煙</th>
 				<td><%= @store.no_smoking %>
 			</tr>
 			<tr>
-				<td>空間・設備</td>
+				<th>空間・設備</th>
 				<td><%= @store.equipment %></td>
 			</tr>
 		</tbody>
 	</table>
 
-	<table class="table table-hover table-responsive">
+	<table class="cp_table">
 		<caption>その他</caption>
 		<thead>
 			<tr>
-				<th>店舗</th>
+				<div class="icon_tr">
+					<th colspan="2", class="caption">その他</th>
+				</div>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td>店舗紹介</td>
+				<th>店舗紹介</th>
 				<td><%= @store.comment %></td>
 			</tr>
 			<tr>
-				<td>ホームページURL</td>
+				<th>ホームページURL</th>
 				<td><%= @store.home_page %></td>
 			</tr>
 			<tr>
-				<td>お知らせしたいこと</td>
+				<th>お知らせしたいこと</th>
 				<td><%= @store.news %></td>
 			</tr>
 			<tr>
-				<td>店舗画像</td>
+				<th>店舗画像</th>
 				<td><%= attachment_image_tag @store, :image, size: '100x100', fallback: 'no_image.jpg'  %></td>
 			</tr>
 		</tbody>
 	</table>
 
 	<div class="botton">
-		<%= link_to "一覧に戻る", users_stores_path, class: "button_field btn btn-info botton_content" %>
+		<%= link_to "一覧に戻る", users_stores_path, class: "button_field btn btn-default botton_content" %>
 		<%= link_to "編集する", edit_users_store_path(@store),class: "button_field btn btn-primary botton_content" %>
 	</div>
 

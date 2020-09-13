@@ -2,40 +2,9 @@
 <div class="box1">
 	<h1>店舗申請確認ページ</h1>
 </div>
-<div class="confirmation_box">
+
+<div class="box_confimation">
 	<%= link_to "店舗管理者登録画面へ", new_user_registration_path, class: "confirmation_link_content" %>
-</div>
-
-
-
-
-<div class="box1">
-	<h1>店舗管理者＿基本情報入力</h1>
-</div>
-<div class="box">
-	<%= form_with(url: users_validation_path, local: true, method: :post) do |f| %>
-
-				<table class="cp_table">
-					<thead>
-						<tr>
-							<div class="icon_tr">
-								<th colspan="2", class="caption">確認番号を入力してください</th>
-							</div>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<th>確認番号<i class="fa fa-check-square"></i></th>
-							<td><%= f.text_field :key, required: "true", placeholder: "例)　0000", class: "text_field" %></td>
-						</tr>
-
-					</tbody>
-				</table>
-		<div class="botton">
-			<%= f.submit "ログインする", class: "button_content button_field btn btn-primary" %>
-		</div>
-
-	<% end %>
 </div>
 
 <% content_for :css do %>

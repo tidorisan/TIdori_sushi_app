@@ -27,11 +27,11 @@ class Ability
 
       if user.store_admin?
 
-        can :manage, :store, user_id: user.id
-        can :manage, :menu, user_id: user.id
-        can :manage, :manage_genre, user_id: user.id
-        can :manage, :coupon, user_id: user.id
-        can :manage, :user, user_id: user.id
+        can :manage, :store, store_id: user.stores.ids
+        can :manage, :menu, store_id: user.stores.ids
+        can :manage, :manage_genre, store_id: user.stores.ids
+        can :manage, :coupon, store_id: user.stores.ids
+        can :manage, :user, store_id: user.stores.ids
 
       end
 
@@ -50,17 +50,6 @@ class Ability
     # can :manage, Store # 全アクションが実行可能(resourceの7つ以外も実行可能)
     # can [:read, :create, :update, :destroy], Store #全アクションが実行可能(resourceの7つ以外は不可)
 
-    # アクセスチェックした結果をログに出力
-    Rails.logger.debug("can? :index is " + (can? :index, Store).to_s)
-    Rails.logger.debug("can? :show is " + (can? :show, Store).to_s)
-    Rails.logger.debug("can? :new is " + (can? :new, Store).to_s)
-    Rails.logger.debug("can? :create is " + (can? :create, Store).to_s)
-    Rails.logger.debug("can? :edit is " + (can? :edit, Store).to_s)
-    Rails.logger.debug("can? :update is " + (can? :update, Store).to_s)
-    Rails.logger.debug("can? :destroy is " + (can? :destroy, Store).to_s)
-    Rails.logger.debug("can? :top is " + (can? :top, Store).to_s)
-    Rails.logger.debug("can? :top is " + (can? :show, Coupon).to_s)
-    Rails.logger.debug("can? :top is " + (can? :index, StoreMenu).to_s)
 
     # Define abilities for the passed in user here. For example:
     #

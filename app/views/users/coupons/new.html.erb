@@ -1,53 +1,75 @@
+
+
+
+
 <%= render 'layouts/error_messages', model: @coupon %>
-
 <div class="box1">
-	<h1>クーポン新規登録</h1>
+	<h1>クーポン情報入力(クーポン情報入力)</h1>
+	<p>当サイトの趣旨にあわないお店は管理側で判断し、削除する場合がございます。</p>
 </div>
-<div class="box">
-	<%= form_with(model: @coupon, url: users_store_coupons_path, local: true) do |f| %>
 
-		<table class="table table-hover table-responsive">
-			<caption>クーポン登録</caption>
+<div class="box">
+
+    <%= form_with(model: @coupon, url: users_store_coupons_path, local: true) do |f| %>
+
+		<table class="cp_table">
 			<thead>
 				<tr>
-					<th></th>
+					<div class="icon_tr">
+						<th colspan="2", class="caption">クーポン登録</th>
+					</div>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>割引理由</td>
-					<td><%= f.text_field :reason, class: "text_field", required: "true" %></td>
+					<th>割引理由<i class="fa fa-check-square"></i></th>
+					<td>
+						<%= f.text_field :reason, required: "true", class: "text_field", placeholder: "例)　創業20周年記念 ", class: "text_field", autofocus: "true", autofocus: "true" %>
+					</td>
 				</tr>
 				<tr>
-					<td>割引内容説明</td>
-					<td><%= f.text_field :detail, class: "text_field", required: "true"  %></td>
+					<th>割引内容説明<i class="fa fa-check-square"></i></th>
+					<td>
+						<%= f.text_field :detail, required: "true", class: "text_field", placeholder: "例)　ちらし寿司 10%0FF", class: "text_field", required: "true"  %>
+					</td>
 				</tr>
 				<tr>
-					<td>イメージ画像</td>
+					<th>対象<i class="fa fa-check-square"></i></th>
+					<td>
+						<%= f.text_field :target, required: "true", class: "text_field", placeholder: "例)　ちらし寿司"  %>
+					</td>
+				</tr>
+				<tr>
+					<th>但書<i class="fa fa-check-square"></i></th>
+					<td>
+						<%= f.text_area :writing, class: "text_field", placeholder: "例) ただし、お一人様おひとつ限りです。なければ無し,と記載してください", required: "true" %>
+					</td>
+				</tr>
+				<tr>
+					<th>有効期限<i class="fa fa-check-square"></i></th>
+					<td>
+						<%= f.text_field :expiration_date, required: "true", class: "text_field", placeholder: "例)　 3", class: "text_field2" %> 日後まで使用できる
+					</td>
+				</tr>
+				<tr>
+					<th>イメージ画像</th>
 					<td><%= f.attachment_field :image %></td>
+				</tr>
 
-				</tr>
-				<tr>
-					<td>対象</td>
-					<td><%= f.text_field :target, class: "text_field", required: "true"  %></td>
-				</tr>
-				<tr>
-					<td>但書</td>
-					<td><%= f.text_field :writing, class: "text_field"  %></td>
-				</tr>
-				<tr>
-					<td>有効期限</td>
-					<td><%= f.text_field :expiration_date,  class: "text_field", required: "true"  %></td>
-				</tr>
 			</tbody>
 		</table>
+
+
 		<div class="botton">
+			<%= link_to "戻る", users_store_coupons_path(@store), class: "button_field btn btn-default botton_content" %>
 			<%= f.submit "登録する", class: "button_field btn btn-primary botton_content" %>
 		</div>
 
 	<% end %>
-
 </div>
+
+
+
 
 
 <% content_for :css do %>

@@ -1,6 +1,6 @@
 class Users::UsersController < ApplicationController
   before_action :login_required, only: [:new, :show, :edit, :update, :leave, :unsubscribe_update]
-
+  before_action :login_required_confimation_page, only: :confirmation
   def new
     @user = User.new
   end
@@ -31,6 +31,7 @@ class Users::UsersController < ApplicationController
   end
 
   def confirmation
+
   end
 
   def leave
@@ -66,6 +67,11 @@ class Users::UsersController < ApplicationController
       redirect_to root_path unless current_user.role == "store_admin" ||
                                    current_user.role == "site_admin"
     else
+      redirect_to root_path
+    end
+  end
+  def login_required_confimation_page
+    if user_signed_in?
       redirect_to root_path
     end
   end

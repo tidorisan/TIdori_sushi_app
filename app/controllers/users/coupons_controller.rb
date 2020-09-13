@@ -2,12 +2,14 @@ class Users::CouponsController < ApplicationController
   before_action :login_required
 
   def index
-    @coupons = Coupon.all
+    @store = Store.find(params[:store_id])
+    @coupons = @store.coupons.all.page(params[:page])
     @store_id = Store.find(params[:store_id])
   end
 
   def new
     @coupon = Coupon.new
+    @store = Store.find(params[:store_id])
   end
 
   def create
@@ -23,6 +25,9 @@ class Users::CouponsController < ApplicationController
 
   def show
     @coupon = Coupon.find(params[:id])
+    if current_user.stores.user_id != @coupon.store_id
+      redirect_to root_path
+    end
   end
 
   def edit

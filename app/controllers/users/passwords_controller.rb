@@ -1,17 +1,34 @@
-class Users::PasswordsController < ApplicationController
-	def validation
-		@key = Password.find(1)
-		if @key.key == params[:key]
-			redirect_to new_user_registration_path
-		else
-			render "/users/users/confirmation"
-		end
+# frozen_string_literal: true
 
-	end
+class Users::PasswordsController < Devise::PasswordsController
+  # GET /resource/password/new
+  # def new
+  #   super
+  # end
 
-	private
+  # POST /resource/password
+  # def create
+  #   super
+  # end
 
-	def params
-		params.permit(:key)
-	end
+  # GET /resource/password/edit?reset_password_token=abcdef
+  # def edit
+  #   super
+  # end
+
+  # PUT /resource/password
+  # def update
+  #   super
+  # end
+
+  # protected
+
+  # def after_resetting_password_path_for(resource)
+  #   super(resource)
+  # end
+
+  # The path used after sending reset password instructions
+  # def after_sending_reset_password_instructions_path_for(resource_name)
+  #   super(resource_name)
+  # end
 end

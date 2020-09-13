@@ -6,7 +6,6 @@
 #   movies = Movie.create!([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create!(name: 'Luke', movie: movies.first)
 
-	Password.create!(key: ENV['LOG_IN_PASSWORD'])
 
 	User.create!(email: 'site@hoge.com',
 				 password: 'site@hoge.com',
@@ -56,7 +55,7 @@
 				 mannaers_industry: true
 				 )
 
-	User.create!(email: 'store13@hoge.com',
+	User.create!(email: 'store3@hoge.com',
 				 password: 'store3@hoge.com',
 				 password_confirmation: 'store3@hoge.com',
 				 role: 2,
@@ -372,6 +371,7 @@
 				 :parking => 5,
 				 :no_smoking => 3,
 				 :equipment => 'カウンター4席あります。ボックス席が3つございます',
+				 :news => 'お問い合わせのお電話お待ちしております',
 				 :display_status => true,
 				 :credit_card => "visa JCB",
 				 :home_page => 'https://izumimizu.com/xxxxxxxx',
@@ -379,8 +379,6 @@
 				 image: open("./app/assets/images/image03.jpg"),
 				 :comment => '心地よい空間で、職人によるこだわりの握りをご堪能ください。'
 				)
-
-
 
 	StoreAdminApplication.create!(
 		:address => "静岡県浜松市中区中央2-8-17",
@@ -419,6 +417,7 @@
 		store.store_menus.create!(
 			name:  "鉄火巻き",
 			tax_excluded_price: 300,
+			comment: "ピリリと聞くワサビが食欲をそそります。",
 			menu_genre_id: 1
 		)
 	end
@@ -426,12 +425,14 @@
 		store.store_menus.create!(
 			name:  "サーモン",
 			tax_excluded_price: 200,
+			comment: "油ののったサーモンです。",
 			menu_genre_id: 1
 		)
 	end
 	Store.all.each do |store|
 		store.store_menus.create!(
 			name:  "えんがわ",
+			comment: "ピリリと聞くワサビが食欲をそそります。",
 			tax_excluded_price: 200,
 			menu_genre_id: 1
 		)
@@ -439,6 +440,7 @@
 	Store.all.each do |store|
 		store.store_menus.create!(
 			name:  "しめ鯖",
+			comment: "コリコリとした舌触りがたまりません。",
 			tax_excluded_price: 300,
 			menu_genre_id: 1
 		)
@@ -446,17 +448,12 @@
 	Store.all.each do |store|
 		store.store_menus.create!(
 			name:  "日本酒",
+			comment: "当店自慢の純米酒がおすすめです。",
 			tax_excluded_price: 300,
 			menu_genre_id: 2
 		)
 	end
-	Store.all.each do |store|
-		store.store_menus.create!(
-			name:  "烏龍茶",
-			tax_excluded_price: 300,
-			menu_genre_id: 2
-		)
-	end
+
 
 	Store.all.each do |store|
 		store.coupons.create!(
@@ -464,6 +461,7 @@
 		    :detail =>  '2割引',
 		    :target => "ちらし寿司",
     		:expiration_date => 20,
+    		:writing => "お一人様一回限りです",
     		image: open("./app/assets/images/image01.jpg"),
 		    :store_id => 1
 		)
@@ -473,6 +471,7 @@
 	Coupon.create!(:reason => '開店１周年記念セール',
 				  :detail =>  '1割引',
 				  :target => "全品",
+				  :writing => "お一人様一回限りです",
 				  :expiration_date => 20,
 				  image: open("./app/assets/images/image01.jpg"),
 				  :store_id => 1)

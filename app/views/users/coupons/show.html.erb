@@ -3,44 +3,44 @@
 	<h1>クーポン詳細</h1>
 </div>
 <div class="box">
-	<table class="table table-hover table-responsive">
-		<caption>クーポン詳細</caption>
+	<table class="cp_table">
 		<thead>
-			<tr>
-				<th></th>
+			<div class="icon_tr">
+					<th colspan="2", class="caption">クーポン情報</th>
+				</div>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td>割引理由</td>
+				<th>割引理由</th>
 				<td><%= @coupon.reason %></td>
 			</tr>
 			<tr>
-				<td>割引理由説明</td>
+				<th>割引理由説明</th>
 				<td><%= @coupon.detail %></td>
 			</tr>
 			<tr>
-				<td>イメージ画像</td>
-				<td><%= attachment_image_tag @coupon, :image, size: '100x100', fallback: "/assets/no_image.id" %></td>
-			</tr>
-			<tr>
-				<td>対象</td>
+				<th>対象</th>
 				<td><%= @coupon.target %></td>
 			</tr>
 			<tr>
-				<td>但書</td>
+				<th>但書</th>
 				<td><%= @coupon.writing %></td>
 			</tr>
 			<tr>
-				<td>有効期限</td>
+				<th>有効期限</th>
 				<td><%= (@coupon.created_at + @coupon.expiration_date.minutes).strftime("%Y年%-m年%-d日 %H:%M:%S") %></td>
 			</tr>
 			<tr>
-				<td>発行日</td>
+				<th>発行日</th>
 				<td><%= @coupon.created_at.strftime("%Y年%-m年%-d日 %H:%M:%S") %></td>
 			</tr>
 			<tr>
-				<td>有効ステータス</td>
+				<th>イメージ画像</th>
+				<td><%= attachment_image_tag @coupon, :image, size: '100x100', fallback: "/assets/no_image.id" %></td>
+			</tr>
+			<tr>
+				<th>有効ステータス</th>
 				<% if @coupon.enabled_status == true %>
 					<td>有効</td>
 				<% else %>
@@ -51,7 +51,7 @@
 	</table>
 
 	<div class="botton">
-		<%= link_to "一覧に戻る", users_store_coupons_path(@coupon.store_id), class: "button_field btn btn-info botton_content" %>
+		<%= link_to "一覧に戻る", users_store_coupons_path(@coupon.store_id), class: "button_field  btn btn-default botton_content" %>
 		<%= link_to "編集する", edit_users_store_coupon_path(@coupon),class: "button_field btn btn-primary botton_content" %>
 	</div>
 </div>

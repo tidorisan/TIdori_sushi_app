@@ -46,7 +46,6 @@ group :development, :test do
   gem 'capistrano-rbenv'
 
   gem 'rspec-rails'
-
 end
 
 group :development do
@@ -88,4 +87,3 @@ gem 'rails-i18n', '~> 5.1'
 gem 'cancancan'
 gem 'kaminari'
 gem 'rubocop-airbnb'
-

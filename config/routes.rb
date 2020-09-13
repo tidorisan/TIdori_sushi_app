@@ -32,8 +32,6 @@ Rails.application.routes.draw do
   end
 
   namespace :users do
-    post '/password/validation' => 'passwords#validation', as: 'validation'
-
     get "/users/customer" => "users#customer", as: "customer"
     get "/users/store_admin" => "users#store_admin", as: "store_admin"
   	get '/users/confirmation' =>  'users#confirmation', as: 'confirmation'
