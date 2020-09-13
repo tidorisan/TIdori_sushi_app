@@ -154,11 +154,6 @@ input[class="button_content"] {
   margin-bottom: 50px;
 }
 
-.image_box{
-  width: 400px;
-  margin: 0 auto 100px;
-}
-
 .about_box {
   width: 90%;
   background-color: #FFFFFF;
@@ -168,6 +163,12 @@ input[class="button_content"] {
   padding: 30px;
 
 }
+
+.image_box{
+  width: 400px;
+  margin: 0 auto 100px;
+}
+
 
 
 @media only screen and (max-width:480px) {

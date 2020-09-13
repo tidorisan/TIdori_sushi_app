@@ -3,38 +3,38 @@
 	<h1>メニュー詳細</h1>
 </div>
 <div class="box">
-	<table class="table table-hover table-responsive">
-		<caption>メニュー詳細</caption>
+	<table class="cp_table">
 		<thead>
-			<tr>
-				<th></th>
+			<div class="icon_tr">
+					<th colspan="2", class="caption">メニュー情報</th>
+				</div>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td>メニュー名</td>
+				<th>メニュー名</th>
 				<td><%= @store_menu.name %></td>
 			</tr>
 			<tr>
-				<td>メニュー説明</td>
+				<th>メニュー説明</th>
 				<td><%= @store_menu.comment %></td>
 			</tr>
 			<tr>
-				<td>値段(税抜き)</td>
+				<th>値段(税抜き)</th>
 				<td>¥ <%= @store_menu.tax_excluded_price %></td>
 			</tr>
 			<tr>
-				<td>店舗画像</td>
-				<td><%= attachment_image_tag @store_menu, :image, size: '100x100', fallback: 'no_image.jpg'  %></td>
+				<th>メニュージャンル</th>
+				<td><%= @store_menu.menu_genre.genre_name %></td>
 			</tr>
 			<tr>
-				<td>メニュージャンル</td>
-				<td><%= @store_menu.menu_genre.genre_name %></td>
+				<th>店舗画像</th>
+				<td><%= attachment_image_tag @store_menu, :image, size: '100x100', fallback: 'no_image.jpg'  %></td>
 			</tr>
 		</tbody>
 	</table>
 	<div class="botton">
-		<%= link_to "一覧に戻る", users_store_menus_path(@store_menu.store_id), class: "button_field btn btn-info botton_content" %>
+		<%= link_to "一覧に戻る", users_store_menus_path(@store_menu.store_id), class: "button_field btn btn-default botton_content" %>
 		<%= link_to "編集する", edit_users_store_menu_path(@store_menu.store_id, @store_menu.id),class: "button_field btn btn-primary botton_content" %>
 	</div>
 

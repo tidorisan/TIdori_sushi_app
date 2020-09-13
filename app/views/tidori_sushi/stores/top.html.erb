@@ -10,7 +10,7 @@
 			<% end %>
 		</div>
 	</div>
-	<main>
+	<div class="main">
 
 		<div class="search_content">
 			<div class="search_image">
@@ -43,33 +43,35 @@
 			</div>
 			<div class="root_store_contents">
 				<% @stores.each do |store| %>
-					<div class="store_content">
-						<div class="image">
-							<%= attachment_image_tag store, :image, size: '200x100', fallback: 'no_image.jpg', class: "store_image" %>
-						</div>
-						<div class="store_body">
-							<div class="store_titile">
-								<%= store.id %>
-								<%= store.store_name %>
+					<%= link_to tidori_sushi_store_path(store) do %>
+						<div class="store_content">
+							<div class="image">
+								<%= attachment_image_tag store, :image, size: '200x100', fallback: 'no_image.jpg', class: "store_image" %>
 							</div>
-							<div class="store_text">
-								<% if store.store_genre_id == 1 %>
-									<p>寿司</p>
-								<% elsif  store.store_genre_id == 2 %>
-									<p>回転寿司</p>
-								<% else %>
-									<p>立ち食い寿司</p>
-								<% end %>
-								<%= store.address %>
-								<%= store.regular_holiday %>
+							<div class="store_body">
+								<div class="store_titile">
+									<%= store.store_name %>
+									<% if store.store_genre_id == 1 %>
+										<p>寿司</p>
+									<% elsif  store.store_genre_id == 2 %>
+										<p>回転寿司</p>
+									<% else %>
+										<p>立ち食い寿司</p>
+									<% end %>
+								</div>
+								<div class="store_text">
+									
+									<%= store.address %>
+									<%= store.regular_holiday %>
+								</div>
 							</div>
 						</div>
-					</div>
+					<% end %>
 				<% end %>
 			</div>
 		</div>
 
-		<div class="search_content_under">
+		<div class="search_content_under_box">
 			<div class="search_image_under">
 				<%= link_to  tidori_sushi_search_path(q: {store_genre_genre_name_eq: :"寿司"}), method: :post, class: "search_message link_content" do %>
 					<div class="image_black_under">
@@ -93,17 +95,12 @@
 				<% end %>
 			</div>
 		</div>
-	</main>
 
-	<span id="back">
-	  <a href="#">
-	    <img src="assets/arrow.png" alt="">
-	  </a>
-	</span>
+	</div>
+
 
 </div>
 
-<script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer></script>
 
 
 <% content_for :css do %>

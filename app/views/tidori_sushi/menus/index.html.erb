@@ -1,5 +1,5 @@
 
-<div class="content_cover">
+<div class="show_content_cover">
 	<div class="main_visual">
 		<div class="store_tag_box">
 			<div class="store_tag">
@@ -30,7 +30,7 @@
 		</div>
 	</div>
 	<div class='main_box'>
-		<div class="left">
+		<div class="show_left">
 			<div class="title">
 				<h1><%= @store.store_name %></h1>
 				<p>ジャンル: <%= @store.store_genre.genre_name%></p>
@@ -50,9 +50,12 @@
 				<% @menus.each do |menu| %>
 					<div class="comment_menu">
 						<% if menu.menu_genre.genre_name == "料理" %>
-							<div class="comment_visual_box">
-								<%= attachment_image_tag menu, :image, fallback: 'no_image.jpg', class: "comment_visual" %>
-							</div>
+							<% if menu.image %>
+								<div class="comment_visual_box">
+									<%= attachment_image_tag menu, :image, fallback: 'no_image.jpg', class: "comment_visual" %>
+								</div>
+							<% end %>
+
 							<div class="comment_body">
 								<h3><%= menu.name %></h3>
 								<p><%= menu.comment %></p>
@@ -60,9 +63,11 @@
 							</div>
 						<% end %>
 						<% if menu.menu_genre.genre_name == "ドリンク" %>
+						<% if menu.image %>
 							<div class="comment_visual_box">
 								<%= attachment_image_tag menu, :image, fallback: 'no_image.jpg', class: "comment_visual" %>
 							</div>
+						<% end %>
 							<div class="comment_body">
 								<h3><%= menu.name %></h3>
 								<p><%= menu.comment %></p>

@@ -1,4 +1,5 @@
 
+
 * {
   margin: 0px;
   padding: 0px;
@@ -167,9 +168,14 @@ input[class="button_content"] {
   padding: 30px;
 
 }
-.under_table_box{
-  margin-top: 30px;
+
+
+
+.store_index_botton{
+  margin-bottom: 6%;
+  margin-top: 3%;
 }
+
 
 
 @media only screen and (max-width:480px) {
@@ -217,11 +223,11 @@ input[class="button_content"] {
     padding-top: 10px;
   }
   .box3{
-  width: 100%;
-  height: 150px;
-  background-color: #FFFFFF;
-  padding-left: 20px;
-  padding-top: 10px;
-}
+    width: 100%;
+    height: 150px;
+    background-color: #FFFFFF;
+    padding-left: 20px;
+    padding-top: 10px;
+  }
 
 }

@@ -1,4 +1,5 @@
 
+
 * {
   margin: 0px;
   padding: 0px;
@@ -67,9 +68,7 @@ input[class="text_field"]:focus {
   white-space: nowarp;
 }
 
-.store_index_botton{
-  margin-bottom: 30px;
-}
+
 
 .cp_table *, .cp_table *:before, .cp_table *:after {
   -webkit-box-sizing: border-box;
@@ -89,10 +88,8 @@ input[class="text_field"]:focus {
   background: #f4f4f4;
 }
 .cp_table td {
-  width: 0px;
   text-align: left;
 }
-
 tr .caption {
   background-color: #eeece4;
 }
@@ -172,6 +169,16 @@ input[class="button_content"] {
 }
 
 
+
+.store_index_botton_out{
+  margin-bottom: 6%;
+  margin-top: 3%;
+}
+.store_index_td{
+  margin: 0;
+}
+
+
 @media only screen and (max-width:480px) {
   .box {
     width: 95%;
@@ -217,11 +224,11 @@ input[class="button_content"] {
     padding-top: 10px;
   }
   .box3{
-  width: 100%;
-  height: 150px;
-  background-color: #FFFFFF;
-  padding-left: 20px;
-  padding-top: 10px;
-}
+    width: 100%;
+    height: 150px;
+    background-color: #FFFFFF;
+    padding-left: 20px;
+    padding-top: 10px;
+  }
 
 }

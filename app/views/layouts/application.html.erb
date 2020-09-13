@@ -16,7 +16,7 @@
     <!-- 個別のcssファイル読み込み -->
     <%= yield :css %>
 
-    <!-- フッター　ヘッダーscss読み込み -->
+    <!-- フッター ヘッダーscss読み込み -->
     <%= stylesheet_link_tag 'application_html' %>
 
     <!-- ページネーション用(参考: https://qiita.com/rio_threehouse/items/313824b90a31268b0074) -->
@@ -83,7 +83,7 @@
                   <li ><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
                 <% else %>
                     <% if current_user.role == "store_admin" %>
-                      <p class="navbar-text navbar-left">　<%= link_to "ようこそ  #{current_user.email} さん。", users_user_path(current_user)  %> </p>
+                      <p class="navbar-text navbar-left"> <%= link_to "ようこそ  #{current_user.email} さん。", users_user_path(current_user)  %> </p>
                       <li><%= link_to "店舗一覧", users_stores_path %></li>
                       <li ><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></li>
                       <li ><%= link_to "退会ページ", users_leave_path %></li>
@@ -97,10 +97,10 @@
                     <% end %>
                 <% end %>
               <% else %>
-                <li><%= link_to "about", tidori_sushi_about_path %></li>
+                <li><%= link_to "about", tidori_sushi_about_path, data: {"turbolinks"=>false} %></li>
                 <li><%= link_to "新規会員登録", new_user_registration_path %></li>
                 <li ><%= link_to "ログイン", new_user_session_path %></li>
-                <li><%= link_to 'ゲストログイン(顧客)', users_guest_sign_in_path, method: :post %></li>
+                <li><%= link_to 'ゲストログイン(閲覧のみ)', users_guest_sign_in_path, method: :post %></li>
                 <li><a href="#jump">店舗掲載について</a></li>
               <% end %>
 
@@ -113,12 +113,31 @@
 
     <%= yield %>
 
+    <span id="back">
+      <a href="#">
+        <%= image_tag "arrow.png" %>
+      </a>
+    </span>
+
+    <!-- backの移動速度処理 -->
+    <script src="/javascripts/application.js" type="text/javascript" charset="utf-8" async defer></script>
+
     <footer>
 
       <div class="content_footer">
         <div class="footer_message">
           <a id="jump"></a>
           <h3>店舗登録はお問い合わせは<%= link_to "こちらから", new_tidori_sushi_store_admin_application_path %></h3>
+
+          <% if user_signed_in? %>
+            <% if current_user.role == "store_admin" %>
+              <h4>管理サイトに関するお問い合わせは
+                <a href="mailto:TIdorisushi_site@hoge.com">TIdorisushi_site@hoge.com</a>
+                宛にお送りください。
+              </h4>
+            <% end %>
+          <% end %>
+
           <p>サイト管理者  夏目梨花</p>
           <p>管理者ページURL  tidorisushi.site</p>
           <p>© natsume rika 2020</p>
