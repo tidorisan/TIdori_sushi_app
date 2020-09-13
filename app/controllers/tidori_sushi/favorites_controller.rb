@@ -22,6 +22,7 @@ class TidoriSushi::FavoritesController < ApplicationController
   end
 
   private
+
   def login_required
     if user_signed_in?
       redirect_to root_path unless current_user.role == "customer"

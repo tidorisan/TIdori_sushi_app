@@ -56,7 +56,7 @@
 				 mannaers_industry: true
 				 )
 
-	User.create!(email: 'store13@hoge.com',
+	User.create!(email: 'store3@hoge.com',
 				 password: 'store3@hoge.com',
 				 password_confirmation: 'store3@hoge.com',
 				 role: 2,

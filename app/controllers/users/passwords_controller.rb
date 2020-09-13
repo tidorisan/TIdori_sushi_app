@@ -1,17 +1,16 @@
 class Users::PasswordsController < ApplicationController
-	def validation
-		@key = Password.find(1)
-		if @key.key == params[:key]
-			redirect_to new_user_registration_path
-		else
-			render "/users/users/confirmation"
-		end
+  def validation
+    @key = Password.find(1)
+    if @key.key == params[:key]
+      redirect_to new_user_registration_path
+    else
+      render "/users/users/confirmation"
+    end
+  end
 
-	end
+  private
 
-	private
-
-	def params
-		params.permit(:key)
-	end
+  def params
+    params.permit(:key)
+  end
 end
