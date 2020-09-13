@@ -2,7 +2,11 @@ class Users::StoresController < ApplicationController
   before_action :login_required
 
   def index
-    @stores = current_user.stores.all.page(params[:page])
+    if current_user.role == "site_admin"
+      @stores = Store.all.page(params[:page])
+    else
+      @stores = current_user.stores.all.page(params[:page])
+    end
   end
 
   def new
@@ -22,14 +26,14 @@ class Users::StoresController < ApplicationController
   def show
      @store = Store.find(params[:id])
     if current_user.id != @store.user_id
-      redirect_to root_path
+      redirect_to users_homes_path unless current_user.role == "site_admin"
     end
   end
 
   def edit
     @store = Store.find(params[:id])
     if current_user.id != @store.user_id
-      redirect_to root_path
+      redirect_to users_homes_path unless current_user.role == "site_admin"
     end
     @store_genres = StoreGenre.all
   end
@@ -74,6 +78,7 @@ class Users::StoresController < ApplicationController
       :image,
       :store_genre_id,
       :parking,
+      :display_status,
       :reserved
     )
   end

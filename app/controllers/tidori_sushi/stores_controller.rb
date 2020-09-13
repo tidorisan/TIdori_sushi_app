@@ -2,7 +2,7 @@ class TidoriSushi::StoresController < ApplicationController
   def top
     @q = Store.ransack(params[:q])
     active_user = User.where(unsubscribe_status: true)
-    @stores = Store.where(user_id: active_user).where(user_id: active_user).
+    @stores = Store.where(user_id: active_user).
       where(display_status: true).limit(8).order(id: "DESC")
   end
 

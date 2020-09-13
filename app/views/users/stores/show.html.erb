@@ -182,6 +182,18 @@
 				<th>店舗画像</th>
 				<td><%= attachment_image_tag @store, :image, size: '100x100', fallback: 'no_image.jpg'  %></td>
 			</tr>
+			<tr>
+				<th>お知らせしたいこと</th>
+				<td><%= @store.news %></td>
+			</tr>
+			<tr>
+				<th>サイト表示ステータス</th>
+				<% if @store.display_status == true %>
+					<td>サイト表示</td>
+				<% else %>
+					<td>サイト非表示</td>
+				<% end %>
+			</tr>
 		</tbody>
 	</table>
 

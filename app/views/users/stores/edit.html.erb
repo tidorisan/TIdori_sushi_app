@@ -203,6 +203,24 @@
 					<th>店舗画像<i class="fa fa-check-square"></i></th>
 					<td><%= f.attachment_field :image %></td>
 				</tr>
+
+				<% if @store.display_status == true %>
+					<tr>
+						<th>サイト表示ステータス</th>
+						<td>
+							<%= f.label :display_statu, "非表示にする" %>
+							<%= f.radio_button :display_status, :false, required: "true" %>
+						</td>
+					</tr>
+				<% else %>
+						<tr>
+							<th>サイト表示ステータス</th>
+							<td>
+								<%= f.label :display_statu, "非表示にする" %>
+								<%= f.radio_button :display_status, :false, required: "true" %>
+							</td>
+						</tr>
+				<% end %>
 			</tbody>
 		</table>
 

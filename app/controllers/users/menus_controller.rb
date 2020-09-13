@@ -27,17 +27,11 @@ class Users::MenusController < ApplicationController
 
   def show
     @store_menu = StoreMenu.find(params[:id])
-    if current_user.stores.user_id != @store_menu.store_id
-      redirect_to root_path
-    end
   end
 
   def edit
     @store_menu = StoreMenu.find(params[:id])
     @menu_genres = MenuGenre.all
-    if current_user.stores.user_id != @store_menu.store_id
-      redirect_to root_path
-    end
   end
 
   def update
@@ -55,7 +49,7 @@ class Users::MenusController < ApplicationController
 
   def store_menu_params
     params.require(:store_menu).permit(:name, :comment, :tax_excluded_price,
-                                       :menu_genre_id, :image)
+                                       :menu_genre_id, :image, :display_status)
   end
 
   def login_required

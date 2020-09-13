@@ -25,16 +25,10 @@ class Users::CouponsController < ApplicationController
 
   def show
     @coupon = Coupon.find(params[:id])
-    if current_user.stores.user_id != @coupon.store_id
-      redirect_to root_path
-    end
   end
 
   def edit
     @coupon = Coupon.find(params[:id])
-    if current_user.stores.user_id != @coupon.store_id
-      redirect_to root_path
-    end
   end
 
   def update
@@ -54,6 +48,7 @@ class Users::CouponsController < ApplicationController
                                    :image,
                                    :target,
                                    :writing,
+                                   :display_status,
                                    :expiration_date)
   end
 

@@ -90,6 +90,7 @@
                       <li><a href="#jump", class="jump">お問い合わせ</a></li>
                     <% else %>
                       <p class="navbar-text navbar-left">ようこそ サイト管理者さん </p>
+                      <li><%= link_to "店舗一覧", users_stores_path %></li>
                       <li ><%= link_to "顧客一覧", users_customer_path %></li>
                       <li ><%= link_to "店舗管理者一覧",  users_store_admin_path %></li>
 

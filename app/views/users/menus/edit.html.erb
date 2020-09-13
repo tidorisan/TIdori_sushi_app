@@ -49,6 +49,23 @@
 						<% end %>
 					</td>
 				</tr>
+				<% if @store_menu.display_status == true %>
+					<tr>
+						<th>サイト表示ステータス</th>
+						<td>
+							<%= f.label :display_statu, "非表示にする" %>
+							<%= f.radio_button :display_status, :false, required: "true" %>
+						</td>
+					</tr>
+				<% else %>
+						<tr>
+							<th>サイト表示ステータス</th>
+							<td>
+								<%= f.label :display_statu, "非表示にする" %>
+								<%= f.radio_button :display_status, :false, required: "true" %>
+							</td>
+						</tr>
+				<% end %>
 
 			</tbody>
 		</table>
