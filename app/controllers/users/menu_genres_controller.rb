@@ -2,7 +2,6 @@ class Users::MenuGenresController < ApplicationController
   before_action :login_required
 
   def index
-    end
     @menu_genre = MenuGenre.new
     @menu_genres = MenuGenre.page(params[:page])
   end
