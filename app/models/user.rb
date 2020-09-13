@@ -12,15 +12,14 @@ class User < ApplicationRecord
 
   enum role: { customer: 1, store_admin: 2, site_admin: 3 }
 
-  enum job_title: {
-    社長: 1,
-    店長: 2,
-    オーナー: 3,
-    マネージャー: 4,
-    スタッフ: 5,
-    アルバイト: 6,
-    代表取締役: 7,
-  }
+  enum job_title: { 社長: 1,
+                    店長: 2,
+                    オーナー: 3,
+                    マネージャー: 4,
+                    スタッフ: 5,
+                    アルバイト: 6,
+                    代表取締役: 7,
+                  }
 
   has_many :stores, dependent: :destroy
 
