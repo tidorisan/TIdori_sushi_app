@@ -13,7 +13,7 @@ body {
 }
 
 
-.content_cover{
+.root_content_cover{
   height: 100%;
   background: rgba(255,255,255,0.98);
 }
@@ -33,7 +33,7 @@ body {
 
 }
 
-.main_visual{
+.root_main_visual{
   width: 100%;
   height: 350px;
   background-image: image-url("image03.jpg");
@@ -41,7 +41,7 @@ body {
   background-position: top center;
   position: relative;
 }
-.search_field{
+.rooe_search_field{
   width: 70%;
   background-color: white;
   border-radius: 4px;
@@ -234,14 +234,14 @@ div[class="search_content"]{
     padding: 0px;
 
   }
-  .main_visual{
+  .root_main_visual{
     width: 100%;
     height: 40vh;
     background-image: image-url("image03.jpg");
     background-size: cover;
     background-position: top center;
   }
-  .search_field{
+  .rooe_search_field{
     width: 95%;
     padding: 30px 10px 15px;
     position: absolute;

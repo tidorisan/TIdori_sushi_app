@@ -27,11 +27,17 @@ class Users::MenusController < ApplicationController
 
   def show
     @store_menu = StoreMenu.find(params[:id])
+    if current_user.stores.user_id != @store_menu.store_id
+      redirect_to root_path
+    end
   end
 
   def edit
     @store_menu = StoreMenu.find(params[:id])
     @menu_genres = MenuGenre.all
+    if current_user.stores.user_id != @store_menu.store_id
+      redirect_to root_path
+    end
   end
 
   def update

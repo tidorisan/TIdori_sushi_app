@@ -32,6 +32,9 @@ class Users::CouponsController < ApplicationController
 
   def edit
     @coupon = Coupon.find(params[:id])
+    if current_user.stores.user_id != @coupon.store_id
+      redirect_to root_path
+    end
   end
 
   def update
