@@ -13,7 +13,6 @@ class Users::StoresController < ApplicationController
   def create
     @store = current_user.stores.build(store_params)
     if @store.save
-      flash[:notice] = "店舗登録が完了いたしました"
       redirect_to users_store_path(@store)
     else
       render 'users/stores/new'

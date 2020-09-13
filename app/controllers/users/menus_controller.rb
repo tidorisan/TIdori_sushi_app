@@ -3,7 +3,7 @@ class Users::MenusController < ApplicationController
 
   def index
     @store = Store.find(params[:store_id])
-    @store_menus = @store.store_menus.all
+    @store_menus = @store.store_menus.all.page(params[:page])
     @store_id = @store.id
   end
 

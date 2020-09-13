@@ -1,38 +1,37 @@
 <div class="box3">
 	<h1>お気に入り</h1>
 </div>
-
-<main class="box">
-	<% @favorite_stores.each do |favorite_store| %>
+<% @favorite_stores.each do |favorite_store| %>
 		<%= link_to tidori_sushi_store_path(favorite_store) do %>
-			<div class="store_field">
-				<div class="store_content">
-					<div class="store_content_image">
-						<%= attachment_image_tag favorite_store.store, :image, fallback: 'no_image.jpg', class: "store_content_image_content" %>
-					</div>
-					<div class="store_content_body">
-						<h1><%= favorite_store.store.store_name %></h1>
-						<% if favorite_store.store.store_genre_id == 1  %>
-							<p class="size">寿司</p>
-						<% elsif  favorite_store.store.store_genre_id == 2 %>
-							<p class="size">開店寿司</p>
-						<% else %>
-							<p class="size">立ち食い寿司</p>
-						<% end %>
-						<div class="store_line_box">
-							<p class="store_line"><%= favorite_store.store.address %></p>
-							<p class="store_line"><%= favorite_store.store.regular_holiday %></p>
+			<main class="box">
+				<div class="store_field">
+					<div class="store_content">
+						<div class="store_content_image">
+							<%= attachment_image_tag favorite_store.store, :image, fallback: 'no_image.jpg', class: "store_content_image_content" %>
 						</div>
+						<div class="store_content_body">
+							<h1><%= favorite_store.store.store_name %></h1>
+							<% if favorite_store.store.store_genre_id == 1  %>
+								<p class="size">寿司</p>
+							<% elsif  favorite_store.store.store_genre_id == 2 %>
+								<p class="size">開店寿司</p>
+							<% else %>
+								<p class="size">立ち食い寿司</p>
+							<% end %>
+							<div class="store_line_box">
+								<p class="store_line"><%= favorite_store.store.address %></p>
+								<p class="store_line"><%= favorite_store.store.regular_holiday %></p>
+							</div>
+						</div>
+
 					</div>
 
 				</div>
-
 			</div>
-		<% end %>
+		</main>
 	<% end %>
-	</div>
+<% end %>
 
-</main>
 <% content_for :css do %>
   <%= stylesheet_link_tag 'tidori_sushi_store_favorites' %>
 <% end %>

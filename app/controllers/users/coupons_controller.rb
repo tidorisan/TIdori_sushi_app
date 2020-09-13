@@ -2,7 +2,7 @@ class Users::CouponsController < ApplicationController
   before_action :login_required
 
   def index
-    @coupons = Coupon.all
+    @coupons = Coupon.all.page(params[:page])
     @store_id = Store.find(params[:store_id])
   end
 

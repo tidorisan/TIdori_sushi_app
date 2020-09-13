@@ -25,15 +25,13 @@
 					<tr>
 						<th><%= link_to store.store_name, users_store_path(store), class: "link_content" %></th>
 						<% if store.display_status == true %>
-							<td>サイト表示</td>
+							<td class="store_index_td">サイト表示</td>
 						<% else %>
-							<td>サイト非表示</td>
+							<td class="store_index_td">サイト非表示</td>
 						<% end %>
-						<td><%= link_to "編集画面へ", edit_users_store_path(store)%></td>
-						<td><%= link_to "メニュー", users_store_menus_path(store) %></td>
-						<td><%= link_to "クーポン", users_store_coupons_path(store), class: "link_content" %>
-
-						</td>
+						<td class="store_index_td"><%= link_to "編集画面へ", edit_users_store_path(store)%></td>
+						<td class="store_index_td"><%= link_to "メニュー", users_store_menus_path(store) %></td>
+						<td class="store_index_td"><%= link_to "クーポン", users_store_coupons_path(store) %></td>
 					</tr>
 				<% end %>
 				<%= paginate @stores %>
@@ -42,12 +40,6 @@
 	<% end %>
 
 </div>
-
-
-
-
-
-
 
 
 
