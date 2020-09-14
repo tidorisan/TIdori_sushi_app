@@ -1,14 +1,10 @@
 class ApplicationController < ActionController::Base
-  #authorize_resource :class => false
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def configure_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up, keys: [:role])
   end
 
-  rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url
-  end
 
   private
 
@@ -32,9 +28,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def skip_checking_authorzation?
-    devise_controller?
-  end
 
   def login_required
     if user_signed_in?
