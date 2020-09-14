@@ -53,18 +53,4 @@ class Users::MenusController < ApplicationController
                                        :menu_genre_id, :image, :display_status)
   end
 
-  def login_required
-    if user_signed_in?
-      redirect_to root_path unless current_user.role == "store_admin" ||
-                                   current_user.role == "site_admin"
-    else
-      redirect_to root_path
-    end
-  end
-
-  def my_store
-    if current_user.stores.where(id: params[:store_id]).empty?
-      redirect_to users_homes_path
-    end
-  end
 end

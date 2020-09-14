@@ -24,12 +24,4 @@ class Users::StoreAdminApplicationsController < ApplicationController
     params.require(:store_admin_application).permit(:process_status)
   end
 
-  def login_required
-    if user_signed_in?
-      redirect_to root_path unless current_user.role == "store_admin" ||
-                                   current_user.role == "site_admin"
-    else
-      redirect_to root_path
-    end
-  end
 end
