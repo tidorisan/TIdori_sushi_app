@@ -1,5 +1,6 @@
 class Users::StoreGenresController < ApplicationController
   before_action :login_required
+  before_action :site_admin?
 
   def index
     @store_genre = StoreGenre.new

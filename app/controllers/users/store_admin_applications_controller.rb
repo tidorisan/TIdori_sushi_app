@@ -1,5 +1,6 @@
 class Users::StoreAdminApplicationsController < ApplicationController
   before_action :login_required
+  before_action :site_admin?
 
   def index
     @store_admin_applications = StoreAdminApplication.all

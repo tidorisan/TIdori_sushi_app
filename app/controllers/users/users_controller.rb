@@ -1,6 +1,8 @@
 class Users::UsersController < ApplicationController
   before_action :login_required, only: [:new, :show, :edit, :update, :leave, :unsubscribe_update]
   before_action :login_required_confimation_page, only: :confirmation
+  before_action :site_admin?, only: [:customer, :store_admin]
+
   def new
     @user = User.new
   end
@@ -75,4 +77,5 @@ class Users::UsersController < ApplicationController
       redirect_to root_path
     end
   end
+
 end

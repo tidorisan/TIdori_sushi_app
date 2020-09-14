@@ -51,4 +51,10 @@ class ApplicationController < ActionController::Base
       redirect_to users_homes_path
     end
   end
+
+  def site_admin?
+    if current_user.role != "site_admin"
+      redirect_to users_homes_path
+    end
+  end
 end
