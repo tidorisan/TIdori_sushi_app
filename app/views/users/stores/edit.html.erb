@@ -209,7 +209,7 @@
 						<th>サイト表示ステータス</th>
 						<td>
 							<%= f.label :display_statu, "非表示にする" %>
-							<%= f.radio_button :display_status, :false, required: "true" %>
+							<%= f.radio_button :display_status, :false %>
 						</td>
 					</tr>
 				<% else %>
@@ -217,7 +217,7 @@
 							<th>サイト表示ステータス</th>
 							<td>
 								<%= f.label :display_statu, "非表示にする" %>
-								<%= f.radio_button :display_status, :false, required: "true" %>
+								<%= f.radio_button :display_status, :false %>
 							</td>
 						</tr>
 				<% end %>

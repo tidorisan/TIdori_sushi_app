@@ -61,11 +61,12 @@
 				<tr>
 					<th>店舗＿ジャンル<i class="fa fa-check-square"></i></th>
 					<td>
-						<%= f.label :store_genre_id, "寿司" %>
-						<%= f.radio_button :store_genre_id, 1  %>
-						<%= f.label :store_genre_id, "回転寿司" %>
-						<%= f.radio_button :store_genre_id, 2  %><%= f.label :store_genre_id, "立ち食い寿司" %>
-						<%= f.radio_button :store_genre_id, 3  %>
+						<% @store_genres.each do |store_genre| %>
+							<% if store_genre.display_status == true %>
+								<%= f.label :store_genre_id, store_genre.genre_name %>
+								<%= f.radio_button :store_genre_id, store_genre[:id] %>
+							<% end %>
+						<% end %>
 					</td>
 				</tr>
 				<tr>

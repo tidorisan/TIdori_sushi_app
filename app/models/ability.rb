@@ -29,8 +29,7 @@ class Ability
 
         can :manage, :store, store_id: user.stores.ids
         can :manage, :menu, store_id: user.stores.ids
-        can :manage, :manage_genre, store_id: user.stores.ids
-        can :manage, :coupon, store_id: user.stores.ids
+        can :manage, :coupon
         can :manage, :user
 
       end

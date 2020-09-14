@@ -45,8 +45,10 @@
 				<tr>
 					<th>メニュージャンル<i class="fa fa-check-square"></i></th>
 					<td><% @menu_genres.each do |menu_genre| %>
-							<%= menu_genre.genre_name %>
+							<% if menu_genre.display_status == true %>
+								<%= menu_genre.genre_name %>
 								<%= f.radio_button :menu_genre_id, menu_genre[:id] %>
+							<% end %>
 						<% end %>
 					</td>
 				</tr>
