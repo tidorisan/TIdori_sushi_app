@@ -18,7 +18,7 @@ class TidoriSushi::StoreBuzzsController < ApplicationController
     if @store_buzz.save
       redirect_to tidori_sushi_store_store_buzzs_path(@store)
     else
-      render 'tidori_sushi/store_buzzs/new'
+      render 'tidori_sushi/store_buzzs/index'
     end
   end
 

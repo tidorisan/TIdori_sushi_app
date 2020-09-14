@@ -21,7 +21,7 @@ class Ability
         can :manage, :coupon
         can :manage, :home
         can :manage, :store_admin_application
-        can :manage, :favorites, user_id: user.id
+        can :manage, :favorite
         can :manage, :user
       end
 

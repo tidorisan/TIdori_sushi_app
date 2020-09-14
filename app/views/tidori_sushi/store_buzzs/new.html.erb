@@ -26,12 +26,10 @@
 							<th>本文<i class="fa fa-check-square"></i></th>
 							<td><%= f.text_field :detail, required: "true", class: "text_field"%></td>
 						</tr>
-					<!-- 画像 -->
 						<tr>
 							<th>画像投稿</th>
 							<td><%= f.attachment_field :image %></td>
 						</tr>
-					<!-- カレンダー形式 -->
 						<tr>
 							<th>訪問日</th>
 							<td><%= f.date_field :visit_date %></td>

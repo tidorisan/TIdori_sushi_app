@@ -25,7 +25,7 @@
 						<% end %>
 					</div>
 				<% end %>
-				<% if current_user.role == :customer %>
+				<% if current_user.role == "customer" %>
 					<div class="store_tag">
 						<p><%= link_to "口コミ投稿", new_tidori_sushi_store_store_buzz_path(@store) %></p>
 					</div>
