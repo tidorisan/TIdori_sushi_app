@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  authorize_resource :class => false
+  #authorize_resource :class => false
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   def configure_permitted_parameters

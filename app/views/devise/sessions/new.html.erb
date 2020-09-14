@@ -28,7 +28,7 @@
 
       <% if request.referer&.include?("/users/users/confirmation") %>
         <%= f.label :role, "店舗管理者" %>
-        <%= f.check_box :role, {}, "store_admin", class: "input_field" %>
+        <%= f.radio_button :role, "store_admin", class: "input_field", required: "true" %>
       <% end %>
 
       <% if devise_mapping.rememberable? %>
