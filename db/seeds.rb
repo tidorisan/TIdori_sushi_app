@@ -460,7 +460,7 @@
 			:reason => '開店１周年記念セール',
 		    :detail =>  '2割引',
 		    :target => "ちらし寿司",
-    		:expiration_date => 20,
+    		:expiration_date => 72000,
     		:writing => "お一人様一回限りです",
     		image: open("./app/assets/images/image01.jpg"),
 		    :store_id => 1

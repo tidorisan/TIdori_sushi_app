@@ -28,4 +28,4 @@
 ### 開発環境
 
 - OS Catalina(MacOS)
-- Ruby on Rails 5.x.x
+- Ruby on Rails 5.2.4

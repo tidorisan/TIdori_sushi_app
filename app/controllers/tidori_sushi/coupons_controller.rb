@@ -1,9 +1,9 @@
 class TidoriSushi::CouponsController < ApplicationController
   before_action :login_required, only: [:show, :timepass]
-  before_action :timepass, only: [:index, :show]
+  before_action :timepass
 
   def index
-    @coupons = Coupon.where(enabled_status: false).order("created_at DESC")
+    @coupons = Coupon.where(enabled_status: true).order("created_at DESC")
   end
 
   def show

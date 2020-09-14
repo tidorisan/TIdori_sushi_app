@@ -43,6 +43,11 @@ class Users::UsersController < ApplicationController
   def unsubscribe_update
     @user = User.find(current_user.id)
     if @user.update(unsubscribe_status: false)
+      @user.stores.each do |store|
+        store.update(display_status: false)
+        store.store_menus.update(display_status: false)
+        store.coupons.update(enabled_status: false)
+      end
       reset_session
       redirect_to users_homes_path
     else

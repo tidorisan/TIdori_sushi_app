@@ -1,11 +1,12 @@
 
 <div class="field">
-	<div class="coupon_content">
+	<div class="show_coupon_content">
 		<div class="image">
 			<%= attachment_image_tag @coupon, :image, size: '100x100', fallback: "no_image.jpg", class: "coupon_image" %>
 		</div>
 		<div class="coupon_body">
 			<div class="coupon_titile">
+				<p>店舗: <%= @coupon.store.store_name %></p>
 				<p>対象:  <%= @coupon.target %></p>
 				<%= @coupon.reason %>
 			</div>
