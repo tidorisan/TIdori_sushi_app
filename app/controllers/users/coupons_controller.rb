@@ -1,5 +1,6 @@
 class Users::CouponsController < ApplicationController
   before_action :login_required
+  before_action :my_store, only: [:index, :show, :edit, :new]
 
   def index
     @store = Store.find(params[:store_id])
@@ -58,6 +59,12 @@ class Users::CouponsController < ApplicationController
                                    current_user.role == "site_admin"
     else
       redirect_to root_path
+    end
+  end
+
+  def my_store
+    if current_user.stores.where(id: params[:store_id]).empty?
+      redirect_to users_homes_path
     end
   end
 end
