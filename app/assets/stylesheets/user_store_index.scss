@@ -70,24 +70,24 @@ input[class="text_field"]:focus {
 
 
 
-.cp_table *, .cp_table *:before, .cp_table *:after {
+.index_cp_table *, .index_cp_table *:before, .index_cp_table *:after {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
-.cp_table {
+.index_cp_table {
   width: 100%;
   border-collapse: collapse;
 }
-.cp_table th, .cp_table  td {
+.index_cp_table th, .index_cp_table  td {
   padding: 10px;
   border: 1px solid #dddddd;
 }
-.cp_table th {
+.index_cp_table th {
   width: 15%;
   text-align: left;
   background: #f4f4f4;
 }
-.cp_table td {
+.index_cp_table .store_index_td {
   text-align: left;
 }
 tr .caption {
@@ -189,15 +189,15 @@ input[class="button_content"] {
     padding: 10px;
 
   }
-  .cp_table {
+  .index_cp_table {
     margin: 0;
   }
-  .cp_table th, .cp_table td {
+  .index_cp_table th, .index_cp_table td {
     width: 100%;
     display: block;
     border-top: none;
   }
-  .cp_table tr:first-child th {
+  .index_cp_table tr:first-child th {
     border-top: 1px solid #dddddd;
   }
   .text_field {
