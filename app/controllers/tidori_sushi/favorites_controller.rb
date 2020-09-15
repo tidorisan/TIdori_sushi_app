@@ -1,5 +1,5 @@
 class TidoriSushi::FavoritesController < ApplicationController
-  before_action :login_required
+  before_action :user_side_login_required
 
   def create
     @store = Store.find(params[:store_id])
@@ -21,13 +21,4 @@ class TidoriSushi::FavoritesController < ApplicationController
     end
   end
 
-  private
-
-  def login_required
-    if user_signed_in?
-      redirect_to root_path unless current_user.role == "customer"
-    else
-      redirect_to root_path
-    end
-  end
 end

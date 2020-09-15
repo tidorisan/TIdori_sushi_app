@@ -1,5 +1,5 @@
 class TidoriSushi::CouponsController < ApplicationController
-  before_action :login_required, only: [:show, :timepass]
+  before_action :user_side_login_required
   before_action :timepass
 
   def index
@@ -21,13 +21,4 @@ class TidoriSushi::CouponsController < ApplicationController
     end
   end
 
-  private
-
-  def login_required
-    if user_signed_in?
-      redirect_to root_path unless current_user.role == "customer"
-    else
-      redirect_to root_path
-    end
-  end
 end

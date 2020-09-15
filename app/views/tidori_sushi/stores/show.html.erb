@@ -73,16 +73,18 @@
 				</div>
 			</div>
 			<% if user_signed_in? %>
-				
 				<div class="buzz">
 					<div class="menu_title">
 						<h2>口コミ</h2>
 					</div>
 					<% @store.store_buzzs.first(4).each do |buzz| %>
 						<div class="buzz_text_body_buzz">
-							<div class="buzz_visual_box_buzz">
-								<%= attachment_image_tag buzz, :image, fallback: 'no_image.jpg', class: "buzz_visual_buzz" %>
-							</div>
+							<% if buzz.image %>
+								<div class="buzz_visual_box_buzz">
+									<%= attachment_image_tag buzz, :image, fallback: 'no_image.jpg', class: "buzz_visual_buzz" %>
+								</div>
+							<% end %>
+
 							<div class="buzz_text">
 								<h3><%= buzz.title %></h3>
 							</div>

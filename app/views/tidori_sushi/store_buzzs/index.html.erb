@@ -69,7 +69,7 @@
 							<p>支払い金額: ¥ <%= store_buzz.pay_price %></p>
 							<p>会員番号 <%= store_buzz.user_id %>様</p>
 							<% if user_signed_in? %>
-								<% if store_buzz.user_id == current_user.id %>
+								<% if store_buzz.user_id == current_user.id || current_user.role == "site_admin" %>
 									<%= link_to "削除ボタン", tidori_sushi_store_store_buzz_path(@store.id, store_buzz.id), method: :delete, class: "btn btn-danger" %>
 								<% end %>
 							<% end %>

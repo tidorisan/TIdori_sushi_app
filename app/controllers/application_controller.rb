@@ -38,6 +38,15 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def user_side_login_required
+    if user_signed_in?
+      redirect_to root_path unless current_user.role == "customer" ||
+                                   current_user.role == "site_admin"
+    else
+      redirect_to root_path
+    end
+  end
+
   def my_store
     return if current_user.role == "site_admin"
     if current_user.stores.where(id: params[:store_id]).empty?
@@ -50,4 +59,5 @@ class ApplicationController < ActionController::Base
       redirect_to users_homes_path
     end
   end
+
 end
