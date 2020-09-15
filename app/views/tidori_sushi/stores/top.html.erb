@@ -44,7 +44,7 @@
 			<div class="root_store_contents">
 				<% @stores.each do |store| %>
 					<%= link_to tidori_sushi_store_path(store) do %>
-						<div class="store_content">
+						<div class="root_store_content">
 							<div class="image">
 								<%= attachment_image_tag store, :image, size: '200x100', fallback: 'no_image.jpg', class: "store_image" %>
 							</div>

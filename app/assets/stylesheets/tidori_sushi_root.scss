@@ -147,6 +147,13 @@ div[class="search_content"]{
   box-shadow: 0px 3px 10px 2px rgba(0,0,0,0.1);
 
 }
+.root_store_content{
+  margin: 0 0 10px;
+  background-color: white;
+  box-shadow: 0px 3px 10px 2px rgba(0,0,0,0.1);
+
+}
+
 .store_image {
   width: 100%;
   height: 180px;
@@ -286,6 +293,13 @@ div[class="search_content"]{
 
   }
 
+  .root_store_content{
+    margin: 0 0 10px;
+    width: 100%;
+    height:300px;
+    background-color: white;
+    box-shadow: 0px 3px 10px 2px rgba(0,0,0,0.1);
 
+  }
 }
 
