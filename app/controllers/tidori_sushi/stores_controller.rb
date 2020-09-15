@@ -8,9 +8,8 @@ class TidoriSushi::StoresController < ApplicationController
 
   def show
     @store = Store.find(params[:id])
-    active_menu_genre = MenuGenre.where(display_status: true)
-    @store_menus = StoreMenu.where(id: active_menu_genre).
-      where(display_status: true).limit(4)
+    @store_menus = @store.store_menus.where(display_status: true)
+    @store_buzzs = @store.store_buzzs
   end
 
   def search

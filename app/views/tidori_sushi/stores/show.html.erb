@@ -59,7 +59,7 @@
 				<div class="menu_title">
 					<h2>メニュー</h2>
 				</div>
-				<% @store.store_menus.first(4).each do |menu| %>
+				<% @store_menus.first(4).each do |menu| %>
 					<div class="menu_text_body">
 						<div class="menu_text">
 							<h3><%= menu.name %></h3>
@@ -77,7 +77,7 @@
 					<div class="menu_title">
 						<h2>口コミ</h2>
 					</div>
-					<% @store.store_buzzs.first(4).each do |buzz| %>
+					<% @store_buzzs.first(4).each do |buzz| %>
 						<div class="buzz_text_body_buzz">
 							<% if buzz.image %>
 								<div class="buzz_visual_box_buzz">
