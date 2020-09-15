@@ -48,16 +48,19 @@
 				<% end %>
 			</div>
 
-			<div class="menu">
+			<div class="buzz">
 
 				<div class="menu_title">
 					<h2>口コミ</h2>
 				</div>
 				<% @store_buzzs.each do |store_buzz| %>
 					<div class="index_comment_menu">
-						<div class="comment_visual_box">
-							<%= attachment_image_tag store_buzz, :image, size: '100x200', fallback: 'no_image.jpg', class: "comment_visual" %>
-						</div>
+						<% if store_buzz.image %>
+							<div class="comment_visual_box">
+								<%= attachment_image_tag store_buzz, :image, fallback: 'no_image.jpg', class: "comment_visual" %>
+							</div>
+						<% end %>
+
 						<div class="index_comment_body">
 							<h3><%= store_buzz.title %></h3>
 							<p><%= store_buzz.detail %></p>

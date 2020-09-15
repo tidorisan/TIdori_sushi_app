@@ -113,7 +113,13 @@ body {
   padding: 20px 20px 30px 20px;
 }
 
-
+.buzz{
+  width: 100%;
+  margin-bottom: 20px;
+  background-color: white;
+  border-bottom: 1px solid #e1e1e1;
+  padding: 20px 30px 50px 50px;
+}
 
 
 .menu{
@@ -227,35 +233,10 @@ div[class="right"] {
 }
 
 
-
-
-
-//ボタンやリンク
-.link_content:hover {
-	color: #0bd;
-	text-decoration: none;
-}
-
-.botton {
-  text-align: center;
-}
-.botton_content {
-  width: 30%;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  margin-left: 10px;
-  margin-right: 10px;
-
-}
-
-// top戻り
-#back {
-  position: fixed;
-  right: 20px;
-  bottom: 20px;
-}
-#back img {
-  width: 50px;
+.index_comment_menu{
+  border-bottom: 1px solid #e1e1e1;
+  margin: 40px 0  40px;
+  padding-bottom: 20px;
 }
 
 
