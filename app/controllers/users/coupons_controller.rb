@@ -49,7 +49,7 @@ class Users::CouponsController < ApplicationController
                                    :image,
                                    :target,
                                    :writing,
-                                   :display_status,
+                                   :enabled_status,
                                    :expiration_date)
   end
 

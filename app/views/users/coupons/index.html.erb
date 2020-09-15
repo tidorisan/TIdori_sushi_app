@@ -26,9 +26,9 @@
 					<th><%= link_to coupon.id, users_store_coupon_path(@store_id, coupon.id), class: "link_content" %></th>
 					<td>対象: <%= coupon.target %></td>
 					<% if coupon.enabled_status == true %>
-						<td>サイト表示</td>
+						<td>有効: サイト表示</td>
 					<% else %>
-						<td >サイト非表示</td>
+						<td >無効: サイト非表示</td>
 					<% end %>
 					<td><%= link_to "編集画面へ", edit_users_store_coupon_path(coupon.store_id, coupon.id), class: "link_content" %></td>
 				</tr>

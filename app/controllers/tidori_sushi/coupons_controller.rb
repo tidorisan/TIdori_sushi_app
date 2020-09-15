@@ -3,7 +3,7 @@ class TidoriSushi::CouponsController < ApplicationController
   before_action :timepass
 
   def index
-    @coupons = Coupon.where(enabled_status: true).order("created_at DESC")
+    @coupons = Coupon.where(enabled_status: true).order("created_at DESC").page(params[:page])
   end
 
   def show

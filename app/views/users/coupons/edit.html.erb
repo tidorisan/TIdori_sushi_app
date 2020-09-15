@@ -21,19 +21,19 @@
 				<tr>
 					<th>割引理由<i class="fa fa-check-square"></i></th>
 					<td>
-						<%= f.text_field :reason, required: "true", class: "text_field", placeholder: "例)　創業20周年記念 ", class: "text_field", autofocus: "true", autofocus: "true" %>
+						<%= f.text_field :reason, required: "true", class: "text_field", placeholder: "例) 創業20周年記念 ", class: "text_field", autofocus: "true", autofocus: "true" %>
 					</td>
 				</tr>
 				<tr>
 					<th>割引内容説明<i class="fa fa-check-square"></i></th>
 					<td>
-						<%= f.text_field :detail, required: "true", class: "text_field", placeholder: "例)　ちらし寿司 10%0FF", class: "text_field", required: "true"  %>
+						<%= f.text_field :detail, required: "true", class: "text_field", placeholder: "例) ちらし寿司 10%0FF", class: "text_field", required: "true"  %>
 					</td>
 				</tr>
 				<tr>
 					<th>対象<i class="fa fa-check-square"></i></th>
 					<td>
-						<%= f.text_field :target, required: "true", class: "text_field", placeholder: "例)　ちらし寿司"  %>
+						<%= f.text_field :target, required: "true", class: "text_field", placeholder: "例) ちらし寿司"  %>
 					</td>
 				</tr>
 				<tr>
@@ -45,14 +45,30 @@
 				<tr>
 					<th>有効期限<i class="fa fa-check-square"></i></th>
 					<td>
-						<%= f.text_field :expiration_date, required: "true", class: "text_field", placeholder: "例)　 3", class: "text_field2" %> 分後まで使用できる
+						<%= f.text_field :expiration_date, required: "true", class: "text_field", placeholder: "例)  3", class: "text_field2" %> 分後まで使用できる
 					</td>
 				</tr>
 				<tr>
 					<th>イメージ画像<i class="fa fa-check-square"></i></th>
 					<td><%= f.attachment_field :image %></td>
 				</tr>
-
+				<% if @coupon.enabled_status == true %>
+					<tr>
+						<th>有効状態ステータス</th>
+						<td>
+							<%= f.label :enabled_status, "無効にする" %>
+							<%= f.radio_button :enabled_status, :false %>
+						</td>
+					</tr>
+				<% else %>
+						<tr>
+							<th>有効状態ステータス</th>
+							<td>
+								<%= f.label :enabled_status, "有効にする" %>
+								<%= f.radio_button :enabled_status, :true %>
+							</td>
+						</tr>
+				<% end %>
 			</tbody>
 		</table>
 
