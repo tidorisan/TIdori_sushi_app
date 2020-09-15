@@ -1,4 +1,3 @@
-
 <%= render 'layouts/error_messages', model: @store_buzz %>
 <div class="box1">
 	<h1>口コミ投稿</h1>
@@ -36,11 +35,11 @@
 						</tr>
 						<tr>
 							<th>滞在時間</th>
-							<td><%= f.text_field :use_time, class: "text_field", placeholder: "例)　２時間ほど" %></td>
+							<td><%= f.text_field :use_time, class: "text_field", placeholder: "例) ２" %>時間</td>
 						</tr>
 						<tr>
 							<th>支払い金額</th>
-							<td><%= f.text_field :pay_price, class: "text_field", placeholder: "例)　¥1000" %></td>
+							<td>¥ <%= f.text_field :pay_price, class: "text_field", placeholder: "例) 1000" %></td>
 						</tr>
 
 					</tbody>
