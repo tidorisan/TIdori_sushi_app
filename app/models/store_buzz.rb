@@ -5,6 +5,5 @@ class StoreBuzz < ApplicationRecord
   attachment :image
 
   validates :title, presence: true
-  validates :detail, presence: true,
-                     length: { minimum: 20 }
+  validates :detail, presence: true
 end
