@@ -11,18 +11,16 @@ class TidoriSushi::StoreBuzzsController < ApplicationController
   end
 
   def create
-    p '====================='
     @store_buzz = StoreBuzz.new(store_buzz_params)
-    p @store_buzz
     @store = Store.find(params[:store_id])
     @store_buzz.store_id = @store.id
     @store_buzz.user_id = current_user.id
     # google apiの自然言語処理を行うために記載
-    # @store_buzz.score = Language.get_data(store_buzz_params[:detail])
+    @store_buzz.score = Language.get_data(store_buzz_params[:detail])
     if @store_buzz.save
       redirect_to tidori_sushi_store_store_buzzs_path(@store)
     else
-      render 'tidori_sushi/store_buzzs/index'
+      redirect_to tidori_sushi_store_store_buzzs_path(@store)
     end
   end
 
