@@ -18,6 +18,7 @@ module TIdoriSushiApp
 	config.i18n.default_locale = :ja
   # google apiのlib/language.rbを明示的に読み込むようにする
   config.autoload_paths << Rails.root.join("lib")
+  config.paths.add 'lib', eager_load: true
 
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
