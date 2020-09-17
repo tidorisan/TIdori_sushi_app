@@ -63,10 +63,19 @@
 
 						<div class="index_comment_body">
 							<h3><%= store_buzz.title %></h3>
-							<p><%= store_buzz.detail %></p>
-							<p>訪問日: <%= store_buzz.visit_date %></p>
-							<p>滞在時間: <%= store_buzz.use_time %> 時間</p>
-							<p>支払い金額: ¥ <%= store_buzz.pay_price %></p>
+							<!-- google api natural language -->
+							<% unless /^[-]0\.[4-9]/ =~ store_buzz.score.to_s %>
+								<p><%= store_buzz.detail %></p>
+							<% end %>
+							<% if store_buzz.visit_date %>
+								<p>訪問日: <%= store_buzz.visit_date %></p>
+							<% end %>
+							<% if store_buzz.use_time %>
+								<p>滞在時間: <%= store_buzz.use_time %> 時間</p>
+							<% end %>
+							<% if store_buzz.pay_price %>
+								<p>支払い金額: ¥ <%= store_buzz.pay_price %></p>
+							<% end %>
 							<p>会員番号 <%= store_buzz.user_id %>様</p>
 							<% if user_signed_in? %>
 								<% if store_buzz.user_id == current_user.id || current_user.role == "site_admin" %>

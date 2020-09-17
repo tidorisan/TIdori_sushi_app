@@ -507,18 +507,5 @@
 						 :user_id => 9,
 						)
 
-	Store.all.each do |store|
-		store.store_buzzs.create!(
-			user_id: 1,
-			title: "おすすめ店です",
-			detail: "大将が気さくでいい人です。友人と行ったのですがその日に仕入れた旬な素材をつき次に出してくれて、
-					またそれが非常に美味しい!",
-			visit_date:  20200913,
-			use_time: 2,
-			pay_price: 4000,
-			image: open("./app/assets/images/image01.jpg")
-		)
-	end
-
 
 

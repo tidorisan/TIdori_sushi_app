@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_07_132234) do
+ActiveRecord::Schema.define(version: 2020_09_16_064538) do
 
   create_table "coupons", force: :cascade do |t|
     t.text "reason", null: false
@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2020_09_07_132234) do
     t.integer "pay_price"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.decimal "score", precision: 5, scale: 3
   end
 
   create_table "store_genres", force: :cascade do |t|
