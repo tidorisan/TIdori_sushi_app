@@ -11,7 +11,9 @@ class TidoriSushi::StoreBuzzsController < ApplicationController
   end
 
   def create
+    p '====================='
     @store_buzz = StoreBuzz.new(store_buzz_params)
+    p @store_buzz
     @store = Store.find(params[:store_id])
     @store_buzz.store_id = @store.id
     @store_buzz.user_id = current_user.id
