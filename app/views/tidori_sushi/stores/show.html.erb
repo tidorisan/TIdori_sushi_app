@@ -78,19 +78,20 @@
 						<h2>口コミ</h2>
 					</div>
 					<% @store_buzzs.first(4).each do |buzz| %>
-						<div class="buzz_text_body_buzz">
-							<% if buzz.image %>
-								<div class="buzz_visual_box_buzz">
-									<%= attachment_image_tag buzz, :image, fallback: 'no_image.jpg', class: "buzz_visual_buzz" %>
+						<% unless /^[-]0\.[4-9]/ =~ buzz.score.to_s %>
+							<div class="buzz_text_body_buzz">
+								<% if buzz.image %>
+									<div class="buzz_visual_box_buzz">
+										<%= attachment_image_tag buzz, :image, fallback: 'no_image.jpg', class: "buzz_visual_buzz" %>
+									</div>
+								<% end %>
+								<div class="buzz_text">
+									<h3><%= buzz.title %></h3>
 								</div>
-							<% end %>
-
-							<div class="buzz_text">
-								<h3><%= buzz.title %></h3>
+								<p><%= buzz.detail %></p>
+								<p>登録会員様</p>
 							</div>
-							<p><p><%= buzz.detail %></p></p>
-							<p>登録会員様</p>
-						</div>
+						<% end %>
 					<% end %>
 					<div class="menu_link">
 						<p><%= link_to "もっと口コミを見る", tidori_sushi_store_store_buzzs_path(@store) %></p>
