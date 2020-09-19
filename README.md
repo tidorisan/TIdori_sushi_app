@@ -30,3 +30,33 @@
 
 - OS Catalina(MacOS)
 - Ruby on Rails 5.2.4
+
+## 利用方法
+
+###  利用者画面
+![利用者画面](https://github.com/tidorisan/TIdori_sushi_app/blob/master/images/%E5%88%A9%E7%94%A8%E8%80%85%E7%94%BB%E9%9D%A2gif.gif)
+
+会員登録せずに店舗やサイトへの店舗の申請が行えます。<br>ログインすることで口コミの閲覧や投稿、お気に入りへの追加が行えます。<br><br>
+
+### 店舗申請について
+
+![店舗申請](https://github.com/tidorisan/TIdori_sushi_app/blob/master/images/%E5%BA%97%E8%88%97%E7%94%B3%E8%AB%8B.gif)
+
+利用者画面から店舗申請を行います。１週間ほどで申請の許可を判断し、申請時に登録されたメールアドレスに結果をお伝えします。<br>申請が通った方はメールアドレスに記載された申請画面から店舗管理者として会員登録していただきます。<br><br>
+
+###  管理者画面
+![店舗管理者](https://github.com/tidorisan/TIdori_sushi_app/blob/master/images/%E5%BA%97%E8%88%97%E7%AE%A1%E7%90%86%E8%80%85gif.gif)
+
+会員登録し、会員情報を入力していただいた後に店舗登録やメニュー登録などを行うことだできます。<br><br>
+
+![サイト管理者](https://github.com/tidorisan/TIdori_sushi_app/blob/master/images/%E3%82%B5%E3%82%A4%E3%83%88%E7%AE%A1%E7%90%86%E8%80%85gif.gif)
+
+ログインすることで、店舗申請の確認やメニュージャンルや店舗ジャンルの編集などが行えます。また会員情報を一覧するとも可能です。<br><br>
+
+![レスポンシブ](https://github.com/tidorisan/TIdori_sushi_app/blob/master/images/%E3%83%AC%E3%82%B9%E3%83%9B%E3%82%9A%E3%83%B3%E3%82%B7%E3%83%95%E3%82%99gif.gif)
+
+
+
+
+
+
